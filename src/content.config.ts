@@ -9,21 +9,50 @@ import { z } from 'astro/zod';
 const id = z.string().regex(/^[a-z0-9-]+$/, 'usa solo minúsculas, números y guiones');
 const whatsapp = z.string().regex(/^\d{10,13}$/, 'número con lada, sin espacios ni +');
 
+const fecha = z.coerce.date();
+const fase = z.enum(['grupos', 'octavos', 'cuartos', 'semifinal', 'final']);
+
 const torneo = defineCollection({
   loader: file('src/data/torneo.yaml'),
   schema: z.object({
     nombre: z.string(),
+    edicion: z.string(),
     temporada: z.string(),
     descripcion: z.string(),
-    categorias: z.array(z.object({ id, nombre: z.string(), grupos: z.array(z.string()) })),
+    organizador: z.string(),
+    sede_general: z.string(),
     formato: z.string(),
+    total_equipos: z.number().int().positive(),
+    equipos_por_grupo: z.number().int().positive(),
+    clasifican_por_grupo: z.number().int().positive(),
+    max_jugadores: z.number().int().positive(),
+    categorias: z.array(z.object({ id, nombre: z.string(), grupos: z.array(z.string()) })),
+    fecha_limite_inscripcion: fecha,
+    fechas: z.array(
+      z.object({ id, fecha, titulo: z.string(), descripcion: z.string().optional(), critica: z.boolean().default(false) }),
+    ),
+    programacion: z.array(z.object({ fecha, fase, partidos: z.number().int().positive() })),
+    costos: z.array(z.object({ concepto: z.string(), monto: z.number(), detalle: z.string().optional() })),
+    cuotas: z.array(z.object({ fecha, monto: z.number() })),
+    premios: z.array(z.object({ lugar: z.string(), premio: z.string() })),
     puntos: z.object({ victoria: z.number(), empate: z.number(), derrota: z.number() }),
-    desempate: z.array(z.string()),
     amarillas_para_suspension: z.number().int().positive(),
     partidos_suspension_roja: z.number().int().nonnegative(),
-    contacto_whatsapp: whatsapp,
+    contacto_whatsapp: whatsapp.optional(),
     facebook: z.url(),
+    messenger: z.url(),
     sitio_principal: z.url(),
+    bases_pdf: z.string(),
+  }),
+});
+
+const bases = defineCollection({
+  loader: file('src/data/bases.yaml'),
+  schema: z.object({
+    numero: z.number().int().positive(),
+    seccion: z.enum(['economicos', 'registro', 'cancha', 'conducta']),
+    titulo: z.string(),
+    texto: z.string(),
   }),
 });
 
@@ -45,7 +74,8 @@ const equipos = defineCollection({
   schema: z.object({
     nombre: z.string(),
     categoria: id,
-    grupo: z.string(),
+    /** Se asigna en el sorteo; vacío mientras tanto. */
+    grupo: z.string().optional(),
     color: z.string().default('#0b6e4f'),
     logo: z.string().optional(),
     sede_id: id.optional(),
@@ -88,9 +118,11 @@ const partidos = defineCollection({
   loader: file('src/data/partidos.yaml'),
   schema: z
     .object({
-      jornada: z.number().int().positive(),
+      fase: fase.default('grupos'),
+      grupo: z.string().optional(),
+      jornada: z.number().int().positive().optional(),
       categoria: id,
-      fecha: z.coerce.date(),
+      fecha,
       hora: z.string().regex(/^\d{2}:\d{2}$/).optional(),
       sede_id: id.optional(),
       local_id: id,
@@ -99,6 +131,9 @@ const partidos = defineCollection({
       estado: z.enum(['programado', 'jugado', 'suspendido', 'default']),
       goles_local: z.number().int().nonnegative().optional(),
       goles_visitante: z.number().int().nonnegative().optional(),
+      /** Solo en eliminatoria cuando termina empatado. */
+      penales_local: z.number().int().nonnegative().optional(),
+      penales_visitante: z.number().int().nonnegative().optional(),
       goles: z.array(evento).default([]),
       tarjetas: z.array(evento.extend({ tipo: z.enum(['amarilla', 'roja']) })).default([]),
       patrocinador_jornada_id: id.optional(),
@@ -127,11 +162,12 @@ const paquetes = defineCollection({
   loader: file('src/data/paquetes.yaml'),
   schema: z.object({
     nombre: z.string(),
-    precio: z.number().nonnegative(),
-    periodo: z.string(),
+    /** Sin precio, la página muestra 'Cotiza por mensaje'. */
+    precio: z.number().nonnegative().optional(),
+    periodo: z.string().optional(),
     destacado: z.boolean().default(false),
     beneficios: z.array(z.string()),
   }),
 });
 
-export const collections = { torneo, sedes, equipos, jugadores, arbitros, partidos, patrocinadores, paquetes };
+export const collections = { torneo, bases, sedes, equipos, jugadores, arbitros, partidos, patrocinadores, paquetes };

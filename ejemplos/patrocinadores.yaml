@@ -1,0 +1,20 @@
+# nivel: oro | plata | bronce | equipo
+# ubicaciones: home-top | tabla | partido | jornada | footer
+- id: patrocinador-oro
+  nombre: Tu Marca Aquí (Oro)
+  nivel: oro
+  url: https://solofutbolamateur.com
+  ubicaciones: [home-top, tabla, partido, footer]
+- id: patrocinador-plata
+  nombre: Ferretería Ejemplo
+  nivel: plata
+  whatsapp: "5215500000010"
+  ubicaciones: [jornada, footer]
+- id: patrocinador-bronce
+  nombre: Tacos Ejemplo
+  nivel: bronce
+  ubicaciones: [footer]
+- id: patrocinador-equipo-colmena
+  nombre: Refaccionaria Ejemplo
+  nivel: equipo
+  ubicaciones: []

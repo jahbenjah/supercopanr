@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import Encabezado from '../components/Encabezado.astro';
+import { datos, fechaLarga } from '../lib/datos';
+
+const d = await datos();
+const { torneo } = d;
+const secciones = [
+  ['economicos', 'Requisitos económicos'],
+  ['registro', 'Identidad y registro'],
+  ['cancha', 'En la cancha'],
+  ['conducta', 'Conducta y reglamento'],
+] as const;
+---
+<Base title="Bases y requisitos" description={`Bases oficiales y requisitos de inscripción y participación de la ${torneo.nombre} ${torneo.temporada}.`}>
+  <Encabezado titulo="Bases y requisitos" subtitulo={`Requisitos de inscripción y participación de la ${torneo.nombre} ${torneo.temporada}, ${torneo.edicion}.`}>
+    <a href={torneo.bases_pdf} class="boton mt-5 bg-white text-cancha-oscuro hover:bg-stone-100" data-track="descarga_bases" data-id="bases">Descargar PDF oficial</a>
+  </Encabezado>
+  <div class="contenedor grid gap-8 py-8 lg:grid-cols-[14rem_1fr]">
+    <nav class="hidden lg:block" aria-label="Secciones">
+      <ul class="sticky top-4 space-y-1 text-sm">
+        {secciones.map(([id, t]) => <li><a href={`#${id}`} class="block rounded px-3 py-2 font-semibold no-underline hover:bg-stone-200">{t}</a></li>)}
+      </ul>
+    </nav>
+    <div class="space-y-10">
+      {secciones.map(([id, t]) => (
+        <section id={id} class="scroll-mt-4">
+          <h2 class="titulo-seccion">{t}</h2>
+          <ol class="space-y-3">
+            {d.bases.filter((b) => b.seccion === id).map((b) => (
+              <li class="tarjeta flex gap-4 p-4">
+                <span class="font-display text-2xl font-bold text-oro">{b.numero}</span>
+                <div>
+                  <p class="font-display text-lg font-bold uppercase">{b.titulo}</p>
+                  <p class="text-stone-700">{b.texto}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ))}
+      <p class="rounded-xl border-l-4 border-red-600 bg-red-50 p-4 text-red-900">
+        <strong>Importante:</strong> la inscripción del equipo deberá quedar formalizada a más tardar el {fechaLarga(torneo.fecha_limite_inscripcion).replace(/^\w+, /, '')}.
+        Los lugares serán considerados confirmados únicamente después de cumplir con los requisitos administrativos establecidos por la organización.
+      </p>
+      <p class="text-sm text-stone-500">Atentamente, {torneo.organizador}.</p>
+    </div>
+  </div>
+</Base>

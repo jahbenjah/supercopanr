@@ -2,20 +2,25 @@
 import Base from '../../layouts/Base.astro';
 import Encabezado from '../../components/Encabezado.astro';
 import TeamBadge from '../../components/TeamBadge.astro';
-import { datos, nombreCategoria } from '../../lib/datos';
+import { datos } from '../../lib/datos';
 
 const d = await datos();
 ---
 <Base title="Equipos" description={`Los equipos participantes de la ${d.torneo.nombre}, con plantillas y estadísticas.`}>
-  <Encabezado titulo="Equipos" subtitulo={`${d.equipos.length} equipos participantes.`} />
+  <Encabezado titulo="Equipos" subtitulo={`${d.equipos.length} de ${d.torneo.total_equipos} equipos confirmados.`} />
   <div class="contenedor py-8">
+    {d.equipos.length === 0 && (
+      <p class="rounded-xl border-l-4 border-oro bg-amber-50 p-4">
+        Aquí aparecerán los equipos conforme confirmen su inscripción. <a href="/inscripcion/" class="font-semibold text-cancha">¿Quieres inscribir al tuyo?</a>
+      </p>
+    )}
     <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {d.equipos.map((e) => (
         <li>
           <a href={`/equipos/${e.id}/`} class="tarjeta flex h-full flex-col items-center gap-3 p-5 text-center no-underline transition hover:border-cancha hover:shadow">
             <TeamBadge equipo={e} size={72} enlace={false} />
             <span class="font-display text-xl font-bold uppercase">{e.nombre}</span>
-            <span class="text-sm text-stone-500">{nombreCategoria(d, e.categoria)} · Grupo {e.grupo}</span>
+            <span class="text-sm text-stone-500">{e.grupo ? `Grupo ${e.grupo}` : 'Grupo por sortear'}</span>
             {e.perfil_premium && <span class="chip bg-oro/20 text-amber-800">★ Perfil oficial</span>}
           </a>
         </li>

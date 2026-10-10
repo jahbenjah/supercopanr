@@ -2,23 +2,29 @@
 import Base from '../layouts/Base.astro';
 import Encabezado from '../components/Encabezado.astro';
 import MatchCard from '../components/MatchCard.astro';
-import { datos } from '../lib/datos';
+import { cap, datos, fechaLarga, fechaSinAnio } from '../lib/datos';
 
 const d = await datos();
 const conResultado = d.partidos.filter((p) => p.estado !== 'programado');
-const jornadas = [...new Set(conResultado.map((p) => p.jornada))].sort((a, b) => b - a);
+const dias = [...new Set(conResultado.map((p) => p.fecha.toISOString().slice(0, 10)))].sort().reverse();
+const inauguracion = d.torneo.fechas.find((f) => f.id === 'inauguracion');
 ---
-<Base title="Resultados" description={`Marcadores de todos los partidos de la ${d.torneo.nombre}.`}>
+<Base title="Resultados" description={`Marcadores de todos los partidos de la ${d.torneo.nombre} ${d.torneo.temporada}.`}>
   <Encabezado titulo="Resultados" subtitulo="Marcadores, goleadores y cédulas de cada partido." />
   <div class="contenedor space-y-10 py-8">
-    {jornadas.length === 0 && <p class="text-stone-500">Aún no hay partidos jugados.</p>}
-    {jornadas.map((j) => (
-      <section>
-        <h2 class="titulo-seccion">Jornada {j}</h2>
-        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {conResultado.filter((p) => p.jornada === j).map((p) => <MatchCard partido={p} />)}
-        </div>
-      </section>
-    ))}
+    {dias.length === 0 && (
+      <p class="text-stone-500">
+        Aún no hay partidos jugados.{inauguracion && <> La Supercopa arranca el {fechaLarga(inauguracion.fecha)}.</>}
+      </p>
+    )}
+    {dias.map((dia) => {
+      const ps = conResultado.filter((p) => p.fecha.toISOString().slice(0, 10) === dia);
+      return (
+        <section>
+          <h2 class="titulo-seccion">{cap(fechaSinAnio(ps[0].fecha))}</h2>
+          <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{ps.map((p) => <MatchCard partido={p} mostrarFecha={false} />)}</div>
+        </section>
+      );
+    })}
   </div>
 </Base>

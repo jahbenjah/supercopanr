@@ -1,0 +1,16 @@
+- id: la-colmena
+  nombre: Deportivo La Colmena
+  direccion: Progreso Mz 072, La Colmena, 54477 Cd. Nicolás Romero, Méx.
+  maps_url: https://maps.google.com/?q=Deportivo+La+Colmena+Nicolas+Romero
+  lat: 19.5875
+  lng: -99.3376
+  cancha: Pasto sintético
+  servicios: [Estacionamiento, Sanitarios, Gradas]
+- id: unidad-deportiva-centro
+  nombre: Unidad Deportiva Centro (ejemplo)
+  direccion: Centro, Cd. Nicolás Romero, Méx.
+  maps_url: https://maps.google.com/?q=Unidad+Deportiva+Nicolas+Romero
+  lat: 19.6214
+  lng: -99.3149
+  cancha: Pasto natural
+  servicios: [Sanitarios, Gradas, Tienda]

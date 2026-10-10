@@ -7,6 +7,7 @@ const d = await datos();
 ---
 <Base title="Sedes" description={`Canchas y sedes de la ${d.torneo.nombre} con ubicación y cómo llegar.`}>
   <Encabezado titulo="Sedes" subtitulo="Canchas donde se juega el torneo." />
+  {d.sedes.length === 0 && <p class="contenedor pt-8 text-stone-500">Las sedes se confirman con el calendario oficial, después del sorteo de grupos.</p>}
   <div class="contenedor grid gap-4 py-8 sm:grid-cols-2">
     {d.sedes.map((s) => (
       <a href={`/sedes/${s.id}/`} class="tarjeta block p-5 no-underline transition hover:border-cancha hover:shadow">

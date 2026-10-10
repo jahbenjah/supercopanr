@@ -19,13 +19,20 @@ const imagen = new URL(image, Astro.site);
 const gaId = 'G-F9R7J9Z08H';
 
 const menu = [
+  ['/inscripcion/', 'Inscripción'],
+  ['/bases/', 'Bases'],
   ['/calendario/', 'Calendario'],
-  ['/resultados/', 'Resultados'],
   ['/posiciones/', 'Posiciones'],
-  ['/goleadores/', 'Goleadores'],
+  ['/resultados/', 'Resultados'],
   ['/equipos/', 'Equipos'],
+];
+const menuExtra = [
+  ['/goleadores/', 'Goleadores'],
+  ['/disciplina/', 'Disciplina'],
   ['/sedes/', 'Sedes'],
   ['/arbitros/', 'Árbitros'],
+  ['/patrocinadores/', 'Patrocinadores'],
+  ['/anunciate/', 'Anúnciate'],
 ];
 const actual = Astro.url.pathname;
 ---
@@ -67,7 +74,7 @@ const actual = Astro.url.pathname;
         <a href="/" class="flex items-center gap-2 no-underline">
           <img src="/favicon.svg" alt="" width="36" height="36" />
           <span class="font-display text-xl font-bold uppercase leading-none tracking-wide">
-            SuperCopa<br /><span class="text-sm text-oro">Nicolás Romero</span>
+            Supercopa<br /><span class="text-sm text-oro">Nicolás Romero</span>
           </span>
         </a>
         <nav class="hidden lg:block" aria-label="Principal">
@@ -83,7 +90,7 @@ const actual = Astro.url.pathname;
         <details class="relative lg:hidden">
           <summary class="cursor-pointer list-none rounded px-3 py-2 font-semibold hover:bg-white/10" aria-label="Menú">☰ Menú</summary>
           <ul class="absolute right-0 z-20 mt-2 w-56 overflow-hidden rounded-lg bg-white text-tinta shadow-lg">
-            {[...menu, ['/disciplina/', 'Disciplina'], ['/patrocinadores/', 'Patrocinadores'], ['/anunciate/', 'Anúnciate']].map(([href, texto]) => (
+            {[...menu, ...menuExtra].map(([href, texto]) => (
               <li><a href={href} class="block px-4 py-2.5 no-underline hover:bg-stone-100">{texto}</a></li>
             ))}
           </ul>
@@ -102,16 +109,16 @@ const actual = Astro.url.pathname;
       <div class="contenedor grid gap-6 border-t border-white/10 py-8 text-sm sm:grid-cols-3">
         <div>
           <p class="font-display text-lg font-bold uppercase text-white">{nombreSitio}</p>
-          <p class="mt-1">Información oficial de equipos, jugadores, calendario y resultados.</p>
+          <p class="mt-1">{torneo.edicion} · {torneo.sede_general}</p>
+          <p class="mt-1">Organiza: {torneo.organizador}</p>
         </div>
-        <ul class="space-y-1">
-          <li><a href="/disciplina/" class="hover:text-white">Disciplina y suspendidos</a></li>
-          <li><a href="/patrocinadores/" class="hover:text-white">Patrocinadores</a></li>
-          <li><a href="/anunciate/" class="hover:text-white">Anúnciate con nosotros</a></li>
+        <ul class="grid grid-cols-2 gap-1">
+          {menuExtra.map(([href, texto]) => <li><a href={href} class="hover:text-white">{texto}</a></li>)}
         </ul>
         <ul class="space-y-1">
           <li><a href={torneo.sitio_principal} class="hover:text-white">← Solo Futbol Amateur</a></li>
           <li><a href={torneo.facebook} class="hover:text-white" rel="noopener">Facebook</a></li>
+          <li><a href={torneo.bases_pdf} class="hover:text-white">Bases oficiales (PDF)</a></li>
         </ul>
       </div>
     </footer>

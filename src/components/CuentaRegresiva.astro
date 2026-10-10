@@ -1,0 +1,49 @@
+---
+// Cuenta regresiva al siguiente evento de torneo.yaml (fechas). El evento se elige en el
+// navegador, porque el sitio se compila antes y la fecha "de hoy" cambia.
+import { datos } from '../lib/datos';
+
+const d = await datos();
+// Hora de México (UTC-6). Los eventos cuentan hasta las 00:00 del día; las fechas límite, hasta las 23:59.
+const eventos = d.torneo.fechas.map((f) => ({
+  titulo: f.titulo,
+  critica: f.critica,
+  inicio: `${f.fecha.toISOString().slice(0, 10)}T${f.critica ? '23:59:59' : '00:00:00'}-06:00`,
+}));
+---
+<div id="cuenta-regresiva" class="rounded-2xl bg-black/25 p-5 backdrop-blur-sm" data-eventos={JSON.stringify(eventos)} hidden>
+  <p class="text-sm uppercase tracking-widest text-white/75">
+    Faltan para <strong data-titulo class="text-oro"></strong>
+  </p>
+  <div class="mt-2 grid grid-cols-4 gap-2 text-center">
+    {['días', 'horas', 'min', 'seg'].map((u, i) => (
+      <div class="rounded-lg bg-white/10 px-2 py-3">
+        <span data-n={i} class="block font-display text-4xl font-bold tabular-nums sm:text-5xl">--</span>
+        <span class="text-xs uppercase text-white/70">{u}</span>
+      </div>
+    ))}
+  </div>
+</div>
+<script>
+  const el = document.getElementById('cuenta-regresiva');
+  if (el) {
+    const eventos = JSON.parse(el.dataset.eventos ?? '[]') as { titulo: string; critica: boolean; inicio: string }[];
+    const nums = el.querySelectorAll<HTMLElement>('[data-n]');
+    const titulo = el.querySelector<HTMLElement>('[data-titulo]')!;
+    const tick = () => {
+      const ahora = Date.now();
+      const ev = eventos.find((e) => Date.parse(e.inicio) > ahora);
+      if (!ev) {
+        el.hidden = true;
+        return;
+      }
+      el.hidden = false;
+      titulo.textContent = ev.titulo;
+      let s = Math.floor((Date.parse(ev.inicio) - ahora) / 1000);
+      const partes = [Math.floor(s / 86400), Math.floor((s %= 86400) / 3600), Math.floor((s %= 3600) / 60), s % 60];
+      partes.forEach((n, i) => (nums[i].textContent = String(n).padStart(i ? 2 : 1, '0')));
+    };
+    tick();
+    setInterval(tick, 1000);
+  }
+</script>

@@ -4,8 +4,8 @@ import {
   disciplina,
   erroresDePartido,
   goleadores,
-  proximaJornada,
-  ultimaJornadaJugada,
+  proximaFecha,
+  ultimaFechaJugada,
   type PartidoBase,
 } from './estadisticas';
 
@@ -24,6 +24,7 @@ const puntos = { victoria: 3, empate: 1, derrota: 0 };
 let n = 0;
 const partido = (local: string, visita: string, gl?: number, gv?: number, extra: Partial<PartidoBase> = {}): PartidoBase => ({
   id: `p${++n}`,
+  fase: 'grupos',
   jornada: 1,
   categoria: 'primera',
   fecha: new Date(Date.UTC(2026, 9, n)),
@@ -98,11 +99,26 @@ describe('disciplina', () => {
   });
 });
 
-describe('jornadas', () => {
-  it('detecta la próxima jornada y la última jugada', () => {
-    const ps = [partido('a', 'b', 1, 0), { ...partido('a', 'c'), jornada: 2 }, { ...partido('b', 'c'), jornada: 3 }];
-    expect(proximaJornada(ps)).toBe(2);
-    expect(ultimaJornadaJugada(ps)).toBe(1);
+describe('fechas', () => {
+  it('detecta la siguiente fecha programada y la última jugada', () => {
+    const jugado = partido('a', 'b', 1, 0);
+    const prox = partido('a', 'c');
+    const despues = partido('b', 'c');
+    expect(proximaFecha([jugado, despues, prox])).toEqual(prox.fecha);
+    expect(ultimaFechaJugada([jugado, prox])).toEqual(jugado.fecha);
+    expect(proximaFecha([jugado])).toBeNull();
+  });
+});
+
+describe('fases', () => {
+  it('la eliminatoria no suma a la tabla y los equipos sin grupo no aparecen', () => {
+    const tablas = calcularPosiciones(
+      [...equipos, { id: 'x', nombre: 'Sin grupo', categoria: 'primera' }],
+      [partido('a', 'b', 2, 0, { fase: 'octavos' })],
+      puntos,
+    );
+    expect(tablas).toHaveLength(1);
+    expect(tablas[0].filas.every((f) => f.pj === 0)).toBe(true);
   });
 });
 

@@ -1,0 +1,103 @@
+---
+import Base from '../layouts/Base.astro';
+import Encabezado from '../components/Encabezado.astro';
+import BotonContacto from '../components/BotonContacto.astro';
+import { cap, datos, fechaLarga, fechaSinAnio, pesos } from '../lib/datos';
+
+const d = await datos();
+const { torneo } = d;
+const inscritos = d.equipos.length;
+const disponibles = Math.max(torneo.total_equipos - inscritos, 0);
+const hoy = new Date();
+const requisitos = d.bases.filter((b) => b.seccion === 'registro');
+const pasos = [
+  ['Contacta a la organización', 'Aparta el lugar de tu equipo y recibe los datos para el pago.'],
+  ['Cubre la inscripción', `${pesos(torneo.costos[0].monto)} en ${torneo.cuotas.length} pagos o en una sola exhibición.`],
+  ['Entrega identidad del equipo', 'Nombre oficial y logotipo en buena calidad.'],
+  ['Registra a tus jugadores', `Hasta ${torneo.max_jugadores} jugadores y 4 delegados/cuerpo técnico.`],
+];
+---
+<Base title="Inscripción" description={`Inscribe a tu equipo en la ${torneo.nombre} ${torneo.temporada}. Fecha límite: ${fechaLarga(torneo.fecha_limite_inscripcion)}.`}>
+  <Encabezado titulo="Inscripción" subtitulo={`${torneo.total_equipos} lugares. La participación se confirma únicamente al cubrir el proceso de inscripción.`}>
+    <div class="mt-5 flex flex-wrap items-center gap-3">
+      <BotonContacto texto={`Hola, quiero inscribir a mi equipo en la ${torneo.nombre} ${torneo.temporada}`} id="inscripcion-hero">
+        Quiero inscribir a mi equipo
+      </BotonContacto>
+      <a href={torneo.bases_pdf} class="boton border border-white/50 text-white hover:bg-white/10" data-track="descarga_bases" data-id="inscripcion">Bases (PDF)</a>
+    </div>
+  </Encabezado>
+
+  <div class="contenedor py-8">
+    <div class="grid gap-4 sm:grid-cols-3">
+      <div class="tarjeta border-l-4 border-l-red-600 p-4">
+        <p class="text-xs font-semibold uppercase text-red-700">Fecha límite</p>
+        <p class="font-display text-2xl font-bold">{cap(fechaLarga(torneo.fecha_limite_inscripcion))}</p>
+      </div>
+      <div class="tarjeta p-4">
+        <p class="text-xs font-semibold uppercase text-stone-500">Equipos confirmados</p>
+        <p class="font-display text-2xl font-bold">{inscritos} de {torneo.total_equipos}</p>
+        <div class="mt-2 h-2 overflow-hidden rounded bg-stone-200"><div class="h-full bg-cancha" style={`width:${(inscritos / torneo.total_equipos) * 100}%`}></div></div>
+      </div>
+      <div class="tarjeta p-4">
+        <p class="text-xs font-semibold uppercase text-stone-500">Lugares disponibles</p>
+        <p class="font-display text-2xl font-bold text-cancha">{disponibles}</p>
+      </div>
+    </div>
+
+    <section class="mt-12">
+      <h2 class="titulo-seccion">Cómo inscribirse</h2>
+      <ol class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {pasos.map(([t, x], i) => (
+          <li class="tarjeta p-5">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-cancha font-display text-lg font-bold text-white">{i + 1}</span>
+            <p class="mt-3 font-display text-lg font-bold uppercase">{t}</p>
+            <p class="text-sm text-stone-600">{x}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <div class="mt-12 grid gap-10 lg:grid-cols-2">
+      <section>
+        <h2 class="titulo-seccion">Calendario de pagos</h2>
+        <ul class="tarjeta divide-y divide-stone-100">
+          {torneo.cuotas.map((c, i) => (
+            <li class:list={['flex items-center justify-between px-4 py-3', c.fecha < hoy && 'text-stone-400']}>
+              <span><strong>{i + 1}.ª cuota</strong> · {fechaSinAnio(c.fecha)}</span>
+              <span class="font-display text-xl font-bold">{pesos(c.monto)}</span>
+            </li>
+          ))}
+          <li class="flex items-center justify-between bg-stone-50 px-4 py-3">
+            <strong>Total inscripción</strong>
+            <span class="font-display text-xl font-bold text-cancha">{pesos(torneo.cuotas.reduce((s, c) => s + c.monto, 0))}</span>
+          </li>
+        </ul>
+        <p class="mt-2 text-sm text-stone-500">Puedes liquidar antes si así lo prefiere el delegado representante.</p>
+      </section>
+      <section>
+        <h2 class="titulo-seccion">Todos los costos</h2>
+        <ul class="tarjeta divide-y divide-stone-100">
+          {torneo.costos.map((c) => (
+            <li class="flex items-center justify-between gap-4 px-4 py-3">
+              <div><p class="font-semibold">{c.concepto}</p>{c.detalle && <p class="text-sm text-stone-500">{c.detalle}</p>}</div>
+              <span class="font-display text-xl font-bold">{pesos(c.monto)}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+
+    <section class="mt-12">
+      <h2 class="titulo-seccion">Requisitos de registro</h2>
+      <div class="grid gap-4 sm:grid-cols-2">
+        {requisitos.map((r) => (
+          <div class="tarjeta p-4">
+            <p class="font-display text-lg font-bold uppercase text-cancha-oscuro">{r.titulo}</p>
+            <p class="text-sm text-stone-700">{r.texto}</p>
+          </div>
+        ))}
+      </div>
+      <a href="/bases/" class="mt-4 inline-block font-semibold text-cancha">Ver las bases completas →</a>
+    </section>
+  </div>
+</Base>

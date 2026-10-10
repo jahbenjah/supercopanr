@@ -12,7 +12,7 @@ const suspendidos = d.disciplina.filter((r) => r.pendientes > 0);
 <Base title="Disciplina" description={`Tarjetas y jugadores suspendidos de la ${torneo.nombre}.`}>
   <Encabezado
     titulo="Disciplina"
-    subtitulo={`Roja: ${torneo.partidos_suspension_roja} partido(s) de suspensión. Cada ${torneo.amarillas_para_suspension} amarillas acumuladas: 1 partido.`}
+    subtitulo="Tarjetas y suspensiones. Las sanciones se aplican conforme al reglamento general de competencia." 
   />
   <div class="contenedor space-y-10 py-8">
     <section>

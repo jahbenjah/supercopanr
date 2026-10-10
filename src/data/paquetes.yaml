@@ -1,7 +1,5 @@
 - id: oro
   nombre: Patrocinador Oro
-  precio: 3000
-  periodo: por torneo
   destacado: true
   beneficios:
     - Logo en la portada, tablas y cada cédula de partido
@@ -9,29 +7,21 @@
     - Enlace directo a tu WhatsApp o sitio
 - id: plata
   nombre: Patrocinador Plata
-  precio: 1500
-  periodo: por torneo
   beneficios:
     - Patrocinador oficial de una jornada
     - Logo en calendario y pie de página
 - id: bronce
   nombre: Patrocinador Bronce
-  precio: 500
-  periodo: por torneo
   beneficios:
     - Logo en el pie de página de todo el sitio
 - id: equipo-premium
   nombre: Perfil de Equipo Premium
-  precio: 300
-  periodo: por torneo
   beneficios:
     - Galería de fotos y uniforme
     - Contacto del delegado y redes sociales
     - Espacio para los patrocinadores de tu equipo
 - id: arbitro-destacado
   nombre: Árbitro Destacado
-  precio: 200
-  periodo: por torneo
   beneficios:
     - Primer lugar en el directorio de árbitros
     - Botón de WhatsApp para contratación

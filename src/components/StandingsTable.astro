@@ -9,14 +9,15 @@ interface Props {
   /** Cuántos clasifican (se resaltan). */
   clasifican?: number;
 }
-const { tabla, compacta = false, clasifican = 2 } = Astro.props;
 const d = await datos();
+const { tabla, compacta = false, clasifican = d.torneo.clasifican_por_grupo } = Astro.props;
+const conCategoria = d.torneo.categorias.length > 1;
 // Columnas de detalle: se ocultan en pantallas chicas para que PTS siempre sea visible.
 const det = 'hidden sm:table-cell';
 ---
 <div class="tarjeta overflow-hidden">
   <h3 class="bg-cancha px-3 py-2 text-lg text-white">
-    {nombreCategoria(d, tabla.categoria)} · Grupo {tabla.grupo}
+    {conCategoria && `${nombreCategoria(d, tabla.categoria)} · `}Grupo {tabla.grupo}
   </h3>
   <div class="overflow-x-auto">
     <table class="tabla">

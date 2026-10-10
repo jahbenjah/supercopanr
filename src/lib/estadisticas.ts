@@ -2,6 +2,15 @@
 // así se pueden probar con vitest y reutilizar si los datos vienen de una base de datos.
 
 export type EstadoPartido = 'programado' | 'jugado' | 'suspendido' | 'default';
+export type Fase = 'grupos' | 'octavos' | 'cuartos' | 'semifinal' | 'final';
+
+export const NOMBRE_FASE: Record<Fase, string> = {
+  grupos: 'Fase de grupos',
+  octavos: 'Octavos de final',
+  cuartos: 'Cuartos de final',
+  semifinal: 'Semifinal',
+  final: 'Gran Final',
+};
 
 export interface Evento {
   jugador_id: string;
@@ -14,7 +23,8 @@ export interface Tarjeta extends Evento {
 
 export interface PartidoBase {
   id: string;
-  jornada: number;
+  fase: Fase;
+  jornada?: number;
   categoria: string;
   fecha: Date;
   hora?: string;
@@ -31,7 +41,7 @@ export interface EquipoBase {
   id: string;
   nombre: string;
   categoria: string;
-  grupo: string;
+  grupo?: string;
 }
 
 export interface JugadorBase {
@@ -73,12 +83,15 @@ export function ordenarPartidos<T extends PartidoBase>(partidos: T[]): T[] {
     (a, b) =>
       a.fecha.getTime() - b.fecha.getTime() ||
       (a.hora ?? '').localeCompare(b.hora ?? '') ||
-      a.jornada - b.jornada ||
+      (a.jornada ?? 0) - (b.jornada ?? 0) ||
       a.id.localeCompare(b.id),
   );
 }
 
-/** Una tabla por categoría y grupo, ordenada por puntos, diferencia, goles a favor y nombre. */
+/**
+ * Una tabla por categoría y grupo, ordenada por puntos, diferencia, goles a favor y nombre.
+ * Solo cuentan partidos de fase de grupos; equipos sin grupo (antes del sorteo) no aparecen.
+ */
 export function calcularPosiciones(equipos: EquipoBase[], partidos: PartidoBase[], puntos: Puntos): TablaGrupo[] {
   const filas = new Map<string, FilaPosiciones>();
   for (const e of equipos) {
@@ -105,7 +118,7 @@ export function calcularPosiciones(equipos: EquipoBase[], partidos: PartidoBase[
   };
 
   for (const p of partidos) {
-    if (!cuentaEnTabla(p)) continue;
+    if (p.fase !== 'grupos' || !cuentaEnTabla(p)) continue;
     sumar(p.local_id, p.goles_local!, p.goles_visitante!);
     sumar(p.visitante_id, p.goles_visitante!, p.goles_local!);
   }
@@ -113,6 +126,7 @@ export function calcularPosiciones(equipos: EquipoBase[], partidos: PartidoBase[
   const nombre = new Map(equipos.map((e) => [e.id, e.nombre]));
   const grupos = new Map<string, TablaGrupo>();
   for (const e of equipos) {
+    if (!e.grupo) continue;
     const clave = `${e.categoria}|${e.grupo}`;
     if (!grupos.has(clave)) grupos.set(clave, { categoria: e.categoria, grupo: e.grupo, filas: [] });
     grupos.get(clave)!.filas.push(filas.get(e.id)!);
@@ -208,16 +222,16 @@ export function disciplina(
   return registros.sort((a, b) => b.pendientes - a.pendientes || b.rojas - a.rojas || b.amarillas - a.amarillas);
 }
 
-/** Primera jornada con partidos programados, o null si ya no hay. */
-export function proximaJornada(partidos: PartidoBase[]): number | null {
-  const js = partidos.filter((p) => p.estado === 'programado').map((p) => p.jornada);
-  return js.length ? Math.min(...js) : null;
+/** Fecha (día) del siguiente partido programado, o null si ya no hay. */
+export function proximaFecha(partidos: PartidoBase[]): Date | null {
+  const fs = partidos.filter((p) => p.estado === 'programado').map((p) => p.fecha.getTime());
+  return fs.length ? new Date(Math.min(...fs)) : null;
 }
 
-/** Última jornada con al menos un partido jugado, o null. */
-export function ultimaJornadaJugada(partidos: PartidoBase[]): number | null {
-  const js = partidos.filter(cuentaEnTabla).map((p) => p.jornada);
-  return js.length ? Math.max(...js) : null;
+/** Fecha (día) del último partido con resultado, o null. */
+export function ultimaFechaJugada(partidos: PartidoBase[]): Date | null {
+  const fs = partidos.filter(cuentaEnTabla).map((p) => p.fecha.getTime());
+  return fs.length ? new Date(Math.max(...fs)) : null;
 }
 
 /** Problemas de consistencia de un partido jugado (marcador vs. goles, goleadores de otro equipo). */

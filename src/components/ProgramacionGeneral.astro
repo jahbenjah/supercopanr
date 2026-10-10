@@ -1,0 +1,25 @@
+---
+import { cap, datos, fechaSinAnio } from '../lib/datos';
+import { NOMBRE_FASE } from '../lib/estadisticas';
+
+const d = await datos();
+let acumulado = 0;
+const filas = d.torneo.programacion.map((p) => ({ ...p, acumulado: (acumulado += p.partidos) }));
+---
+<div class="tarjeta overflow-x-auto">
+  <table class="tabla">
+    <thead>
+      <tr><th class="text-left!">Fecha</th><th class="text-left!">Etapa</th><th>Partidos</th><th class="hidden sm:table-cell">Acumulado</th></tr>
+    </thead>
+    <tbody>
+      {filas.map((f) => (
+        <tr class:list={[f.fase === 'final' && 'font-bold']}>
+          <td class="text-left!">{cap(fechaSinAnio(f.fecha))}</td>
+          <td class="text-left!">{NOMBRE_FASE[f.fase]}</td>
+          <td>{f.partidos}</td>
+          <td class="hidden sm:table-cell">{f.acumulado}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

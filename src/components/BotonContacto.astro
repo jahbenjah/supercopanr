@@ -1,0 +1,24 @@
+---
+// Botón para contactar a la organización: WhatsApp si hay número en torneo.yaml, si no Messenger.
+import { contacto, datos } from '../lib/datos';
+
+interface Props {
+  texto: string;
+  /** Identificador para la analítica. */
+  id: string;
+  class?: string;
+}
+const { texto, id, class: clase } = Astro.props;
+const d = await datos();
+const c = contacto(d, texto);
+---
+<a
+  href={c.href}
+  target="_blank"
+  rel="noopener"
+  data-track={c.canal === 'WhatsApp' ? 'click_whatsapp' : 'click_messenger'}
+  data-id={id}
+  class:list={[c.canal === 'WhatsApp' ? 'boton-whatsapp' : 'boton bg-[#0866ff] text-white hover:bg-[#0756d6]', clase]}
+>
+  <slot />
+</a>

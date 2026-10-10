@@ -3,19 +3,36 @@ import Base from '../layouts/Base.astro';
 import Encabezado from '../components/Encabezado.astro';
 import StandingsTable from '../components/StandingsTable.astro';
 import SponsorSlot from '../components/SponsorSlot.astro';
-import { datos } from '../lib/datos';
+import { datos, fechaLarga } from '../lib/datos';
 
 const d = await datos();
+const { torneo } = d;
+const sorteo = torneo.fechas.find((f) => f.id === 'sorteo');
+const sorteados = new Set(d.posiciones.map((t) => t.grupo));
+const pendientes = torneo.categorias.flatMap((c) => c.grupos).filter((g) => !sorteados.has(g));
 ---
-<Base title="Tabla de posiciones" description={`Tabla de posiciones actualizada de la ${d.torneo.nombre}.`}>
-  <Encabezado titulo="Posiciones" subtitulo={d.torneo.formato} />
+<Base title="Tabla de posiciones" description={`Tabla de posiciones por grupo de la ${torneo.nombre} ${torneo.temporada}.`}>
+  <Encabezado titulo="Posiciones" subtitulo={torneo.formato} />
   <div class="contenedor py-8">
     <SponsorSlot ubicacion="tabla" />
-    <div class="mt-8 grid gap-6 lg:grid-cols-2">
+    {d.posiciones.length === 0 && sorteo && (
+      <p class="mt-8 rounded-xl border-l-4 border-oro bg-amber-50 p-4">
+        Los grupos se definen en el sorteo del <strong>{fechaLarga(sorteo.fecha)}</strong>.
+      </p>
+    )}
+    <div class:list={['mt-8 grid gap-6', d.posiciones.length ? 'lg:grid-cols-2' : 'grid-cols-2 lg:grid-cols-4']}>
       {d.posiciones.map((t) => <StandingsTable tabla={t} />)}
+      {pendientes.map((g) => (
+        <div class="tarjeta flex min-h-28 flex-col items-center justify-center border-dashed text-stone-400">
+          <span class="font-display text-4xl font-bold">Grupo {g}</span>
+          <span class="text-sm">Por sortear</span>
+        </div>
+      ))}
     </div>
-    <p class="mt-6 text-sm text-stone-500">
-      Criterios de desempate: {d.torneo.desempate.join(', ')}. Los lugares resaltados clasifican.
-    </p>
+    {d.posiciones.length > 0 && (
+      <p class="mt-6 text-sm text-stone-500">
+        Clasifican los {torneo.clasifican_por_grupo} primeros de cada grupo (resaltados). Desempates conforme al reglamento general de competencia.
+      </p>
+    )}
   </div>
 </Base>

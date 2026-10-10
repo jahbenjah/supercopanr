@@ -1,0 +1,397 @@
+# EJEMPLO. estado: programado | jugado | suspendido | default
+- id: a1
+  fase: grupos
+  grupo: A
+  categoria: unica
+  fecha: 2026-11-13
+  hora: "09:00"
+  sede_id: la-colmena
+  local_id: deportivo-colmena
+  visitante_id: real-progreso
+  arbitro_id: arbitro-1
+  estado: jugado
+  goles_local: 2
+  goles_visitante: 1
+  goles:
+    - { jugador_id: deportivo-colmena-4, minuto: 10 }
+    - { jugador_id: deportivo-colmena-3, minuto: 27 }
+    - { jugador_id: real-progreso-4, minuto: 25 }
+  tarjetas:
+    - { jugador_id: deportivo-colmena-2, tipo: amarilla, minuto: 40 }
+- id: a2
+  fase: grupos
+  grupo: A
+  categoria: unica
+  fecha: 2026-11-16
+  hora: "09:00"
+  sede_id: la-colmena
+  local_id: real-progreso
+  visitante_id: atletico-cahuacan
+  arbitro_id: arbitro-1
+  estado: jugado
+  goles_local: 0
+  goles_visitante: 0
+  goles: []
+  tarjetas:
+    - { jugador_id: real-progreso-2, tipo: amarilla, minuto: 40 }
+- id: a3
+  fase: grupos
+  grupo: A
+  categoria: unica
+  fecha: 2026-11-20
+  hora: "09:00"
+  sede_id: la-colmena
+  local_id: atletico-cahuacan
+  visitante_id: deportivo-colmena
+  arbitro_id: arbitro-1
+  estado: programado
+- id: b1
+  fase: grupos
+  grupo: B
+  categoria: unica
+  fecha: 2026-11-14
+  hora: "11:00"
+  sede_id: la-colmena
+  local_id: club-transfiguracion
+  visitante_id: union-vista-hermosa
+  arbitro_id: arbitro-2
+  estado: jugado
+  goles_local: 3
+  goles_visitante: 2
+  goles:
+    - { jugador_id: club-transfiguracion-4, minuto: 10 }
+    - { jugador_id: club-transfiguracion-3, minuto: 27 }
+    - { jugador_id: club-transfiguracion-4, minuto: 44 }
+    - { jugador_id: union-vista-hermosa-4, minuto: 25 }
+    - { jugador_id: union-vista-hermosa-4, minuto: 40 }
+  tarjetas:
+    - { jugador_id: club-transfiguracion-2, tipo: amarilla, minuto: 40 }
+    - { jugador_id: union-vista-hermosa-2, tipo: roja, minuto: 70 }
+- id: b2
+  fase: grupos
+  grupo: B
+  categoria: unica
+  fecha: 2026-11-16
+  hora: "11:00"
+  sede_id: la-colmena
+  local_id: union-vista-hermosa
+  visitante_id: halcones-san-isidro
+  arbitro_id: arbitro-2
+  estado: jugado
+  goles_local: 1
+  goles_visitante: 1
+  goles:
+    - { jugador_id: union-vista-hermosa-4, minuto: 10 }
+    - { jugador_id: halcones-san-isidro-4, minuto: 25 }
+  tarjetas:
+    - { jugador_id: union-vista-hermosa-2, tipo: amarilla, minuto: 40 }
+- id: b3
+  fase: grupos
+  grupo: B
+  categoria: unica
+  fecha: 2026-11-21
+  hora: "11:00"
+  sede_id: la-colmena
+  local_id: halcones-san-isidro
+  visitante_id: club-transfiguracion
+  arbitro_id: arbitro-2
+  estado: programado
+- id: c1
+  fase: grupos
+  grupo: C
+  categoria: unica
+  fecha: 2026-11-13
+  hora: "13:00"
+  sede_id: la-colmena
+  local_id: tigres-barron
+  visitante_id: juventud-granjas
+  arbitro_id: arbitro-3
+  estado: jugado
+  goles_local: 1
+  goles_visitante: 0
+  goles:
+    - { jugador_id: tigres-barron-4, minuto: 10 }
+  tarjetas:
+    - { jugador_id: tigres-barron-2, tipo: amarilla, minuto: 40 }
+- id: c2
+  fase: grupos
+  grupo: C
+  categoria: unica
+  fecha: 2026-11-16
+  hora: "13:00"
+  sede_id: la-colmena
+  local_id: juventud-granjas
+  visitante_id: pumas-libertad
+  arbitro_id: arbitro-3
+  estado: jugado
+  goles_local: 2
+  goles_visitante: 2
+  goles:
+    - { jugador_id: juventud-granjas-4, minuto: 10 }
+    - { jugador_id: juventud-granjas-3, minuto: 27 }
+    - { jugador_id: pumas-libertad-4, minuto: 25 }
+    - { jugador_id: pumas-libertad-4, minuto: 40 }
+  tarjetas:
+    - { jugador_id: juventud-granjas-2, tipo: amarilla, minuto: 40 }
+- id: c3
+  fase: grupos
+  grupo: C
+  categoria: unica
+  fecha: 2026-11-20
+  hora: "13:00"
+  sede_id: la-colmena
+  local_id: pumas-libertad
+  visitante_id: tigres-barron
+  arbitro_id: arbitro-3
+  estado: programado
+- id: d1
+  fase: grupos
+  grupo: D
+  categoria: unica
+  fecha: 2026-11-14
+  hora: "15:00"
+  sede_id: la-colmena
+  local_id: leones-villa-nicolas
+  visitante_id: aguilas-santa-anita
+  arbitro_id: arbitro-1
+  estado: jugado
+  goles_local: 0
+  goles_visitante: 1
+  goles:
+    - { jugador_id: aguilas-santa-anita-4, minuto: 25 }
+  tarjetas:
+    - { jugador_id: leones-villa-nicolas-2, tipo: amarilla, minuto: 40 }
+- id: d2
+  fase: grupos
+  grupo: D
+  categoria: unica
+  fecha: 2026-11-16
+  hora: "15:00"
+  sede_id: la-colmena
+  local_id: aguilas-santa-anita
+  visitante_id: toros-magu
+  arbitro_id: arbitro-1
+  estado: jugado
+  goles_local: 4
+  goles_visitante: 1
+  goles:
+    - { jugador_id: aguilas-santa-anita-4, minuto: 10 }
+    - { jugador_id: aguilas-santa-anita-3, minuto: 27 }
+    - { jugador_id: aguilas-santa-anita-4, minuto: 44 }
+    - { jugador_id: aguilas-santa-anita-3, minuto: 61 }
+    - { jugador_id: toros-magu-4, minuto: 25 }
+  tarjetas:
+    - { jugador_id: aguilas-santa-anita-2, tipo: amarilla, minuto: 40 }
+- id: d3
+  fase: grupos
+  grupo: D
+  categoria: unica
+  fecha: 2026-11-21
+  hora: "15:00"
+  sede_id: la-colmena
+  local_id: toros-magu
+  visitante_id: leones-villa-nicolas
+  arbitro_id: arbitro-1
+  estado: programado
+- id: e1
+  fase: grupos
+  grupo: E
+  categoria: unica
+  fecha: 2026-11-13
+  hora: "09:00"
+  sede_id: unidad-deportiva-centro
+  local_id: rayos-morelos
+  visitante_id: halcones-loma
+  arbitro_id: arbitro-2
+  estado: jugado
+  goles_local: 2
+  goles_visitante: 0
+  goles:
+    - { jugador_id: rayos-morelos-4, minuto: 10 }
+    - { jugador_id: rayos-morelos-3, minuto: 27 }
+  tarjetas:
+    - { jugador_id: rayos-morelos-2, tipo: amarilla, minuto: 40 }
+- id: e2
+  fase: grupos
+  grupo: E
+  categoria: unica
+  fecha: 2026-11-16
+  hora: "09:00"
+  sede_id: unidad-deportiva-centro
+  local_id: halcones-loma
+  visitante_id: cruz-azul-hidalgo
+  arbitro_id: arbitro-2
+  estado: jugado
+  goles_local: 1
+  goles_visitante: 3
+  goles:
+    - { jugador_id: halcones-loma-4, minuto: 10 }
+    - { jugador_id: cruz-azul-hidalgo-4, minuto: 25 }
+    - { jugador_id: cruz-azul-hidalgo-4, minuto: 40 }
+    - { jugador_id: cruz-azul-hidalgo-4, minuto: 55 }
+  tarjetas:
+    - { jugador_id: halcones-loma-2, tipo: amarilla, minuto: 40 }
+- id: e3
+  fase: grupos
+  grupo: E
+  categoria: unica
+  fecha: 2026-11-20
+  hora: "09:00"
+  sede_id: unidad-deportiva-centro
+  local_id: cruz-azul-hidalgo
+  visitante_id: rayos-morelos
+  arbitro_id: arbitro-2
+  estado: programado
+- id: f1
+  fase: grupos
+  grupo: F
+  categoria: unica
+  fecha: 2026-11-14
+  hora: "11:00"
+  sede_id: unidad-deportiva-centro
+  local_id: real-benito-juarez
+  visitante_id: atlas-independencia
+  arbitro_id: arbitro-3
+  estado: jugado
+  goles_local: 0
+  goles_visitante: 2
+  goles:
+    - { jugador_id: atlas-independencia-4, minuto: 25 }
+    - { jugador_id: atlas-independencia-4, minuto: 40 }
+  tarjetas:
+    - { jugador_id: real-benito-juarez-2, tipo: amarilla, minuto: 40 }
+- id: f2
+  fase: grupos
+  grupo: F
+  categoria: unica
+  fecha: 2026-11-16
+  hora: "11:00"
+  sede_id: unidad-deportiva-centro
+  local_id: atlas-independencia
+  visitante_id: necaxa-vicente-guerrero
+  arbitro_id: arbitro-3
+  estado: jugado
+  goles_local: 3
+  goles_visitante: 3
+  goles:
+    - { jugador_id: atlas-independencia-4, minuto: 10 }
+    - { jugador_id: atlas-independencia-3, minuto: 27 }
+    - { jugador_id: atlas-independencia-4, minuto: 44 }
+    - { jugador_id: necaxa-vicente-guerrero-4, minuto: 25 }
+    - { jugador_id: necaxa-vicente-guerrero-4, minuto: 40 }
+    - { jugador_id: necaxa-vicente-guerrero-4, minuto: 55 }
+  tarjetas:
+    - { jugador_id: atlas-independencia-2, tipo: amarilla, minuto: 40 }
+- id: f3
+  fase: grupos
+  grupo: F
+  categoria: unica
+  fecha: 2026-11-21
+  hora: "11:00"
+  sede_id: unidad-deportiva-centro
+  local_id: necaxa-vicente-guerrero
+  visitante_id: real-benito-juarez
+  arbitro_id: arbitro-3
+  estado: programado
+- id: g1
+  fase: grupos
+  grupo: G
+  categoria: unica
+  fecha: 2026-11-13
+  hora: "13:00"
+  sede_id: unidad-deportiva-centro
+  local_id: gallos-san-juan
+  visitante_id: lobos-bosques
+  arbitro_id: arbitro-1
+  estado: jugado
+  goles_local: 2
+  goles_visitante: 1
+  goles:
+    - { jugador_id: gallos-san-juan-4, minuto: 10 }
+    - { jugador_id: gallos-san-juan-3, minuto: 27 }
+    - { jugador_id: lobos-bosques-4, minuto: 25 }
+  tarjetas:
+    - { jugador_id: gallos-san-juan-2, tipo: amarilla, minuto: 40 }
+- id: g2
+  fase: grupos
+  grupo: G
+  categoria: unica
+  fecha: 2026-11-16
+  hora: "13:00"
+  sede_id: unidad-deportiva-centro
+  local_id: lobos-bosques
+  visitante_id: zorros-ignacio-lopez
+  arbitro_id: arbitro-1
+  estado: jugado
+  goles_local: 1
+  goles_visitante: 0
+  goles:
+    - { jugador_id: lobos-bosques-4, minuto: 10 }
+  tarjetas:
+    - { jugador_id: lobos-bosques-2, tipo: amarilla, minuto: 40 }
+- id: g3
+  fase: grupos
+  grupo: G
+  categoria: unica
+  fecha: 2026-11-20
+  hora: "13:00"
+  sede_id: unidad-deportiva-centro
+  local_id: zorros-ignacio-lopez
+  visitante_id: gallos-san-juan
+  arbitro_id: arbitro-1
+  estado: programado
+- id: h1
+  fase: grupos
+  grupo: H
+  categoria: unica
+  fecha: 2026-11-14
+  hora: "15:00"
+  sede_id: unidad-deportiva-centro
+  local_id: potros-canada
+  visitante_id: jaguares-el-gavillero
+  arbitro_id: arbitro-2
+  estado: jugado
+  goles_local: 0
+  goles_visitante: 0
+  goles: []
+  tarjetas:
+    - { jugador_id: potros-canada-2, tipo: amarilla, minuto: 40 }
+- id: h2
+  fase: grupos
+  grupo: H
+  categoria: unica
+  fecha: 2026-11-16
+  hora: "15:00"
+  sede_id: unidad-deportiva-centro
+  local_id: jaguares-el-gavillero
+  visitante_id: club-zaragoza
+  arbitro_id: arbitro-2
+  estado: jugado
+  goles_local: 1
+  goles_visitante: 2
+  goles:
+    - { jugador_id: jaguares-el-gavillero-4, minuto: 10 }
+    - { jugador_id: club-zaragoza-4, minuto: 25 }
+    - { jugador_id: club-zaragoza-4, minuto: 40 }
+  tarjetas:
+    - { jugador_id: jaguares-el-gavillero-2, tipo: amarilla, minuto: 40 }
+- id: h3
+  fase: grupos
+  grupo: H
+  categoria: unica
+  fecha: 2026-11-21
+  hora: "15:00"
+  sede_id: unidad-deportiva-centro
+  local_id: club-zaragoza
+  visitante_id: potros-canada
+  arbitro_id: arbitro-2
+  estado: programado
+- id: octavos-1
+  fase: octavos
+  categoria: unica
+  fecha: 2026-11-27
+  hora: "10:00"
+  sede_id: la-colmena
+  local_id: deportivo-colmena
+  visitante_id: union-vista-hermosa
+  estado: programado

@@ -8,8 +8,8 @@ import {
   erroresDePartido,
   goleadores,
   ordenarPartidos,
-  proximaJornada,
-  ultimaJornadaJugada,
+  proximaFecha,
+  ultimaFechaJugada,
 } from './estadisticas';
 
 async function tabla<C extends CollectionKey>(nombre: C): Promise<Array<CollectionEntry<C>['data'] & { id: string }>> {
@@ -18,8 +18,9 @@ async function tabla<C extends CollectionKey>(nombre: C): Promise<Array<Collecti
 }
 
 async function cargar() {
-  const [torneos, sedes, equipos, jugadores, arbitros, partidosSinOrden, patrocinadores, paquetes] = await Promise.all([
+  const [torneos, bases, sedes, equipos, jugadores, arbitros, partidosSinOrden, patrocinadores, paquetes] = await Promise.all([
     tabla('torneo'),
+    tabla('bases'),
     tabla('sedes'),
     tabla('equipos'),
     tabla('jugadores'),
@@ -47,12 +48,21 @@ async function cargar() {
   const existe = (mapa: Map<string, unknown>, id: string | undefined, donde: string, que: string) => {
     if (id && !mapa.has(id)) errores.push(`${donde}: ${que} "${id}" no existe`);
   };
-  const categorias = new Set(torneo.categorias.map((c) => c.id));
   for (const e of equipos) {
     const donde = `equipos.yaml (${e.id})`;
-    if (!categorias.has(e.categoria)) errores.push(`${donde}: categoría "${e.categoria}" no está en torneo.yaml`);
+    const cat = torneo.categorias.find((c) => c.id === e.categoria);
+    if (!cat) errores.push(`${donde}: categoría "${e.categoria}" no está en torneo.yaml`);
+    else if (e.grupo && !cat.grupos.includes(e.grupo)) errores.push(`${donde}: el grupo "${e.grupo}" no existe en la categoría`);
     existe(m.sedes, e.sede_id, donde, 'sede_id');
     for (const p of e.patrocinadores_ids) existe(m.patrocinadores, p, donde, 'patrocinador');
+  }
+  const porGrupo = Map.groupBy(equipos.filter((e) => e.grupo), (e) => `${e.categoria} grupo ${e.grupo}`);
+  for (const [g, es] of porGrupo) {
+    if (es.length > torneo.equipos_por_grupo) errores.push(`equipos.yaml: ${g} tiene ${es.length} equipos (máximo ${torneo.equipos_por_grupo})`);
+  }
+  const plantillas = Map.groupBy(jugadores, (j) => j.equipo_id);
+  for (const [eq, js] of plantillas) {
+    if (js.length > torneo.max_jugadores) errores.push(`jugadores.yaml: ${eq} tiene ${js.length} jugadores (máximo ${torneo.max_jugadores})`);
   }
   for (const j of jugadores) existe(m.equipos, j.equipo_id, `jugadores.yaml (${j.id})`, 'equipo_id');
   const equipoDeJugador = new Map(jugadores.map((j) => [j.id, j.equipo_id]));
@@ -70,20 +80,21 @@ async function cargar() {
 
   return {
     torneo,
+    bases: [...bases].sort((a, b) => a.numero - b.numero),
     sedes,
     equipos: [...equipos].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es')),
     jugadores,
     arbitros: [...arbitros].sort((a, b) => Number(b.destacado) - Number(a.destacado) || a.nombre.localeCompare(b.nombre, 'es')),
     partidos,
     patrocinadores,
-    paquetes: [...paquetes].sort((a, b) => b.precio - a.precio),
+    paquetes: [...paquetes].sort((a, b) => (b.precio ?? 0) - (a.precio ?? 0)),
     // Índices por id: d.por.equipos.get(id), etc.
     por: m,
     posiciones: calcularPosiciones(equipos, partidos, torneo.puntos),
     goleadores: goleadores(partidos, jugadores),
     disciplina: disciplina(partidos, jugadores, torneo),
-    proximaJornada: proximaJornada(partidos),
-    ultimaJornada: ultimaJornadaJugada(partidos),
+    proximaFecha: proximaFecha(partidos),
+    ultimaFecha: ultimaFechaJugada(partidos),
   };
 }
 
@@ -128,3 +139,19 @@ export const iniciales = (nombre: string) =>
     .map((w) => w[0])
     .join('')
     .toUpperCase();
+
+export const mismoDia = (a: Date, b: Date) => a.toISOString().slice(0, 10) === b.toISOString().slice(0, 10);
+export const pesos = (n: number) =>
+  new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', maximumFractionDigits: 0 }).format(n);
+
+/** Enlace de contacto con la organización: WhatsApp si hay número, si no Messenger de Facebook. */
+export function contacto(d: Datos, texto: string) {
+  return d.torneo.contacto_whatsapp
+    ? { href: linkWhatsApp(d.torneo.contacto_whatsapp, texto), canal: 'WhatsApp' as const }
+    : { href: d.torneo.messenger, canal: 'Messenger' as const };
+}
+
+/** Primera letra en mayúscula ("Viernes, 13 de noviembre"), sin tocar el resto. */
+export const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+/** "viernes, 13 de noviembre" (sin año). */
+export const fechaSinAnio = (f: Date) => fechaLarga(f).replace(/ de \d{4}$/, '');

@@ -1,19 +1,2 @@
-# whatsapp: solo publicar con consentimiento del árbitro.
-# destacado: true = perfil pagado (aparece primero en el directorio).
-- id: arbitro-1
-  nombre: Árbitro Ejemplo Uno
-  zona: Nicolás Romero
-  experiencia: 12 años arbitrando ligas municipales
-  whatsapp: "5215500000001"
-  destacado: true
-- id: arbitro-2
-  nombre: Árbitro Ejemplo Dos
-  zona: Nicolás Romero / Atizapán
-  experiencia: 6 años
-  whatsapp: "5215500000002"
-  destacado: false
-- id: arbitro-3
-  nombre: Árbitro Ejemplo Tres
-  zona: Villa del Carbón
-  experiencia: 3 años
-  destacado: false
+# Se llena conforme se inscriben los equipos. Formato de ejemplo en ejemplos/arbitros.yaml
+[]

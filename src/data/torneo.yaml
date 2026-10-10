@@ -1,25 +1,67 @@
-# Datos generales del torneo. Una sola entrada con id "actual".
+# Datos generales del torneo. Fuente oficial: "SUPERCOPA 2026.pdf" (Comité Organizador).
 - id: actual
-  nombre: SuperCopa Nicolás Romero
+  nombre: Supercopa Nicolás Romero
+  edicion: Segunda Edición
   temporada: "2026"
   descripcion: >-
-    Torneo de fútbol amateur que reúne a los mejores equipos de Nicolás Romero,
-    Estado de México. (DATOS DE EJEMPLO: reemplázalos por los reales.)
-  categorias:
-    - id: primera
-      nombre: Primera Fuerza
-      grupos: [A, B]
+    Torneo que reúne a grandes equipos de Nicolás Romero y municipios de la región
+    en una competencia organizada, competitiva y de alto nivel deportivo.
+  organizador: Comité Organizador de la Supercopa Nicolás Romero 2026
+  sede_general: Nicolás Romero, Estado de México
   formato: >-
-    Fase de grupos a una vuelta. Los dos primeros de cada grupo avanzan a semifinales.
+    24 equipos divididos en 8 grupos de 3. Los mejores de cada grupo avanzan a
+    Octavos de Final, Cuartos de Final, Semifinal y Gran Final.
+  total_equipos: 24
+  equipos_por_grupo: 3
+  clasifican_por_grupo: 2
+  max_jugadores: 25
+  categorias:
+    - id: unica
+      nombre: Supercopa
+      grupos: [A, B, C, D, E, F, G, H]
+
+  fecha_limite_inscripcion: 2026-11-01
+  fechas:
+    - { id: limite, fecha: 2026-11-01, titulo: Fecha límite de inscripción, critica: true }
+    - { id: sorteo, fecha: 2026-11-11, titulo: Sorteo de grupos, descripcion: Definición de los 8 grupos de 3 equipos }
+    - { id: inauguracion, fecha: 2026-11-13, titulo: Inauguración, descripcion: Inicio oficial de la Supercopa }
+    - { id: final, fecha: 2026-12-12, titulo: Gran Final }
+
+  # Programación general oficial (partidos por día).
+  programacion:
+    - { fecha: 2026-11-13, fase: grupos, partidos: 4 }
+    - { fecha: 2026-11-14, fase: grupos, partidos: 4 }
+    - { fecha: 2026-11-16, fase: grupos, partidos: 8 }
+    - { fecha: 2026-11-20, fase: grupos, partidos: 4 }
+    - { fecha: 2026-11-21, fase: grupos, partidos: 4 }
+    - { fecha: 2026-11-27, fase: octavos, partidos: 4 }
+    - { fecha: 2026-11-28, fase: octavos, partidos: 4 }
+    - { fecha: 2026-12-04, fase: cuartos, partidos: 4 }
+    - { fecha: 2026-12-05, fase: semifinal, partidos: 2 }
+    - { fecha: 2026-12-12, fase: final, partidos: 1 }
+
+  costos:
+    - { concepto: Inscripción del equipo, monto: 4500, detalle: "3 pagos de $1,500 o liquidación anticipada" }
+    - { concepto: Registro de jugadores, monto: 400, detalle: Por equipo completo contando delegados }
+    - { concepto: Arbitraje, monto: 800, detalle: Por partido }
+    - { concepto: Arbitraje de la Gran Final, monto: 1300, detalle: Por equipo }
+  cuotas:
+    - { fecha: 2026-10-09, monto: 1500 }
+    - { fecha: 2026-10-16, monto: 1500 }
+    - { fecha: 2026-10-30, monto: 1500 }
+
+  premios:
+    - { lugar: Campeón, premio: "$80,000" }
+    - { lugar: Subcampeón, premio: Por definir }
+    - { lugar: Tercer lugar, premio: Por definir }
+
+  # Cálculo de tablas. El reglamento general de competencia es la referencia oficial.
   puntos: { victoria: 3, empate: 1, derrota: 0 }
-  desempate:
-    - Puntos
-    - Diferencia de goles
-    - Goles a favor
-    - Orden alfabético
-  # Reglas de disciplina usadas para calcular suspendidos.
   amarillas_para_suspension: 3
   partidos_suspension_roja: 1
-  contacto_whatsapp: "5215500000000"
+
+  # contacto_whatsapp: "52155XXXXXXXX"   # descomentar con el número real de la organización
   facebook: https://www.facebook.com/solofutbolamateurnr
+  messenger: https://m.me/solofutbolamateurnr
   sitio_principal: https://solofutbolamateur.com
+  bases_pdf: /bases-supercopa-nicolas-romero-2026.pdf

@@ -10,6 +10,7 @@ const dirigidos = (id: string) => d.partidos.filter((p) => p.arbitro_id === id &
 <Base title="Árbitros" description={`Directorio de árbitros de la ${d.torneo.nombre}. Contrata árbitros para tu liga o partido.`}>
   <Encabezado titulo="Árbitros" subtitulo="Directorio de árbitros del torneo. ¿Necesitas árbitro para tu liga o partido amistoso? Contáctalos directo." />
   <div class="contenedor py-8">
+    {d.arbitros.length === 0 && <p class="text-stone-500">El cuerpo arbitral se publica antes de la inauguración.</p>}
     <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {d.arbitros.map((a) => (
         <li class:list={['tarjeta flex flex-col gap-3 p-5', a.destacado && 'border-2 border-oro']}>

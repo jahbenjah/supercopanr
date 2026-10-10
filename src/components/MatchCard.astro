@@ -2,6 +2,7 @@
 import Icono from './Icono.astro';
 import TeamBadge from './TeamBadge.astro';
 import { datos, fecha, type Partido } from '../lib/datos';
+import { NOMBRE_FASE } from '../lib/estadisticas';
 
 interface Props {
   partido: Partido;
@@ -13,11 +14,14 @@ const local = d.por.equipos.get(p.local_id)!;
 const visita = d.por.equipos.get(p.visitante_id)!;
 const sede = p.sede_id ? d.por.sedes.get(p.sede_id) : undefined;
 const conMarcador = p.estado === 'jugado' || p.estado === 'default';
-const ganador = conMarcador ? (p.goles_local! > p.goles_visitante! ? 'L' : p.goles_local! < p.goles_visitante! ? 'V' : '') : '';
+const penales = p.penales_local != null && p.penales_visitante != null;
+const [gl, gv] = penales ? [p.penales_local!, p.penales_visitante!] : [p.goles_local ?? 0, p.goles_visitante ?? 0];
+const ganador = conMarcador ? (gl > gv ? 'L' : gl < gv ? 'V' : '') : '';
+const etiqueta = p.fase === 'grupos' ? (p.grupo ? `Grupo ${p.grupo}` : '') : NOMBRE_FASE[p.fase];
 ---
 <a href={`/partidos/${p.id}/`} class="tarjeta block p-3 no-underline transition hover:border-cancha hover:shadow">
   <div class="mb-2 flex items-center justify-between gap-2 text-xs text-stone-500">
-    <span>{mostrarFecha && `${fecha(p.fecha)} · `}{p.hora ?? 'Hora por definir'}</span>
+    <span>{mostrarFecha && `${fecha(p.fecha)} · `}{p.hora ?? 'Hora por definir'}{etiqueta && ` · ${etiqueta}`}</span>
     {p.estado === 'suspendido' && <span class="chip bg-red-100 text-red-700">Suspendido</span>}
     {p.estado === 'default' && <span class="chip bg-amber-100 text-amber-800">Por default</span>}
     {p.estado === 'jugado' && <span class="chip bg-emerald-100 text-emerald-800">Final</span>}
@@ -35,5 +39,6 @@ const ganador = conMarcador ? (p.goles_local! > p.goles_visitante! ? 'L' : p.gol
       <TeamBadge equipo={visita} enlace={false} />
     </span>
   </div>
+  {penales && <p class="mt-1 text-center text-xs text-stone-500">Penales {p.penales_local} - {p.penales_visitante}</p>}
   {sede && <p class="mt-2 truncate text-xs text-stone-500"><Icono tipo="pin" /> {sede.nombre}</p>}
 </a>

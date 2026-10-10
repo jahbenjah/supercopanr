@@ -5,7 +5,7 @@ import TeamBadge from '../../components/TeamBadge.astro';
 import MatchCard from '../../components/MatchCard.astro';
 import SponsorSlot from '../../components/SponsorSlot.astro';
 import WhatsAppCTA from '../../components/WhatsAppCTA.astro';
-import { datos, nombreCategoria, partidosDeEquipo } from '../../lib/datos';
+import { datos, partidosDeEquipo } from '../../lib/datos';
 
 export async function getStaticPaths() {
   const d = await datos();
@@ -17,22 +17,23 @@ const e = d.por.equipos.get(Astro.params.id)!;
 const plantilla = d.jugadores
   .filter((j) => j.equipo_id === e.id)
   .sort((a, b) => (a.numero ?? 999) - (b.numero ?? 999));
-const tabla = d.posiciones.find((t) => t.filas.some((f) => f.equipo_id === e.id))!;
-const fila = tabla.filas.find((f) => f.equipo_id === e.id)!;
-const lugar = tabla.filas.indexOf(fila) + 1;
+const tabla = d.posiciones.find((t) => t.filas.some((f) => f.equipo_id === e.id));
+const fila = tabla?.filas.find((f) => f.equipo_id === e.id);
 const partidos = partidosDeEquipo(d, e.id);
 const golesDe = new Map(d.goleadores.map((g) => [g.jugador_id, g.goles]));
 const tarjetasDe = new Map(d.disciplina.map((r) => [r.jugador_id, r]));
 const sede = e.sede_id ? d.por.sedes.get(e.sede_id) : undefined;
 const patrocinadores = e.patrocinadores_ids.map((id) => d.por.patrocinadores.get(id)!);
-const stats = [['Lugar', `${lugar}°`], ['Puntos', fila.pts], ['PJ', fila.pj], ['G-E-P', `${fila.g}-${fila.e}-${fila.p}`], ['Goles', `${fila.gf}:${fila.gc}`]];
+const stats = tabla && fila
+  ? [['Lugar', `${tabla.filas.indexOf(fila) + 1}°`], ['Puntos', fila.pts], ['PJ', fila.pj], ['G-E-P', `${fila.g}-${fila.e}-${fila.p}`], ['Goles', `${fila.gf}:${fila.gc}`]]
+  : [];
 ---
 <Base title={e.nombre} description={`${e.nombre}: plantilla, partidos y estadísticas en la ${d.torneo.nombre}.`}>
   <section class="text-white" style={`background:linear-gradient(135deg, ${e.color}, #064a35)`}>
     <div class="contenedor flex flex-col gap-6 py-10 sm:flex-row sm:items-center">
       <TeamBadge equipo={e} size={112} enlace={false} />
       <div class="flex-1">
-        <p class="text-sm text-white/80">{nombreCategoria(d, e.categoria)} · Grupo {e.grupo}</p>
+        <p class="text-sm text-white/80">{e.grupo ? `Grupo ${e.grupo}` : 'Grupo por sortear'}</p>
         <h1 class="text-4xl sm:text-5xl">{e.nombre}</h1>
         {e.perfil_premium && e.descripcion && <p class="mt-2 max-w-2xl text-white/90">{e.descripcion}</p>}
         <dl class="mt-4 flex flex-wrap gap-x-6 gap-y-2">
@@ -69,6 +70,7 @@ const stats = [['Lugar', `${lugar}°`], ['Puntos', fila.pts], ['PJ', fila.pj], [
       </section>
       <section>
         <h2 class="titulo-seccion">Partidos</h2>
+        {partidos.length === 0 && <p class="text-stone-500">El calendario se publica después del sorteo de grupos.</p>}
         <div class="grid gap-3 sm:grid-cols-2">{partidos.map((p) => <MatchCard partido={p} />)}</div>
       </section>
       {e.perfil_premium && e.fotos.length > 0 && (

@@ -1,0 +1,173 @@
+# EJEMPLO. Copia a src/data/ para probar el sitio con datos.
+- id: deportivo-colmena
+  nombre: Deportivo Colmena
+  categoria: unica
+  grupo: A
+  color: "#0b6e4f"
+  sede_id: la-colmena
+  delegado: Delegado Deportivo Colmena
+  perfil_premium: true
+  facebook: https://www.facebook.com/solofutbolamateurnr
+  patrocinadores_ids: [patrocinador-equipo-colmena]
+  descripcion: Equipo de La Colmena con más de 20 años de historia (ejemplo).
+- id: real-progreso
+  nombre: Real Progreso
+  categoria: unica
+  grupo: A
+  color: "#c1121f"
+  sede_id: la-colmena
+  delegado: Delegado Real Progreso
+- id: atletico-cahuacan
+  nombre: Atlético Cahuacán
+  categoria: unica
+  grupo: A
+  color: "#1d3557"
+  sede_id: la-colmena
+  delegado: Delegado Atlético Cahuacán
+- id: club-transfiguracion
+  nombre: Club Transfiguración
+  categoria: unica
+  grupo: B
+  color: "#f4a261"
+  sede_id: la-colmena
+  delegado: Delegado Club Transfiguración
+- id: union-vista-hermosa
+  nombre: Unión Vista Hermosa
+  categoria: unica
+  grupo: B
+  color: "#6a4c93"
+  sede_id: la-colmena
+  delegado: Delegado Unión Vista Hermosa
+- id: halcones-san-isidro
+  nombre: Halcones San Isidro
+  categoria: unica
+  grupo: B
+  color: "#2a9d8f"
+  sede_id: la-colmena
+  delegado: Delegado Halcones San Isidro
+- id: tigres-barron
+  nombre: Tigres Barrón
+  categoria: unica
+  grupo: C
+  color: "#e9c46a"
+  sede_id: la-colmena
+  delegado: Delegado Tigres Barrón
+- id: juventud-granjas
+  nombre: Juventud Granjas
+  categoria: unica
+  grupo: C
+  color: "#264653"
+  sede_id: la-colmena
+  delegado: Delegado Juventud Granjas
+- id: pumas-libertad
+  nombre: Pumas Libertad
+  categoria: unica
+  grupo: C
+  color: "#0b6e4f"
+  sede_id: la-colmena
+  delegado: Delegado Pumas Libertad
+- id: leones-villa-nicolas
+  nombre: Leones Villa Nicolás
+  categoria: unica
+  grupo: D
+  color: "#c1121f"
+  sede_id: la-colmena
+  delegado: Delegado Leones Villa Nicolás
+- id: aguilas-santa-anita
+  nombre: Águilas Santa Anita
+  categoria: unica
+  grupo: D
+  color: "#1d3557"
+  sede_id: la-colmena
+  delegado: Delegado Águilas Santa Anita
+- id: toros-magu
+  nombre: Toros Magú
+  categoria: unica
+  grupo: D
+  color: "#f4a261"
+  sede_id: la-colmena
+  delegado: Delegado Toros Magú
+- id: rayos-morelos
+  nombre: Rayos Morelos
+  categoria: unica
+  grupo: E
+  color: "#6a4c93"
+  sede_id: unidad-deportiva-centro
+  delegado: Delegado Rayos Morelos
+- id: halcones-loma
+  nombre: Halcones Loma
+  categoria: unica
+  grupo: E
+  color: "#2a9d8f"
+  sede_id: unidad-deportiva-centro
+  delegado: Delegado Halcones Loma
+- id: cruz-azul-hidalgo
+  nombre: Cruz Azul Hidalgo
+  categoria: unica
+  grupo: E
+  color: "#e9c46a"
+  sede_id: unidad-deportiva-centro
+  delegado: Delegado Cruz Azul Hidalgo
+- id: real-benito-juarez
+  nombre: Real Benito Juárez
+  categoria: unica
+  grupo: F
+  color: "#264653"
+  sede_id: unidad-deportiva-centro
+  delegado: Delegado Real Benito Juárez
+- id: atlas-independencia
+  nombre: Atlas Independencia
+  categoria: unica
+  grupo: F
+  color: "#0b6e4f"
+  sede_id: unidad-deportiva-centro
+  delegado: Delegado Atlas Independencia
+- id: necaxa-vicente-guerrero
+  nombre: Necaxa Vicente Guerrero
+  categoria: unica
+  grupo: F
+  color: "#c1121f"
+  sede_id: unidad-deportiva-centro
+  delegado: Delegado Necaxa Vicente Guerrero
+- id: gallos-san-juan
+  nombre: Gallos San Juan
+  categoria: unica
+  grupo: G
+  color: "#1d3557"
+  sede_id: unidad-deportiva-centro
+  delegado: Delegado Gallos San Juan
+- id: lobos-bosques
+  nombre: Lobos Bosques
+  categoria: unica
+  grupo: G
+  color: "#f4a261"
+  sede_id: unidad-deportiva-centro
+  delegado: Delegado Lobos Bosques
+- id: zorros-ignacio-lopez
+  nombre: Zorros Ignacio López
+  categoria: unica
+  grupo: G
+  color: "#6a4c93"
+  sede_id: unidad-deportiva-centro
+  delegado: Delegado Zorros Ignacio López
+- id: potros-canada
+  nombre: Potros Cañada
+  categoria: unica
+  grupo: H
+  color: "#2a9d8f"
+  sede_id: unidad-deportiva-centro
+  delegado: Delegado Potros Cañada
+- id: jaguares-el-gavillero
+  nombre: Jaguares El Gavillero
+  categoria: unica
+  grupo: H
+  color: "#e9c46a"
+  sede_id: unidad-deportiva-centro
+  delegado: Delegado Jaguares El Gavillero
+- id: club-zaragoza
+  nombre: Club Zaragoza
+  categoria: unica
+  grupo: H
+  color: "#264653"
+  sede_id: unidad-deportiva-centro
+  delegado: Delegado Club Zaragoza
