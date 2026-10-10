@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cancha: #0b6e4f;
+  --color-cancha-oscuro: #064a35;
+  --color-oro: #e0a100;
+  --color-tinta: #14201b;
+  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Barlow Condensed", "Barlow", ui-sans-serif, sans-serif;
+}
+
+@layer base {
+  body { @apply bg-stone-50 text-tinta antialiased; }
+  h1, h2, h3 { @apply font-display font-bold uppercase tracking-wide; }
+  a { @apply underline-offset-2; }
+}
+
+@utility contenedor { @apply mx-auto w-full max-w-6xl px-4; }
+@utility tarjeta { @apply rounded-xl border border-stone-200 bg-white shadow-sm; }
+@utility titulo-seccion {
+  @apply mb-4 flex items-center gap-2 text-2xl text-cancha-oscuro;
+  &::before { content: ""; @apply inline-block h-6 w-1.5 shrink-0 rounded bg-oro; }
+}
+@utility boton { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-semibold no-underline transition; }
+@utility boton-whatsapp { @apply boton bg-[#25d366] text-white hover:bg-[#1da851]; }
+@utility boton-primario { @apply boton bg-cancha text-white hover:bg-cancha-oscuro; }
+@utility chip { @apply inline-block rounded-full bg-stone-100 px-2.5 py-0.5 text-xs font-semibold text-stone-600; }
+@utility tabla {
+  @apply w-full text-sm;
+  & th { @apply bg-cancha-oscuro px-2 py-2 text-center font-semibold text-white; }
+  & td { @apply border-b border-stone-100 px-2 py-2 text-center; }
+  & tbody tr:nth-child(even) { @apply bg-stone-50; }
+}

@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import Encabezado from '../components/Encabezado.astro';
+import MatchCard from '../components/MatchCard.astro';
+import SponsorSlot from '../components/SponsorSlot.astro';
+import { datos, fechaLarga } from '../lib/datos';
+
+const d = await datos();
+const jornadas = [...new Set(d.partidos.map((p) => p.jornada))].sort((a, b) => a - b);
+const categorias = d.torneo.categorias;
+---
+<Base title="Calendario" description={`Rol de juegos completo de la ${d.torneo.nombre}: fechas, horarios y sedes.`}>
+  <Encabezado titulo="Calendario" subtitulo="Rol de juegos por jornada con horarios y sedes.">
+    {categorias.length > 1 && (
+      <label class="mt-4 inline-flex items-center gap-2 text-sm">
+        Categoría
+        <select id="filtro-categoria" class="rounded bg-white px-2 py-1 text-tinta">
+          <option value="">Todas</option>
+          {categorias.map((c) => <option value={c.id}>{c.nombre}</option>)}
+        </select>
+      </label>
+    )}
+  </Encabezado>
+  <div class="contenedor space-y-10 py-8">
+    {jornadas.map((j) => {
+      const ps = d.partidos.filter((p) => p.jornada === j);
+      const fechas = [...new Set(ps.map((p) => p.fecha.getTime()))];
+      const patrocinador = ps.find((p) => p.patrocinador_jornada_id)?.patrocinador_jornada_id;
+      return (
+        <section id={`jornada-${j}`} class:list={['scroll-mt-4', j === d.proximaJornada && 'rounded-xl ring-2 ring-oro ring-offset-8 ring-offset-stone-50']}>
+          <div class="mb-3 flex flex-wrap items-baseline justify-between gap-2">
+            <h2 class="titulo-seccion mb-0!">Jornada {j}{j === d.proximaJornada && <span class="chip ml-2 bg-oro text-tinta normal-case">Próxima</span>}</h2>
+            <p class="text-sm text-stone-500">{fechas.map((f) => fechaLarga(new Date(f))).join(' · ')}</p>
+          </div>
+          {patrocinador && (
+            <p class="mb-3 text-sm text-stone-600">Jornada presentada por <strong>{d.por.patrocinadores.get(patrocinador)!.nombre}</strong></p>
+          )}
+          <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {ps.map((p) => <div data-categoria={p.categoria}><MatchCard partido={p} /></div>)}
+          </div>
+        </section>
+      );
+    })}
+    <SponsorSlot ubicacion="jornada" />
+  </div>
+  <script>
+    const sel = document.getElementById('filtro-categoria') as HTMLSelectElement | null;
+    sel?.addEventListener('change', () => {
+      document.querySelectorAll<HTMLElement>('[data-categoria]').forEach((el) => {
+        el.hidden = !!sel.value && el.dataset.categoria !== sel.value;
+      });
+    });
+  </script>
+</Base>

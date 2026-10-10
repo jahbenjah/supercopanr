@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import Encabezado from '../components/Encabezado.astro';
+import StandingsTable from '../components/StandingsTable.astro';
+import SponsorSlot from '../components/SponsorSlot.astro';
+import { datos } from '../lib/datos';
+
+const d = await datos();
+---
+<Base title="Tabla de posiciones" description={`Tabla de posiciones actualizada de la ${d.torneo.nombre}.`}>
+  <Encabezado titulo="Posiciones" subtitulo={d.torneo.formato} />
+  <div class="contenedor py-8">
+    <SponsorSlot ubicacion="tabla" />
+    <div class="mt-8 grid gap-6 lg:grid-cols-2">
+      {d.posiciones.map((t) => <StandingsTable tabla={t} />)}
+    </div>
+    <p class="mt-6 text-sm text-stone-500">
+      Criterios de desempate: {d.torneo.desempate.join(', ')}. Los lugares resaltados clasifican.
+    </p>
+  </div>
+</Base>

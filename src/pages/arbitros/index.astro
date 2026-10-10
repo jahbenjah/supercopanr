@@ -1,0 +1,41 @@
+---
+import Base from '../../layouts/Base.astro';
+import Encabezado from '../../components/Encabezado.astro';
+import WhatsAppCTA from '../../components/WhatsAppCTA.astro';
+import { datos, iniciales } from '../../lib/datos';
+
+const d = await datos();
+const dirigidos = (id: string) => d.partidos.filter((p) => p.arbitro_id === id && p.estado === 'jugado').length;
+---
+<Base title="Árbitros" description={`Directorio de árbitros de la ${d.torneo.nombre}. Contrata árbitros para tu liga o partido.`}>
+  <Encabezado titulo="Árbitros" subtitulo="Directorio de árbitros del torneo. ¿Necesitas árbitro para tu liga o partido amistoso? Contáctalos directo." />
+  <div class="contenedor py-8">
+    <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {d.arbitros.map((a) => (
+        <li class:list={['tarjeta flex flex-col gap-3 p-5', a.destacado && 'border-2 border-oro']}>
+          <div class="flex items-center gap-3">
+            {a.foto ? (
+              <img src={a.foto} alt={a.nombre} width="56" height="56" class="h-14 w-14 rounded-full object-cover" />
+            ) : (
+              <span class="flex h-14 w-14 items-center justify-center rounded-full bg-tinta font-display text-xl font-bold text-white">{iniciales(a.nombre)}</span>
+            )}
+            <div class="min-w-0">
+              <a href={`/arbitros/${a.id}/`} class="block truncate font-display text-xl font-bold uppercase no-underline hover:underline">{a.nombre}</a>
+              {a.destacado && <span class="chip bg-oro/20 text-amber-800">★ Destacado</span>}
+            </div>
+          </div>
+          <p class="text-sm text-stone-600">{[a.zona, a.experiencia].filter(Boolean).join(' · ')}</p>
+          <p class="text-sm text-stone-500">{dirigidos(a.id)} partidos dirigidos en el torneo</p>
+          {a.whatsapp && (
+            <WhatsAppCTA numero={a.whatsapp} texto={`Hola ${a.nombre}, te vi en la ${d.torneo.nombre} y quiero contratarte para un partido.`} id={a.id} class="mt-auto">
+              Contratar
+            </WhatsAppCTA>
+          )}
+        </li>
+      ))}
+    </ul>
+    <p class="mt-8 text-center text-sm text-stone-500">
+      ¿Eres árbitro? <a href="/anunciate/#arbitro-destacado" class="font-semibold text-cancha">Destaca tu perfil</a> y recibe más contrataciones.
+    </p>
+  </div>
+</Base>

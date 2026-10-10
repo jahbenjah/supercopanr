@@ -1,0 +1,50 @@
+---
+import TeamBadge from './TeamBadge.astro';
+import { datos, nombreCategoria } from '../lib/datos';
+import type { TablaGrupo } from '../lib/estadisticas';
+
+interface Props {
+  tabla: TablaGrupo;
+  compacta?: boolean;
+  /** Cuántos clasifican (se resaltan). */
+  clasifican?: number;
+}
+const { tabla, compacta = false, clasifican = 2 } = Astro.props;
+const d = await datos();
+// Columnas de detalle: se ocultan en pantallas chicas para que PTS siempre sea visible.
+const det = 'hidden sm:table-cell';
+---
+<div class="tarjeta overflow-hidden">
+  <h3 class="bg-cancha px-3 py-2 text-lg text-white">
+    {nombreCategoria(d, tabla.categoria)} · Grupo {tabla.grupo}
+  </h3>
+  <div class="overflow-x-auto">
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th class="w-8">#</th>
+          <th class="text-left!">Equipo</th>
+          <th title="Partidos jugados">PJ</th>
+          {!compacta && <><th class={det} title="Ganados">G</th><th class={det} title="Empatados">E</th><th class={det} title="Perdidos">P</th><th class={det} title="Goles a favor">GF</th><th class={det} title="Goles en contra">GC</th></>}
+          <th title="Diferencia de goles">DIF</th>
+          <th title="Puntos">PTS</th>
+        </tr>
+      </thead>
+      <tbody>
+        {tabla.filas.map((f, i) => {
+          const eq = d.por.equipos.get(f.equipo_id)!;
+          return (
+            <tr class:list={[i < clasifican && 'font-semibold']}>
+              <td><span class:list={['inline-block w-6 rounded', i < clasifican && 'bg-oro text-tinta']}>{i + 1}</span></td>
+              <td class="max-w-[12rem] text-left!"><TeamBadge equipo={eq} conNombre size={24} /></td>
+              <td>{f.pj}</td>
+              {!compacta && <><td class={det}>{f.g}</td><td class={det}>{f.e}</td><td class={det}>{f.p}</td><td class={det}>{f.gf}</td><td class={det}>{f.gc}</td></>}
+              <td>{f.dif > 0 ? `+${f.dif}` : f.dif}</td>
+              <td class="font-bold">{f.pts}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  </div>
+</div>

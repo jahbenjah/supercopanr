@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import Encabezado from '../../components/Encabezado.astro';
+import { datos } from '../../lib/datos';
+
+const d = await datos();
+---
+<Base title="Sedes" description={`Canchas y sedes de la ${d.torneo.nombre} con ubicación y cómo llegar.`}>
+  <Encabezado titulo="Sedes" subtitulo="Canchas donde se juega el torneo." />
+  <div class="contenedor grid gap-4 py-8 sm:grid-cols-2">
+    {d.sedes.map((s) => (
+      <a href={`/sedes/${s.id}/`} class="tarjeta block p-5 no-underline transition hover:border-cancha hover:shadow">
+        <h2 class="text-2xl text-cancha-oscuro">{s.nombre}</h2>
+        <p class="mt-1 text-sm text-stone-600">{s.direccion}</p>
+        <p class="mt-3 flex flex-wrap gap-2">
+          {s.cancha && <span class="chip">{s.cancha}</span>}
+          {s.servicios.map((x) => <span class="chip">{x}</span>)}
+        </p>
+        <p class="mt-3 text-sm text-stone-500">{d.partidos.filter((p) => p.sede_id === s.id).length} partidos</p>
+      </a>
+    ))}
+  </div>
+</Base>

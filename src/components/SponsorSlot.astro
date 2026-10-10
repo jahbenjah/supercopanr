@@ -1,0 +1,63 @@
+---
+// Espacio publicitario. Si no hay patrocinador vendido para esta ubicación,
+// muestra una invitación a anunciarse (inventario visible = ventas).
+import { datos, linkWhatsApp, patrocinadoresEn, type Patrocinador, type Ubicacion } from '../lib/datos';
+
+interface Props {
+  ubicacion?: Ubicacion;
+  /** Lista explícita (p. ej. patrocinadores de un equipo); ignora `ubicacion`. */
+  lista?: Patrocinador[];
+  titulo?: string;
+  oscuro?: boolean;
+  invitacion?: boolean;
+}
+const { ubicacion, lista, titulo = 'Patrocinadores oficiales', oscuro = false, invitacion = true } = Astro.props;
+const d = await datos();
+const items = lista ?? (ubicacion ? patrocinadoresEn(d, ubicacion) : []);
+const destino = (p: Patrocinador) =>
+  p.url ?? (p.whatsapp ? linkWhatsApp(p.whatsapp, `Hola, los vi en la ${d.torneo.nombre}`) : undefined);
+const grande = ubicacion === 'home-top' || ubicacion === 'partido';
+---
+{(items.length > 0 || invitacion) && (
+  <aside class:list={['text-center', oscuro ? 'text-stone-300' : 'text-stone-500']} aria-label={titulo}>
+    <p class="mb-3 text-xs font-semibold uppercase tracking-widest">{titulo}</p>
+    <div class="flex flex-wrap items-center justify-center gap-3">
+      {items.map((p) => {
+        const href = destino(p);
+        const Tag = href ? 'a' : 'div';
+        return (
+          <Tag
+            href={href}
+            target={href ? '_blank' : undefined}
+            rel={href ? 'sponsored noopener' : undefined}
+            data-track={href ? 'click_patrocinador' : undefined}
+            data-id={p.id}
+            class:list={[
+              'flex items-center justify-center rounded-lg border px-4 no-underline transition',
+              oscuro ? 'border-white/15 bg-white/5 hover:bg-white/10' : 'border-stone-200 bg-white hover:border-oro',
+              grande && p.nivel === 'oro' ? 'h-24 min-w-64' : 'h-16 min-w-40',
+            ]}
+          >
+            {p.logo ? (
+              <img src={p.logo} alt={p.nombre} class="max-h-[80%] max-w-full object-contain" loading="lazy" />
+            ) : (
+              <span class:list={['font-display font-bold uppercase', grande && p.nivel === 'oro' ? 'text-2xl' : 'text-base', oscuro ? 'text-white' : 'text-tinta']}>{p.nombre}</span>
+            )}
+          </Tag>
+        );
+      })}
+      {invitacion && (
+        <a
+          href="/anunciate/"
+          class:list={[
+            'flex h-16 min-w-40 flex-col items-center justify-center rounded-lg border-2 border-dashed px-4 text-sm no-underline transition',
+            oscuro ? 'border-white/25 hover:border-oro hover:text-oro' : 'border-stone-300 hover:border-oro hover:text-tinta',
+          ]}
+        >
+          <span class="font-semibold">Tu marca aquí</span>
+          <span class="text-xs">Anúnciate →</span>
+        </a>
+      )}
+    </div>
+  </aside>
+)}

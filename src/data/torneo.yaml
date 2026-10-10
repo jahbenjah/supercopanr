@@ -1,0 +1,25 @@
+# Datos generales del torneo. Una sola entrada con id "actual".
+- id: actual
+  nombre: SuperCopa Nicolás Romero
+  temporada: "2026"
+  descripcion: >-
+    Torneo de fútbol amateur que reúne a los mejores equipos de Nicolás Romero,
+    Estado de México. (DATOS DE EJEMPLO: reemplázalos por los reales.)
+  categorias:
+    - id: primera
+      nombre: Primera Fuerza
+      grupos: [A, B]
+  formato: >-
+    Fase de grupos a una vuelta. Los dos primeros de cada grupo avanzan a semifinales.
+  puntos: { victoria: 3, empate: 1, derrota: 0 }
+  desempate:
+    - Puntos
+    - Diferencia de goles
+    - Goles a favor
+    - Orden alfabético
+  # Reglas de disciplina usadas para calcular suspendidos.
+  amarillas_para_suspension: 3
+  partidos_suspension_roja: 1
+  contacto_whatsapp: "5215500000000"
+  facebook: https://www.facebook.com/solofutbolamateurnr
+  sitio_principal: https://solofutbolamateur.com

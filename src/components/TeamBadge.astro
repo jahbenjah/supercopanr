@@ -1,0 +1,26 @@
+---
+import { iniciales } from '../lib/datos';
+
+interface Props {
+  equipo: { id: string; nombre: string; color: string; logo?: string };
+  size?: number;
+  conNombre?: boolean;
+  enlace?: boolean;
+  class?: string;
+}
+const { equipo, size = 32, conNombre = false, enlace = true, class: clase } = Astro.props;
+const Tag = enlace ? 'a' : 'span';
+---
+<Tag href={enlace ? `/equipos/${equipo.id}/` : undefined} class:list={['inline-flex min-w-0 items-center gap-2 no-underline hover:underline', clase]}>
+  {equipo.logo ? (
+    <img src={equipo.logo} alt={conNombre ? '' : equipo.nombre} width={size} height={size} class="shrink-0 rounded-full object-contain" loading="lazy" />
+  ) : (
+    <span
+      class="inline-flex shrink-0 items-center justify-center rounded-full font-display font-bold text-white ring-2 ring-white"
+      style={`background:${equipo.color};width:${size}px;height:${size}px;font-size:${Math.round(size * 0.38)}px`}
+      aria-hidden={conNombre ? 'true' : undefined}
+      title={equipo.nombre}
+    >{iniciales(equipo.nombre)}</span>
+  )}
+  {conNombre && <span class="truncate font-semibold">{equipo.nombre}</span>}
+</Tag>

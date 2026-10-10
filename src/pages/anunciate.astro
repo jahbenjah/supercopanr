@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import Encabezado from '../components/Encabezado.astro';
+import WhatsAppCTA from '../components/WhatsAppCTA.astro';
+import { datos } from '../lib/datos';
+
+const d = await datos();
+const { torneo } = d;
+const precio = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', maximumFractionDigits: 0 });
+const alcance = [
+  [d.equipos.length, 'equipos'],
+  [d.jugadores.length, 'jugadores registrados'],
+  [d.partidos.length, 'partidos en el torneo'],
+  [d.sedes.length, 'sedes'],
+];
+---
+<Base title="Anúnciate" description={`Patrocina la ${torneo.nombre} y llega a jugadores, familias y aficionados de Nicolás Romero.`}>
+  <Encabezado titulo="Anúnciate en la SuperCopa" subtitulo="Pon tu marca frente a jugadores, familias y aficionados del fútbol de Nicolás Romero, en la cancha y en línea.">
+    <WhatsAppCTA numero={torneo.contacto_whatsapp} texto={`Hola, quiero información para patrocinar la ${torneo.nombre}`} id="anunciate-hero" class="mt-5">
+      Quiero anunciarme
+    </WhatsAppCTA>
+  </Encabezado>
+  <div class="contenedor py-10">
+    <dl class="grid grid-cols-2 gap-4 sm:grid-cols-4">
+      {alcance.map(([n, t]) => (
+        <div class="tarjeta p-4 text-center"><dd class="font-display text-4xl font-bold text-cancha">{n}</dd><dt class="text-sm text-stone-500">{t}</dt></div>
+      ))}
+    </dl>
+
+    <h2 class="titulo-seccion mt-12">Paquetes</h2>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {d.paquetes.map((p) => (
+        <article id={p.id} class:list={['tarjeta flex scroll-mt-4 flex-col p-6', p.destacado && 'border-2 border-oro shadow-lg']}>
+          {p.destacado && <span class="chip mb-2 self-start bg-oro text-tinta">Más popular</span>}
+          <h3 class="text-2xl text-cancha-oscuro">{p.nombre}</h3>
+          <p class="mt-2"><span class="font-display text-4xl font-bold">{precio.format(p.precio)}</span> <span class="text-sm text-stone-500">{p.periodo}</span></p>
+          <ul class="mt-4 flex-1 space-y-2 text-sm">
+            {p.beneficios.map((b) => <li class="flex gap-2"><span class="text-cancha">✔</span>{b}</li>)}
+          </ul>
+          <WhatsAppCTA numero={torneo.contacto_whatsapp} texto={`Hola, me interesa el paquete "${p.nombre}" de la ${torneo.nombre}`} id={p.id} class="mt-6">
+            Lo quiero
+          </WhatsAppCTA>
+        </article>
+      ))}
+    </div>
+    <p class="mt-8 text-sm text-stone-500">
+      Medimos visitas y clics a cada patrocinador para enviarte un reporte de resultados al terminar el torneo.
+    </p>
+  </div>
+</Base>

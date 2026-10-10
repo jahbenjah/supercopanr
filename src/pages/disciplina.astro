@@ -1,0 +1,55 @@
+---
+import Icono from '../components/Icono.astro';
+import Base from '../layouts/Base.astro';
+import Encabezado from '../components/Encabezado.astro';
+import TeamBadge from '../components/TeamBadge.astro';
+import { datos } from '../lib/datos';
+
+const d = await datos();
+const { torneo } = d;
+const suspendidos = d.disciplina.filter((r) => r.pendientes > 0);
+---
+<Base title="Disciplina" description={`Tarjetas y jugadores suspendidos de la ${torneo.nombre}.`}>
+  <Encabezado
+    titulo="Disciplina"
+    subtitulo={`Roja: ${torneo.partidos_suspension_roja} partido(s) de suspensión. Cada ${torneo.amarillas_para_suspension} amarillas acumuladas: 1 partido.`}
+  />
+  <div class="contenedor space-y-10 py-8">
+    <section>
+      <h2 class="titulo-seccion">Suspendidos para el próximo partido</h2>
+      {suspendidos.length === 0 ? (
+        <p class="text-stone-500">No hay jugadores suspendidos.</p>
+      ) : (
+        <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {suspendidos.map((r) => (
+            <li class="tarjeta flex items-center gap-3 border-l-4 border-l-red-600 p-3">
+              <TeamBadge equipo={d.por.equipos.get(r.equipo_id)!} />
+              <div class="min-w-0 flex-1">
+                <a href={`/jugadores/${r.jugador_id}/`} class="block truncate font-semibold">{d.por.jugadores.get(r.jugador_id)!.nombre}</a>
+                <span class="text-sm text-stone-500">{r.pendientes} partido(s) pendiente(s)</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+    <section>
+      <h2 class="titulo-seccion">Tarjetas</h2>
+      <div class="tarjeta overflow-x-auto">
+        <table class="tabla">
+          <thead><tr><th class="text-left!">Jugador</th><th class="text-left!">Equipo</th><th><Icono tipo="amarilla" /></th><th><Icono tipo="roja" /></th></tr></thead>
+          <tbody>
+            {d.disciplina.map((r) => (
+              <tr>
+                <td class="text-left!"><a href={`/jugadores/${r.jugador_id}/`}>{d.por.jugadores.get(r.jugador_id)!.nombre}</a></td>
+                <td class="text-left!"><TeamBadge equipo={d.por.equipos.get(r.equipo_id)!} conNombre size={22} /></td>
+                <td>{r.amarillas}</td>
+                <td>{r.rojas}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</Base>

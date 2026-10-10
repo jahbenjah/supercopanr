@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import Encabezado from '../../components/Encabezado.astro';
+import MatchCard from '../../components/MatchCard.astro';
+import WhatsAppCTA from '../../components/WhatsAppCTA.astro';
+import { datos } from '../../lib/datos';
+
+export async function getStaticPaths() {
+  const d = await datos();
+  return d.arbitros.map((a) => ({ params: { id: a.id } }));
+}
+
+const d = await datos();
+const a = d.por.arbitros.get(Astro.params.id)!;
+const partidos = d.partidos.filter((p) => p.arbitro_id === a.id);
+---
+<Base title={`Árbitro ${a.nombre}`} description={`${a.nombre}, árbitro de la ${d.torneo.nombre}. ${a.experiencia ?? ''}`}>
+  <Encabezado titulo={a.nombre} subtitulo={[a.zona, a.experiencia].filter(Boolean).join(' · ')}>
+    {a.whatsapp && (
+      <WhatsAppCTA numero={a.whatsapp} texto={`Hola ${a.nombre}, te vi en la ${d.torneo.nombre} y quiero contratarte para un partido.`} id={a.id} class="mt-4">
+        Contratar por WhatsApp
+      </WhatsAppCTA>
+    )}
+  </Encabezado>
+  <div class="contenedor py-8">
+    <h2 class="titulo-seccion">Partidos asignados</h2>
+    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{partidos.map((p) => <MatchCard partido={p} />)}</div>
+  </div>
+</Base>

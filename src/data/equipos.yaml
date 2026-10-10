@@ -1,0 +1,62 @@
+# DATOS DE EJEMPLO. perfil_premium: true = perfil pagado (galería, contacto, patrocinadores).
+- id: deportivo-colmena
+  nombre: Deportivo Colmena
+  categoria: primera
+  grupo: A
+  color: "#0b6e4f"
+  sede_id: la-colmena
+  delegado: Delegado Deportivo Colmena
+  perfil_premium: true
+  whatsapp: "5215500000020"
+  facebook: https://www.facebook.com/solofutbolamateurnr
+  patrocinadores_ids: [patrocinador-equipo-colmena]
+  descripcion: Equipo fundado en La Colmena con más de 20 años de historia (ejemplo).
+- id: real-progreso
+  nombre: Real Progreso
+  categoria: primera
+  grupo: A
+  color: "#c1121f"
+  sede_id: la-colmena
+  delegado: Delegado Real Progreso
+- id: atletico-cahuacan
+  nombre: Atlético Cahuacán
+  categoria: primera
+  grupo: A
+  color: "#1d3557"
+  sede_id: unidad-deportiva-centro
+  delegado: Delegado Atlético Cahuacán
+- id: club-transfiguracion
+  nombre: Club Transfiguración
+  categoria: primera
+  grupo: A
+  color: "#f4a261"
+  sede_id: unidad-deportiva-centro
+  delegado: Delegado Club Transfiguración
+- id: union-vista-hermosa
+  nombre: Unión Vista Hermosa
+  categoria: primera
+  grupo: B
+  color: "#6a4c93"
+  sede_id: la-colmena
+  delegado: Delegado Unión Vista Hermosa
+- id: halcones-san-isidro
+  nombre: Halcones San Isidro
+  categoria: primera
+  grupo: B
+  color: "#2a9d8f"
+  sede_id: unidad-deportiva-centro
+  delegado: Delegado Halcones San Isidro
+- id: tigres-barron
+  nombre: Tigres Barrón
+  categoria: primera
+  grupo: B
+  color: "#e9c46a"
+  sede_id: la-colmena
+  delegado: Delegado Tigres Barrón
+- id: juventud-granjas
+  nombre: Juventud Granjas
+  categoria: primera
+  grupo: B
+  color: "#264653"
+  sede_id: unidad-deportiva-centro
+  delegado: Delegado Juventud Granjas

@@ -1,0 +1,90 @@
+---
+import Icono from '../../components/Icono.astro';
+import Base from '../../layouts/Base.astro';
+import TeamBadge from '../../components/TeamBadge.astro';
+import SponsorSlot from '../../components/SponsorSlot.astro';
+import { datos, fechaLarga, nombreCategoria } from '../../lib/datos';
+
+export async function getStaticPaths() {
+  const d = await datos();
+  return d.partidos.map((p) => ({ params: { id: p.id } }));
+}
+
+const d = await datos();
+const p = d.por.partidos.get(Astro.params.id)!;
+const local = d.por.equipos.get(p.local_id)!;
+const visita = d.por.equipos.get(p.visitante_id)!;
+const sede = p.sede_id ? d.por.sedes.get(p.sede_id) : undefined;
+const arbitro = p.arbitro_id ? d.por.arbitros.get(p.arbitro_id) : undefined;
+const patrocinador = p.patrocinador_jornada_id ? d.por.patrocinadores.get(p.patrocinador_jornada_id) : undefined;
+const conMarcador = p.estado === 'jugado' || p.estado === 'default';
+const estados = { programado: 'Programado', jugado: 'Final', suspendido: 'Suspendido', default: 'Ganado por default' };
+
+// Cronología de goles y tarjetas por equipo.
+type Ev = { minuto?: number; icono: 'gol' | 'amarilla' | 'roja'; jugador: string; jugador_id: string; equipo: string };
+const eventos: Ev[] = [
+  ...p.goles.map((g) => ({ ...g, icono: 'gol' as const })),
+  ...p.tarjetas.map((t) => ({ ...t, icono: t.tipo })),
+]
+  .map((ev) => {
+    const j = d.por.jugadores.get(ev.jugador_id)!;
+    return { minuto: ev.minuto, icono: ev.icono, jugador: j.nombre, jugador_id: j.id, equipo: j.equipo_id };
+  })
+  .sort((a, b) => (a.minuto ?? 999) - (b.minuto ?? 999));
+const titulo = `${local.nombre} vs ${visita.nombre}`;
+const descripcion = conMarcador
+  ? `${local.nombre} ${p.goles_local}-${p.goles_visitante} ${visita.nombre}, jornada ${p.jornada} de la ${d.torneo.nombre}.`
+  : `${titulo}: jornada ${p.jornada} de la ${d.torneo.nombre}, ${fechaLarga(p.fecha)}${p.hora ? ` a las ${p.hora}` : ''}.`;
+---
+<Base title={titulo} description={descripcion}>
+  <section class="bg-gradient-to-br from-cancha-oscuro to-cancha text-white">
+    <div class="contenedor py-10 text-center">
+      <p class="text-sm text-white/80">{nombreCategoria(d, p.categoria)} · Jornada {p.jornada} · <span class="chip bg-white/15 text-white">{estados[p.estado]}</span></p>
+      <div class="mt-6 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <a href={`/equipos/${local.id}/`} class="flex flex-col items-center gap-2 no-underline hover:underline">
+          <TeamBadge equipo={local} size={80} enlace={false} />
+          <span class="font-display text-xl font-bold uppercase sm:text-2xl">{local.nombre}</span>
+        </a>
+        <span class="font-display text-5xl font-bold tabular-nums sm:text-7xl">
+          {conMarcador ? `${p.goles_local} - ${p.goles_visitante}` : 'VS'}
+        </span>
+        <a href={`/equipos/${visita.id}/`} class="flex flex-col items-center gap-2 no-underline hover:underline">
+          <TeamBadge equipo={visita} size={80} enlace={false} />
+          <span class="font-display text-xl font-bold uppercase sm:text-2xl">{visita.nombre}</span>
+        </a>
+      </div>
+      <p class="mt-6 text-white/85">{fechaLarga(p.fecha)}{p.hora && ` · ${p.hora} h`}</p>
+    </div>
+  </section>
+
+  <div class="contenedor grid gap-8 py-8 lg:grid-cols-3">
+    <section class="lg:col-span-2">
+      <h2 class="titulo-seccion">Cédula</h2>
+      {eventos.length === 0 ? (
+        <p class="text-stone-500">{conMarcador ? 'Sin incidencias registradas.' : 'El partido aún no se juega.'}</p>
+      ) : (
+        <ol class="tarjeta divide-y divide-stone-100">
+          {eventos.map((ev) => (
+            <li class:list={['flex items-center gap-3 px-4 py-2', ev.equipo === visita.id && 'flex-row-reverse text-right']}>
+              <span class="w-10 shrink-0 text-center font-display font-bold text-stone-500">{ev.minuto != null ? `${ev.minuto}'` : ''}</span>
+              <Icono tipo={ev.icono} />
+              <a href={`/jugadores/${ev.jugador_id}/`} class="font-semibold">{ev.jugador}</a>
+            </li>
+          ))}
+        </ol>
+      )}
+      {p.notas && <p class="mt-4 rounded bg-stone-100 p-3 text-sm">{p.notas}</p>}
+    </section>
+    <aside class="space-y-6">
+      <div class="tarjeta space-y-2 p-4 text-sm">
+        {sede && (
+          <p><Icono tipo="pin" /> <a href={`/sedes/${sede.id}/`} class="font-semibold">{sede.nombre}</a><br /><span class="text-stone-500">{sede.direccion}</span><br />
+            <a href={sede.maps_url} target="_blank" rel="noopener" class="text-cancha">Cómo llegar →</a></p>
+        )}
+        {arbitro && <p><strong>Árbitro:</strong> <a href={`/arbitros/${arbitro.id}/`} class="font-semibold">{arbitro.nombre}</a></p>}
+        {patrocinador && <p>Jornada presentada por <strong>{patrocinador.nombre}</strong></p>}
+      </div>
+      <SponsorSlot ubicacion="partido" />
+    </aside>
+  </div>
+</Base>

@@ -1,0 +1,39 @@
+---
+import Icono from './Icono.astro';
+import TeamBadge from './TeamBadge.astro';
+import { datos, fecha, type Partido } from '../lib/datos';
+
+interface Props {
+  partido: Partido;
+  mostrarFecha?: boolean;
+}
+const { partido: p, mostrarFecha = true } = Astro.props;
+const d = await datos();
+const local = d.por.equipos.get(p.local_id)!;
+const visita = d.por.equipos.get(p.visitante_id)!;
+const sede = p.sede_id ? d.por.sedes.get(p.sede_id) : undefined;
+const conMarcador = p.estado === 'jugado' || p.estado === 'default';
+const ganador = conMarcador ? (p.goles_local! > p.goles_visitante! ? 'L' : p.goles_local! < p.goles_visitante! ? 'V' : '') : '';
+---
+<a href={`/partidos/${p.id}/`} class="tarjeta block p-3 no-underline transition hover:border-cancha hover:shadow">
+  <div class="mb-2 flex items-center justify-between gap-2 text-xs text-stone-500">
+    <span>{mostrarFecha && `${fecha(p.fecha)} · `}{p.hora ?? 'Hora por definir'}</span>
+    {p.estado === 'suspendido' && <span class="chip bg-red-100 text-red-700">Suspendido</span>}
+    {p.estado === 'default' && <span class="chip bg-amber-100 text-amber-800">Por default</span>}
+    {p.estado === 'jugado' && <span class="chip bg-emerald-100 text-emerald-800">Final</span>}
+  </div>
+  <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+    <span class:list={['flex min-w-0 items-center gap-2', ganador === 'L' && 'font-bold']}>
+      <TeamBadge equipo={local} enlace={false} />
+      <span class="truncate">{local.nombre}</span>
+    </span>
+    <span class="rounded bg-tinta px-2.5 py-1 font-display text-lg font-bold tabular-nums text-white">
+      {conMarcador ? `${p.goles_local} - ${p.goles_visitante}` : 'vs'}
+    </span>
+    <span class:list={['flex min-w-0 items-center justify-end gap-2 text-right', ganador === 'V' && 'font-bold']}>
+      <span class="truncate">{visita.nombre}</span>
+      <TeamBadge equipo={visita} enlace={false} />
+    </span>
+  </div>
+  {sede && <p class="mt-2 truncate text-xs text-stone-500"><Icono tipo="pin" /> {sede.nombre}</p>}
+</a>

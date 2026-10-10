@@ -1,0 +1,128 @@
+---
+import '../styles/global.css';
+import SponsorSlot from '../components/SponsorSlot.astro';
+import { datos } from '../lib/datos';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const d = await datos();
+const { torneo } = d;
+const nombreSitio = `${torneo.nombre} ${torneo.temporada}`;
+const { title, description = torneo.descripcion, image = '/og.png' } = Astro.props;
+const tituloCompleto = title ? `${title} | ${nombreSitio}` : nombreSitio;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const imagen = new URL(image, Astro.site);
+const gaId = 'G-F9R7J9Z08H';
+
+const menu = [
+  ['/calendario/', 'Calendario'],
+  ['/resultados/', 'Resultados'],
+  ['/posiciones/', 'Posiciones'],
+  ['/goleadores/', 'Goleadores'],
+  ['/equipos/', 'Equipos'],
+  ['/sedes/', 'Sedes'],
+  ['/arbitros/', 'Árbitros'],
+];
+const actual = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{tituloCompleto}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={nombreSitio} />
+    <meta property="og:title" content={tituloCompleto} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imagen} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    {import.meta.env.PROD && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+        <script is:inline define:vars={{ gaId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', gaId);
+        </script>
+      </>
+    )}
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <header class="bg-cancha-oscuro text-white">
+      <div class="contenedor flex items-center justify-between gap-4 py-3">
+        <a href="/" class="flex items-center gap-2 no-underline">
+          <img src="/favicon.svg" alt="" width="36" height="36" />
+          <span class="font-display text-xl font-bold uppercase leading-none tracking-wide">
+            SuperCopa<br /><span class="text-sm text-oro">Nicolás Romero</span>
+          </span>
+        </a>
+        <nav class="hidden lg:block" aria-label="Principal">
+          <ul class="flex gap-1">
+            {menu.map(([href, texto]) => (
+              <li>
+                <a href={href} class:list={['rounded px-3 py-2 font-semibold no-underline hover:bg-white/10', actual.startsWith(href) && 'bg-white/15']}>{texto}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <a href="/anunciate/" class="boton hidden bg-oro text-tinta hover:brightness-110 sm:inline-flex">Anúnciate</a>
+        <details class="relative lg:hidden">
+          <summary class="cursor-pointer list-none rounded px-3 py-2 font-semibold hover:bg-white/10" aria-label="Menú">☰ Menú</summary>
+          <ul class="absolute right-0 z-20 mt-2 w-56 overflow-hidden rounded-lg bg-white text-tinta shadow-lg">
+            {[...menu, ['/disciplina/', 'Disciplina'], ['/patrocinadores/', 'Patrocinadores'], ['/anunciate/', 'Anúnciate']].map(([href, texto]) => (
+              <li><a href={href} class="block px-4 py-2.5 no-underline hover:bg-stone-100">{texto}</a></li>
+            ))}
+          </ul>
+        </details>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="mt-16 bg-tinta text-stone-300">
+      <div class="contenedor py-8">
+        <SponsorSlot ubicacion="footer" oscuro />
+      </div>
+      <div class="contenedor grid gap-6 border-t border-white/10 py-8 text-sm sm:grid-cols-3">
+        <div>
+          <p class="font-display text-lg font-bold uppercase text-white">{nombreSitio}</p>
+          <p class="mt-1">Información oficial de equipos, jugadores, calendario y resultados.</p>
+        </div>
+        <ul class="space-y-1">
+          <li><a href="/disciplina/" class="hover:text-white">Disciplina y suspendidos</a></li>
+          <li><a href="/patrocinadores/" class="hover:text-white">Patrocinadores</a></li>
+          <li><a href="/anunciate/" class="hover:text-white">Anúnciate con nosotros</a></li>
+        </ul>
+        <ul class="space-y-1">
+          <li><a href={torneo.sitio_principal} class="hover:text-white">← Solo Futbol Amateur</a></li>
+          <li><a href={torneo.facebook} class="hover:text-white" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script>
+      // Eventos de GA4 para medir clics a patrocinadores y WhatsApp.
+      document.addEventListener('click', (e) => {
+        const el = (e.target as HTMLElement).closest<HTMLElement>('[data-track]');
+        const gtag = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
+        if (el && gtag) gtag('event', el.dataset.track, { item_id: el.dataset.id, page_path: location.pathname });
+      });
+    </script>
+  </body>
+</html>

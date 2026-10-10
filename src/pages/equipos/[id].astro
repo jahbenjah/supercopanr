@@ -1,0 +1,103 @@
+---
+import Icono from '../../components/Icono.astro';
+import Base from '../../layouts/Base.astro';
+import TeamBadge from '../../components/TeamBadge.astro';
+import MatchCard from '../../components/MatchCard.astro';
+import SponsorSlot from '../../components/SponsorSlot.astro';
+import WhatsAppCTA from '../../components/WhatsAppCTA.astro';
+import { datos, nombreCategoria, partidosDeEquipo } from '../../lib/datos';
+
+export async function getStaticPaths() {
+  const d = await datos();
+  return d.equipos.map((e) => ({ params: { id: e.id } }));
+}
+
+const d = await datos();
+const e = d.por.equipos.get(Astro.params.id)!;
+const plantilla = d.jugadores
+  .filter((j) => j.equipo_id === e.id)
+  .sort((a, b) => (a.numero ?? 999) - (b.numero ?? 999));
+const tabla = d.posiciones.find((t) => t.filas.some((f) => f.equipo_id === e.id))!;
+const fila = tabla.filas.find((f) => f.equipo_id === e.id)!;
+const lugar = tabla.filas.indexOf(fila) + 1;
+const partidos = partidosDeEquipo(d, e.id);
+const golesDe = new Map(d.goleadores.map((g) => [g.jugador_id, g.goles]));
+const tarjetasDe = new Map(d.disciplina.map((r) => [r.jugador_id, r]));
+const sede = e.sede_id ? d.por.sedes.get(e.sede_id) : undefined;
+const patrocinadores = e.patrocinadores_ids.map((id) => d.por.patrocinadores.get(id)!);
+const stats = [['Lugar', `${lugar}°`], ['Puntos', fila.pts], ['PJ', fila.pj], ['G-E-P', `${fila.g}-${fila.e}-${fila.p}`], ['Goles', `${fila.gf}:${fila.gc}`]];
+---
+<Base title={e.nombre} description={`${e.nombre}: plantilla, partidos y estadísticas en la ${d.torneo.nombre}.`}>
+  <section class="text-white" style={`background:linear-gradient(135deg, ${e.color}, #064a35)`}>
+    <div class="contenedor flex flex-col gap-6 py-10 sm:flex-row sm:items-center">
+      <TeamBadge equipo={e} size={112} enlace={false} />
+      <div class="flex-1">
+        <p class="text-sm text-white/80">{nombreCategoria(d, e.categoria)} · Grupo {e.grupo}</p>
+        <h1 class="text-4xl sm:text-5xl">{e.nombre}</h1>
+        {e.perfil_premium && e.descripcion && <p class="mt-2 max-w-2xl text-white/90">{e.descripcion}</p>}
+        <dl class="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+          {stats.map(([t, v]) => (
+            <div><dt class="text-xs uppercase text-white/70">{t}</dt><dd class="font-display text-2xl font-bold">{v}</dd></div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <div class="contenedor grid gap-10 py-8 lg:grid-cols-3">
+    <div class="space-y-10 lg:col-span-2">
+      <section>
+        <h2 class="titulo-seccion">Plantilla</h2>
+        <div class="tarjeta overflow-x-auto">
+          <table class="tabla">
+            <thead><tr><th class="w-12">#</th><th class="text-left!">Jugador</th><th>Posición</th><th><Icono tipo="gol" titulo="Goles" /></th><th><Icono tipo="amarilla" /></th><th><Icono tipo="roja" /></th></tr></thead>
+            <tbody>
+              {plantilla.map((j) => (
+                <tr>
+                  <td class="font-display text-lg font-bold">{j.numero ?? '-'}</td>
+                  <td class="text-left!"><a href={`/jugadores/${j.id}/`} class="font-semibold">{j.nombre}</a></td>
+                  <td>{j.posicion ?? '-'}</td>
+                  <td>{golesDe.get(j.id) ?? 0}</td>
+                  <td>{tarjetasDe.get(j.id)?.amarillas ?? 0}</td>
+                  <td>{tarjetasDe.get(j.id)?.rojas ?? 0}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {plantilla.length === 0 && <p class="p-4 text-stone-500">Plantilla por registrar.</p>}
+        </div>
+      </section>
+      <section>
+        <h2 class="titulo-seccion">Partidos</h2>
+        <div class="grid gap-3 sm:grid-cols-2">{partidos.map((p) => <MatchCard partido={p} />)}</div>
+      </section>
+      {e.perfil_premium && e.fotos.length > 0 && (
+        <section>
+          <h2 class="titulo-seccion">Galería</h2>
+          <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            {e.fotos.map((f) => <img src={f} alt={`Foto de ${e.nombre}`} class="aspect-square w-full rounded-lg object-cover" loading="lazy" />)}
+          </div>
+        </section>
+      )}
+    </div>
+    <aside class="space-y-6">
+      <div class="tarjeta space-y-3 p-4 text-sm">
+        <h2 class="text-lg text-cancha-oscuro">Información</h2>
+        {e.delegado && <p><strong>Delegado:</strong> {e.delegado}</p>}
+        {sede && <p><strong>Sede:</strong> <a href={`/sedes/${sede.id}/`}>{sede.nombre}</a></p>}
+        {e.perfil_premium && e.facebook && <p><a href={e.facebook} rel="noopener" target="_blank">Facebook del equipo</a></p>}
+        {e.perfil_premium && e.whatsapp && (
+          <WhatsAppCTA numero={e.whatsapp} texto={`Hola, quiero información sobre ${e.nombre}`} id={e.id} class="w-full">Contactar al equipo</WhatsAppCTA>
+        )}
+        {!e.perfil_premium && (
+          <p class="rounded bg-stone-50 p-3 text-stone-600">
+            ¿Eres del equipo? <a href="/anunciate/#equipo-premium" class="font-semibold text-cancha">Activa el perfil oficial</a> con galería, contacto y patrocinadores.
+          </p>
+        )}
+      </div>
+      {e.perfil_premium && patrocinadores.length > 0 && (
+        <SponsorSlot lista={patrocinadores} titulo={`Patrocinadores de ${e.nombre}`} invitacion={false} />
+      )}
+    </aside>
+  </div>
+</Base>

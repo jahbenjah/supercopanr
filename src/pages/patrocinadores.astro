@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import Encabezado from '../components/Encabezado.astro';
+import SponsorSlot from '../components/SponsorSlot.astro';
+import { datos } from '../lib/datos';
+
+const d = await datos();
+const niveles = [
+  ['oro', 'Patrocinadores Oro'],
+  ['plata', 'Patrocinadores Plata'],
+  ['bronce', 'Patrocinadores Bronce'],
+] as const;
+---
+<Base title="Patrocinadores" description={`Las marcas que hacen posible la ${d.torneo.nombre}.`}>
+  <Encabezado titulo="Patrocinadores" subtitulo="Gracias a las marcas que apoyan el fútbol amateur de Nicolás Romero. ¡Apóyalos tú también!" />
+  <div class="contenedor space-y-12 py-10">
+    {niveles.map(([nivel, titulo]) => (
+      <SponsorSlot lista={d.patrocinadores.filter((p) => p.nivel === nivel)} titulo={titulo} />
+    ))}
+    <div class="text-center">
+      <a href="/anunciate/" class="boton-primario">Quiero ser patrocinador</a>
+    </div>
+  </div>
+</Base>

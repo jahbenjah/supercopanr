@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro';
+import MatchCard from '../components/MatchCard.astro';
+import StandingsTable from '../components/StandingsTable.astro';
+import SponsorSlot from '../components/SponsorSlot.astro';
+import TeamBadge from '../components/TeamBadge.astro';
+import { datos } from '../lib/datos';
+
+const d = await datos();
+const { torneo } = d;
+const proximos = d.proximaJornada ? d.partidos.filter((p) => p.jornada === d.proximaJornada) : [];
+const resultados = d.ultimaJornada ? d.partidos.filter((p) => p.jornada === d.ultimaJornada && p.estado !== 'programado') : [];
+const topGoleo = d.goleadores.slice(0, 5);
+const jugados = d.partidos.filter((p) => p.estado === 'jugado');
+const goles = jugados.reduce((s, p) => s + p.goles_local! + p.goles_visitante!, 0);
+const cifras = [
+  [d.equipos.length, 'Equipos'],
+  [d.jugadores.length, 'Jugadores'],
+  [jugados.length, 'Partidos jugados'],
+  [goles, 'Goles'],
+];
+---
+<Base>
+  <section class="relative overflow-hidden bg-gradient-to-br from-cancha-oscuro via-cancha to-cancha-oscuro text-white">
+    <div class="absolute inset-0 opacity-10" style="background:repeating-linear-gradient(90deg,#fff 0 2px,transparent 2px 80px)"></div>
+    <div class="contenedor relative py-14 sm:py-20">
+      <p class="chip bg-oro text-tinta">Temporada {torneo.temporada}</p>
+      <h1 class="mt-3 text-5xl leading-none sm:text-7xl">{torneo.nombre}</h1>
+      <p class="mt-4 max-w-2xl text-lg text-white/85">{torneo.descripcion}</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/calendario/" class="boton bg-white text-cancha-oscuro hover:bg-stone-100">Ver calendario</a>
+        <a href="/posiciones/" class="boton border border-white/50 text-white hover:bg-white/10">Tabla de posiciones</a>
+      </div>
+      <dl class="mt-10 grid max-w-2xl grid-cols-2 gap-4 sm:grid-cols-4">
+        {cifras.map(([n, t]) => (
+          <div>
+            <dt class="text-xs uppercase tracking-wider text-white/70">{t}</dt>
+            <dd class="font-display text-4xl font-bold text-oro">{n}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <div class="contenedor py-8">
+    <SponsorSlot ubicacion="home-top" />
+  </div>
+
+  <div class="contenedor grid gap-10 lg:grid-cols-3">
+    <div class="space-y-10 lg:col-span-2">
+      {proximos.length > 0 && (
+        <section>
+          <h2 class="titulo-seccion">Próxima jornada · J{d.proximaJornada}</h2>
+          <div class="grid gap-3 sm:grid-cols-2">{proximos.map((p) => <MatchCard partido={p} />)}</div>
+        </section>
+      )}
+      {resultados.length > 0 && (
+        <section>
+          <h2 class="titulo-seccion">Resultados · J{d.ultimaJornada}</h2>
+          <div class="grid gap-3 sm:grid-cols-2">{resultados.map((p) => <MatchCard partido={p} />)}</div>
+          <a href="/resultados/" class="mt-3 inline-block font-semibold text-cancha">Todos los resultados →</a>
+        </section>
+      )}
+    </div>
+    <aside class="space-y-10">
+      <section>
+        <h2 class="titulo-seccion">Posiciones</h2>
+        <div class="space-y-4">{d.posiciones.map((t) => <StandingsTable tabla={t} compacta />)}</div>
+      </section>
+      {topGoleo.length > 0 && (
+        <section>
+          <h2 class="titulo-seccion">Goleadores</h2>
+          <ol class="tarjeta divide-y divide-stone-100">
+            {topGoleo.map((g, i) => {
+              const j = d.por.jugadores.get(g.jugador_id)!;
+              return (
+                <li class="flex items-center gap-3 px-3 py-2">
+                  <span class="w-5 font-display text-lg font-bold text-stone-400">{i + 1}</span>
+                  <TeamBadge equipo={d.por.equipos.get(g.equipo_id)!} size={24} />
+                  <a href={`/jugadores/${j.id}/`} class="flex-1 truncate font-semibold no-underline hover:underline">{j.nombre}</a>
+                  <span class="font-display text-xl font-bold text-cancha">{g.goles}</span>
+                </li>
+              );
+            })}
+          </ol>
+          <a href="/goleadores/" class="mt-3 inline-block font-semibold text-cancha">Tabla de goleo completa →</a>
+        </section>
+      )}
+    </aside>
+  </div>
+
+  <section class="contenedor mt-14">
+    <div class="tarjeta flex flex-col items-start gap-4 bg-gradient-to-r from-tinta to-cancha-oscuro p-6 text-white sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <h2 class="text-2xl">¿Tienes un negocio en Nicolás Romero?</h2>
+        <p class="text-white/80">Llega a cientos de jugadores y familias cada fin de semana.</p>
+      </div>
+      <a href="/anunciate/" class="boton bg-oro text-tinta hover:brightness-110">Ver paquetes de patrocinio</a>
+    </div>
+  </section>
+</Base>

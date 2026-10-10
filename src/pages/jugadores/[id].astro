@@ -1,0 +1,53 @@
+---
+import Base from '../../layouts/Base.astro';
+import TeamBadge from '../../components/TeamBadge.astro';
+import MatchCard from '../../components/MatchCard.astro';
+import { datos, partidosDeEquipo } from '../../lib/datos';
+
+export async function getStaticPaths() {
+  const d = await datos();
+  return d.jugadores.map((j) => ({ params: { id: j.id } }));
+}
+
+const d = await datos();
+const j = d.por.jugadores.get(Astro.params.id)!;
+const e = d.por.equipos.get(j.equipo_id)!;
+const goles = d.goleadores.find((g) => g.jugador_id === j.id)?.goles ?? 0;
+const disc = d.disciplina.find((r) => r.jugador_id === j.id);
+const conEventos = partidosDeEquipo(d, e.id).filter((p) =>
+  [...p.goles, ...p.tarjetas].some((ev) => ev.jugador_id === j.id),
+);
+const stats = [['Goles', goles], ['Amarillas', disc?.amarillas ?? 0], ['Rojas', disc?.rojas ?? 0]];
+---
+<Base title={`${j.nombre} (${e.nombre})`} description={`${j.nombre}, jugador de ${e.nombre} en la ${d.torneo.nombre}.`}>
+  <section class="text-white" style={`background:linear-gradient(135deg, ${e.color}, #064a35)`}>
+    <div class="contenedor flex items-center gap-6 py-10">
+      {j.foto ? (
+        <img src={j.foto} alt={j.nombre} width="112" height="112" class="h-28 w-28 rounded-full object-cover ring-4 ring-white/30" />
+      ) : (
+        <span class="flex h-28 w-28 items-center justify-center rounded-full bg-white/15 font-display text-5xl font-bold">{j.numero ?? '?'}</span>
+      )}
+      <div>
+        <TeamBadge equipo={e} conNombre size={24} class="text-white/90" />
+        <h1 class="mt-1 text-4xl sm:text-5xl">{j.nombre}</h1>
+        <p class="text-white/80">{[j.posicion, j.numero != null && `#${j.numero}`].filter(Boolean).join(' · ')}</p>
+      </div>
+    </div>
+  </section>
+  <div class="contenedor space-y-10 py-8">
+    <dl class="grid max-w-lg grid-cols-3 gap-3">
+      {stats.map(([t, v]) => (
+        <div class="tarjeta p-4 text-center"><dt class="text-xs uppercase text-stone-500">{t}</dt><dd class="font-display text-4xl font-bold text-cancha">{v}</dd></div>
+      ))}
+    </dl>
+    {disc && disc.pendientes > 0 && (
+      <p class="rounded-lg border-l-4 border-red-600 bg-red-50 p-3 text-red-800">Suspendido: {disc.pendientes} partido(s) pendiente(s).</p>
+    )}
+    {conEventos.length > 0 && (
+      <section>
+        <h2 class="titulo-seccion">Partidos con goles o tarjetas</h2>
+        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{conEventos.map((p) => <MatchCard partido={p} />)}</div>
+      </section>
+    )}
+  </div>
+</Base>

@@ -1,0 +1,16 @@
+---
+// Íconos dibujados con CSS/SVG (los emojis no se ven igual en todos los teléfonos).
+interface Props {
+  tipo: 'gol' | 'amarilla' | 'roja' | 'pin';
+  titulo?: string;
+}
+const { tipo, titulo } = Astro.props;
+const etiqueta = titulo ?? { gol: 'Gol', amarilla: 'Tarjeta amarilla', roja: 'Tarjeta roja', pin: 'Sede' }[tipo];
+---
+{tipo === 'amarilla' || tipo === 'roja' ? (
+  <span role="img" aria-label={etiqueta} title={etiqueta} class:list={['inline-block h-3.5 w-2.5 rounded-[2px] align-[-2px] shadow-sm', tipo === 'roja' ? 'bg-red-600' : 'bg-yellow-400']}></span>
+) : tipo === 'gol' ? (
+  <svg role="img" aria-label={etiqueta} viewBox="0 0 24 24" width="16" height="16" class="inline-block align-[-3px]"><title>{etiqueta}</title><circle cx="12" cy="12" r="10.5" fill="#fff" stroke="currentColor" stroke-width="1.5"/><path d="m12 7 4 2.9-1.5 4.7h-5L8 9.9Z" fill="currentColor"/></svg>
+) : (
+  <svg aria-hidden="true" viewBox="0 0 24 24" width="12" height="12" class="inline-block shrink-0 align-[-1px]" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+)}
