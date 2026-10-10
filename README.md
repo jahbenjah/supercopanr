@@ -1,6 +1,6 @@
 # Supercopa Nicolás Romero 2026
 
-Sitio oficial del torneo: https://supercopa.solofutbolamateur.com
+Sitio oficial del torneo: https://supercopanr.solofutbolamateur.com
 
 Hecho con [Astro](https://astro.build) y publicado en el hosting cPanel. Los datos viven en
 `src/data/*.yaml`; las tablas de posiciones, goleo y disciplina se calculan solas al publicar.
@@ -100,10 +100,11 @@ mismas tablas y campos; las páginas no cambian.
 
 ## Publicación en cPanel (una sola vez)
 
-1. **Subdominio:** cPanel → Dominios → Crear dominio: `supercopa.solofutbolamateur.com`, con raíz
-   `public_html/supercopa` (o la que cPanel proponga).
-2. **DNS:** donde administres el DNS de solofutbolamateur.com, registro `A` `supercopa` → IP del
-   servidor cPanel (si el DNS lo maneja el propio cPanel, se crea solo).
+1. **Dominio en cPanel:** cPanel → Dominios → Crear un nuevo dominio: `supercopanr.solofutbolamateur.com`,
+   con raíz `public_html/supercopanr` (o la que cPanel proponga).
+2. **DNS en Cloudflare:** registro `A`, nombre `supercopanr`, valor = IP del servidor cPanel,
+   proxy **desactivado (nube gris)** hasta que AutoSSL emita el certificado. El dominio principal
+   sigue apuntando a GitHub Pages; no se tocan sus registros.
 3. **HTTPS:** cPanel → SSL/TLS Status → Run AutoSSL. El `.htaccess` incluido fuerza HTTPS.
 4. **Cuenta FTP:** cPanel → Cuentas FTP → crear una con directorio la raíz del subdominio.
 5. **Secretos en GitHub** (Settings → Secrets and variables → Actions):

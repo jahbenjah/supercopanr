@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://supercopa.solofutbolamateur.com',
+  site: 'https://supercopanr.solofutbolamateur.com',
   trailingSlash: 'ignore',
   integrations: [sitemap()],
   vite: { plugins: [tailwindcss()] },
