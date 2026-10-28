@@ -1,10 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cancha: #0b6e4f;
-  --color-cancha-oscuro: #064a35;
-  --color-oro: #e0a100;
-  --color-tinta: #14201b;
+  /* Paleta tomada del logo oficial: negro + dorado */
+  --color-cancha: #1c1a17;
+  --color-cancha-oscuro: #0a0907;
+  --color-oro: #e2b33a;
+  --color-oro-claro: #fbe045;
+  --color-oro-oscuro: #ab6603;
+  --color-tinta: #121110;
   --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Barlow Condensed", "Barlow", ui-sans-serif, sans-serif;
 }

@@ -20,7 +20,7 @@ const conEventos = partidosDeEquipo(d, e.id).filter((p) =>
 const stats = [['Goles', goles], ['Amarillas', disc?.amarillas ?? 0], ['Rojas', disc?.rojas ?? 0]];
 ---
 <Base title={`${j.nombre} (${e.nombre})`} description={`${j.nombre}, jugador de ${e.nombre} en la ${d.torneo.nombre}.`}>
-  <section class="text-white" style={`background:linear-gradient(135deg, ${e.color}, #064a35)`}>
+  <section class="text-white" style={`background:linear-gradient(135deg, ${e.color}, #0a0907)`}>
     <div class="contenedor flex items-center gap-6 py-10">
       {j.foto ? (
         <img src={j.foto} alt={j.nombre} width="112" height="112" class="h-28 w-28 rounded-full object-cover ring-4 ring-white/30" />

@@ -76,7 +76,7 @@ const equipos = defineCollection({
     categoria: id,
     /** Se asigna en el sorteo; vacío mientras tanto. */
     grupo: z.string().optional(),
-    color: z.string().default('#0b6e4f'),
+    color: z.string().default('#1c1a17'),
     logo: z.string().optional(),
     sede_id: id.optional(),
     delegado: z.string().optional(),
