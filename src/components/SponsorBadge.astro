@@ -1,0 +1,18 @@
+---
+import { iniciales } from '../lib/datos';
+
+interface Props {
+  patrocinador: { nombre: string; color: string; logo?: string };
+  size?: number;
+}
+const { patrocinador: p, size = 72 } = Astro.props;
+---
+{p.logo ? (
+  <img src={p.logo} alt={p.nombre} width={size} height={size} class="shrink-0 rounded-lg bg-white object-contain p-1" loading="lazy" />
+) : (
+  <span
+    class="inline-flex shrink-0 items-center justify-center rounded-lg font-display font-bold text-white ring-2 ring-white"
+    style={`background:${p.color};width:${size}px;height:${size}px;font-size:${Math.round(size * 0.38)}px`}
+    aria-hidden="true"
+  >{iniciales(p.nombre)}</span>
+)}

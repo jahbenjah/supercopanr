@@ -1,0 +1,56 @@
+---
+import Base from '../../layouts/Base.astro';
+import Encabezado from '../../components/Encabezado.astro';
+import SponsorBadge from '../../components/SponsorBadge.astro';
+import { datos } from '../../lib/datos';
+
+const d = await datos();
+const niveles = [
+  ['oro', 'Patrocinadores Oro'],
+  ['plata', 'Patrocinadores Plata'],
+  ['bronce', 'Patrocinadores Bronce'],
+  ['equipo', 'Patrocinadores de equipos'],
+] as const;
+const equiposDe = (id: string) => d.equipos.filter((e) => e.patrocinadores_ids.includes(id));
+const grupos = niveles
+  .map(([nivel, titulo]) => ({
+    titulo,
+    lista: d.patrocinadores.filter((p) => p.nivel === nivel).sort((a, b) => a.nombre.localeCompare(b.nombre, 'es')),
+  }))
+  .filter((g) => g.lista.length > 0);
+---
+<Base title="Patrocinadores" description={`Las marcas que hacen posible la ${d.torneo.nombre}.`}>
+  <Encabezado titulo="Patrocinadores" subtitulo="Gracias a las marcas que apoyan el fútbol amateur de Nicolás Romero. ¡Apóyalos tú también!" />
+  <div class="contenedor space-y-12 py-10">
+    {grupos.length === 0 && (
+      <p class="rounded-xl border-l-4 border-oro bg-amber-50 p-4">
+        Aquí aparecerán las marcas que apoyan el torneo. <a href="/anunciate/" class="font-semibold text-cancha">¿Quieres que la tuya sea la primera?</a>
+      </p>
+    )}
+    {grupos.map((g) => (
+      <section>
+        <h2 class="titulo-seccion">{g.titulo}</h2>
+        <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {g.lista.map((p) => {
+            const equipos = equiposDe(p.id);
+            return (
+              <li>
+                <a href={`/patrocinadores/${p.id}/`} class="tarjeta flex h-full flex-col items-center gap-3 p-5 text-center no-underline transition hover:border-cancha hover:shadow">
+                  <SponsorBadge patrocinador={p} />
+                  <span class="font-display text-xl font-bold uppercase">{p.nombre}</span>
+                  {equipos.length > 0 && (
+                    <span class="text-sm text-stone-500">Patrocina a {equipos.map((e) => e.nombre).join(', ')}</span>
+                  )}
+                  {p.nivel !== 'equipo' && <span class="chip bg-oro/20 text-amber-800">★ Patrocinador {p.nivel}</span>}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    ))}
+    <div class="text-center">
+      <a href="/anunciate/" class="boton-primario">Quiero ser patrocinador</a>
+    </div>
+  </div>
+</Base>

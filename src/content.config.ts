@@ -151,8 +151,12 @@ const patrocinadores = defineCollection({
   schema: z.object({
     nombre: z.string(),
     nivel: z.enum(['oro', 'plata', 'bronce', 'equipo']),
+    color: z.string().default('#1c1a17'),
     logo: z.string().optional(),
+    descripcion: z.string().optional(),
+    direccion: z.string().optional(),
     url: z.url().optional(),
+    facebook: z.url().optional(),
     whatsapp: whatsapp.optional(),
     ubicaciones: z.array(z.enum(['home-top', 'tabla', 'partido', 'jornada', 'footer'])).default([]),
   }),

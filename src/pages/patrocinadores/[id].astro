@@ -1,0 +1,66 @@
+---
+import Base from '../../layouts/Base.astro';
+import TeamBadge from '../../components/TeamBadge.astro';
+import SponsorBadge from '../../components/SponsorBadge.astro';
+import MatchCard from '../../components/MatchCard.astro';
+import WhatsAppCTA from '../../components/WhatsAppCTA.astro';
+import { datos } from '../../lib/datos';
+
+export async function getStaticPaths() {
+  const d = await datos();
+  return d.patrocinadores.map((p) => ({ params: { id: p.id } }));
+}
+
+const d = await datos();
+const p = d.por.patrocinadores.get(Astro.params.id)!;
+const equipos = d.equipos.filter((e) => e.patrocinadores_ids.includes(p.id));
+const partidos = d.partidos.filter((x) => x.patrocinador_jornada_id === p.id);
+const niveles = { oro: 'Patrocinador Oro', plata: 'Patrocinador Plata', bronce: 'Patrocinador Bronce', equipo: 'Patrocinador de equipo' };
+---
+<Base title={p.nombre} description={p.descripcion ?? `${p.nombre}, ${niveles[p.nivel].toLowerCase()} de la ${d.torneo.nombre}.`}>
+  <section class="text-white" style={`background:linear-gradient(135deg, ${p.color}, #0a0907)`}>
+    <div class="contenedor flex flex-col gap-6 py-10 sm:flex-row sm:items-center">
+      <SponsorBadge patrocinador={p} size={112} />
+      <div class="flex-1">
+        <p class="text-sm text-white/80">{niveles[p.nivel]}</p>
+        <h1 class="text-4xl sm:text-5xl">{p.nombre}</h1>
+        {p.descripcion && <p class="mt-2 max-w-2xl text-white/90">{p.descripcion}</p>}
+      </div>
+    </div>
+  </section>
+
+  <div class="contenedor grid gap-10 py-8 lg:grid-cols-3">
+    <div class="space-y-10 lg:col-span-2">
+      <section>
+        <h2 class="titulo-seccion">Equipos patrocinados</h2>
+        {equipos.length === 0 && <p class="text-stone-500">Apoya al torneo en general.</p>}
+        <ul class="grid gap-3 sm:grid-cols-2">
+          {equipos.map((e) => (
+            <li class="tarjeta p-4"><TeamBadge equipo={e} size={40} conNombre /></li>
+          ))}
+        </ul>
+      </section>
+      {partidos.length > 0 && (
+        <section>
+          <h2 class="titulo-seccion">Partidos que presenta</h2>
+          <div class="grid gap-3 sm:grid-cols-2">{partidos.map((x) => <MatchCard partido={x} />)}</div>
+        </section>
+      )}
+    </div>
+    <aside class="space-y-6">
+      <div class="tarjeta space-y-3 p-4 text-sm">
+        <h2 class="text-lg text-cancha-oscuro">Información</h2>
+        {p.direccion && <p><strong>Dirección:</strong> {p.direccion}</p>}
+        {p.url && <p><a href={p.url} rel="sponsored noopener" target="_blank" data-track="click_patrocinador" data-id={p.id}>Sitio web</a></p>}
+        {p.facebook && <p><a href={p.facebook} rel="sponsored noopener" target="_blank" data-track="click_patrocinador" data-id={p.id}>Facebook</a></p>}
+        {p.whatsapp && (
+          <WhatsAppCTA numero={p.whatsapp} texto={`Hola, los vi en la ${d.torneo.nombre}`} id={p.id} class="w-full">Contactar</WhatsAppCTA>
+        )}
+        {!p.direccion && !p.url && !p.facebook && !p.whatsapp && <p class="text-stone-500">Datos de contacto por publicar.</p>}
+      </div>
+      <p class="rounded bg-stone-50 p-3 text-sm text-stone-600">
+        ¿Tienes un negocio? <a href="/anunciate/" class="font-semibold text-cancha">Anúnciate en la {d.torneo.nombre}</a>.
+      </p>
+    </aside>
+  </div>
+</Base>

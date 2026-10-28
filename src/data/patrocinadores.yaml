@@ -1,29 +1,41 @@
 # Se llena conforme se inscriben los equipos. Formato de ejemplo en ejemplos/patrocinadores.yaml
-- id: patrocinador-equipo-colmena
-  nombre: Refaccionaria Deportivo Colmena
+- id: fisioterapia-fisio-zu
+  nombre: Fisio Zu
   nivel: equipo
   ubicaciones: []
-- id: patrocinador-tigres
-  nombre: Refrescos Tigres
+
+- id: cancha-pokta-pok
+  nombre: Cancha Pokta Pok
   nivel: equipo
   ubicaciones: []
-- id: patrocinador-leones
-  nombre: Bebidas Leones
+
+- id: jag-sportswear
+  nombre: JAG SportsWear
   nivel: equipo
   ubicaciones: []
-- id: patrocinador-halcones
-  nombre: Equipos Halcones
+
+- id: tacos-nacho
+  nombre: Tacos Nacho
   nivel: equipo
   ubicaciones: []
-- id: patrocinador-atlas
-  nombre: Transportes Atlas
+
+- id: vikingo-monchis
+  nombre: VIKINGO'S, LA MÁQUINA DEL MONCHIS
   nivel: equipo
   ubicaciones: []
-- id: patrocinador-lobos
-  nombre: Snacks Lobos
+
+- id: buffalos-beer
+  nombre: Buffalos Beer
   nivel: equipo
   ubicaciones: []
-- id: patrocinador-jaguares
-  nombre: Uniformes Jaguares
+
+
+- id: tennis-marty
+  nombre: Tennis Marty
+  nivel: equipo
+  ubicaciones: []
+
+-- id: jerza-ink-tattoo-art
+  nombre: Jerza Ink Tattoo Art
   nivel: equipo
   ubicaciones: []
