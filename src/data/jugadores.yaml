@@ -1,6 +1,20 @@
 - id: jugador-1
-  nombre: Juan Pérez
-  numero: 10
+  nombre: Calixte Richkard  
+  numero: 1
   posicion: "Delantero"
-  equipo_id: red-bulls-nr
+  equipo_id: juve-sitecom
+  foto: ""
+
+- id: jugador-2
+  nombre: Miguel Rebollo
+  numero: 2
+  posicion: "Delantero"
+  equipo_id: juve-sitecom
+  foto: ""
+
+- id: jugador-3
+  nombre: Cristian Vazquez
+  numero: 3
+  posicion: "Delantero"
+  equipo_id: juve-sitecom
   foto: ""

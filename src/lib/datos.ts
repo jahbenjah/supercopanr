@@ -1,6 +1,7 @@
 // Única capa de acceso a datos del sitio. Hoy lee los YAML de src/data; para migrar
 // a una base de datos (p. ej. Supabase) basta con reimplementar cargar() devolviendo
 // las mismas estructuras.
+import { existsSync, readdirSync } from 'node:fs';
 import { getCollection, type CollectionEntry, type CollectionKey } from 'astro:content';
 import {
   calcularPosiciones,
@@ -17,8 +18,24 @@ async function tabla<C extends CollectionKey>(nombre: C): Promise<Array<Collecti
   return entradas.map((e) => ({ ...e.data, id: e.id }));
 }
 
+// Imágenes por convención: si el YAML no trae ruta, se usa public/img/<carpeta>/<id>.webp
+// (y la carpeta public/img/<carpeta>/<id>/ para galerías) cuando existe.
+const imagen = (carpeta: string, id: string, ruta?: string) => {
+  if (ruta) return ruta;
+  const auto = `/img/${carpeta}/${id}.webp`;
+  return existsSync(`public${auto}`) ? auto : undefined;
+};
+const galeria = (carpeta: string, id: string, rutas: string[]) => {
+  const dir = `public/img/${carpeta}/${id}`;
+  if (rutas.length || !existsSync(dir)) return rutas;
+  return readdirSync(dir)
+    .filter((f) => f.toLowerCase().endsWith('.webp'))
+    .sort()
+    .map((f) => `/img/${carpeta}/${id}/${f}`);
+};
+
 async function cargar() {
-  const [torneos, bases, sedes, equipos, jugadores, arbitros, partidosSinOrden, patrocinadores, paquetes] = await Promise.all([
+  const [torneos, bases, sedesSinFoto, equiposSinFoto, jugadoresSinFoto, arbitrosSinFoto, partidosSinOrden, patrocinadoresSinLogo, paquetes] = await Promise.all([
     tabla('torneo'),
     tabla('bases'),
     tabla('sedes'),
@@ -29,6 +46,11 @@ async function cargar() {
     tabla('patrocinadores'),
     tabla('paquetes'),
   ]);
+  const sedes = sedesSinFoto.map((x) => ({ ...x, foto: imagen('sedes', x.id, x.foto) }));
+  const equipos = equiposSinFoto.map((x) => ({ ...x, logo: imagen('equipos', x.id, x.logo), fotos: galeria('equipos', x.id, x.fotos) }));
+  const jugadores = jugadoresSinFoto.map((x) => ({ ...x, foto: imagen('jugadores', x.id, x.foto) }));
+  const arbitros = arbitrosSinFoto.map((x) => ({ ...x, foto: imagen('arbitros', x.id, x.foto) }));
+  const patrocinadores = patrocinadoresSinLogo.map((x) => ({ ...x, logo: imagen('patrocinadores', x.id, x.logo) }));
   const torneo = torneos.find((t) => t.id === 'actual');
   if (!torneo) throw new Error('src/data/torneo.yaml debe tener una entrada con id: actual');
   const partidos = ordenarPartidos(partidosSinOrden);

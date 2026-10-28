@@ -8,6 +8,8 @@ import { z } from 'astro/zod';
 
 const id = z.string().regex(/^[a-z0-9-]+$/, 'usa solo minúsculas, números y guiones');
 const whatsapp = z.string().regex(/^\d{10,13}$/, 'número con lada, sin espacios ni +');
+/** Ruta en public/ (p. ej. /img/equipos/tigres.webp). Vacía = se busca sola por id, ver src/lib/datos.ts. */
+const imagen = z.string().regex(/^$|\.webp$/i, 'las imágenes deben ser .webp');
 
 const fecha = z.coerce.date();
 const fase = z.enum(['grupos', 'octavos', 'cuartos', 'semifinal', 'final']);
@@ -66,6 +68,7 @@ const sedes = defineCollection({
     lng: z.number().optional(),
     cancha: z.string().optional(),
     servicios: z.array(z.string()).default([]),
+    foto: imagen.optional(),
   }),
 });
 
@@ -77,14 +80,14 @@ const equipos = defineCollection({
     /** Se asigna en el sorteo; vacío mientras tanto. */
     grupo: z.string().optional(),
     color: z.string().default('#1c1a17'),
-    logo: z.string().optional(),
+    logo: imagen.optional(),
     sede_id: id.optional(),
     delegado: z.string().optional(),
     descripcion: z.string().optional(),
     perfil_premium: z.boolean().default(false),
     whatsapp: whatsapp.optional(),
     facebook: z.url().optional(),
-    fotos: z.array(z.string()).default([]),
+    fotos: z.array(imagen).default([]),
     patrocinadores_ids: z.array(id).default([]),
   }),
 });
@@ -96,7 +99,7 @@ const jugadores = defineCollection({
     nombre: z.string(),
     numero: z.number().int().nonnegative().optional(),
     posicion: z.enum(['Portero', 'Defensa', 'Medio', 'Delantero']).optional(),
-    foto: z.string().optional(),
+    foto: imagen.optional(),
   }),
 });
 
@@ -104,7 +107,7 @@ const arbitros = defineCollection({
   loader: file('src/data/arbitros.yaml'),
   schema: z.object({
     nombre: z.string(),
-    foto: z.string().optional(),
+    foto: imagen.optional(),
     zona: z.string().optional(),
     experiencia: z.string().optional(),
     whatsapp: whatsapp.optional(),
@@ -152,7 +155,7 @@ const patrocinadores = defineCollection({
     nombre: z.string(),
     nivel: z.enum(['oro', 'plata', 'bronce', 'equipo']),
     color: z.string().default('#1c1a17'),
-    logo: z.string().optional(),
+    logo: imagen.optional(),
     descripcion: z.string().optional(),
     direccion: z.string().optional(),
     url: z.url().optional(),

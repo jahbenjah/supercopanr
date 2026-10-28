@@ -17,7 +17,7 @@ const equipos = d.equipos.filter((e) => e.patrocinadores_ids.includes(p.id));
 const partidos = d.partidos.filter((x) => x.patrocinador_jornada_id === p.id);
 const niveles = { oro: 'Patrocinador Oro', plata: 'Patrocinador Plata', bronce: 'Patrocinador Bronce', equipo: 'Patrocinador de equipo' };
 ---
-<Base title={p.nombre} description={p.descripcion ?? `${p.nombre}, ${niveles[p.nivel].toLowerCase()} de la ${d.torneo.nombre}.`}>
+<Base title={p.nombre} description={p.descripcion ?? `${p.nombre}, ${niveles[p.nivel].toLowerCase()} de la ${d.torneo.nombre}.`} image={p.logo ? `/og/patrocinadores/${p.id}.png` : undefined}>
   <section class="text-white" style={`background:linear-gradient(135deg, ${p.color}, #0a0907)`}>
     <div class="contenedor flex flex-col gap-6 py-10 sm:flex-row sm:items-center">
       <SponsorBadge patrocinador={p} size={112} />

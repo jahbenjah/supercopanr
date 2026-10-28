@@ -21,7 +21,10 @@ const mapa = s.lat != null && s.lng != null
     <a href={s.maps_url} target="_blank" rel="noopener" class="boton mt-4 bg-white text-cancha-oscuro hover:bg-stone-100">Cómo llegar</a>
   </Encabezado>
   <div class="contenedor grid gap-8 py-8 lg:grid-cols-2">
-    <iframe src={mapa} title={`Mapa de ${s.nombre}`} class="tarjeta h-80 w-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="space-y-4">
+      {s.foto && <img src={s.foto} alt={`Cancha de ${s.nombre}`} class="tarjeta aspect-[16/9] w-full object-cover" />}
+      <iframe src={mapa} title={`Mapa de ${s.nombre}`} class="tarjeta h-80 w-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
     <div>
       <p class="flex flex-wrap gap-2">
         {s.cancha && <span class="chip">{s.cancha}</span>}

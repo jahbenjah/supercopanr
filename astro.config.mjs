@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'http://localhost:4321', // Cambio temporal para desarrollo local
+  site: 'https://supercopanr.solofutbolamateur.com',
   trailingSlash: 'ignore',
   integrations: [sitemap()],
   vite: { plugins: [tailwindcss()] },
