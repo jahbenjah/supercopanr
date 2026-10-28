@@ -1,2 +1,6 @@
-# Se llena conforme se inscriben los equipos. Formato de ejemplo en ejemplos/jugadores.yaml
-[]
+- id: jugador-1
+  nombre: Juan Pérez
+  numero: 10
+  posicion: "Delantero"
+  equipo_id: red-bulls-nr
+  foto: ""

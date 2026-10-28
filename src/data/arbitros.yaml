@@ -1,2 +1,20 @@
 # Se llena conforme se inscriben los equipos. Formato de ejemplo en ejemplos/arbitros.yaml
-[]
+- id: arbitro-1
+  nombre: El Tapon
+  destacado: true
+  foto: ""
+  zona: ""
+  experiencia: ""
+  whatsapp: ""
+
+
+#   const arbitros: ({
+#     nombre: string;
+#     destacado: boolean;
+#     foto?: string | undefined;
+#     zona?: string | undefined;
+#     experiencia?: string | undefined;
+#     whatsapp?: string | undefined;
+# } & {
+#     id: string;
+})[]

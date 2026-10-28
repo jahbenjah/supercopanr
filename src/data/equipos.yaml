@@ -1,2 +1,212 @@
-# Se llena conforme se inscriben los equipos. Formato de ejemplo en ejemplos/equipos.yaml
-[]
+- id: red-bulls-nr
+  nombre: Red Bulls NR
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "A"
+  delegado: "Audi"
+
+- id: juve-sitecom
+  nombre: Juve Sitecom
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "A"
+  delegado: "Audi"
+
+- id: san-isidro-rgal
+  nombre: San Isidro Rgal
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "G"
+  delegado: ""
+
+- id: club-colmena
+  nombre: Club Colmena
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "A"
+  delegado: ""
+
+- id: potros
+  nombre: Potros
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "G"
+  delegado: ""
+
+- id: aguila-pi
+  nombre: Aguila Progrso Industrial
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "C"
+  delegado: ""
+
+- id: tlazala
+  nombre: Tlazala
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "B"
+  delegado: ""
+
+- id: juventus-naucalpan
+  nombre: Juventus Naucalpan
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "B"
+  delegado: ""
+
+- id: carboneros
+  nombre: Carboneros Villa del Carbon
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "B"
+  delegado: ""
+
+- id: flamengo
+  nombre: Flamengo 5 de Febrero
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "D"
+  delegado: ""
+
+- id: lobos-tlihuaca
+  nombre: Lobos Tlihuaca
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "D"
+  delegado: ""
+
+- id: atoleros
+  nombre: Atoleros San Jose El Vidrio
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "E"
+  delegado: ""
+
+- id: deportivo-fresno
+  nombre: Deportivo Fresno
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "E"
+  delegado: ""
+
+- id: san-idelfonso
+  nombre: San Idelfonso
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "E"
+  delegado: ""
+
+
+- id: tigres-y
+  nombre: Tigres Y
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "F"
+  delegado: ""
+
+- id: deportivo-la-rosa
+  nombre: Deportivo La Rosa
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "F"
+  delegado: ""
+
+- id: cahuacan-cv
+  nombre: Cahuacan CV
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "H"
+  delegado: ""
+
+- id: union-america
+  nombre: Union America
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "H"
+  delegado: ""
+
+- id: betis-carto
+  nombre: Betis Carto
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  grupo: "G"
+  delegado: ""
+
+
+

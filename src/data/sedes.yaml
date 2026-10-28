@@ -1,2 +1,81 @@
 # Se llena conforme se inscriben los equipos. Formato de ejemplo en ejemplos/sedes.yaml
-[]
+- id: la-colmena
+  nombre: Deportivo La Colmena
+  direccion: Progreso Mz 072, La Colmena, 54477 Cd. Nicolás Romero, Méx.
+  maps_url: https://maps.google.com/?q=Deportivo+La+Colmena+Nicolas+Romero
+  lat: 19.5875
+  lng: -99.3376
+  cancha: Pasto sintético
+  servicios: [Estacionamiento, Sanitarios, Gradas]
+  foto: ""
+  
+# const sedes: ({
+#     nombre: string;
+#     direccion: string;
+#     maps_url: string;
+#     servicios: string[];
+#     lat?: number | undefined;
+#     lng?: number | undefined;
+#     cancha?: string | undefined;
+# } & {
+#     id: string;
+
+- id: deportivo-la-colmena
+  nombre: Deportivo La Colmena
+  direccion: Centro, Cd. Nicolás Romero, Méx.
+  maps_url: https://maps.google.com/?q=Unidad+Deportiva+Nicolas+Romero
+  lat: 19.6214
+  lng: -99.3149
+  cancha: Pasto natural
+  servicios: [Sanitarios, Gradas, Tienda]
+  foto: ""
+
+- id: deportivo-san-ildefonso
+  nombre: Deportivo San Ildefonso
+  direccion: Centro, Cd. Nicolás Romero, Méx.
+  maps_url: https://maps.google.com/?q=Unidad+Deportiva+Nicolas+Romero
+  lat: 19.6214
+  lng: -99.3149
+  cancha: Pasto natural
+  servicios: [Sanitarios, Gradas, Tienda]
+  foto: ""
+
+- id: campo-paso-del-fresno
+  nombre: Campo Paso del Fresno
+  direccion: Centro, Cd. Nicolás Romero, Méx.
+  maps_url: https://maps.google.com/?q=Unidad+Deportiva+Nicolas+Romero
+  lat: 19.6214
+  lng: -99.3149
+  cancha: Pasto natural
+  servicios: [Sanitarios, Gradas, Tienda]
+  foto: ""
+
+- id: deportivo-independencia
+  nombre: Deportivo Independencia
+  direccion: Centro, Cd. Nicolás Romero, Méx.
+  maps_url: https://maps.google.com/?q=Unidad+Deportiva+Nicolas+Romero
+  lat: 19.6214
+  lng: -99.3149
+  cancha: Pasto natural
+  servicios: [Sanitarios, Gradas, Tienda]
+  foto: ""
+
+- id: deportivo-barron
+  nombre: Deportivo Barrón
+  direccion: Centro, Cd. Nicolás Romero, Méx.
+  maps_url: https://maps.google.com/?q=Unidad+Deportiva+Nicolas+Romero
+  lat: 19.6214
+  lng: -99.3149
+  cancha: Pasto natural
+  servicios: [Sanitarios, Gradas, Tienda]
+  foto: ""
+
+- id: estadio-de-futbol-progreso-industrial
+  nombre: Estadio de Fútbol Progreso Industrial
+  direccion: Centro, Cd. Nicolás Romero, Méx.
+  maps_url: https://maps.google.com/?q=Unidad+Deportiva+Nicolas+Romero
+  lat: 19.6214
+  lng: -99.3149
+  cancha: Pasto natural
+  servicios: [Sanitarios, Gradas, Tienda]
+  foto: ""
