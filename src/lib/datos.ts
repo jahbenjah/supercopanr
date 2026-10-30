@@ -35,7 +35,7 @@ const galeria = (carpeta: string, id: string, rutas: string[]) => {
 };
 
 async function cargar() {
-  const [torneos, bases, sedesSinFoto, equiposSinFoto, jugadoresSinFoto, arbitrosSinFoto, partidosSinOrden, patrocinadoresSinLogo, paquetes] = await Promise.all([
+  const [torneos, bases, sedesSinFoto, equiposSinFoto, jugadoresSinFoto, arbitrosSinFoto, partidosSinOrden, patrocinadoresSinLogo, paquetes,mediosSinFoto] = await Promise.all([
     tabla('torneo'),
     tabla('bases'),
     tabla('sedes'),
@@ -45,6 +45,7 @@ async function cargar() {
     tabla('partidos'),
     tabla('patrocinadores'),
     tabla('paquetes'),
+    tabla('medios'),
   ]);
   const sedes = sedesSinFoto.map((x) => ({ ...x, foto: imagen('sedes', x.id, x.foto) }));
   const equipos = equiposSinFoto.map((x) => ({ ...x, logo: imagen('equipos', x.id, x.logo), fotos: galeria('equipos', x.id, x.fotos) }));
@@ -54,6 +55,8 @@ async function cargar() {
   const torneo = torneos.find((t) => t.id === 'actual');
   if (!torneo) throw new Error('src/data/torneo.yaml debe tener una entrada con id: actual');
   const partidos = ordenarPartidos(partidosSinOrden);
+  const medios = mediosSinFoto.map((x) => ({ ...x, logo: imagen('medios', x.id, x.logo), fotos: galeria('medios', x.id, x.fotos) }));
+
 
   const idx = <T extends { id: string }>(xs: T[]) => new Map(xs.map((x) => [x.id, x]));
   const m = {
@@ -63,6 +66,7 @@ async function cargar() {
     arbitros: idx(arbitros),
     partidos: idx(partidos),
     patrocinadores: idx(patrocinadores),
+    medios: idx(medios),
   };
 
   // Integridad referencial: el build falla con un mensaje claro si algo no cuadra.
@@ -117,6 +121,8 @@ async function cargar() {
     disciplina: disciplina(partidos, jugadores, torneo),
     proximaFecha: proximaFecha(partidos),
     ultimaFecha: ultimaFechaJugada(partidos),
+    medios: [...medios].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es')),
+
   };
 }
 
@@ -132,6 +138,7 @@ export type Partido = Datos['partidos'][number];
 export type Equipo = Datos['equipos'][number];
 export type Patrocinador = Datos['patrocinadores'][number];
 export type Ubicacion = 'home-top' | 'tabla' | 'partido' | 'jornada' | 'footer';
+export type Medio = Datos['medios'][number];
 
 const orden = { oro: 0, plata: 1, bronce: 2, equipo: 3 } as const;
 

@@ -92,6 +92,19 @@ const equipos = defineCollection({
   }),
 });
 
+const medios = defineCollection({
+  loader: file('src/data/medios.yaml'),
+  schema: z.object({
+    nombre: z.string(),
+    categoria: id,
+    color: z.string().default('#1c1a17'),
+    logo: imagen.optional(),
+    descripcion: z.string().optional(),
+    facebook: z.url().optional(),
+    fotos: z.array(imagen).default([]),
+  }),
+});
+
 const jugadores = defineCollection({
   loader: file('src/data/jugadores.yaml'),
   schema: z.object({
@@ -178,4 +191,4 @@ const paquetes = defineCollection({
   }),
 });
 
-export const collections = { torneo, bases, sedes, equipos, jugadores, arbitros, partidos, patrocinadores, paquetes };
+export const collections = { torneo, bases, sedes, equipos, jugadores, arbitros, partidos, patrocinadores, paquetes,medios };

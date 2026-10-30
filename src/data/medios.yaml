@@ -1,0 +1,54 @@
+- id: solo-futbol-amateur
+  nombre: Solo Fútbol Amateur
+  categoria: unica
+  color: "#c8102e"
+  logo: ""
+  descripcion:"" 
+  fotos: []
+  facebook: "https://www.facebook.com/solofutbolamateurnr"
+
+- id: dsportsnr
+  nombre: D-Sports NR
+  categoria: unica
+  color: "#c8102e"
+  logo: ""
+  descripcion:"" 
+  fotos: []
+  facebook: "https://www.facebook.com/profile.php?id=61562423367157"
+
+- id: snr-deportes
+  nombre: SNR Deportes
+  categoria: unica
+  color: "#c8102e"
+  logo: ""
+  descripcion:""
+  fotos: []
+  facebook: "https://www.facebook.com/SNRDeportes"
+
+
+- id: lo-mejor-de-la-liga
+  nombre: Lo Mejor de la Liga
+  categoria: unica
+  color: "#c8102e"
+  logo: ""
+  descripcion:"" 
+  fotos: []
+  facebook: "https://www.facebook.com/LoMejorDLaLiga"
+
+- id: aficionados-123
+  nombre: aficionados123 fútbol
+  categoria: unica
+  color: "#c8102e"
+  logo: ""
+  descripcion:"" 
+  fotos: []
+  facebook: "https://www.facebook.com/profile.php?id=61570083690473"
+
+- id: favoo-el-infiltrado
+  nombre: Favoo El Infiltrado Del Deporte
+  categoria: unica
+  color: "#c8102e"
+  logo: ""
+  descripcion:"" 
+  fotos: []
+  facebook: "https://www.facebook.com/profile.php?id=61589969647915"
