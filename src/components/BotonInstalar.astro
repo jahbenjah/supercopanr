@@ -1,0 +1,40 @@
+---
+// Botón "Instalar app". Chrome en Android no siempre muestra su aviso de
+// instalación por su cuenta; guardamos el evento beforeinstallprompt y lo
+// lanzamos cuando la persona toca el botón. Oculto si ya está instalada.
+interface Props {
+  class?: string;
+}
+const { class: clase } = Astro.props;
+---
+<div class:list={['instalar-app', clase]} hidden>
+  <button type="button" class="boton bg-white/10 text-white hover:bg-white/20" data-track="click_instalar" data-id="footer">
+    <span aria-hidden="true">📲</span> Instalar app
+  </button>
+</div>
+
+<script>
+  type EventoInstalar = Event & { prompt(): Promise<void>; userChoice: Promise<{ outcome: string }> };
+  let evento: EventoInstalar | null = null;
+  const cajas = document.querySelectorAll<HTMLElement>('.instalar-app');
+  const mostrar = (si: boolean) => cajas.forEach((c) => (c.hidden = !si));
+
+  addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    evento = e as EventoInstalar;
+    mostrar(true);
+  });
+  addEventListener('appinstalled', () => {
+    evento = null;
+    mostrar(false);
+  });
+  for (const caja of cajas) {
+    caja.querySelector('button')!.addEventListener('click', async () => {
+      if (!evento) return;
+      await evento.prompt();
+      await evento.userChoice;
+      evento = null;
+      mostrar(false);
+    });
+  }
+</script>

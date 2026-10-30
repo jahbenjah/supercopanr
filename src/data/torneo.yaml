@@ -61,9 +61,8 @@
   partidos_suspension_roja: 1
 
   # contacto_whatsapp: "52155XXXXXXXX"   # descomentar con el número real de la organización
-  # onesignal_app_id: "00000000-0000-0000-0000-000000000000"   # OneSignal → Settings → Keys & IDs
   facebook: https://www.facebook.com/solofutbolamateurnr
   messenger: https://m.me/solofutbolamateurnr
   sitio_principal: https://solofutbolamateur.com
   bases_pdf: /bases-supercopa-nicolas-romero-2026.pdf
-  one_signal_app_id: "3ff3209f-882b-4748-9434-9f3d98197d9d"   # OneSignal → Settings → Keys & IDs 
+  onesignal_app_id: "3ff3209f-882b-4748-9434-9f3d98197d9d"   # OneSignal → Settings → Keys & IDs

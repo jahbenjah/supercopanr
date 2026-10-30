@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import SponsorSlot from '../components/SponsorSlot.astro';
 import BotonNotificaciones from '../components/BotonNotificaciones.astro';
+import BotonInstalar from '../components/BotonInstalar.astro';
 import { datos } from '../lib/datos';
 
 interface Props {
@@ -83,9 +84,31 @@ const actual = Astro.url.pathname;
             <script is:inline src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
             <script is:inline define:vars={{ appId: torneo.onesignal_app_id }}>
               window.OneSignalDeferred = window.OneSignalDeferred || [];
-              OneSignalDeferred.push((OneSignal) =>
-                OneSignal.init({ appId, serviceWorkerPath: 'sw.js', serviceWorkerParam: { scope: '/' } }),
-              );
+              OneSignalDeferred.push(async (OneSignal) => {
+                await OneSignal.init({
+                  appId,
+                  serviceWorkerPath: 'sw.js',
+                  serviceWorkerParam: { scope: '/' },
+                  promptOptions: {
+                    slidedown: {
+                      prompts: [{
+                        type: 'push',
+                        autoPrompt: false,
+                        text: {
+                          actionMessage: '¿Quieres recibir resultados y avisos de la Supercopa?',
+                          acceptButton: 'Sí, avisarme',
+                          cancelButton: 'Ahora no',
+                        },
+                      }],
+                    },
+                  },
+                });
+                // Pide permiso unos segundos después de entrar; OneSignal no lo repite
+                // de inmediato si la persona eligió "Ahora no".
+                if (!OneSignal.Notifications.permission && OneSignal.Notifications.isPushSupported()) {
+                  setTimeout(() => OneSignal.Slidedown.promptPush(), 8000);
+                }
+              });
             </script>
           </>
         )}
@@ -136,6 +159,7 @@ const actual = Astro.url.pathname;
           <p class="mt-1">{torneo.edicion} · {torneo.sede_general}</p>
           <p class="mt-1">Organiza: {torneo.organizador}</p>
           <BotonNotificaciones class="mt-4" />
+          <BotonInstalar class="mt-2" />
         </div>
         <ul class="grid grid-cols-2 gap-1">
           {menuExtra.map(([href, texto]) => <li><a href={href} class="hover:text-white">{texto}</a></li>)}
