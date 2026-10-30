@@ -1,0 +1,30 @@
+---
+// Botones a los perfiles de un medio (solo los que tenga).
+import { datos, linkWhatsApp, redesDeMedio, type Medio } from '../lib/datos';
+
+interface Props {
+  medio: Medio;
+  class?: string;
+}
+const { medio, class: clase } = Astro.props;
+const redes = redesDeMedio(medio);
+const { torneo } = await datos();
+---
+{(redes.length > 0 || medio.whatsapp) && (
+  <ul class:list={['flex flex-wrap gap-2', clase]}>
+    {redes.map((r) => (
+      <li>
+        <a href={r.url} target="_blank" rel="noopener" data-track="click_medio" data-id={`${medio.id}-${r.id}`} class="boton border border-stone-300 bg-white text-sm text-tinta hover:border-oro">
+          {r.nombre}
+        </a>
+      </li>
+    ))}
+    {medio.whatsapp && (
+      <li>
+        <a href={linkWhatsApp(medio.whatsapp, `Hola, los vi en la ${torneo.nombre}`)} target="_blank" rel="noopener" data-track="click_whatsapp" data-id={medio.id} class="boton-whatsapp text-sm">
+          WhatsApp
+        </a>
+      </li>
+    )}
+  </ul>
+)}

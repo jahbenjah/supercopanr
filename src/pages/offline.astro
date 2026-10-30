@@ -1,0 +1,12 @@
+---
+// La muestra el service worker cuando no hay conexión y la página no está guardada.
+import Base from '../layouts/Base.astro';
+import Encabezado from '../components/Encabezado.astro';
+---
+<Base title="Sin conexión" description="No hay conexión a internet.">
+  <Encabezado titulo="Sin conexión" subtitulo="No pudimos cargar esta página. Revisa tu conexión e inténtalo de nuevo." />
+  <div class="contenedor py-10 text-center">
+    <button type="button" class="boton-primario" onclick="location.reload()">Reintentar</button>
+    <p class="mt-6 text-sm text-stone-500">Las páginas que ya visitaste siguen disponibles sin conexión.</p>
+  </div>
+</Base>

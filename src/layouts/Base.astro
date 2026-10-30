@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import SponsorSlot from '../components/SponsorSlot.astro';
+import BotonNotificaciones from '../components/BotonNotificaciones.astro';
 import { datos } from '../lib/datos';
 
 interface Props {
@@ -57,7 +58,11 @@ const actual = Astro.url.pathname;
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Supercopa NR" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <slot name="head" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -70,6 +75,20 @@ const actual = Astro.url.pathname;
           gtag('js', new Date());
           gtag('config', gaId);
         </script>
+        <script is:inline>
+          if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+        </script>
+        {torneo.onesignal_app_id && (
+          <>
+            <script is:inline src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+            <script is:inline define:vars={{ appId: torneo.onesignal_app_id }}>
+              window.OneSignalDeferred = window.OneSignalDeferred || [];
+              OneSignalDeferred.push((OneSignal) =>
+                OneSignal.init({ appId, serviceWorkerPath: 'sw.js', serviceWorkerParam: { scope: '/' } }),
+              );
+            </script>
+          </>
+        )}
       </>
     )}
   </head>
@@ -116,6 +135,7 @@ const actual = Astro.url.pathname;
           <p class="font-display text-lg font-bold uppercase text-white">{nombreSitio}</p>
           <p class="mt-1">{torneo.edicion} · {torneo.sede_general}</p>
           <p class="mt-1">Organiza: {torneo.organizador}</p>
+          <BotonNotificaciones class="mt-4" />
         </div>
         <ul class="grid grid-cols-2 gap-1">
           {menuExtra.map(([href, texto]) => <li><a href={href} class="hover:text-white">{texto}</a></li>)}

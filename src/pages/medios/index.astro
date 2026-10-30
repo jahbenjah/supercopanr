@@ -1,34 +1,32 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Encabezado from '../../components/Encabezado.astro';
-import TeamBadge from '../../components/TeamBadge.astro';
 import MedioBadge from '../../components/MedioBadge.astro';
-import { datos } from '../../lib/datos';
+import { contacto, datos, redesDeMedio } from '../../lib/datos';
 
 const d = await datos();
+const alta = contacto(d, `Hola, tengo un medio y quiero cubrir la ${d.torneo.nombre}`);
 ---
-<Base title="Medios" description={`Los medios que cubren de la ${d.torneo.nombre}, con plantillas y estadísticas.`}>
-  <Encabezado titulo="Medios" subtitulo={`Medios de comunicación que cubren la ${d.torneo.nombre}.`} />
+<Base title="Medios" description={`Directorio de medios que cubren la ${d.torneo.nombre}: transmisiones, noticias y redes sociales.`}>
+  <Encabezado titulo="Medios" subtitulo={`Páginas, transmisiones y noticias que cubren la ${d.torneo.nombre}. ¡Síguelos!`} />
   <div class="contenedor py-8">
     {d.medios.length === 0 && (
-      <p class="rounded-xl border-l-4 border-oro bg-amber-50 p-4">
-        Aquí aparecerán los medios que cubren la ${d.torneo.nombre}. <a href="/inscripcion/" class="font-semibold text-cancha">¿Quieres anunciar el tuyo?</a>
-      </p>
+      <p class="rounded-xl border-l-4 border-oro bg-amber-50 p-4">Aquí aparecerán los medios que cubren el torneo.</p>
     )}
     <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {d.medios.map((e) => (
+      {d.medios.map((m) => (
         <li>
-          <a href={`/medios/${e.id}/`} class="tarjeta flex h-full flex-col items-center gap-3 p-5 text-center no-underline transition hover:border-cancha hover:shadow">
-            <MedioBadge medio={e} size={72} enlace={false} />
-            <span class="font-display text-xl font-bold uppercase">{e.nombre}</span>
-            <span class="text-sm text-stone-500">{e.grupo ? `Grupo ${e.grupo}` : 'Grupo por sortear'}</span>
-            {/* {e.perfil_premium && <span class="chip bg-oro/20 text-amber-800">★ Perfil oficial</span>} */}
+          <a href={`/medios/${m.id}/`} class="tarjeta flex h-full flex-col items-center gap-3 p-5 text-center no-underline transition hover:border-cancha hover:shadow">
+            <MedioBadge medio={m} size={72} enlace={false} />
+            <span class="font-display text-xl font-bold uppercase">{m.nombre}</span>
+            {m.descripcion && <span class="line-clamp-2 text-sm text-stone-600">{m.descripcion}</span>}
+            <span class="mt-auto text-xs text-stone-500">{redesDeMedio(m).map((r) => r.nombre).join(' · ')}</span>
           </a>
         </li>
       ))}
     </ul>
     <p class="mt-8 text-center text-sm text-stone-500">
-      ¿Eres delegado? <a href="/anunciate/#equipo-premium" class="font-semibold text-cancha">Activa el perfil oficial de tu equipo</a> con fotos, contacto y tus patrocinadores.
+      ¿Tienes un medio y cubres el torneo? <a href={alta.href} target="_blank" rel="noopener" class="font-semibold text-cancha">Escríbenos por {alta.canal}</a> para aparecer en el directorio.
     </p>
   </div>
 </Base>

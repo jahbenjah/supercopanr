@@ -35,7 +35,7 @@ const galeria = (carpeta: string, id: string, rutas: string[]) => {
 };
 
 async function cargar() {
-  const [torneos, bases, sedesSinFoto, equiposSinFoto, jugadoresSinFoto, arbitrosSinFoto, partidosSinOrden, patrocinadoresSinLogo, paquetes,mediosSinFoto] = await Promise.all([
+  const [torneos, bases, sedesSinFoto, equiposSinFoto, jugadoresSinFoto, arbitrosSinFoto, partidosSinOrden, patrocinadoresSinLogo, paquetes, mediosSinFoto] = await Promise.all([
     tabla('torneo'),
     tabla('bases'),
     tabla('sedes'),
@@ -139,6 +139,20 @@ export type Equipo = Datos['equipos'][number];
 export type Patrocinador = Datos['patrocinadores'][number];
 export type Ubicacion = 'home-top' | 'tabla' | 'partido' | 'jornada' | 'footer';
 export type Medio = Datos['medios'][number];
+
+const REDES = [
+  ['sitio_web', 'Sitio web'],
+  ['facebook', 'Facebook'],
+  ['youtube', 'YouTube'],
+  ['tiktok', 'TikTok'],
+  ['instagram', 'Instagram'],
+  ['x', 'X'],
+] as const;
+
+/** Perfiles que tiene un medio, en orden fijo, para botones y JSON-LD (sameAs). */
+export function redesDeMedio(m: Medio) {
+  return REDES.flatMap(([id, nombre]) => (m[id] ? [{ id, nombre, url: m[id] }] : []));
+}
 
 const orden = { oro: 0, plata: 1, bronce: 2, equipo: 3 } as const;
 

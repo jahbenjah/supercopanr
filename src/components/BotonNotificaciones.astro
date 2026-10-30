@@ -1,0 +1,59 @@
+---
+// Botón para activar o desactivar las notificaciones push (OneSignal). Solo se
+// muestra si hay onesignal_app_id y el navegador las soporta. En iPhone las
+// notificaciones solo funcionan con el sitio agregado a la pantalla de inicio.
+import { datos } from '../lib/datos';
+
+interface Props {
+  class?: string;
+}
+const { class: clase } = Astro.props;
+const { torneo } = await datos();
+---
+{torneo.onesignal_app_id && (
+  <div class:list={['notificaciones', clase]} hidden>
+    <button type="button" class="boton bg-oro text-tinta hover:brightness-110" data-track="click_notificaciones" data-id="footer">
+      <span aria-hidden="true">🔔</span> <span class="texto">Recibir notificaciones</span>
+    </button>
+    <p class="aviso-ios mt-2 text-xs" hidden>
+      En iPhone: toca <strong>Compartir → Agregar a inicio</strong> y abre la app desde ahí para activar las notificaciones.
+    </p>
+  </div>
+)}
+
+<script>
+  type OneSignalT = {
+    Notifications: { isPushSupported(): boolean; permission: boolean; requestPermission(): Promise<void> };
+    User: { PushSubscription: { optedIn?: boolean; optIn(): Promise<void>; optOut(): Promise<void>; addEventListener(e: 'change', f: () => void): void } };
+  };
+  const w = window as unknown as { OneSignalDeferred?: Array<(os: OneSignalT) => void> };
+  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const instalada = matchMedia('(display-mode: standalone)').matches;
+
+  for (const caja of document.querySelectorAll<HTMLElement>('.notificaciones')) {
+    if (ios && !instalada) {
+      caja.hidden = false;
+      caja.querySelector('button')!.hidden = true;
+      caja.querySelector<HTMLElement>('.aviso-ios')!.hidden = false;
+      continue;
+    }
+    (w.OneSignalDeferred ??= []).push((OneSignal) => {
+      if (!OneSignal.Notifications.isPushSupported()) return;
+      const boton = caja.querySelector('button')!;
+      const texto = boton.querySelector('.texto')!;
+      const pintar = () => {
+        texto.textContent = OneSignal.User.PushSubscription.optedIn ? 'Notificaciones activadas ✓' : 'Recibir notificaciones';
+      };
+      boton.addEventListener('click', async () => {
+        const sub = OneSignal.User.PushSubscription;
+        if (sub.optedIn) await sub.optOut();
+        else if (!OneSignal.Notifications.permission) await OneSignal.Notifications.requestPermission();
+        else await sub.optIn();
+        pintar();
+      });
+      OneSignal.User.PushSubscription.addEventListener('change', pintar);
+      pintar();
+      caja.hidden = false;
+    });
+  }
+</script>

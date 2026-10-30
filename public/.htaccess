@@ -1,5 +1,6 @@
 # Configuración de Apache para cPanel (se copia a la raíz del subdominio).
 Options -Indexes
+AddType application/manifest+json .webmanifest
 DirectoryIndex index.html
 ErrorDocument 404 /404.html
 
@@ -24,6 +25,10 @@ ErrorDocument 404 /404.html
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
   <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  # El service worker y el manifest deben revisarse en cada visita para que las actualizaciones lleguen.
+  <FilesMatch "^(sw\.js|manifest\.webmanifest)$">
     Header set Cache-Control "no-cache"
   </FilesMatch>
 </IfModule>

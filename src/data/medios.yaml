@@ -1,63 +1,39 @@
+# Medios que cubren el torneo. El logo se toma solo de public/img/medios/<id>.webp.
+# Perfiles opcionales (los que tenga): sitio_web, facebook, youtube, tiktok, instagram, x, whatsapp
 - id: solo-futbol-amateur
   nombre: Solo Fútbol Amateur
-  categoria: unica
-  color: "#c8102e"
-  logo: ""
-  descripcion:"" 
-  fotos: []
-  facebook: "https://www.facebook.com/solofutbolamateurnr"
+  color: "#5a7336"
+  facebook: https://www.facebook.com/solofutbolamateurnr
+  sitio_web: https://solofutbolamateur.com
 
 - id: dsportsnr
   nombre: D-Sports NR
-  categoria: unica
-  color: "#c8102e"
-  logo: ""
-  descripcion:"" 
-  fotos: []
-  facebook: "https://www.facebook.com/profile.php?id=61562423367157"
+  color: "#1c1a17"
+  facebook: https://www.facebook.com/profile.php?id=61562423367157
 
 - id: snr-deportes
   nombre: SNR Deportes
-  categoria: unica
-  color: "#c8102e"
-  logo: ""
-  descripcion:""
-  fotos: []
-  facebook: "https://www.facebook.com/SNRDeportes"
-
+  color: "#2f3130"
+  facebook: https://www.facebook.com/SNRDeportes
 
 - id: lo-mejor-de-la-liga
   nombre: Lo Mejor de la Liga
-  categoria: unica
-  color: "#c8102e"
-  logo: ""
-  descripcion:"" 
-  fotos: []
-  facebook: "https://www.facebook.com/LoMejorDLaLiga"
+  color: "#e0218a"
+  facebook: https://www.facebook.com/LoMejorDLaLiga
 
 - id: aficionados-123
   nombre: aficionados123 fútbol
-  categoria: unica
-  color: "#c8102e"
-  logo: ""
-  descripcion:"" 
-  fotos: []
-  facebook: "https://www.facebook.com/profile.php?id=61570083690473"
+  color: "#142b4e"
+  facebook: https://www.facebook.com/profile.php?id=61570083690473
 
 - id: favoo-el-infiltrado
   nombre: Favoo El Infiltrado Del Deporte
-  categoria: unica
-  color: "#c8102e"
-  logo: ""
-  descripcion:"Favoo El Infiltrado Del Deporte es un medio dedicado a cubrir noticias deportivas."
-  fotos: []
-  facebook: "https://www.facebook.com/profile.php?id=61589969647915"
+  color: "#b3121b"
+  descripcion: Favoo El Infiltrado Del Deporte es un medio dedicado a cubrir noticias deportivas.
+  facebook: https://www.facebook.com/profile.php?id=61589969647915
 
 - id: cenforfut
   nombre: Cenfor Fut
-  categoria: unica
   color: "#c8102e"
-  logo: ""
-  descripcion:"" 
-  fotos: []
-  facebook: "https://www.facebook.com/profile.php?id=61589969647915"
+  # REVISAR: tenía el mismo Facebook que Favoo El Infiltrado; agrega el correcto.
+  # facebook: https://www.facebook.com/profile.php?id=61589969647915

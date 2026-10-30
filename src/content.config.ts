@@ -41,6 +41,8 @@ const torneo = defineCollection({
     amarillas_para_suspension: z.number().int().positive(),
     partidos_suspension_roja: z.number().int().nonnegative(),
     contacto_whatsapp: whatsapp.optional(),
+    /** App ID de OneSignal (notificaciones push). Sin él, el sitio funciona sin notificaciones. */
+    onesignal_app_id: z.uuid().optional(),
     facebook: z.url(),
     messenger: z.url(),
     sitio_principal: z.url(),
@@ -96,11 +98,17 @@ const medios = defineCollection({
   loader: file('src/data/medios.yaml'),
   schema: z.object({
     nombre: z.string(),
-    categoria: id,
     color: z.string().default('#1c1a17'),
     logo: imagen.optional(),
     descripcion: z.string().optional(),
+    /** Perfiles y sitio: los que tenga, se muestran como botones y van en el JSON-LD (sameAs). */
+    sitio_web: z.url().optional(),
     facebook: z.url().optional(),
+    youtube: z.url().optional(),
+    tiktok: z.url().optional(),
+    instagram: z.url().optional(),
+    x: z.url().optional(),
+    whatsapp: whatsapp.optional(),
     fotos: z.array(imagen).default([]),
   }),
 });
@@ -191,4 +199,4 @@ const paquetes = defineCollection({
   }),
 });
 
-export const collections = { torneo, bases, sedes, equipos, jugadores, arbitros, partidos, patrocinadores, paquetes,medios };
+export const collections = { torneo, bases, sedes, equipos, jugadores, arbitros, partidos, patrocinadores, paquetes, medios };
