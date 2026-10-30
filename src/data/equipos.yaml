@@ -16,7 +16,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: "Audi"
+  delegado: "Emilio Torres"
 
 - id: san-isidro-rgal
   nombre: San Isidro Rgal
@@ -49,7 +49,7 @@
   delegado: ""
 
 - id: aguila-pi
-  nombre: Aguila Progrso Industrial
+  nombre: Aguila Progreso Industrial
   categoria: unica
   color: "#1d3fbf"
   logo: ""
@@ -188,6 +188,16 @@
   fotos: []
   patrocinadores_ids: []
   delegado: ""
+
+- id: acepi
+  nombre: ACEPI
+  categoria: unica
+  color: "#1f3fdf"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: "Wilfrido Martinez Quezada"
 
 
 

@@ -97,6 +97,7 @@ const jugadores = defineCollection({
   schema: z.object({
     equipo_id: id,
     nombre: z.string(),
+    apodo: z.string().optional(),
     numero: z.number().int().nonnegative().optional(),
     posicion: z.enum(['Portero', 'Defensa', 'Medio', 'Delantero']).optional(),
     foto: imagen.optional(),

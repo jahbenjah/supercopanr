@@ -1,20 +1,27 @@
-- id: jugador-1
+- id: calixte-richkard
   nombre: Calixte Richkard  
   numero: 1
   posicion: "Delantero"
   equipo_id: juve-sitecom
   foto: ""
 
-- id: jugador-2
+- id: miguel-rebollo
   nombre: Miguel Rebollo
   numero: 2
   posicion: "Delantero"
   equipo_id: juve-sitecom
   foto: ""
 
-- id: jugador-3
+- id: cristian-vazquez
   nombre: Cristian Vazquez
   numero: 3
   posicion: "Delantero"
   equipo_id: juve-sitecom
+  foto: ""
+
+- id: brayan-farelas
+  nombre: Brayan Farelas
+  numero: 1
+  posicion: "Delantero"
+  equipo_id: flamengo
   foto: ""

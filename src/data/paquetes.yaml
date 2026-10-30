@@ -5,21 +5,25 @@
     - Logo en la portada, tablas y cada cédula de partido
     - Mención en todas las publicaciones de Facebook
     - Enlace directo a tu WhatsApp o sitio
+
 - id: plata
   nombre: Patrocinador Plata
   beneficios:
     - Patrocinador oficial de una jornada
     - Logo en calendario y pie de página
+
 - id: bronce
   nombre: Patrocinador Bronce
   beneficios:
     - Logo en el pie de página de todo el sitio
+
 - id: equipo-premium
   nombre: Perfil de Equipo Premium
   beneficios:
     - Galería de fotos y uniforme
     - Contacto del delegado y redes sociales
     - Espacio para los patrocinadores de tu equipo
+
 - id: arbitro-destacado
   nombre: Árbitro Destacado
   beneficios:
