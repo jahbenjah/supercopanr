@@ -9,7 +9,7 @@ import sharp from 'sharp';
 const RAIZ = 'public/img';
 const ORIGINALES = 'imagenes-originales';
 // Ancho máximo por carpeta; las galerías (subcarpetas) usan el de 'galeria'.
-const ANCHO = { equipos: 512, patrocinadores: 600, arbitros: 600, jugadores: 600, sedes: 1600, galeria: 1600 };
+const ANCHO = { equipos: 512, patrocinadores: 600, arbitros: 600, jugadores: 600, sedes: 1600, galeria: 1600, medios: 512 };
 
 function archivos(dir) {
   return readdirSync(dir).flatMap((f) => {

@@ -49,6 +49,15 @@
   categoria: unica
   color: "#c8102e"
   logo: ""
+  descripcion:"Favoo El Infiltrado Del Deporte es un medio dedicado a cubrir noticias deportivas."
+  fotos: []
+  facebook: "https://www.facebook.com/profile.php?id=61589969647915"
+
+- id: cenforfut
+  nombre: Cenfor Fut
+  categoria: unica
+  color: "#c8102e"
+  logo: ""
   descripcion:"" 
   fotos: []
   facebook: "https://www.facebook.com/profile.php?id=61589969647915"
