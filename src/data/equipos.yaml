@@ -199,5 +199,13 @@
   patrocinadores_ids: []
   delegado: "Wilfrido Martinez Quezada"
 
-
+- id: atlantico-padrinos-infonavit
+  nombre: Atlántico Padrinos Infonavit
+  categoria: unica
+  color: "#1f3fdf"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
 
