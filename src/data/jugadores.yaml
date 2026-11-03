@@ -19,9 +19,30 @@
   equipo_id: juve-sitecom
   foto: ""
 
+- id: carlos-figueroa
+  nombre: Carlos Figueroa
+  numero: 4
+  posicion: "Medio"
+  equipo_id: juve-sitecom
+  foto: ""
+
+- id: brandon-figueroa
+  nombre: Brandon Figueroa
+  numero: 5
+  posicion: "Defensa"
+  equipo_id: juve-sitecom
+  foto: ""
+
 - id: brayan-farelas
   nombre: Brayan Farelas
   numero: 1
   posicion: "Delantero"
   equipo_id: flamengo
+  foto: ""
+
+- id: tala-anthoni
+  nombre: Tala Anthoni
+  numero: 10
+  posicion: "Delantero"
+  equipo_id: san-isidro-rgal
   foto: ""

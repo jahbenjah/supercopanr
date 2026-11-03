@@ -128,8 +128,8 @@
   patrocinadores_ids: []
   delegado: ""
 
-- id: san-idelfonso
-  nombre: San Idelfonso
+- id: san-ildefonso
+  nombre: San Ildefonso
   categoria: unica
   color: "#c8102e"
   logo: ""
@@ -209,3 +209,12 @@
   patrocinadores_ids: []
   delegado: ""
 
+- id: deportivo-cedros
+  nombre: Deportivo Cedros
+  categoria: unica
+  color: "#1f3fdf"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
