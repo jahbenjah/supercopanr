@@ -218,3 +218,33 @@
   fotos: []
   patrocinadores_ids: []
   delegado: ""
+
+- id: bosque-del-mamado
+  nombre: Bosque del Mamado
+  categoria: unica
+  color: "#1f321f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
+
+- id: vikingos
+  nombre: Vikingos
+  categoria: unica
+  color: "#1f321f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
+
+- id: deportivo-cedros
+  nombre: Deportivo Cedros
+  categoria: unica
+  color: "#1f321f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
