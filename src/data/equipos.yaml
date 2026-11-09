@@ -1,13 +1,3 @@
-- id: red-bulls-nr
-  nombre: Red Bulls NR
-  categoria: unica
-  color: "#c8102e"
-  logo: ""
-  perfil_premium: false
-  fotos: []
-  patrocinadores_ids: []
-  delegado: "Audi"
-
 - id: juve-sitecom
   nombre: Juve Sitecom
   categoria: unica
@@ -241,6 +231,16 @@
 
 - id: deportivo-cedros
   nombre: Deportivo Cedros
+  categoria: unica
+  color: "#1f321f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
+
+- id: real-madrid-san-juan-tlihuaca
+  nombre: Real Madrid San Juan Tlihuaca
   categoria: unica
   color: "#1f321f"
   logo: ""
