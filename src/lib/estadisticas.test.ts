@@ -169,6 +169,24 @@ describe('estadisticasPlantillas', () => {
     expect(s.porEquipo.map((e) => [e.equipo_id, e.promedioEdad])).toEqual([['b', 22], ['a', 23.5]]);
     expect(s.dorsales[0]).toEqual({ numero: 10, jugadores: 2 });
   });
+
+  it('omite los primeros jóvenes sin modificar el resto de estadísticas', () => {
+    const siguiente = estadisticasPlantillas(js, 1, 1);
+    expect(siguiente.masJovenes.map((j) => j.id)).toEqual(['x3']);
+    expect(siguiente.veteranos.map((j) => j.id)).toEqual(['x2']);
+    expect(siguiente.promedioEdad).toBe(s.promedioEdad);
+    expect(estadisticasPlantillas(js, 5, 3).masJovenes).toEqual([]);
+    expect(() => estadisticasPlantillas(js, 5, -1)).toThrow('skip debe ser un entero no negativo');
+    expect(() => estadisticasPlantillas(js, 5, 1.5)).toThrow('skip debe ser un entero no negativo');
+  });
+
+  it('selecciona los puestos 6 al 10 al usar top 5 y skip 5', () => {
+    const jugadores = Array.from({ length: 11 }, (_, i) => ({
+      id: `j${i + 1}`, equipo_id: 'a', nombre: `Jugador ${i + 1}`, edad: 15 + i,
+    })).reverse();
+    expect(estadisticasPlantillas(jugadores, 5, 5).masJovenes.map((j) => j.id))
+      .toEqual(['j6', 'j7', 'j8', 'j9', 'j10']);
+  });
 });
 
 describe('estadisticasCompetencia', () => {

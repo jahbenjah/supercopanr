@@ -7,7 +7,7 @@ import { readFileSync } from 'node:fs';
 import satori from 'satori';
 import sharp from 'sharp';
 import { datos, fechaSinAnio, iniciales, type Datos } from './datos';
-import { NOMBRE_FASE } from './estadisticas';
+import { estadisticasPlantillas, NOMBRE_FASE } from './estadisticas';
 
 export type Formato = 'post' | 'og';
 export const TAMANO: Record<Formato, { ancho: number; alto: number }> = {
@@ -181,9 +181,48 @@ async function marcoOg(d: Datos, titulo: string, subtitulo: string, cifras: [str
 }
 
 // ── Piezas reutilizables ──────────────────────────────────────────────────────
-const diaCorto = new Intl.DateTimeFormat('es-MX', { weekday: 'short', day: 'numeric', timeZone: 'UTC' });
 const dec = new Intl.NumberFormat('es-MX', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 const panel = (extra: Estilo = {}): Estilo => ({ background: C.panel, border: `2px solid ${C.linea}`, borderRadius: 20, ...extra });
+
+type Partido = Datos['partidos'][number];
+const diaMes = new Intl.DateTimeFormat('es-MX', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' });
+/** "Vie 13 nov" */
+const fechaCorta = (f: Date) => cap(diaMes.format(f).replace(/\./g, '').replace(',', ''));
+const nombreSede = (d: Datos, p: Partido) => (p.sede_id ? d.por.sedes.get(p.sede_id)?.nombre : undefined);
+const fueJugado = (p: Partido) => p.goles_local != null && p.goles_visitante != null && p.estado !== 'programado';
+const ordenHora = (a: Partido, b: Partido) => +a.fecha - +b.fecha || (a.hora ?? '').localeCompare(b.hora ?? '');
+
+/** Tarjeta de un partido: equipos y marcador arriba; fecha, hora, sede y grupo abajo. */
+async function tarjetaPartido(d: Datos, p: Partido, alto: number, conFecha: boolean): Promise<Nodo> {
+  const local = d.por.equipos.get(p.local_id)!;
+  const visita = d.por.equipos.get(p.visitante_id)!;
+  const jugado = fueJugado(p);
+  const logo = Math.min(58, alto - 50);
+  const nombreEq = (e: Equipo, lado: 'izq' | 'der') =>
+    texto(titular(alto < 100 ? 25 : 28, { textTransform: 'none', fontWeight: 600, flex: 1, lineHeight: 1.05, justifyContent: lado === 'izq' ? 'flex-end' : 'flex-start', textAlign: lado === 'izq' ? 'right' : 'left' }), e.nombre);
+  const cuando = [conFecha && fechaCorta(p.fecha), p.hora && `${p.hora} h`].filter(Boolean).join(' · ');
+  const sede = nombreSede(d, p);
+  return h(
+    'div',
+    { ...panel({ padding: '6px 20px 8px' }), flexDirection: 'column', height: alto, justifyContent: 'center' },
+    h(
+      'div',
+      { alignItems: 'center', gap: 16, flex: 1, minHeight: 0 },
+      nombreEq(local, 'izq'),
+      await escudo(local, logo),
+      texto(titular(jugado ? 44 : 34, { color: jugado ? C.oro : C.blanco, width: 110, justifyContent: 'center' }), jugado ? `${p.goles_local}–${p.goles_visitante}` : 'VS'),
+      await escudo(visita, logo),
+      nombreEq(visita, 'der'),
+    ),
+    h(
+      'div',
+      { alignItems: 'center', justifyContent: 'center', gap: 12, fontSize: 20, color: C.tenue, whiteSpace: 'nowrap' },
+      cuando ? texto({ color: C.oro, fontWeight: 600 }, cuando) : null,
+      sede ? texto({ ...unaLinea, maxWidth: 560, color: C.blanco }, sede) : null,
+      p.grupo ? texto({}, `Grupo ${p.grupo}`) : null,
+    ),
+  );
+}
 
 const ordenGrupo = (d: Datos, g: string) =>
   d.equipos.filter((e) => e.grupo === g).sort((a, b) => (a.posicion ?? 99) - (b.posicion ?? 99));
@@ -357,8 +396,13 @@ export async function imagenesCompartir(): Promise<ImagenCompartir[]> {
                       const jugado = p.goles_local != null && p.goles_visitante != null && p.estado !== 'programado';
                       return h(
                         'div',
-                        { ...panel({ padding: '0 20px', borderRadius: 14 }), alignItems: 'center', height: 64, gap: 16 },
-                        texto({ width: 150, fontSize: 22, color: C.tenue }, p.jornada ? `Jornada ${p.jornada}` : fechaSinAnio(p.fecha)),
+                        { ...panel({ padding: '0 20px', borderRadius: 14 }), alignItems: 'center', height: 84, gap: 16 },
+                        h(
+                          'div',
+                          { flexDirection: 'column', width: 250, whiteSpace: 'nowrap' },
+                          texto({ fontSize: 21, color: C.oro, fontWeight: 600 }, [fechaCorta(p.fecha), p.hora].filter(Boolean).join(' · ')),
+                          nombreSede(d, p) ? texto({ fontSize: 19, color: C.tenue, marginTop: 2, ...unaLinea }, nombreSede(d, p)!) : null,
+                        ),
                         texto(titular(26, { textTransform: 'none', fontWeight: 600, flex: 1, justifyContent: 'flex-end', ...unaLinea }), d.por.equipos.get(p.local_id)!.nombre),
                         texto(titular(30, { color: jugado ? C.oro : C.tenue, width: 96, justifyContent: 'center' }), jugado ? `${p.goles_local} – ${p.goles_visitante}` : 'vs'),
                         texto(titular(26, { textTransform: 'none', fontWeight: 600, flex: 1, ...unaLinea }), d.por.equipos.get(p.visitante_id)!.nombre),
@@ -372,13 +416,29 @@ export async function imagenesCompartir(): Promise<ImagenCompartir[]> {
     }
   }
 
-  // Jornadas (partidos por fecha de juego)
+  // Partidos: una línea por partido para el texto sugerido, con sedes y su ubicación.
+  const lineaPartido = (p: Partido, conFecha: boolean) => {
+    const l = d.por.equipos.get(p.local_id)!.nombre;
+    const v = d.por.equipos.get(p.visitante_id)!.nombre;
+    const marcador = fueJugado(p) ? `${l} ${p.goles_local}-${p.goles_visitante} ${v}` : `${l} vs ${v}`;
+    const sede = nombreSede(d, p);
+    return [conFecha && fechaCorta(p.fecha), p.hora, marcador, sede && `📍 ${sede}`].filter(Boolean).join(' · ');
+  };
+  const ubicaciones = (ps: Partido[]) =>
+    [...new Set(ps.map((p) => p.sede_id).filter(Boolean))]
+      .map((id) => d.por.sedes.get(id!)!)
+      .map((x) => `📍 ${x.nombre}: ${x.maps_url}`)
+      .join('\n');
+  const altoTarjeta = (n: number) => Math.min(130, Math.floor((930 - 12 * (n - 1)) / n));
+
+  // Jornadas
   const jornadas = Map.groupBy(d.partidos, (p) => (p.fase === 'grupos' ? `jornada-${p.jornada ?? 0}` : p.fase));
-  for (const [clave, ps] of jornadas) {
+  for (const [clave, sinOrden] of jornadas) {
+    const ps = sinOrden.toSorted(ordenHora);
     const nombre = ps[0].fase === 'grupos' ? `Jornada ${ps[0].jornada ?? ''}`.trim() : NOMBRE_FASE[ps[0].fase];
     const fechas = [...new Set(ps.map((p) => fechaSinAnio(p.fecha)))];
-    const jugados = ps.filter((p) => p.goles_local != null && p.goles_visitante != null && p.estado !== 'programado');
-    const conResultado = jugados.length === ps.length;
+    const variosDias = fechas.length > 1;
+    const conResultado = ps.every(fueJugado);
     lista.push({
       id: clave,
       seccion: 'Jornadas',
@@ -386,45 +446,40 @@ export async function imagenesCompartir(): Promise<ImagenCompartir[]> {
       formato: 'post',
       pagina: conResultado ? '/resultados/' : '/calendario/',
       texto: conResultado
-        ? `⚽ Resultados de la ${nombre} de la ${t.nombre}:\n${ps.map((p) => `${d.por.equipos.get(p.local_id)!.nombre} ${p.goles_local}-${p.goles_visitante} ${d.por.equipos.get(p.visitante_id)!.nombre}`).join('\n')}\n\n👉 ${sitio}/resultados/\n\n${hashtags}`
-        : `🗓️ ${nombre} de la ${t.nombre}: ${cap(fechas.join(' y '))}. ¡Ven a apoyar a tu equipo!\n${ps.map((p) => `${d.por.equipos.get(p.local_id)!.nombre} vs ${d.por.equipos.get(p.visitante_id)!.nombre}${p.hora ? ` · ${p.hora}` : ''}`).join('\n')}\n\n👉 ${sitio}/calendario/\n\n${hashtags}`,
-      dibujar: async () => {
-        const alto = Math.min(118, Math.floor((930 - 12 * (ps.length - 1)) / ps.length));
-        const logo = Math.min(64, alto - 26);
-        return marcoPost(
+        ? `⚽ Resultados de la ${nombre} de la ${t.nombre}:\n${ps.map((p) => lineaPartido(p, false)).join('\n')}\n\n👉 ${sitio}/resultados/\n\n${hashtags}`
+        : `🗓️ ${nombre} de la ${t.nombre}: ${cap(fechas.join(' y '))}. ¡Ven a apoyar a tu equipo!\n\n${ps.map((p) => lineaPartido(p, variosDias)).join('\n')}\n\n${ubicaciones(ps)}\n\n👉 ${sitio}/calendario/\n\n${hashtags}`,
+      dibujar: async () =>
+        marcoPost(
           d,
           nombre,
-          cap(fechas.join(' y ')),
-          h(
-            'div',
-            { flexDirection: 'column', gap: 12 },
-            await Promise.all(
-              ps.map(async (p) => {
-                const local = d.por.equipos.get(p.local_id)!;
-                const visita = d.por.equipos.get(p.visitante_id)!;
-                const jugado = jugados.includes(p);
-                const nombreEq = (e: Equipo, lado: 'izq' | 'der') =>
-                  texto(titular(28, { textTransform: 'none', fontWeight: 600, flex: 1, lineHeight: 1.05, justifyContent: lado === 'izq' ? 'flex-end' : 'flex-start', textAlign: lado === 'izq' ? 'right' : 'left' }), e.nombre);
-                const detalle = [p.grupo && `Grupo ${p.grupo}`, fechas.length > 1 && diaCorto.format(p.fecha).replace('.', ''), p.hora].filter(Boolean).join(' · ');
-                return h(
-                  'div',
-                  { ...panel({ padding: '0 20px' }), alignItems: 'center', gap: 16, height: alto },
-                  nombreEq(local, 'izq'),
-                  await escudo(local, logo),
-                  h(
-                    'div',
-                    { flexDirection: 'column', alignItems: 'center', width: 150 },
-                    texto(titular(jugado ? 46 : 36, { color: jugado ? C.oro : C.blanco }), jugado ? `${p.goles_local}–${p.goles_visitante}` : 'VS'),
-                    detalle ? texto({ fontSize: 18, color: C.tenue, marginTop: 4, whiteSpace: 'nowrap' }, detalle) : null,
-                  ),
-                  await escudo(visita, logo),
-                  nombreEq(visita, 'der'),
-                );
-              }),
-            ),
-          ),
-        );
-      },
+          variosDias ? `${fechaCorta(ps[0].fecha)} al ${fechaCorta(ps.at(-1)!.fecha)}` : cap(fechas[0]),
+          h('div', { flexDirection: 'column', gap: 12 }, await Promise.all(ps.map((p) => tarjetaPartido(d, p, altoTarjeta(ps.length), variosDias)))),
+        ),
+    });
+  }
+
+  // Partidos por día (rol del día con hora y sede)
+  for (const [dia, sinOrden] of Map.groupBy(d.partidos, (p) => p.fecha.toISOString().slice(0, 10))) {
+    const ps = sinOrden.toSorted(ordenHora);
+    const titulo = cap(fechaSinAnio(ps[0].fecha));
+    const sedes = [...new Set(ps.map((p) => nombreSede(d, p)).filter(Boolean))];
+    const conResultado = ps.every(fueJugado);
+    lista.push({
+      id: `dia-${dia}`,
+      seccion: 'Partidos por día',
+      titulo: `${titulo}${conResultado ? ' · resultados' : ''}`,
+      formato: 'post',
+      pagina: conResultado ? '/resultados/' : '/calendario/',
+      texto: conResultado
+        ? `⚽ Resultados del ${titulo.toLowerCase()} en la ${t.nombre}:\n\n${ps.map((p) => lineaPartido(p, false)).join('\n')}\n\n👉 ${sitio}/resultados/\n\n${hashtags}`
+        : `🗓️ ${titulo}: ${ps.length === 1 ? 'se juega 1 partido' : `se juegan ${ps.length} partidos`} de la ${t.nombre}. ¡Ven a apoyar a tu equipo!\n\n${ps.map((p) => lineaPartido(p, false)).join('\n')}\n\n${ubicaciones(ps)}\n\n👉 ${sitio}/calendario/\n\n${hashtags}`,
+      dibujar: async () =>
+        marcoPost(
+          d,
+          titulo.replace(/,.*/, ''),
+          `${titulo.replace(/^[^,]*,\s*/, '')} · ${ps.length} ${ps.length === 1 ? 'partido' : 'partidos'}${sedes.length ? ` · ${sedes.length} ${sedes.length === 1 ? 'sede' : 'sedes'}` : ''}`,
+          h('div', { flexDirection: 'column', gap: 12 }, await Promise.all(ps.map((p) => tarjetaPartido(d, p, altoTarjeta(ps.length), false)))),
+        ),
     });
   }
 
@@ -506,6 +561,22 @@ export async function imagenesCompartir(): Promise<ImagenCompartir[]> {
         texto: `${emoji} ${titulo} de la ${t.nombre}:\n${lista5.map((j, i) => `${i + 1}. ${j.nombre} (${d.por.equipos.get(j.equipo_id)!.nombre}) · ${j.edad} años`).join('\n')}\n\n👉 ${sitio}/estadisticas/\n\n${hashtags}`,
         dibujar: async () =>
           marcoPost(d, titulo, sub, h('div', { flexDirection: 'column', gap: 16 }, await Promise.all(lista5.map((j, i) => filaJugador(d, j, i, String(j.edad), 'años', 166))))),
+      });
+    }
+
+    const skipJovenes = 20;
+    const siguientesJovenes = estadisticasPlantillas(d.jugadores, 5, skipJovenes).masJovenes;
+    if (siguientesJovenes.length) {
+      const titulo = `Los más jóvenes: puestos ${skipJovenes + 1}–${skipJovenes + siguientesJovenes.length}`;
+      lista.push({
+        id: 'estadisticas-jovenes-21-25',
+        seccion: 'Estadísticas',
+        titulo,
+        formato: 'post',
+        pagina: '/estadisticas/',
+        texto: `🌟 ${titulo} de la ${t.nombre}:\n${siguientesJovenes.map((j, i) => `${skipJovenes + i + 1}. ${j.nombre} (${d.por.equipos.get(j.equipo_id)!.nombre}) · ${j.edad} años`).join('\n')}\n\n👉 ${sitio}/estadisticas/\n\n${hashtags}`,
+        dibujar: async () =>
+          marcoPost(d, 'Los más jóvenes', `Puestos ${skipJovenes + 1}–${skipJovenes + siguientesJovenes.length}`, h('div', { flexDirection: 'column', gap: 16 }, await Promise.all(siguientesJovenes.map((j, i) => filaJugador(d, j, skipJovenes + i, String(j.edad), 'años', 166))))),
       });
     }
 

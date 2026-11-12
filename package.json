@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "check": "astro check",
     "test": "vitest run",
-    "imagenes": "node scripts/a-webp.mjs"
+    "imagenes": "node scripts/a-webp.mjs",
+    "partidos": "scripts/extraer-partidos.sh"
   },
   "author": "",
   "license": "ISC",

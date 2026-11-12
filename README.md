@@ -98,6 +98,10 @@ Toda la lectura de datos pasa por `src/lib/datos.ts`. Para que árbitros o deleg
 resultados desde un panel, se reemplaza esa capa por una base de datos (p. ej. Supabase) con las
 mismas tablas y campos; las páginas no cambian.
 
+En `/compartir/` hay una imagen adicional con los puestos 6 al 10 de los jugadores más jóvenes.
+Se genera durante el build omitiendo los cinco primeros; no acepta parámetros en la URL porque
+el sitio se publica como archivos estáticos. Verifica las edades y los permisos antes de publicar.
+
 ## Publicación en cPanel (una sola vez)
 
 1. **Dominio en cPanel:** cPanel → Dominios → Crear un nuevo dominio: `supercopanr.solofutbolamateur.com`,

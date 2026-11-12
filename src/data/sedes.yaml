@@ -1,51 +1,10 @@
 # Se llena conforme se inscriben los equipos. Formato de ejemplo en ejemplos/sedes.yaml
-- id: la-colmena
-  nombre: Deportivo La Colmena
-  direccion: Progreso Mz 072, La Colmena, 54477 Cd. Nicolás Romero, Méx.
-  maps_url: https://maps.google.com/?q=Deportivo+La+Colmena+Nicolas+Romero
-  lat: 19.5875
-  lng: -99.3376
-  cancha: Pasto sintético
-  servicios: [Estacionamiento, Sanitarios, Gradas]
-  foto: ""
-  
-# const sedes: ({
-#     nombre: string;
-#     direccion: string;
-#     maps_url: string;
-#     servicios: string[];
-#     lat?: number | undefined;
-#     lng?: number | undefined;
-#     cancha?: string | undefined;
-# } & {
-#     id: string;
-
 - id: deportivo-la-colmena
   nombre: Deportivo La Colmena
   direccion: Centro, Cd. Nicolás Romero, Méx.
-  maps_url: https://maps.google.com/?q=Unidad+Deportiva+Nicolas+Romero
-  lat: 19.6214
-  lng: -99.3149
-  cancha: Pasto natural
-  servicios: [Sanitarios, Gradas, Tienda]
-  foto: ""
-
-- id: deportivo-san-ildefonso
-  nombre: Deportivo San Ildefonso
-  direccion: Centro, Cd. Nicolás Romero, Méx.
-  maps_url: https://maps.google.com/?q=Unidad+Deportiva+Nicolas+Romero
-  lat: 19.6214
-  lng: -99.3149
-  cancha: Pasto natural
-  servicios: [Sanitarios, Gradas, Tienda]
-  foto: ""
-
-- id: campo-paso-del-fresno
-  nombre: Campo Paso del Fresno
-  direccion: Centro, Cd. Nicolás Romero, Méx.
-  maps_url: https://maps.google.com/?q=Unidad+Deportiva+Nicolas+Romero
-  lat: 19.6214
-  lng: -99.3149
+  maps_url: https://maps.app.goo.gl/nEpKZDxBbP28kPY88
+  lat: 19.607186
+  lng: -99.294276
   cancha: Pasto natural
   servicios: [Sanitarios, Gradas, Tienda]
   foto: ""
@@ -53,19 +12,9 @@
 - id: deportivo-independencia
   nombre: Deportivo Independencia
   direccion: Centro, Cd. Nicolás Romero, Méx.
-  maps_url: https://maps.google.com/?q=Unidad+Deportiva+Nicolas+Romero
-  lat: 19.6214
-  lng: -99.3149
-  cancha: Pasto natural
-  servicios: [Sanitarios, Gradas, Tienda]
-  foto: ""
-
-- id: deportivo-barron
-  nombre: Deportivo Barrón
-  direccion: Centro, Cd. Nicolás Romero, Méx.
-  maps_url: https://maps.google.com/?q=Unidad+Deportiva+Nicolas+Romero
-  lat: 19.6214
-  lng: -99.3149
+  maps_url: https://maps.app.goo.gl/2hKP9AXEhx9GGiDu5
+  lat: 19.638581
+  lng: -99.321051
   cancha: Pasto natural
   servicios: [Sanitarios, Gradas, Tienda]
   foto: ""
@@ -73,9 +22,41 @@
 - id: estadio-de-futbol-progreso-industrial
   nombre: Estadio de Fútbol Progreso Industrial
   direccion: Centro, Cd. Nicolás Romero, Méx.
-  maps_url: https://maps.google.com/?q=Unidad+Deportiva+Nicolas+Romero
-  lat: 19.6214
-  lng: -99.3149
+  maps_url: https://maps.app.goo.gl/CWfRHfUjGxeLGP126
+  lat: 19.632452
+  lng: -99.35177
   cancha: Pasto natural
   servicios: [Sanitarios, Gradas, Tienda]
   foto: ""
+
+- id: cahuacan-campo-2
+  nombre: Cahuacan Campo 2
+  direccion: Cd. Nicolás Romero, Méx.
+  maps_url: https://maps.app.goo.gl/gi1gwJxAN7BCgUuw5
+  lat: 19.642224
+  lng: -99.405867
+  servicios: []
+
+- id: unidad-deportiva-nicolas-romero
+  nombre: Unidad Deportiva Nicolás Romero
+  direccion: Cd. Nicolás Romero, Méx.
+  maps_url: https://maps.app.goo.gl/ChxCgQnGY7UPQToJ8
+  lat: 19.628752
+  lng: -99.328642
+  servicios: []
+
+- id: presa-de-lara-san-juan-tlihuaca
+  nombre: Presa de Lara San Juan Tlihuaca
+  direccion: Cd. Nicolás Romero, Méx.
+  maps_url: https://maps.app.goo.gl/pQ88zU6RHu2Ndp4j9
+  lat: 19.590235
+  lng: -99.286528
+  servicios: []
+
+- id: canalejas-tlazala
+  nombre: Canalejas Tlazala
+  direccion: Cd. Nicolás Romero, Méx.
+  maps_url: https://maps.app.goo.gl/s5bs5RMdB2rpxXHo6
+  lat: 19.552683
+  lng: -99.422699
+  servicios: []

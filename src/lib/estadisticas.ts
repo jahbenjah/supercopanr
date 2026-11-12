@@ -263,6 +263,7 @@ export interface JugadorPlantilla extends JugadorBase {
   edad?: number;
   posicion?: string;
   numero?: number;
+  skip?: number;
 }
 
 const promedio = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null);
@@ -285,8 +286,9 @@ export const RANGOS_EDAD = [
 
 export const POSICIONES = ['Portero', 'Defensa', 'Medio', 'Delantero'] as const;
 
-/** Edad, posiciones y dorsales de todos los jugadores registrados. */
-export function estadisticasPlantillas<J extends JugadorPlantilla>(jugadores: J[], top = 5) {
+/** Edad, posiciones y dorsales; skip omite los primeros jugadores del ranking de jóvenes. */
+export function estadisticasPlantillas<J extends JugadorPlantilla>(jugadores: J[], top = 5, skip = 0) {
+  if (!Number.isSafeInteger(skip) || skip < 0) throw new RangeError('skip debe ser un entero no negativo');
   const conEdad = jugadores.filter((j): j is J & { edad: number } => j.edad != null);
   const edades = conEdad.map((j) => j.edad);
   const porNombre = (a: J, b: J) => a.nombre.localeCompare(b.nombre, 'es');
@@ -312,7 +314,7 @@ export function estadisticasPlantillas<J extends JugadorPlantilla>(jugadores: J[
     promedioEdad: promedio(edades),
     medianaEdad: mediana(edades),
     menoresDeEdad: edades.filter((e) => e < 18).length,
-    masJovenes: [...conEdad].sort((a, b) => a.edad - b.edad || porNombre(a, b)).slice(0, top),
+    masJovenes: [...conEdad].sort((a, b) => a.edad - b.edad || porNombre(a, b)).slice(skip, skip + top),
     veteranos: [...conEdad].sort((a, b) => b.edad - a.edad || porNombre(a, b)).slice(0, top),
     rangos: RANGOS_EDAD.map((r) => ({ ...r, jugadores: edades.filter((e) => e >= r.desde && e <= r.hasta).length })),
     porPosicion: POSICIONES.map((posicion) => {
