@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import Encabezado from '../components/Encabezado.astro';
+import TeamBadge from '../components/TeamBadge.astro';
+import { datos } from '../lib/datos';
+
+const d = await datos();
+const grupos = d.torneo.categorias.flatMap((c) => c.grupos);
+const porGrupo = Map.groupBy(d.equipos, (e) => e.grupo ?? '');
+const ordenar = <T extends { posicion?: number }>(es: T[]) => [...es].sort((a, b) => (a.posicion ?? 99) - (b.posicion ?? 99));
+const sinGrupo = porGrupo.get('') ?? [];
+---
+<Base title="Grupos" description={`Los escudos de los ${d.equipos.length} equipos de la ${d.torneo.nombre} ${d.torneo.temporada}, por grupo.`}>
+  <Encabezado titulo="Grupos" subtitulo={`Los escudos de los ${d.equipos.length} equipos, por grupo.`} />
+  <div class="contenedor py-8">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {grupos.map((g) => (
+        <section class="tarjeta p-5">
+          <h2 class="mb-4 text-center font-display text-2xl font-bold uppercase">Grupo {g}</h2>
+          <ul class="grid gap-4">
+            {ordenar(porGrupo.get(g) ?? []).map((e) => (
+              <li>
+                <a href={`/equipos/${e.id}/`} class="flex flex-col items-center gap-2 text-center no-underline hover:underline">
+                  <TeamBadge equipo={e} size={96} enlace={false} />
+                  <span class="font-semibold leading-tight">{e.nombre}</span>
+                  {e.cabeza_de_grupo && <span class="chip bg-oro/20 text-amber-800">★ Cabeza de grupo</span>}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+    {sinGrupo.length > 0 && (
+      <ul class="mt-8 flex flex-wrap justify-center gap-6">
+        {sinGrupo.map((e) => (
+          <li><TeamBadge equipo={e} size={96} conNombre /></li>
+        ))}
+      </ul>
+    )}
+  </div>
+</Base>

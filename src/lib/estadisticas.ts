@@ -42,6 +42,8 @@ export interface EquipoBase {
   nombre: string;
   categoria: string;
   grupo?: string;
+  /** Lugar en el grupo según el sorteo; desempate final antes de jugar. */
+  posicion?: number;
 }
 
 export interface JugadorBase {
@@ -89,7 +91,8 @@ export function ordenarPartidos<T extends PartidoBase>(partidos: T[]): T[] {
 }
 
 /**
- * Una tabla por categoría y grupo, ordenada por puntos, diferencia, goles a favor y nombre.
+ * Una tabla por categoría y grupo, ordenada por puntos, diferencia y goles a favor; en empate
+ * total (p. ej. antes de jugar) respeta la posición del sorteo y luego el orden de equipos.yaml.
  * Solo cuentan partidos de fase de grupos; equipos sin grupo (antes del sorteo) no aparecen.
  */
 export function calcularPosiciones(equipos: EquipoBase[], partidos: PartidoBase[], puntos: Puntos): TablaGrupo[] {
@@ -123,7 +126,7 @@ export function calcularPosiciones(equipos: EquipoBase[], partidos: PartidoBase[
     sumar(p.visitante_id, p.goles_visitante!, p.goles_local!);
   }
 
-  const nombre = new Map(equipos.map((e) => [e.id, e.nombre]));
+  const orden = new Map(equipos.map((e, i) => [e.id, [e.posicion ?? Infinity, i] as const]));
   const grupos = new Map<string, TablaGrupo>();
   for (const e of equipos) {
     if (!e.grupo) continue;
@@ -139,7 +142,8 @@ export function calcularPosiciones(equipos: EquipoBase[], partidos: PartidoBase[
         b.pts - a.pts ||
         b.dif - a.dif ||
         b.gf - a.gf ||
-        (nombre.get(a.equipo_id) ?? '').localeCompare(nombre.get(b.equipo_id) ?? '', 'es'),
+        orden.get(a.equipo_id)![0] - orden.get(b.equipo_id)![0] ||
+        orden.get(a.equipo_id)![1] - orden.get(b.equipo_id)![1],
     );
   }
   return tablas.sort((a, b) => a.categoria.localeCompare(b.categoria) || a.grupo.localeCompare(b.grupo));

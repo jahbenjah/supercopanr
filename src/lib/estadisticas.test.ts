@@ -55,6 +55,16 @@ describe('calcularPosiciones', () => {
     expect(t.filas.map((f) => f.equipo_id)).toEqual(['c', 'a', 'b']);
   });
 
+  it('sin partidos jugados respeta la posición del sorteo', () => {
+    const sorteo = [
+      { ...equipos[0], posicion: 1 },
+      { ...equipos[1], posicion: 3 },
+      { ...equipos[2], posicion: 2 },
+    ];
+    const [t] = calcularPosiciones(sorteo, [], puntos);
+    expect(t.filas.map((f) => f.equipo_id)).toEqual(['a', 'c', 'b']);
+  });
+
   it('cuenta partidos por default e ignora programados y suspendidos', () => {
     const ps = [
       partido('a', 'b', 3, 0, { estado: 'default' }),

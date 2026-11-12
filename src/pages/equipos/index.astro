@@ -26,6 +26,9 @@ const d = await datos();
         </li>
       ))}
     </ul>
+    {d.equipos.length > 0 && (
+      <p class="mt-8 text-center"><a href="/grupos/" class="font-semibold text-cancha">Ver los grupos →</a></p>
+    )}
     <p class="mt-8 text-center text-sm text-stone-500">
       ¿Eres delegado? <a href="/anunciate/#equipo-premium" class="font-semibold text-cancha">Activa el perfil oficial de tu equipo</a> con fotos, contacto y tus patrocinadores.
     </p>

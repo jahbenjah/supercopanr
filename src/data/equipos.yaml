@@ -11,10 +11,10 @@
   cabeza_de_grupo: true
   posicion: 1
 
-- id: aguila-pi
-  nombre: Aguila Progreso Industrial
+- id: tlazala
+  nombre: Tlazala
   categoria: unica
-  color: "#1d3fbf"
+  color: "#b8862b"
   logo: ""
   perfil_premium: false
   fotos: []
@@ -24,10 +24,10 @@
   cabeza_de_grupo: false
   posicion: 2
 
-- id: tlazala
-  nombre: Tlazala
+- id: aguila-pi
+  nombre: Aguila Progreso Industrial
   categoria: unica
-  color: "#b8862b"
+  color: "#1d3fbf"
   logo: ""
   perfil_premium: false
   fotos: []
@@ -50,10 +50,10 @@
   cabeza_de_grupo: true
   posicion: 1
 
-- id: atlantico-padrinos-infonavit
-  nombre: Atlántico Padrinos Infonavit
+- id: deportivo-la-rosa
+  nombre: Deportivo La Rosa
   categoria: unica
-  color: "#1f3fdf"
+  color: "#1c4490"
   logo: ""
   perfil_premium: false
   fotos: []
@@ -63,10 +63,10 @@
   cabeza_de_grupo: false
   posicion: 2
 
-- id: deportivo-la-rosa
-  nombre: Deportivo La Rosa
+- id: atlantico-padrinos-infonavit
+  nombre: Atlántico Padrinos Infonavit
   categoria: unica
-  color: "#1c4490"
+  color: "#1f3fdf"
   logo: ""
   perfil_premium: false
   fotos: []
@@ -89,10 +89,10 @@
   cabeza_de_grupo: true
   posicion: 1
 
-- id: deportivo-fresno
-  nombre: Deportivo Fresno
+- id: san-ildefonso
+  nombre: San Ildefonso
   categoria: unica
-  color: "#1b6b35"
+  color: "#c8102e"
   logo: ""
   perfil_premium: false
   fotos: []
@@ -102,10 +102,10 @@
   cabeza_de_grupo: false
   posicion: 2
 
-- id: san-ildefonso
-  nombre: San Ildefonso
+- id: deportivo-fresno
+  nombre: Deportivo Fresno
   categoria: unica
-  color: "#c8102e"
+  color: "#1b6b35"
   logo: ""
   perfil_premium: false
   fotos: []
@@ -128,10 +128,10 @@
   cabeza_de_grupo: true
   posicion: 1
 
-- id: carboneros
-  nombre: Carboneros Villa del Carbon
+- id: vikingos
+  nombre: Vikingos
   categoria: unica
-  color: "#b07d2a"
+  color: "#1f321f"
   logo: ""
   perfil_premium: false
   fotos: []
@@ -141,10 +141,10 @@
   cabeza_de_grupo: false
   posicion: 2
 
-- id: vikingos
-  nombre: Vikingos
+- id: carboneros
+  nombre: Carboneros Villa del Carbon
   categoria: unica
-  color: "#1f321f"
+  color: "#b07d2a"
   logo: ""
   perfil_premium: false
   fotos: []
@@ -284,10 +284,10 @@
   cabeza_de_grupo: true
   posicion: 1
 
-- id: atoleros
-  nombre: Atoleros San Jose El Vidrio
+- id: real-madrid-san-juan-tlihuaca
+  nombre: Real Madrid San Juan Tlihuaca
   categoria: unica
-  color: "#00973f"
+  color: "#1f321f"
   logo: ""
   perfil_premium: false
   fotos: []
@@ -297,10 +297,10 @@
   cabeza_de_grupo: false
   posicion: 2
 
-- id: real-madrid-san-juan-tlihuaca
-  nombre: Real Madrid San Juan Tlihuaca
+- id: atoleros
+  nombre: Atoleros San Jose El Vidrio
   categoria: unica
-  color: "#1f321f"
+  color: "#00973f"
   logo: ""
   perfil_premium: false
   fotos: []

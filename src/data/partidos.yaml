@@ -9,7 +9,7 @@
   categoria: unica
   fecha: 2026-11-13
   local_id: juve-sitecom
-  visitante_id: aguila-pi
+  visitante_id: tlazala
   estado: programado
 - id: b-j1
   fase: grupos
@@ -18,7 +18,7 @@
   categoria: unica
   fecha: 2026-11-13
   local_id: san-isidro-rgal
-  visitante_id: atlantico-padrinos-infonavit
+  visitante_id: deportivo-la-rosa
   estado: programado
 - id: c-j1
   fase: grupos
@@ -27,7 +27,7 @@
   categoria: unica
   fecha: 2026-11-13
   local_id: potros-fc
-  visitante_id: deportivo-fresno
+  visitante_id: san-ildefonso
   estado: programado
 - id: d-j1
   fase: grupos
@@ -36,7 +36,7 @@
   categoria: unica
   fecha: 2026-11-13
   local_id: club-colmena
-  visitante_id: carboneros
+  visitante_id: vikingos
   estado: programado
 - id: e-j1
   fase: grupos
@@ -72,7 +72,7 @@
   categoria: unica
   fecha: 2026-11-14
   local_id: tigres-y
-  visitante_id: atoleros
+  visitante_id: real-madrid-san-juan-tlihuaca
   estado: programado
 
 # Jornada 2
@@ -82,8 +82,8 @@
   jornada: 2
   categoria: unica
   fecha: 2026-11-16
-  local_id: aguila-pi
-  visitante_id: tlazala
+  local_id: tlazala
+  visitante_id: aguila-pi
   estado: programado
 - id: b-j2
   fase: grupos
@@ -91,8 +91,8 @@
   jornada: 2
   categoria: unica
   fecha: 2026-11-16
-  local_id: atlantico-padrinos-infonavit
-  visitante_id: deportivo-la-rosa
+  local_id: deportivo-la-rosa
+  visitante_id: atlantico-padrinos-infonavit
   estado: programado
 - id: c-j2
   fase: grupos
@@ -100,8 +100,8 @@
   jornada: 2
   categoria: unica
   fecha: 2026-11-16
-  local_id: deportivo-fresno
-  visitante_id: san-ildefonso
+  local_id: san-ildefonso
+  visitante_id: deportivo-fresno
   estado: programado
 - id: d-j2
   fase: grupos
@@ -109,8 +109,8 @@
   jornada: 2
   categoria: unica
   fecha: 2026-11-16
-  local_id: carboneros
-  visitante_id: vikingos
+  local_id: vikingos
+  visitante_id: carboneros
   estado: programado
 - id: e-j2
   fase: grupos
@@ -145,8 +145,8 @@
   jornada: 2
   categoria: unica
   fecha: 2026-11-16
-  local_id: atoleros
-  visitante_id: real-madrid-san-juan-tlihuaca
+  local_id: real-madrid-san-juan-tlihuaca
+  visitante_id: atoleros
   estado: programado
 
 # Jornada 3
@@ -157,7 +157,7 @@
   categoria: unica
   fecha: 2026-11-20
   local_id: juve-sitecom
-  visitante_id: tlazala
+  visitante_id: aguila-pi
   estado: programado
 - id: b-j3
   fase: grupos
@@ -166,7 +166,7 @@
   categoria: unica
   fecha: 2026-11-20
   local_id: san-isidro-rgal
-  visitante_id: deportivo-la-rosa
+  visitante_id: atlantico-padrinos-infonavit
   estado: programado
 - id: c-j3
   fase: grupos
@@ -175,7 +175,7 @@
   categoria: unica
   fecha: 2026-11-20
   local_id: potros-fc
-  visitante_id: san-ildefonso
+  visitante_id: deportivo-fresno
   estado: programado
 - id: d-j3
   fase: grupos
@@ -184,7 +184,7 @@
   categoria: unica
   fecha: 2026-11-20
   local_id: club-colmena
-  visitante_id: vikingos
+  visitante_id: carboneros
   estado: programado
 - id: e-j3
   fase: grupos
@@ -220,5 +220,5 @@
   categoria: unica
   fecha: 2026-11-21
   local_id: tigres-y
-  visitante_id: real-madrid-san-juan-tlihuaca
+  visitante_id: atoleros
   estado: programado
