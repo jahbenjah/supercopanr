@@ -1,0 +1,17 @@
+curl --location 'https://plantilla1.copafinal.com/Categorias/Jugadores/Personal.php' \
+--header 'Accept: application/json' \
+--header 'Accept-Language: es-US,es;q=0.9,en-US;q=0.8,en;q=0.7,es-419;q=0.6,gl;q=0.5' \
+--header 'Connection: keep-alive' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Origin: https://plantilla1.copafinal.com' \
+--header 'Referer: https://plantilla1.copafinal.com/?l=871ea7444fd7108f5e34859ddf414262' \
+--header 'Sec-Fetch-Dest: empty' \
+--header 'Sec-Fetch-Mode: cors' \
+--header 'Sec-Fetch-Site: same-origin' \
+--header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36' \
+--header 'sec-ch-ua: "Not-A.Brand";v="99", "Google Chrome";v="157", "Chromium";v="157"' \
+--header 'sec-ch-ua-mobile: ?0' \
+--header 'sec-ch-ua-platform: "Windows"' \
+--data-urlencode 'L=871ea7444fd7108f5e34859ddf414262' \
+--data-urlencode 'C=5e99e2d08d54285828d62da4f6a9e521' \
+--data-urlencode 'E=825159c455a5339e7b259fd8592a86c9'

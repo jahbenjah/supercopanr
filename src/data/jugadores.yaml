@@ -1,48 +1,4031 @@
-- id: calixte-richkard
-  nombre: Calixte Richkard  
-  numero: 1
-  posicion: "Delantero"
-  equipo_id: juve-sitecom
-  foto: ""
-
-- id: miguel-rebollo
-  nombre: Miguel Rebollo
-  numero: 2
-  posicion: "Delantero"
-  equipo_id: juve-sitecom
-  foto: ""
-
-- id: cristian-vazquez
-  nombre: Cristian Vazquez
-  numero: 3
-  posicion: "Delantero"
-  equipo_id: juve-sitecom
-  foto: ""
-
-- id: carlos-figueroa
-  nombre: Carlos Figueroa
-  numero: 4
+- id: cabanas-carlos-figueroa
+  nombre: Cabañas Carlos Figueroa
+  numero: 80
   posicion: "Medio"
   equipo_id: juve-sitecom
-  foto: ""
+  foto: "/img/jugadores/cabanas-carlos-figueroa.webp"
 
-- id: brandon-figueroa
-  nombre: Brandon Figueroa
-  numero: 5
+- id: vazquez-ramirez-cristian-israel
+  nombre: Vazquez Ramirez Cristian Israel
+  numero: 49
+  posicion: "Medio"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/vazquez-ramirez-cristian-israel.webp"
+
+- id: moreno-daniel-velazquez
+  nombre: Moreno Daniel Velazquez
+  numero: 82
+  posicion: "Medio"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/moreno-daniel-velazquez.webp"
+
+- id: davalos-yanes-diego-rene
+  nombre: Davalos Yañes Diego Rene
+  numero: 84
   posicion: "Defensa"
   equipo_id: juve-sitecom
-  foto: ""
+  foto: "/img/jugadores/davalos-yanes-diego-rene.webp"
 
-- id: brayan-farelas
-  nombre: Brayan Farelas
+- id: silva-fernando-herrera
+  nombre: Silva Fernando Herrera
+  numero: 18
+  posicion: "Defensa"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/silva-fernando-herrera.webp"
+
+- id: salazar-flores-francisco-javier
+  nombre: Salazar Flores Francisco Javier
+  numero: 30
+  posicion: "Defensa"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/salazar-flores-francisco-javier.webp"
+
+- id: toledo-vargas-germyn-arcel
+  nombre: Toledo Vargas Germyn Arcel
+  numero: 8
+  posicion: "Medio"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/toledo-vargas-germyn-arcel.webp"
+
+- id: gamboa-israel-guevara
+  nombre: Gamboa Israel Guevara
+  numero: 77
+  posicion: "Defensa"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/gamboa-israel-guevara.webp"
+
+- id: barrera-ivan-castanuelas
+  nombre: Barrera Ivan Castañuelas
+  numero: 2
+  posicion: "Defensa"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/barrera-ivan-castanuelas.webp"
+
+- id: figueroa-cabanas-jesus-brandon
+  nombre: Figueroa Cabañas Jesus Brandon
+  numero: 81
+  posicion: "Defensa"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/figueroa-cabanas-jesus-brandon.webp"
+
+- id: frausto-araujo-jonathan-ali
+  nombre: Frausto Araujo Jonathan Ali
+  numero: 0
+  posicion: "Medio"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/frausto-araujo-jonathan-ali.webp"
+
+- id: jimenez-espinoza-jonathan-zarit
+  nombre: Jimenez Espinoza Jonathan Zarit
   numero: 1
-  posicion: "Delantero"
-  equipo_id: flamengo
-  foto: ""
+  posicion: "Portero"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/jimenez-espinoza-jonathan-zarit.webp"
 
-- id: tala-anthoni
-  nombre: Tala Anthoni
+- id: vargas-jordy-toledo
+  nombre: Vargas Jordy Toledo
+  numero: 11
+  posicion: "Medio"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/vargas-jordy-toledo.webp"
+
+- id: perez-vazquez-jose-de-jesus
+  nombre: Perez Vazquez Jose de Jesús
+  numero: 14
+  posicion: "Defensa"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/perez-vazquez-jose-de-jesus.webp"
+
+- id: barrera-paniagua-jose-luis
+  nombre: Barrera Paniagua Jose Luis
+  numero: 50
+  posicion: "Medio"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/barrera-paniagua-jose-luis.webp"
+
+- id: lora-chavez-juan-luis
+  nombre: Lora Chavez Juan Luis
+  numero: 22
+  posicion: "Defensa"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/lora-chavez-juan-luis.webp"
+
+- id: santos-rios-julio-cesar
+  nombre: Santos Rios Julio Cesar
+  numero: 25
+  posicion: "Defensa"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/santos-rios-julio-cesar.webp"
+
+- id: herrlein-leonardo-gabriel
+  nombre: Herrlein Leonardo Gabriel
+  numero: 83
+  posicion: "Delantero"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/herrlein-leonardo-gabriel.webp"
+
+- id: barrera-barragan-luis-alejandro
+  nombre: Barrera Barragan Luis Alejandro
+  numero: 4
+  posicion: "Defensa"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/barrera-barragan-luis-alejandro.webp"
+
+- id: alanis-cruz-mario-enrique
+  nombre: Alanis Cruz Mario Enrique
+  numero: 15
+  posicion: "Medio"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/alanis-cruz-mario-enrique.webp"
+
+- id: rebollo-rodriguez-miguel-alejandro
+  nombre: Rebollo Rodriguez Miguel Alejandro
+  numero: 93
+  posicion: "Delantero"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/rebollo-rodriguez-miguel-alejandro.webp"
+
+- id: chaparro-maldonado-oscar-isaias
+  nombre: Chaparro Maldonado Oscar Isaias
+  numero: 12
+  posicion: "Medio"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/chaparro-maldonado-oscar-isaias.webp"
+
+- id: calixte-richkard
+  nombre: Calixte Richkard
   numero: 10
   posicion: "Delantero"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/calixte-richkard.webp"
+
+- id: barrerra-barragan-roben-abraham
+  nombre: Barrerra Barragan Roben Abraham
+  numero: 3
+  posicion: "Defensa"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/barrerra-barragan-roben-abraham.webp"
+
+- id: velasco-calixto-ulises-david
+  nombre: Velasco Calixto Ulises David
+  numero: 21
+  posicion: "Medio"
+  equipo_id: juve-sitecom
+  foto: "/img/jugadores/velasco-calixto-ulises-david.webp"
+
+- id: brayan-alexix-alvarado-sanchez
+  nombre: Brayan Alexix Alvarado Sanchez
+  numero: 16
+  posicion: "Delantero"
+  equipo_id: tlazala
+  foto: "/img/jugadores/brayan-alexix-alvarado-sanchez.webp"
+
+- id: mauricio-fermin-avila-estrada
+  nombre: Mauricio Fermin Avila Estrada
+  numero: 23
+  posicion: "Defensa"
+  equipo_id: tlazala
+  foto: "/img/jugadores/mauricio-fermin-avila-estrada.webp"
+
+- id: arturo-bautista-gonzalez
+  nombre: Arturo Bautista Gonzalez
+  numero: 11
+  posicion: "Delantero"
+  equipo_id: tlazala
+  foto: "/img/jugadores/arturo-bautista-gonzalez.webp"
+
+- id: marco-antonio-bautista-gonzalez
+  nombre: Marco Antonio Bautista Gonzalez
+  numero: 15
+  posicion: "Delantero"
+  equipo_id: tlazala
+  foto: "/img/jugadores/marco-antonio-bautista-gonzalez.webp"
+
+- id: roberto-carlos-becerril-sanchez
+  nombre: Roberto Carlos Becerril Sanchez
+  numero: 14
+  posicion: "Medio"
+  equipo_id: tlazala
+  foto: "/img/jugadores/roberto-carlos-becerril-sanchez.webp"
+
+- id: brayan-blas-mejia
+  nombre: Brayan Blas Mejia
+  numero: 6
+  posicion: "Defensa"
+  equipo_id: tlazala
+  foto: "/img/jugadores/brayan-blas-mejia.webp"
+
+- id: miguel-de-la-luz-rosas
+  nombre: Miguel de la Luz Rosas
+  numero: 0
+  posicion: "Portero"
+  equipo_id: tlazala
+  foto: "/img/jugadores/miguel-de-la-luz-rosas.webp"
+
+- id: jose-enrique-de-la-luz-santos
+  nombre: Jose Enrique de la Luz Santos
+  numero: 3
+  posicion: "Defensa"
+  equipo_id: tlazala
+  foto: "/img/jugadores/jose-enrique-de-la-luz-santos.webp"
+
+- id: edgar-antonio-escorcia-alcantara
+  nombre: Edgar Antonio Escorcia Alcantara
+  numero: 19
+  posicion: "Delantero"
+  equipo_id: tlazala
+  foto: "/img/jugadores/edgar-antonio-escorcia-alcantara.webp"
+
+- id: perez-najera-irving-jair-perez-najera-irving-jair
+  nombre: Perez Najera Irving Jair Perez Najera Irving Jair
+  numero: 2
+  posicion: "Portero"
+  equipo_id: tlazala
+  foto: "/img/jugadores/perez-najera-irving-jair-perez-najera-irving-jair.webp"
+
+- id: jose-luis-jimenez-colin
+  nombre: Jose Luis Jimenez Colin
+  numero: 5
+  posicion: "Defensa"
+  equipo_id: tlazala
+  foto: "/img/jugadores/jose-luis-jimenez-colin.webp"
+
+- id: barrera-josue-rivas-barrera-josue-rivas
+  nombre: Barrera Josue Rivas Barrera Josue Rivas
+  numero: 18
+  posicion: "Defensa"
+  equipo_id: tlazala
+  foto: "/img/jugadores/barrera-josue-rivas-barrera-josue-rivas.webp"
+
+- id: diego-osnaya-franco
+  nombre: Diego Osnaya Franco
+  numero: 1
+  posicion: "Portero"
+  equipo_id: tlazala
+  foto: "/img/jugadores/diego-osnaya-franco.webp"
+
+- id: jecssan-joel-osnaya-rosas
+  nombre: Jecssan Joel Osnaya Rosas
+  numero: 7
+  posicion: "Medio"
+  equipo_id: tlazala
+  foto: "/img/jugadores/jecssan-joel-osnaya-rosas.webp"
+
+- id: josue-ivan-osnaya-rosas
+  nombre: Josue Ivan Osnaya Rosas
+  numero: 22
+  posicion: "Delantero"
+  equipo_id: tlazala
+  foto: "/img/jugadores/josue-ivan-osnaya-rosas.webp"
+
+- id: erik-manuel-perez-najera
+  nombre: Erik Manuel Perez Najera
+  numero: 21
+  posicion: "Medio"
+  equipo_id: tlazala
+  foto: "/img/jugadores/erik-manuel-perez-najera.webp"
+
+- id: irvin-leonel-pintor-mondragon
+  nombre: Irvin Leonel Pintor Mondragón
+  numero: 24
+  posicion: "Medio"
+  equipo_id: tlazala
+  foto: "/img/jugadores/irvin-leonel-pintor-mondragon.webp"
+
+- id: angel-ramirez-sanchez
+  nombre: Angel Ramirez Sanchez
+  numero: 9
+  posicion: "Delantero"
+  equipo_id: tlazala
+  foto: "/img/jugadores/angel-ramirez-sanchez.webp"
+
+- id: abraham-rosas-rosas
+  nombre: Abraham Rosas Rosas
+  numero: 8
+  posicion: "Medio"
+  equipo_id: tlazala
+  foto: "/img/jugadores/abraham-rosas-rosas.webp"
+
+- id: jesus-ruiz-garcia
+  nombre: Jesus Ruiz Garcia
+  numero: 12
+  posicion: "Medio"
+  equipo_id: tlazala
+  foto: "/img/jugadores/jesus-ruiz-garcia.webp"
+
+- id: josue-saucedo-solis
+  nombre: Josue Saucedo Solis
+  numero: 13
+  posicion: "Medio"
+  equipo_id: tlazala
+  foto: "/img/jugadores/josue-saucedo-solis.webp"
+
+- id: miguel-angel-vargas-davila
+  nombre: Miguel Angel Vargas Davila
+  numero: 17
+  posicion: "Defensa"
+  equipo_id: tlazala
+  foto: "/img/jugadores/miguel-angel-vargas-davila.webp"
+
+- id: adolfo-angel-vargas-martinez
+  nombre: Adolfo Angel Vargas Martinez
+  numero: 4
+  posicion: "Defensa"
+  equipo_id: tlazala
+  foto: "/img/jugadores/adolfo-angel-vargas-martinez.webp"
+
+- id: francisco-villafranco-guadarra
+  nombre: Francisco Villafranco Guadarra
+  numero: 20
+  posicion: "Medio"
+  equipo_id: tlazala
+  foto: "/img/jugadores/francisco-villafranco-guadarra.webp"
+
+- id: pino-rios-angel-gael
+  nombre: Pino Rios Angel Gael
+  numero: 24
+  posicion: "Medio"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/pino-rios-angel-gael.webp"
+
+- id: angelo-jovan-blancas-ramirez
+  nombre: Angelo Jovan Blancas Ramirez
+  numero: 23
+  posicion: "Delantero"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/angelo-jovan-blancas-ramirez.webp"
+
+- id: raul-carranza-contreras
+  nombre: Raul Carranza Contreras
+  numero: 4
+  posicion: "Defensa"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/raul-carranza-contreras.webp"
+
+- id: hernandez-emiliano-flandez
+  nombre: Hernandez Emiliano Flandez
+  numero: 14
+  posicion: "Delantero"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/hernandez-emiliano-flandez.webp"
+
+- id: castillo-palomares-erick-yael
+  nombre: Castillo Palomares Erick Yael
+  numero: 5
+  posicion: "Defensa"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/castillo-palomares-erick-yael.webp"
+
+- id: edwin-raul-estrada-gonzalez
+  nombre: Edwin Raul Estrada Gonzalez
+  numero: 8
+  posicion: "Delantero"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/edwin-raul-estrada-gonzalez.webp"
+
+- id: diego-felix-cruz
+  nombre: Diego Felix Cruz
+  numero: 3
+  posicion: "Defensa"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/diego-felix-cruz.webp"
+
+- id: juan-carlos-granados-aburto
+  nombre: Juan Carlos Granados Aburto
+  numero: 11
+  posicion: "Medio"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/juan-carlos-granados-aburto.webp"
+
+- id: juan-daniel-herrera-elizalde
+  nombre: Juan Daniel Herrera Elizalde
+  numero: 9
+  posicion: "Medio"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/juan-daniel-herrera-elizalde.webp"
+
+- id: raul-isidoro-gonzalez
+  nombre: Raul Isidoro Gonzalez
+  numero: 1
+  posicion: "Portero"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/raul-isidoro-gonzalez.webp"
+
+- id: sandoval-alvarez-jostin-omar
+  nombre: Sandoval Alvarez Jostin Omar
+  numero: 21
+  posicion: "Medio"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/sandoval-alvarez-jostin-omar.webp"
+
+- id: gonzalez-cordova-luis-angel
+  nombre: Gonzalez Cordova Luis Angel
+  numero: 6
+  posicion: "Defensa"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/gonzalez-cordova-luis-angel.webp"
+
+- id: edson-ulises-martinez-cardelas
+  nombre: Edson Ulises Martinez Cardelas
+  numero: 22
+  posicion: "Medio"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/edson-ulises-martinez-cardelas.webp"
+
+- id: cristhian-martinez-reyes
+  nombre: Cristhian Martinez Reyes
+  numero: 15
+  posicion: "Medio"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/cristhian-martinez-reyes.webp"
+
+- id: martinez-mauricio-merida
+  nombre: Martinez Mauricio Merida
+  numero: 10
+  posicion: "Medio"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/martinez-mauricio-merida.webp"
+
+- id: raul-rodriguez-varela
+  nombre: Raul Rodriguez Varela
+  numero: 13
+  posicion: "Medio"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/raul-rodriguez-varela.webp"
+
+- id: aaron-yahir-sanchez-cruz
+  nombre: Aaron Yahir Sanchez Cruz
+  numero: 25
+  posicion: "Defensa"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/aaron-yahir-sanchez-cruz.webp"
+
+- id: daniel-sanchez-cruz
+  nombre: Daniel Sanchez Cruz
+  numero: 12
+  posicion: "Delantero"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/daniel-sanchez-cruz.webp"
+
+- id: hugo-alberto-trejo-bueno
+  nombre: Hugo Alberto Trejo Bueno
+  numero: 16
+  posicion: "Medio"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/hugo-alberto-trejo-bueno.webp"
+
+- id: arturo-vega-hernandez
+  nombre: Arturo Vega Hernández
+  numero: 7
+  posicion: "Defensa"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/arturo-vega-hernandez.webp"
+
+- id: daniel-vega-santos
+  nombre: Daniel Vega Santos
+  numero: 18
+  posicion: "Delantero"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/daniel-vega-santos.webp"
+
+- id: hugo-filip-velazquez-martinez
+  nombre: Hugo Filip Velazquez Martinez
+  numero: 17
+  posicion: "Defensa"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/hugo-filip-velazquez-martinez.webp"
+
+- id: nicolas-velazquez-martinez
+  nombre: Nicolas Velazquez Martinez
+  numero: 20
+  posicion: "Defensa"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/nicolas-velazquez-martinez.webp"
+
+- id: edwin-velez-ayala
+  nombre: Edwin Velez Ayala
+  numero: 2
+  posicion: "Portero"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/edwin-velez-ayala.webp"
+
+- id: canales-paz-victor-manuel
+  nombre: Canales Paz Victor Manuel
+  numero: 19
+  posicion: "Defensa"
+  equipo_id: aguila-pi
+  foto: "/img/jugadores/canales-paz-victor-manuel.webp"
+
+- id: luciano-acevedo
+  nombre: Luciano Acevedo
+  numero: 28
+  posicion: "Defensa"
   equipo_id: san-isidro-rgal
-  foto: ""
+  foto: "/img/jugadores/luciano-acevedo.webp"
+
+- id: emilio-romario-arenas-rivero
+  nombre: Emilio Romario Arenas Rivero
+  numero: 13
+  posicion: "Defensa"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/emilio-romario-arenas-rivero.webp"
+
+- id: diego-armando-barron-neri
+  nombre: Diego Armando Barrón Neri
+  numero: 16
+  posicion: "Medio"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/diego-armando-barron-neri.webp"
+
+- id: daniel-castillo-moctezuma
+  nombre: Daniel Castillo Moctezuma
+  numero: 5
+  posicion: "Defensa"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/daniel-castillo-moctezuma.webp"
+
+- id: carlos-alberto-de-jesus-chanes-ortega
+  nombre: Carlos Alberto de Jesús Chanes Ortega
+  numero: 23
+  posicion: "Portero"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/carlos-alberto-de-jesus-chanes-ortega.webp"
+
+- id: jose-antonio-gallardo-gonzalez
+  nombre: José Antonio Gallardo González
+  numero: 15
+  posicion: "Defensa"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/jose-antonio-gallardo-gonzalez.webp"
+
+- id: humberto-gil-mejia
+  nombre: Humberto Gil Mejía
+  numero: 9
+  posicion: "Delantero"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/humberto-gil-mejia.webp"
+
+- id: israel-gil-mejia
+  nombre: Israel Gil Mejia
+  numero: 4
+  posicion: "Defensa"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/israel-gil-mejia.webp"
+
+- id: pedro-guevara-villalvazo
+  nombre: Pedro Guevara Villalvazo
+  numero: 26
+  posicion: "Medio"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/pedro-guevara-villalvazo.webp"
+
+- id: lautaro-lazzarone-martinez
+  nombre: Lautaro Lázzarone Martínez
+  numero: 30
+  posicion: "Defensa"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/lautaro-lazzarone-martinez.webp"
+
+- id: antonio-martinez-lule
+  nombre: Antonio Martinez Lule
+  numero: 10
+  posicion: "Medio"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/antonio-martinez-lule.webp"
+
+- id: felipe-de-jesus-moreno-espana
+  nombre: Felipe de Jesus Moreno España
+  numero: 8
+  posicion: "Medio"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/felipe-de-jesus-moreno-espana.webp"
+
+- id: uriel-munguia-romero
+  nombre: Uriel Munguía Romero
+  numero: 14
+  posicion: "Delantero"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/uriel-munguia-romero.webp"
+
+- id: fausto-jair-palacios-aleman
+  nombre: Fausto Jair Palacios Aleman
+  numero: 31
+  posicion: "Medio"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/fausto-jair-palacios-aleman.webp"
+
+- id: gerardo-ramirez-ramirez
+  nombre: Gerardo Ramírez Ramírez
+  numero: 7
+  posicion: "Medio"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/gerardo-ramirez-ramirez.webp"
+
+- id: kurt-reyes-colchado
+  nombre: Kurt Reyes Colchado
+  numero: 33
+  posicion: "Delantero"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/kurt-reyes-colchado.webp"
+
+- id: luis-ernesto-reyes-olascoaga
+  nombre: Luis Ernesto Reyes Olascoaga
+  numero: 11
+  posicion: "Medio"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/luis-ernesto-reyes-olascoaga.webp"
+
+- id: erick-robles-sandoval
+  nombre: Erick Robles Sandoval
+  numero: 12
+  posicion: "Delantero"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/erick-robles-sandoval.webp"
+
+- id: hugo-ivan-rodriguez-abundiz
+  nombre: Hugo Iván Rodríguez Abundiz
+  numero: 17
+  posicion: "Medio"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/hugo-ivan-rodriguez-abundiz.webp"
+
+- id: sergio-rojas-espinosa
+  nombre: Sergio Rojas Espinosa
+  numero: 25
+  posicion: "Medio"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/sergio-rojas-espinosa.webp"
+
+- id: victor-hugo-salazar-moreno
+  nombre: Víctor Hugo Salazar Moreno
+  numero: 2
+  posicion: "Defensa"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/victor-hugo-salazar-moreno.webp"
+
+- id: uriel-sanchez-hernandez
+  nombre: Uriel Sánchez Hernández
+  numero: 6
+  posicion: "Defensa"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/uriel-sanchez-hernandez.webp"
+
+- id: victor-sanchez-nicolas
+  nombre: Victor Sánchez Nicolas
+  numero: 24
+  posicion: "Delantero"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/victor-sanchez-nicolas.webp"
+
+- id: edmundo-ivan-vazquez-mellado
+  nombre: Edmundo Ivan Vazquez Mellado
+  numero: 1
+  posicion: "Portero"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/edmundo-ivan-vazquez-mellado.webp"
+
+- id: irvin-gamaliel-zarinan-sesma
+  nombre: Irvin Gamaliel Zariñan Sesma
+  numero: 3
+  posicion: "Defensa"
+  equipo_id: san-isidro-rgal
+  foto: "/img/jugadores/irvin-gamaliel-zarinan-sesma.webp"
+
+- id: garcia-solis-bayron-vidal
+  nombre: Garcia Solis Bayron Vidal
+  numero: 14
+  posicion: "Medio"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/garcia-solis-bayron-vidal.webp"
+
+- id: rosas-calvillo-brayan-zahid
+  nombre: Rosas Calvillo Brayan Zahid
+  numero: 11
+  posicion: "Delantero"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/rosas-calvillo-brayan-zahid.webp"
+
+- id: gonzalez-bryan-rosas
+  nombre: Gonzalez Bryan Rosas
+  numero: 12
+  posicion: "Medio"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/gonzalez-bryan-rosas.webp"
+
+- id: galvan-acosta-bryant-gabriel
+  nombre: Galvan Acosta Bryant Gabriel
+  numero: 24
+  posicion: "Delantero"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/galvan-acosta-bryant-gabriel.webp"
+
+- id: cruz-meza-carlos-ivan
+  nombre: Cruz Meza Carlos Ivan
+  numero: 23
+  posicion: "Delantero"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/cruz-meza-carlos-ivan.webp"
+
+- id: martinez-estebanes-diego-armando
+  nombre: Martinez Estebanes Diego Armando
+  numero: 1
+  posicion: "Portero"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/martinez-estebanes-diego-armando.webp"
+
+- id: castro-rubio-edgar-osvaldo
+  nombre: Castro Rubio Edgar Osvaldo
+  numero: 25
+  posicion: "Medio"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/castro-rubio-edgar-osvaldo.webp"
+
+- id: chavez-monroy-edgar-oswaldo
+  nombre: Chavez Monroy Edgar Oswaldo
+  numero: 10
+  posicion: "Delantero"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/chavez-monroy-edgar-oswaldo.webp"
+
+- id: guzman-eduardo-badillo
+  nombre: Guzman Eduardo Badillo
+  numero: 4
+  posicion: "Defensa"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/guzman-eduardo-badillo.webp"
+
+- id: resendiz-valadez-eliel-jose
+  nombre: Resendiz Valadez Eliel Jose
+  numero: 20
+  posicion: "Medio"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/resendiz-valadez-eliel-jose.webp"
+
+- id: valdespino-emiliano-covarrubias
+  nombre: Valdespino Emiliano Covarrubias
+  numero: 26
+  posicion: "Delantero"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/valdespino-emiliano-covarrubias.webp"
+
+- id: ortega-eugenio-chavez
+  nombre: Ortega Eugenio Chavez
+  numero: 3
+  posicion: "Medio"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/ortega-eugenio-chavez.webp"
+
+- id: soria-israel-vilchis
+  nombre: Soria Israel Vilchis
+  numero: 21
+  posicion: "Defensa"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/soria-israel-vilchis.webp"
+
+- id: fuentes-perez-jesus-david
+  nombre: Fuentes Perez Jesus David
+  numero: 17
+  posicion: "Defensa"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/fuentes-perez-jesus-david.webp"
+
+- id: zarinana-johnnatan-lora
+  nombre: Zariñana Johnnatan Lora
+  numero: 7
+  posicion: "Medio"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/zarinana-johnnatan-lora.webp"
+
+- id: ojeda-chavez-jose-daniel
+  nombre: Ojeda Chavez Jose Daniel
+  numero: 6
+  posicion: "Defensa"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/ojeda-chavez-jose-daniel.webp"
+
+- id: minero-joshua-martinez
+  nombre: Minero Joshua Martinez
+  numero: 122
+  posicion: "Portero"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/minero-joshua-martinez.webp"
+
+- id: marinez-jacome-juan-carlos
+  nombre: Marinez Jacome Juan Carlos
+  numero: 8
+  posicion: "Medio"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/marinez-jacome-juan-carlos.webp"
+
+- id: torres-lopez-luis-angel
+  nombre: Torres Lopez Luis Angel
+  numero: 15
+  posicion: "Medio"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/torres-lopez-luis-angel.webp"
+
+- id: chimal-flores-miguel-alejandro
+  nombre: Chimal Flores Miguel Alejandro
+  numero: 16
+  posicion: "Defensa"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/chimal-flores-miguel-alejandro.webp"
+
+- id: almazan-santiago-fonseca
+  nombre: Almazan Santiago Fonseca
+  numero: 5
+  posicion: "Defensa"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/almazan-santiago-fonseca.webp"
+
+- id: blaz-santos-retana
+  nombre: Blaz Santos Retana
+  numero: 19
+  posicion: "Delantero"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/blaz-santos-retana.webp"
+
+- id: davila-uriel-rosas
+  nombre: Davila Uriel Rosas
+  numero: 2
+  posicion: "Defensa"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/davila-uriel-rosas.webp"
+
+- id: jardon-vega-yael-saul
+  nombre: Jardon Vega Yael Saul
+  numero: 9
+  posicion: "Medio"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/jardon-vega-yael-saul.webp"
+
+- id: de-la-paz-yair-mora
+  nombre: De la Paz Yair Mora
+  numero: 13
+  posicion: "Delantero"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/jugadores/de-la-paz-yair-mora.webp"
+
+- id: carlos-alberto-barrera-lopez
+  nombre: Carlos Alberto Barrera López
+  numero: 18
+  posicion: "Medio"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/carlos-alberto-barrera-lopez.webp"
+
+- id: benitez-torres-cesar-antonio
+  nombre: Benítez Torres César Antonio
+  numero: 51
+  posicion: "Delantero"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/benitez-torres-cesar-antonio.webp"
+
+- id: martinez-herrera-cristopher-uriel
+  nombre: Martinez Herrera Cristopher Uriel
+  numero: 60
+  posicion: "Medio"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/martinez-herrera-cristopher-uriel.webp"
+
+- id: olvera-waldo-edgar-isai
+  nombre: Olvera Waldo Edgar Isai
+  numero: 50
+  posicion: "Medio"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/olvera-waldo-edgar-isai.webp"
+
+- id: martinez-flores-eduardo-antonio
+  nombre: Martinez Flores Eduardo Antonio
+  numero: 55
+  posicion: "Medio"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/martinez-flores-eduardo-antonio.webp"
+
+- id: carlos-noel-gonzalez-juarez
+  nombre: Carlos Noel González Juárez
+  numero: 17
+  posicion: "Medio"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/carlos-noel-gonzalez-juarez.webp"
+
+- id: jorge-luis-guarneros-zarate
+  nombre: Jorge Luis Guarneros Zarate
+  numero: 5
+  posicion: "Defensa"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/jorge-luis-guarneros-zarate.webp"
+
+- id: diego-guerrero-hernandez
+  nombre: Diego Guerrero Hernández
+  numero: 30
+  posicion: "Portero"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/diego-guerrero-hernandez.webp"
+
+- id: osmar-naim-hernandez-islas
+  nombre: Osmar Naim Hernández Islas
+  numero: 2
+  posicion: "Defensa"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/osmar-naim-hernandez-islas.webp"
+
+- id: alfredo-geovanni-jardon-maldonado
+  nombre: Alfredo Geovanni Jardon Maldonado
+  numero: 10
+  posicion: "Defensa"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/alfredo-geovanni-jardon-maldonado.webp"
+
+- id: edwin-omar-martinez-macias
+  nombre: Edwin Omar Martínez Macías
+  numero: 14
+  posicion: "Delantero"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/edwin-omar-martinez-macias.webp"
+
+- id: byron-israel-martinez-martinez
+  nombre: Byron Israel Martínez Martínez
+  numero: 12
+  posicion: "Medio"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/byron-israel-martinez-martinez.webp"
+
+- id: diego-alberto-munoz-gutierrez
+  nombre: Diego Alberto Muñoz Gutierrez
+  numero: 19
+  posicion: "Defensa"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/diego-alberto-munoz-gutierrez.webp"
+
+- id: gael-novia-olvera
+  nombre: Gael Novia Olvera
+  numero: 1
+  posicion: "Portero"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/gael-novia-olvera.webp"
+
+- id: brandon-ocelo-almaraz
+  nombre: Brandon Ocelo Almaraz
+  numero: 11
+  posicion: "Delantero"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/brandon-ocelo-almaraz.webp"
+
+- id: ulises-daniel-pacheco-romero
+  nombre: Ulises Daniel Pacheco Romero
+  numero: 3
+  posicion: "Medio"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/ulises-daniel-pacheco-romero.webp"
+
+- id: irving-jair-perez-hernandez
+  nombre: Irving Jair Pérez Hernández
+  numero: 16
+  posicion: "Defensa"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/irving-jair-perez-hernandez.webp"
+
+- id: jordan-zaid-pozos-ortiz
+  nombre: Jordan Zaid Pozos Ortiz
+  numero: 7
+  posicion: "Medio"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/jordan-zaid-pozos-ortiz.webp"
+
+- id: landon-zuriel-pozos-ortiz
+  nombre: Landon Zuriel Pozos Ortiz
+  numero: 6
+  posicion: "Medio"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/landon-zuriel-pozos-ortiz.webp"
+
+- id: jose-luis-puebla-garcia
+  nombre: José Luis Puebla García
+  numero: 9
+  posicion: "Delantero"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/jose-luis-puebla-garcia.webp"
+
+- id: gael-rodriguez-montiel
+  nombre: Gael Rodríguez Montiel
+  numero: 8
+  posicion: "Delantero"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/gael-rodriguez-montiel.webp"
+
+- id: juan-manuel-sanchez-lera
+  nombre: Juan Manuel Sánchez Lera
+  numero: 4
+  posicion: "Defensa"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/juan-manuel-sanchez-lera.webp"
+
+- id: uzziel-suarez-juarez
+  nombre: Uzziel Suarez Juarez
+  numero: 13
+  posicion: "Medio"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/uzziel-suarez-juarez.webp"
+
+- id: victor-alfonso-zacarias-vargas
+  nombre: Víctor Alfonso Zacarías Vargas
+  numero: 15
+  posicion: "Medio"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/jugadores/victor-alfonso-zacarias-vargas.webp"
+
+- id: jesus-antemate-cruz
+  nombre: Jesus Antemate Cruz
+  numero: 21
+  posicion: "Portero"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/jesus-antemate-cruz.webp"
+
+- id: cesar-gumercindo-blancas-olvera
+  nombre: Cesar Gumercindo Blancas Olvera
+  numero: 25
+  posicion: "Delantero"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/cesar-gumercindo-blancas-olvera.webp"
+
+- id: christofher-alexis-castillo-mejia
+  nombre: Christofher Alexis Castillo Mejia
+  numero: 28
+  posicion: "Delantero"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/christofher-alexis-castillo-mejia.webp"
+
+- id: marlon-jair-castillo-mejia
+  nombre: Marlon Jair Castillo Mejía
+  numero: 27
+  posicion: "Defensa"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/marlon-jair-castillo-mejia.webp"
+
+- id: brandon-ulises-chavez-sanchez
+  nombre: Brandon Ulises Chavez Sánchez
+  numero: 1
+  posicion: "Portero"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/brandon-ulises-chavez-sanchez.webp"
+
+- id: brandon-uriel-escalona-garcia
+  nombre: Brandon Uriel Escalona García
+  numero: 29
+  posicion: "Defensa"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/brandon-uriel-escalona-garcia.webp"
+
+- id: saul-estrada-cerritos
+  nombre: Saúl Estrada Cerritos
+  numero: 3
+  posicion: "Medio"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/saul-estrada-cerritos.webp"
+
+- id: martin-estrada-martinez
+  nombre: Martín Estrada Martínez
+  numero: 16
+  posicion: "Medio"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/martin-estrada-martinez.webp"
+
+- id: eduardo-alejandro-gonzales-garcia
+  nombre: Eduardo Alejandro Gonzales García
+  numero: 7
+  posicion: "Delantero"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/eduardo-alejandro-gonzales-garcia.webp"
+
+- id: gustavo-guillen-ruiz
+  nombre: Gustavo Guillen Ruiz
+  numero: 26
+  posicion: "Delantero"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/gustavo-guillen-ruiz.webp"
+
+- id: edson-giovanni-hernandez-nolasco
+  nombre: Edson Giovanni Hernández Nolasco
+  numero: 6
+  posicion: "Medio"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/edson-giovanni-hernandez-nolasco.webp"
+
+- id: fernando-lucas-aguilera
+  nombre: Fernando Lucas Aguilera
+  numero: 15
+  posicion: "Delantero"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/fernando-lucas-aguilera.webp"
+
+- id: juan-francisco-margarito-angeles
+  nombre: Juan Francisco Margarito Ángeles
+  numero: 22
+  posicion: "Delantero"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/juan-francisco-margarito-angeles.webp"
+
+- id: saul-eduardo-martinez-rodriguez
+  nombre: Saul Eduardo Martínez Rodriguez
+  numero: 13
+  posicion: "Defensa"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/saul-eduardo-martinez-rodriguez.webp"
+
+- id: josue-gael-moranchel-rocha
+  nombre: Josue Gael Moranchel Rocha
+  numero: 24
+  posicion: "Medio"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/josue-gael-moranchel-rocha.webp"
+
+- id: juan-david-olivares-rodriguez
+  nombre: Juan David Olivares Rodriguez
+  numero: 20
+  posicion: "Defensa"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/juan-david-olivares-rodriguez.webp"
+
+- id: victor-hugo-resendiz-aguilar
+  nombre: Victor Hugo Resendiz Aguilar
+  numero: 14
+  posicion: "Medio"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/victor-hugo-resendiz-aguilar.webp"
+
+- id: hector-mauricio-reyes-dominguez
+  nombre: Héctor Mauricio Reyes Domínguez
+  numero: 8
+  posicion: "Defensa"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/hector-mauricio-reyes-dominguez.webp"
+
+- id: orlando-yanixan-ruiz-morales
+  nombre: Orlando Yanixan Ruiz Morales
+  numero: 5
+  posicion: "Medio"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/orlando-yanixan-ruiz-morales.webp"
+
+- id: josue-emiliano-sanchez-hernandez
+  nombre: Josué Emiliano Sánchez Hernández
+  numero: 10
+  posicion: "Delantero"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/josue-emiliano-sanchez-hernandez.webp"
+
+- id: samuel-sanchez-rivera
+  nombre: Samuel Sánchez Rivera
+  numero: 3
+  posicion: "Medio"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/samuel-sanchez-rivera.webp"
+
+- id: angel-de-jesus-soto-soto
+  nombre: Ángel de Jesús Soto Soto
+  numero: 19
+  posicion: "Defensa"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/angel-de-jesus-soto-soto.webp"
+
+- id: javier-eduardo-velarde-grimaldo
+  nombre: Javier Eduardo Velarde Grimaldo
+  numero: 11
+  posicion: "Delantero"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/javier-eduardo-velarde-grimaldo.webp"
+
+- id: juan-antonio-velarde-grimaldo
+  nombre: Juan Antonio Velarde Grimaldo
+  numero: 12
+  posicion: "Defensa"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/juan-antonio-velarde-grimaldo.webp"
+
+- id: leonardo-zarate-gabriel
+  nombre: Leonardo Zárate Gabriel
+  numero: 4
+  posicion: "Medio"
+  equipo_id: potros-fc
+  foto: "/img/jugadores/leonardo-zarate-gabriel.webp"
+
+- id: brian-amisadai-barron-mendoza
+  nombre: Brian Amisadai Barron Mendoza
+  numero: 6
+  posicion: "Medio"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/brian-amisadai-barron-mendoza.webp"
+
+- id: jovani-uriel-cardenas-garduno
+  nombre: Jovani Uriel Cardenas Garduño
+  numero: 13
+  posicion: "Medio"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/jovani-uriel-cardenas-garduno.webp"
+
+- id: sanchez-carlos-salinas
+  nombre: Sanchez Carlos Salinas
+  numero: 22
+  posicion: "Delantero"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/sanchez-carlos-salinas.webp"
+
+- id: francisco-javier-espinoza-trejo
+  nombre: Francisco Javier Espinoza Trejo
+  numero: 4
+  posicion: "Defensa"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/francisco-javier-espinoza-trejo.webp"
+
+- id: diego-valentin-fuentes-ronquillo
+  nombre: Diego Valentín Fuentes Ronquillo
+  numero: 18
+  posicion: "Delantero"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/diego-valentin-fuentes-ronquillo.webp"
+
+- id: miguel-eduardo-garcia-carmona
+  nombre: Miguel Eduardo Garcia Carmona
+  numero: 7
+  posicion: "Medio"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/miguel-eduardo-garcia-carmona.webp"
+
+- id: ulises-aldair-garcia-martines
+  nombre: Ulises Aldair Garcia Martines
+  numero: 23
+  posicion: "Medio"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/ulises-aldair-garcia-martines.webp"
+
+- id: giovani-lionel-gil-gonzalez
+  nombre: Giovani Lionel Gil Gonzalez
+  numero: 8
+  posicion: "Medio"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/giovani-lionel-gil-gonzalez.webp"
+
+- id: jonathan-herrera-colin
+  nombre: Jonathan Herrera Colin
+  numero: 20
+  posicion: "Medio"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/jonathan-herrera-colin.webp"
+
+- id: erick-alfredo-iturbide-vazquez
+  nombre: Erick Alfredo Iturbide Vazquez
+  numero: 9
+  posicion: "Delantero"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/erick-alfredo-iturbide-vazquez.webp"
+
+- id: jorge-eduardo-martinez-garcia
+  nombre: Jorge Eduardo Martinez García
+  numero: 2
+  posicion: "Defensa"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/jorge-eduardo-martinez-garcia.webp"
+
+- id: santiago-merino-cruz
+  nombre: Santiago Merino Cruz
+  numero: 17
+  posicion: "Medio"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/santiago-merino-cruz.webp"
+
+- id: jose-eduardo-miramontes-del-olmo
+  nombre: Jose Eduardo Miramontes del Olmo
+  numero: 3
+  posicion: "Delantero"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/jose-eduardo-miramontes-del-olmo.webp"
+
+- id: luis-angel-morales-trinidad
+  nombre: Luis Angel Morales Trinidad
+  numero: 19
+  posicion: "Defensa"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/luis-angel-morales-trinidad.webp"
+
+- id: jose-israel-nieves-morales
+  nombre: Jose Israel Nieves Morales
+  numero: 15
+  posicion: "Defensa"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/jose-israel-nieves-morales.webp"
+
+- id: angel-nahum-perez-medina
+  nombre: Angel Nahum Perez Medina
+  numero: 21
+  posicion: "Delantero"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/angel-nahum-perez-medina.webp"
+
+- id: raul-rivas-rosas
+  nombre: Raul Rivas Rosas
+  numero: 12
+  posicion: "Medio"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/raul-rivas-rosas.webp"
+
+- id: oscar-francisco-rodriguez-gonzalez
+  nombre: Oscar Francisco Rodríguez Gonzalez
+  numero: 25
+  posicion: "Portero"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/oscar-francisco-rodriguez-gonzalez.webp"
+
+- id: victor-hugo-rosas-solis
+  nombre: Victor Hugo Rosas Solis
+  numero: 5
+  posicion: "Delantero"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/victor-hugo-rosas-solis.webp"
+
+- id: ruben-d-alessandro-ruano-gomez
+  nombre: Rubén D Alessandro Ruano Gomez
+  numero: 16
+  posicion: "Defensa"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/ruben-d-alessandro-ruano-gomez.webp"
+
+- id: jose-ignacio-sanchez-martinez
+  nombre: Jose Ignacio Sanchez Martinez
+  numero: 11
+  posicion: "Delantero"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/jose-ignacio-sanchez-martinez.webp"
+
+- id: carlos-mariano-velazquez-marquez
+  nombre: Carlos Mariano Velazquez Marquez
+  numero: 10
+  posicion: "Medio"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/carlos-mariano-velazquez-marquez.webp"
+
+- id: roberto-raul-villegas-vernal
+  nombre: Roberto Raúl Villegas Vernal
+  numero: 1
+  posicion: "Portero"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/roberto-raul-villegas-vernal.webp"
+
+- id: leopoldo-zamacona-sandoval
+  nombre: Leopoldo Zamacona Sandoval
+  numero: 14
+  posicion: "Medio"
+  equipo_id: san-ildefonso
+  foto: "/img/jugadores/leopoldo-zamacona-sandoval.webp"
+
+- id: diego-eduardo-alonzo-perez
+  nombre: Diego Eduardo Alonzo Pérez
+  numero: 3
+  posicion: "Defensa"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/diego-eduardo-alonzo-perez.webp"
+
+- id: sergio-alberto-alvarado-covarrubias
+  nombre: Sergio Alberto Álvarado Covarrubias
+  numero: 2
+  posicion: "Defensa"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/sergio-alberto-alvarado-covarrubias.webp"
+
+- id: emmanuel-ambriz-escobedo
+  nombre: Emmanuel Ambriz Escobedo
+  numero: 7
+  posicion: "Medio"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/emmanuel-ambriz-escobedo.webp"
+
+- id: luis-angel-beltran-cachu
+  nombre: Luis Ángel Beltrán Cachu
+  numero: 6
+  posicion: "Defensa"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/luis-angel-beltran-cachu.webp"
+
+- id: miguel-angel-castillo-uribe
+  nombre: Miguel Angel Castillo Uribe
+  numero: 25
+  posicion: "Medio"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/miguel-angel-castillo-uribe.webp"
+
+- id: mario-adrian-damian-garcia
+  nombre: Mario Adrian Damian García
+  numero: 20
+  posicion: "Defensa"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/mario-adrian-damian-garcia.webp"
+
+- id: david-enrique-flores-tinajero
+  nombre: David Enrique Flores Tinajero
+  numero: 1
+  posicion: "Portero"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/david-enrique-flores-tinajero.webp"
+
+- id: erick-gil-campos
+  nombre: Erick Gil Campos
+  numero: 12
+  posicion: "Medio"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/erick-gil-campos.webp"
+
+- id: luis-giovani-hernandez-chavez
+  nombre: Luis Giovani Hernández Chávez
+  numero: 4
+  posicion: "Medio"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/luis-giovani-hernandez-chavez.webp"
+
+- id: julio-cesar-hernandez-losoya
+  nombre: Julio Cesar Hernández Losoya
+  numero: 16
+  posicion: "Medio"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/julio-cesar-hernandez-losoya.webp"
+
+- id: edgar-gael-luna-maya
+  nombre: Edgar Gael Luna Maya
+  numero: 11
+  posicion: "Medio"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/edgar-gael-luna-maya.webp"
+
+- id: angel-alonso-martinez-cabrera
+  nombre: Angel Alonso Martínez Cabrera
+  numero: 13
+  posicion: "Delantero"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/angel-alonso-martinez-cabrera.webp"
+
+- id: gorge-luis-morales-chavez
+  nombre: Gorge Luis Morales Chávez
+  numero: 10
+  posicion: "Medio"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/gorge-luis-morales-chavez.webp"
+
+- id: daniel-ortega-ramirez
+  nombre: Daniel Ortega Ramírez
+  numero: 22
+  posicion: "Medio"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/daniel-ortega-ramirez.webp"
+
+- id: martin-ortega-ramirez
+  nombre: Martín Ortega Ramírez
+  numero: 71
+  posicion: "Delantero"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/martin-ortega-ramirez.webp"
+
+- id: diego-armando-osorio-sanchez
+  nombre: Diego Armando Osorio Sánchez
+  numero: 19
+  posicion: "Defensa"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/diego-armando-osorio-sanchez.webp"
+
+- id: jose-de-jesus-panuco-jaramillo
+  nombre: Jose de Jesús Pánuco Jaramillo
+  numero: 5
+  posicion: "Delantero"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/jose-de-jesus-panuco-jaramillo.webp"
+
+- id: juan-eduardo-ponciano-ostiguin
+  nombre: Juan Eduardo Ponciano Ostiguin
+  numero: 21
+  posicion: "Medio"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/juan-eduardo-ponciano-ostiguin.webp"
+
+- id: ariel-ramirez-mozo
+  nombre: Ariel Ramírez Mozo
+  numero: 18
+  posicion: "Delantero"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/ariel-ramirez-mozo.webp"
+
+- id: ronaldo-alberto-ramos-guzman
+  nombre: Ronaldo Alberto Ramos Guzmán
+  numero: 14
+  posicion: "Defensa"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/ronaldo-alberto-ramos-guzman.webp"
+
+- id: aldo-usiel-sanchez-hernandez
+  nombre: Aldo Usiel Sánchez Hernández
+  numero: 9
+  posicion: "Delantero"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/aldo-usiel-sanchez-hernandez.webp"
+
+- id: sebastian-sanchez-solis
+  nombre: Sebastián Sánchez Solis
+  numero: 17
+  posicion: "Medio"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/sebastian-sanchez-solis.webp"
+
+- id: oscar-de-jesus-sanchez-zarinan
+  nombre: Oscar de Jesus Sánchez Zariñan
+  numero: 8
+  posicion: "Defensa"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/oscar-de-jesus-sanchez-zarinan.webp"
+
+- id: fernando-trejo-mosqueda
+  nombre: Fernando Trejo Mosqueda
+  numero: 24
+  posicion: "Portero"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/fernando-trejo-mosqueda.webp"
+
+- id: diego-adair-vazquez-aguilar
+  nombre: Diego Adair Vázquez Aguilar
+  numero: 99
+  posicion: "Delantero"
+  equipo_id: deportivo-fresno
+  foto: "/img/jugadores/diego-adair-vazquez-aguilar.webp"
+
+- id: hernandez-arriaga-ally-okthalann
+  nombre: Hernandez Arriaga Ally Okthalann
+  numero: 0
+  posicion: "Portero"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/hernandez-arriaga-ally-okthalann.webp"
+
+- id: khristian-yael-arteaga-nunez
+  nombre: Khristian Yael Arteaga Nuñez
+  numero: 16
+  posicion: "Medio"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/khristian-yael-arteaga-nunez.webp"
+
+- id: jesus-izai-castro-frias
+  nombre: Jesus Izai Castro Frias
+  numero: 15
+  posicion: "Medio"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/jesus-izai-castro-frias.webp"
+
+- id: ivan-alfredo-cruz-garnica
+  nombre: Ivan Alfredo Cruz Garnica
+  numero: 19
+  posicion: "Delantero"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/ivan-alfredo-cruz-garnica.webp"
+
+- id: johary-dominguez-davila
+  nombre: Johary Dominguez Dávila
+  numero: 7
+  posicion: "Medio"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/johary-dominguez-davila.webp"
+
+- id: triztan-antuan-flores-garcia
+  nombre: Triztan Antuan Flores Garcia
+  numero: 17
+  posicion: "Medio"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/triztan-antuan-flores-garcia.webp"
+
+- id: cesar-garcia-rodriguez
+  nombre: Cesar Garcia Rodríguez
+  numero: 14
+  posicion: "Defensa"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/cesar-garcia-rodriguez.webp"
+
+- id: jasiel-jahir-gonzalez-lopez
+  nombre: Jasiel Jahir Gonzalez Lopez
+  numero: 9
+  posicion: "Delantero"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/jasiel-jahir-gonzalez-lopez.webp"
+
+- id: angel-amaury-gutierrez-hernandez
+  nombre: Angel Amaury Gutierrez Hernández
+  numero: 6
+  posicion: "Defensa"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/angel-amaury-gutierrez-hernandez.webp"
+
+- id: angel-yorshua-lopez-rebolloso
+  nombre: Ángel Yorshua Lopez Rebolloso
+  numero: 4
+  posicion: "Defensa"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/angel-yorshua-lopez-rebolloso.webp"
+
+- id: leonardo-daniel-moreno-martinez
+  nombre: Leonardo Daniel Moreno Martinez
+  numero: 31
+  posicion: "Portero"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/leonardo-daniel-moreno-martinez.webp"
+
+- id: luis-perete-garcia
+  nombre: Luis Perete Garcia
+  numero: 20
+  posicion: "Medio"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/luis-perete-garcia.webp"
+
+- id: ciro-angel-reyes-sanchez
+  nombre: Ciro Angel Reyes Sanchez
+  numero: 8
+  posicion: "Medio"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/ciro-angel-reyes-sanchez.webp"
+
+- id: jonathan-javier-sanchez-ramirez
+  nombre: Jonathan Javier Sanchez Ramirez
+  numero: 2
+  posicion: "Defensa"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/jonathan-javier-sanchez-ramirez.webp"
+
+- id: jesus-eduardo-sanchez-rodriguez
+  nombre: Jesus Eduardo Sanchez Rodriguez
+  numero: 5
+  posicion: "Defensa"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/jesus-eduardo-sanchez-rodriguez.webp"
+
+- id: luis-angel-sanchez-rosales
+  nombre: Luis Angel Sanchez Rosales
+  numero: 3
+  posicion: "Defensa"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/luis-angel-sanchez-rosales.webp"
+
+- id: ian-lael-sanchez-valdez
+  nombre: Ian Lael Sanchez Valdez
+  numero: 13
+  posicion: "Medio"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/ian-lael-sanchez-valdez.webp"
+
+- id: carlos-jair-sandoval-martinez
+  nombre: Carlos Jair Sandoval Martinez
+  numero: 10
+  posicion: "Delantero"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/carlos-jair-sandoval-martinez.webp"
+
+- id: adrian-silva-garcia
+  nombre: Adrian Silva Garcia
+  numero: 18
+  posicion: "Defensa"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/adrian-silva-garcia.webp"
+
+- id: ian-ariosto-sotelo-betanzos
+  nombre: Ian Ariosto Sotelo Betanzos
+  numero: 11
+  posicion: "Medio"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/ian-ariosto-sotelo-betanzos.webp"
+
+- id: diego-torres-cruz
+  nombre: Diego Torres Cruz
+  numero: 12
+  posicion: "Delantero"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/diego-torres-cruz.webp"
+
+- id: emmanuel-zapotvelazquez
+  nombre: Emmanuel Zapotvelazquez
+  numero: 1
+  posicion: "Portero"
+  equipo_id: club-colmena
+  foto: "/img/jugadores/emmanuel-zapotvelazquez.webp"
+
+- id: jordy-antonio-guadarrama
+  nombre: Jordy Antonio Guadarrama
+  numero: 17
+  posicion: "Defensa"
+  equipo_id: vikingos
+  foto: "/img/jugadores/jordy-antonio-guadarrama.webp"
+
+- id: florentino-cruz-francisco
+  nombre: Florentino Cruz Francisco
+  numero: 43
+  posicion: "Portero"
+  equipo_id: vikingos
+  foto: "/img/jugadores/florentino-cruz-francisco.webp"
+
+- id: francisco-javier-espinosa-vicente
+  nombre: Francisco Javier Espinosa Vicente
+  numero: 16
+  posicion: "Medio"
+  equipo_id: vikingos
+  foto: "/img/jugadores/francisco-javier-espinosa-vicente.webp"
+
+- id: raul-grimaldo-rodriguez
+  nombre: Raul Grimaldo Rodriguez
+  numero: 20
+  posicion: "Medio"
+  equipo_id: vikingos
+  foto: "/img/jugadores/raul-grimaldo-rodriguez.webp"
+
+- id: marco-antonio-gutierrez-reyes
+  nombre: Marco Antonio Gutierrez Reyes
+  numero: 5
+  posicion: "Defensa"
+  equipo_id: vikingos
+  foto: "/img/jugadores/marco-antonio-gutierrez-reyes.webp"
+
+- id: brian-hernandez-ruiz
+  nombre: Brian Hernandez Ruiz
+  numero: 23
+  posicion: "Medio"
+  equipo_id: vikingos
+  foto: "/img/jugadores/brian-hernandez-ruiz.webp"
+
+- id: jose-francisco-hernandez-ticante
+  nombre: José Francisco Hernandez Ticante
+  numero: 11
+  posicion: "Medio"
+  equipo_id: vikingos
+  foto: "/img/jugadores/jose-francisco-hernandez-ticante.webp"
+
+- id: rodrigo-lara-rosas
+  nombre: Rodrigo Lara Rosas
+  numero: 0
+  posicion: "Portero"
+  equipo_id: vikingos
+  foto: "/img/jugadores/rodrigo-lara-rosas.webp"
+
+- id: christian-uriel-martinez-bautista
+  nombre: Christian Uriel Martinez Bautista
+  numero: 6
+  posicion: "Medio"
+  equipo_id: vikingos
+  foto: "/img/jugadores/christian-uriel-martinez-bautista.webp"
+
+- id: bruno-alejandro-morales-martinez
+  nombre: Bruno Alejandro Morales Martinez
+  numero: 8
+  posicion: "Delantero"
+  equipo_id: vikingos
+  foto: "/img/jugadores/bruno-alejandro-morales-martinez.webp"
+
+- id: jesus-murad-gutierrez
+  nombre: Jesus Murad Gutierrez
+  numero: 7
+  posicion: "Medio"
+  equipo_id: vikingos
+  foto: "/img/jugadores/jesus-murad-gutierrez.webp"
+
+- id: alfredo-perez-gonzalez
+  nombre: Alfredo Perez Gonzalez
+  numero: 14
+  posicion: "Medio"
+  equipo_id: vikingos
+  foto: "/img/jugadores/alfredo-perez-gonzalez.webp"
+
+- id: jesus-yael-reyes-zavaleta
+  nombre: Jesus Yael Reyes Zavaleta
+  numero: 10
+  posicion: "Delantero"
+  equipo_id: vikingos
+  foto: "/img/jugadores/jesus-yael-reyes-zavaleta.webp"
+
+- id: jonatan-osvaldo-sanchez-ramirez
+  nombre: Jonatan Osvaldo Sanchez Ramirez
+  numero: 33
+  posicion: "Delantero"
+  equipo_id: vikingos
+  foto: "/img/jugadores/jonatan-osvaldo-sanchez-ramirez.webp"
+
+- id: luis-cesar-tobias-sanchez
+  nombre: Luis César Tobías Sánchez
+  numero: 4
+  posicion: "Defensa"
+  equipo_id: vikingos
+  foto: "/img/jugadores/luis-cesar-tobias-sanchez.webp"
+
+- id: jonathan-venegas-herrera
+  nombre: Jonathan Venegas Herrera
+  numero: 77
+  posicion: "Medio"
+  equipo_id: vikingos
+  foto: "/img/jugadores/jonathan-venegas-herrera.webp"
+
+- id: diego-armando-verdiguel-olvera
+  nombre: Diego Armando Verdiguel Olvera
+  numero: 22
+  posicion: "Defensa"
+  equipo_id: vikingos
+  foto: "/img/jugadores/diego-armando-verdiguel-olvera.webp"
+
+- id: luis-angel-alcantara-hernandez
+  nombre: Luis Angel Alcantara Hernández
+  numero: 13
+  posicion: "Delantero"
+  equipo_id: carboneros
+  foto: "/img/jugadores/luis-angel-alcantara-hernandez.webp"
+
+- id: cristian-orlando-arana-herrera
+  nombre: Cristian Orlando Arana Herrera
+  numero: 18
+  posicion: "Defensa"
+  equipo_id: carboneros
+  foto: "/img/jugadores/cristian-orlando-arana-herrera.webp"
+
+- id: luis-angel-barrera-carmona
+  nombre: Luis Angel Barrera Carmona
+  numero: 22
+  posicion: "Defensa"
+  equipo_id: carboneros
+  foto: "/img/jugadores/luis-angel-barrera-carmona.webp"
+
+- id: victor-manuel-benitez-monroy
+  nombre: Victor Manuel Benitez Monroy
+  numero: 16
+  posicion: "Delantero"
+  equipo_id: carboneros
+  foto: "/img/jugadores/victor-manuel-benitez-monroy.webp"
+
+- id: rodrigo-casimiro-gutierrez
+  nombre: Rodrigo Casimiro Gutiérrez
+  numero: 8
+  posicion: "Defensa"
+  equipo_id: carboneros
+  foto: "/img/jugadores/rodrigo-casimiro-gutierrez.webp"
+
+- id: bryan-alexis-cruz-ramirez
+  nombre: Bryan Alexis Cruz Ramírez
+  numero: 10
+  posicion: "Medio"
+  equipo_id: carboneros
+  foto: "/img/jugadores/bryan-alexis-cruz-ramirez.webp"
+
+- id: andres-doniz-zarate
+  nombre: Andres Doniz Zarate
+  numero: 19
+  posicion: "Defensa"
+  equipo_id: carboneros
+  foto: "/img/jugadores/andres-doniz-zarate.webp"
+
+- id: christian-yair-garcia-garcia
+  nombre: Christian Yair García García
+  numero: 6
+  posicion: "Delantero"
+  equipo_id: carboneros
+  foto: "/img/jugadores/christian-yair-garcia-garcia.webp"
+
+- id: raul-gomez-robledo
+  nombre: Raul Gomez Robledo
+  numero: 1
+  posicion: "Portero"
+  equipo_id: carboneros
+  foto: "/img/jugadores/raul-gomez-robledo.webp"
+
+- id: luis-david-gonzalez-aldana
+  nombre: Luis David Gonzalez Aldana
+  numero: 17
+  posicion: "Defensa"
+  equipo_id: carboneros
+  foto: "/img/jugadores/luis-david-gonzalez-aldana.webp"
+
+- id: rodrigo-gonzalez-rivera
+  nombre: Rodrigo González Rivera
+  numero: 21
+  posicion: "Medio"
+  equipo_id: carboneros
+  foto: "/img/jugadores/rodrigo-gonzalez-rivera.webp"
+
+- id: fernando-gonzalez-rueda
+  nombre: Fernando González Rueda
+  numero: 11
+  posicion: "Medio"
+  equipo_id: carboneros
+  foto: "/img/jugadores/fernando-gonzalez-rueda.webp"
+
+- id: ignacio-jimenez-tapia
+  nombre: Ignacio Jiménez Tapia
+  numero: 23
+  posicion: "Medio"
+  equipo_id: carboneros
+  foto: "/img/jugadores/ignacio-jimenez-tapia.webp"
+
+- id: jose-adrian-jimenez-tapia
+  nombre: Jose Adrian Jimenez Tapia
+  numero: 2
+  posicion: "Medio"
+  equipo_id: carboneros
+  foto: "/img/jugadores/jose-adrian-jimenez-tapia.webp"
+
+- id: mauricio-lopez-garcia
+  nombre: Mauricio Lopez Garcia
+  numero: 4
+  posicion: "Delantero"
+  equipo_id: carboneros
+  foto: "/img/jugadores/mauricio-lopez-garcia.webp"
+
+- id: ian-alejandro-lugo-zarinan
+  nombre: Ian Alejandro Lugo Zariñan
+  numero: 20
+  posicion: "Portero"
+  equipo_id: carboneros
+  foto: "/img/jugadores/ian-alejandro-lugo-zarinan.webp"
+
+- id: uriel-martinez-jacinto
+  nombre: Uriel Martínez Jacinto
+  numero: 7
+  posicion: "Delantero"
+  equipo_id: carboneros
+  foto: "/img/jugadores/uriel-martinez-jacinto.webp"
+
+- id: cristian-martinez-navarrete
+  nombre: Cristian Martínez Navarrete
+  numero: 14
+  posicion: "Defensa"
+  equipo_id: carboneros
+  foto: "/img/jugadores/cristian-martinez-navarrete.webp"
+
+- id: diego-francisco-monroy-benitez
+  nombre: Diego Francisco Monroy Benitez
+  numero: 3
+  posicion: "Defensa"
+  equipo_id: carboneros
+  foto: "/img/jugadores/diego-francisco-monroy-benitez.webp"
+
+- id: pedro-monroy-mondragon
+  nombre: Pedro Monroy Mondragón
+  numero: 9
+  posicion: "Medio"
+  equipo_id: carboneros
+  foto: "/img/jugadores/pedro-monroy-mondragon.webp"
+
+- id: jesus-eliseo-ramirez-hernandez
+  nombre: Jesus Eliseo Ramirez Hernandez
+  numero: 12
+  posicion: "Delantero"
+  equipo_id: carboneros
+  foto: "/img/jugadores/jesus-eliseo-ramirez-hernandez.webp"
+
+- id: sergio-tinoco-dominguez
+  nombre: Sérgio Tinoco Domínguez
+  numero: 5
+  posicion: "Medio"
+  equipo_id: carboneros
+  foto: "/img/jugadores/sergio-tinoco-dominguez.webp"
+
+- id: oscar-vilchis-huerta
+  nombre: Oscar Vilchis Huerta
+  numero: 15
+  posicion: "Defensa"
+  equipo_id: carboneros
+  foto: "/img/jugadores/oscar-vilchis-huerta.webp"
+
+- id: miguel-angel-aguado-contreras
+  nombre: Miguel Angel Aguado Contreras
+  numero: 7
+  posicion: "Medio"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/miguel-angel-aguado-contreras.webp"
+
+- id: noel-uriel-aragon-quiroz
+  nombre: Noel Uriel Aragon Quiroz
+  numero: 9
+  posicion: "Medio"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/noel-uriel-aragon-quiroz.webp"
+
+- id: christian-jhovani-camacho-jasso
+  nombre: Christian Jhovani Camacho Jasso
+  numero: 17
+  posicion: "Medio"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/christian-jhovani-camacho-jasso.webp"
+
+- id: jose-ramon-caudillo-gonzales
+  nombre: Jose Ramon Caudillo Gonzales
+  numero: 18
+  posicion: "Delantero"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/jose-ramon-caudillo-gonzales.webp"
+
+- id: osvaldo-caudillo-gonzales
+  nombre: Osvaldo Caudillo Gonzales
+  numero: 13
+  posicion: "Defensa"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/osvaldo-caudillo-gonzales.webp"
+
+- id: armando-manuel-cedillo-enriquez
+  nombre: Armando Manuel Cedillo Enriquez
+  numero: 1
+  posicion: "Portero"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/armando-manuel-cedillo-enriquez.webp"
+
+- id: arsenio-cruz-gonzalez
+  nombre: Arsenio Cruz Gonzalez
+  numero: 20
+  posicion: "Delantero"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/arsenio-cruz-gonzalez.webp"
+
+- id: hugo-rogelio-cuadillo-leon
+  nombre: Hugo Rogelio Cuadillo Leon
+  numero: 10
+  posicion: "Medio"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/hugo-rogelio-cuadillo-leon.webp"
+
+- id: jorge-uriel-cuadillo-ramon
+  nombre: Jorge Uriel Cuadillo Ramon
+  numero: 15
+  posicion: "Delantero"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/jorge-uriel-cuadillo-ramon.webp"
+
+- id: josue-diaz-garcia
+  nombre: Josue Diaz Garcia
+  numero: 12
+  posicion: "Delantero"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/josue-diaz-garcia.webp"
+
+- id: salvador-alejandro-frias-quintana
+  nombre: Salvador Alejandro Frias Quintana
+  numero: 8
+  posicion: "Medio"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/salvador-alejandro-frias-quintana.webp"
+
+- id: pereira-gabriel-orozco
+  nombre: Pereira Gabriel Orozco
+  numero: 27
+  posicion: "Medio"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/pereira-gabriel-orozco.webp"
+
+- id: eduardo-jair-garcia-roman
+  nombre: Eduardo Jair Garcia Roman
+  numero: 6
+  posicion: "Defensa"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/eduardo-jair-garcia-roman.webp"
+
+- id: ignacio-emmanuel-hernandez-garcia
+  nombre: Ignacio Emmanuel Hernandez Garcia
+  numero: 11
+  posicion: "Medio"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/ignacio-emmanuel-hernandez-garcia.webp"
+
+- id: caudillo-vargas-hugo-jaret
+  nombre: Caudillo Vargas Hugo Jaret
+  numero: 16
+  posicion: "Medio"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/caudillo-vargas-hugo-jaret.webp"
+
+- id: garcia-jairo-barajas
+  nombre: Garcia Jairo Barajas
+  numero: 24
+  posicion: "Delantero"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/garcia-jairo-barajas.webp"
+
+- id: hector-de-jesus-jasso-primero
+  nombre: Hector de Jesus Jasso Primero
+  numero: 4
+  posicion: "Defensa"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/hector-de-jesus-jasso-primero.webp"
+
+- id: sergio-leon-caudillo
+  nombre: Sergio León Caudillo
+  numero: 14
+  posicion: "Defensa"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/sergio-leon-caudillo.webp"
+
+- id: espinoza-ramirez-michel-eddair
+  nombre: Espinoza Ramirez Michel Eddair
+  numero: 2
+  posicion: "Defensa"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/espinoza-ramirez-michel-eddair.webp"
+
+- id: jaime-javier-nunez-leon
+  nombre: Jaime Javier Nuñez Leon
+  numero: 5
+  posicion: "Defensa"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/jaime-javier-nunez-leon.webp"
+
+- id: juan-angel-perez-garcia
+  nombre: Juan Angel Perez Garcia
+  numero: 22
+  posicion: "Delantero"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/juan-angel-perez-garcia.webp"
+
+- id: irvin-uriel-rodriguez-robles
+  nombre: Irvin Uriel Rodriguez Robles
+  numero: 25
+  posicion: "Delantero"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/irvin-uriel-rodriguez-robles.webp"
+
+- id: rodolfo-sandoval-buendia
+  nombre: Rodolfo Sandoval Buendia
+  numero: 3
+  posicion: "Defensa"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/rodolfo-sandoval-buendia.webp"
+
+- id: cesar-osvaldo-valencia-santos
+  nombre: Cesar Osvaldo Valencia Santos
+  numero: 30
+  posicion: "Portero"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/cesar-osvaldo-valencia-santos.webp"
+
+- id: cesar-adrian-villegas-resendiz
+  nombre: Cesar Adrian Villegas Resendiz
+  numero: 29
+  posicion: "Defensa"
+  equipo_id: betis-carto
+  foto: "/img/jugadores/cesar-adrian-villegas-resendiz.webp"
+
+- id: gustavo-arana-gomez
+  nombre: Gustavo Arana Gomez
+  numero: 6
+  posicion: "Medio"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/gustavo-arana-gomez.webp"
+
+- id: ulises-avendano-rosas
+  nombre: Ulises Avendaño Rosas
+  numero: 11
+  posicion: "Medio"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/ulises-avendano-rosas.webp"
+
+- id: kevin-brian-barrera-villegas
+  nombre: Kevin Brian Barrera Villegas
+  numero: 1
+  posicion: "Portero"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/kevin-brian-barrera-villegas.webp"
+
+- id: irvin-giovanni-bautista-leon
+  nombre: Irvin Giovanni Bautista Leon
+  numero: 3
+  posicion: "Defensa"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/irvin-giovanni-bautista-leon.webp"
+
+- id: jose-alfredo-chora-salcedo
+  nombre: José Alfredo Chora Salcedo
+  numero: 420
+  posicion: "Delantero"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/jose-alfredo-chora-salcedo.webp"
+
+- id: oscar-alexander-cordova-gomez
+  nombre: Oscar Alexander Córdova Gomez
+  numero: 21
+  posicion: "Defensa"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/oscar-alexander-cordova-gomez.webp"
+
+- id: diego-cruz-cruz
+  nombre: Diego Cruz Cruz
+  numero: 17
+  posicion: "Medio"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/diego-cruz-cruz.webp"
+
+- id: miguel-angel-de-la-luz-lora
+  nombre: Miguel Angel de la Luz Lora
+  numero: 2
+  posicion: "Defensa"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/miguel-angel-de-la-luz-lora.webp"
+
+- id: david-estrada-benitez
+  nombre: David Estrada Benitez
+  numero: 22
+  posicion: "Portero"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/david-estrada-benitez.webp"
+
+- id: jesus-estrada-gonzalez
+  nombre: Jesus Estrada Gonzalez
+  numero: 18
+  posicion: "Defensa"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/jesus-estrada-gonzalez.webp"
+
+- id: jose-manuel-garcia-malagon
+  nombre: José Manuel García Malagon
+  numero: 25
+  posicion: "Medio"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/jose-manuel-garcia-malagon.webp"
+
+- id: brandon-alberto-gonzalez-montoya
+  nombre: Brandon Alberto González Montoya
+  numero: 4
+  posicion: "Defensa"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/brandon-alberto-gonzalez-montoya.webp"
+
+- id: daniel-gutierrez-sanchez
+  nombre: Daniel Gutierrez Sanchez
+  numero: 8
+  posicion: "Medio"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/daniel-gutierrez-sanchez.webp"
+
+- id: christian-luna-mendez
+  nombre: Christian Luna Mendez
+  numero: 26
+  posicion: "Medio"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/christian-luna-mendez.webp"
+
+- id: adrian-alejandro-mendoza-gonzalez
+  nombre: Adrian Alejandro Mendoza Gonzalez
+  numero: 22
+  posicion: "Defensa"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/adrian-alejandro-mendoza-gonzalez.webp"
+
+- id: jorge-mondragon-anguiano
+  nombre: Jorge Mondragón Anguiano
+  numero: 10
+  posicion: "Medio"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/jorge-mondragon-anguiano.webp"
+
+- id: edgar-daniel-nieto-ramirez
+  nombre: Edgar Daniel Nieto Ramirez
+  numero: 5
+  posicion: "Defensa"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/edgar-daniel-nieto-ramirez.webp"
+
+- id: hector-raul-ramirez-lopez
+  nombre: Héctor Raul Ramirez Lopez
+  numero: 20
+  posicion: "Medio"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/hector-raul-ramirez-lopez.webp"
+
+- id: misael-ramirez-tobon
+  nombre: Misael Ramirez Tobon
+  numero: 7
+  posicion: "Delantero"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/misael-ramirez-tobon.webp"
+
+- id: jose-alberto-rizo-chavez
+  nombre: José Alberto Rizo Chavez
+  numero: 13
+  posicion: "Medio"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/jose-alberto-rizo-chavez.webp"
+
+- id: alejandro-rosales-rodriguez
+  nombre: Alejandro Rosales Rodríguez
+  numero: 15
+  posicion: "Defensa"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/alejandro-rosales-rodriguez.webp"
+
+- id: victor-noe-salazar-pimentel
+  nombre: Victor Noe Salazar Pimentel
+  numero: 16
+  posicion: "Defensa"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/victor-noe-salazar-pimentel.webp"
+
+- id: alberto-tirado-hernandez
+  nombre: Alberto Tirado Hernandez
+  numero: 9
+  posicion: "Delantero"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/alberto-tirado-hernandez.webp"
+
+- id: irving-daniel-trejo-tovar
+  nombre: Irving Daniel Trejo Tovar
+  numero: 14
+  posicion: "Defensa"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/irving-daniel-trejo-tovar.webp"
+
+- id: hugo-cesar-vargas-sanchez
+  nombre: Hugo Cesar Vargas Sanchez
+  numero: 19
+  posicion: "Medio"
+  equipo_id: bosque-del-mamado
+  foto: "/img/jugadores/hugo-cesar-vargas-sanchez.webp"
+
+- id: luis-enrique-amador-alanis
+  nombre: Luis Enrique Amador Alanis
+  numero: 20
+  posicion: "Medio"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/luis-enrique-amador-alanis.webp"
+
+- id: josua-badillo-martinez
+  nombre: Josua Badillo Martínez
+  numero: 15
+  posicion: "Medio"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/josua-badillo-martinez.webp"
+
+- id: dairo-de-jesus-berrio-blanquicett
+  nombre: Dairo de Jesus Berrio Blanquicett
+  numero: 58
+  posicion: "Medio"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/dairo-de-jesus-berrio-blanquicett.webp"
+
+- id: gil-giovanni-buron-morales
+  nombre: Gil Giovanni Buron Morales
+  numero: 16
+  posicion: "Defensa"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/gil-giovanni-buron-morales.webp"
+
+- id: kevin-mauricio-cardona-gomez
+  nombre: Kevin Mauricio Cardona Gómez
+  numero: 7
+  posicion: "Medio"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/kevin-mauricio-cardona-gomez.webp"
+
+- id: dennis-yaunel-casasola-martinez
+  nombre: Dennis Yaunel Casasola Martinez
+  numero: 13
+  posicion: "Medio"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/dennis-yaunel-casasola-martinez.webp"
+
+- id: jose-daniel-de-arco-paniagua
+  nombre: José Daniel de Arco Paniagua
+  numero: 11
+  posicion: "Medio"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/jose-daniel-de-arco-paniagua.webp"
+
+- id: alan-javier-dimas-flores
+  nombre: Alan Javier Dimas Flores
+  numero: 17
+  posicion: "Defensa"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/alan-javier-dimas-flores.webp"
+
+- id: daniel-esau-garcia-leos
+  nombre: Daniel Esau García Leos
+  numero: 21
+  posicion: "Delantero"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/daniel-esau-garcia-leos.webp"
+
+- id: yosef-samuel-hernandez-medina
+  nombre: Yosef Samuel Hernández Medina
+  numero: 10
+  posicion: "Medio"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/yosef-samuel-hernandez-medina.webp"
+
+- id: daniel-alexis-lopez-noriega
+  nombre: Daniel Alexis López Noriega
+  numero: 8
+  posicion: "Defensa"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/daniel-alexis-lopez-noriega.webp"
+
+- id: francisco-abneer-manzano-alvarez
+  nombre: Francisco Abneer Manzano Álvarez
+  numero: 22
+  posicion: "Medio"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/francisco-abneer-manzano-alvarez.webp"
+
+- id: juan-carlos-martos-moreno
+  nombre: Juan Carlos Martos Moreno
+  numero: 1
+  posicion: "Portero"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/juan-carlos-martos-moreno.webp"
+
+- id: humberto-merlos-jordan
+  nombre: Humberto Merlos Jordan
+  numero: 6
+  posicion: "Defensa"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/humberto-merlos-jordan.webp"
+
+- id: jhon-fredy-miranda-rada
+  nombre: Jhon Fredy Miranda Rada
+  numero: 99
+  posicion: "Delantero"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/jhon-fredy-miranda-rada.webp"
+
+- id: christian-alexis-ortiz-lopez
+  nombre: Christian Alexis Ortiz López
+  numero: 14
+  posicion: "Defensa"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/christian-alexis-ortiz-lopez.webp"
+
+- id: obed-padilla-teran
+  nombre: Obed Padilla Teran
+  numero: 19
+  posicion: "Delantero"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/obed-padilla-teran.webp"
+
+- id: michel-jireh-pesqueda-anaya
+  nombre: Michel Jireh Pesqueda Anaya
+  numero: 4
+  posicion: "Defensa"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/michel-jireh-pesqueda-anaya.webp"
+
+- id: jose-leon-rosas-rodriguez
+  nombre: Jose León Rosas Rodríguez
+  numero: 9
+  posicion: "Delantero"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/jose-leon-rosas-rodriguez.webp"
+
+- id: luis-ernesto-tabarez-hernandez
+  nombre: Luis Ernesto Tabarez Hernández
+  numero: 18
+  posicion: "Defensa"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/luis-ernesto-tabarez-hernandez.webp"
+
+- id: saldana-tonatiuh-mejia
+  nombre: Saldaña Tonatiuh Mejía
+  numero: 27
+  posicion: "Defensa"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/saldana-tonatiuh-mejia.webp"
+
+- id: diego-verde-solis
+  nombre: Diego Verde Solis
+  numero: 23
+  posicion: "Delantero"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/diego-verde-solis.webp"
+
+- id: axel-fernando-villagran-coria
+  nombre: Axel Fernando Villagran Coria
+  numero: 12
+  posicion: "Defensa"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/axel-fernando-villagran-coria.webp"
+
+- id: adrian-zuniga-medina
+  nombre: Adrian Zuñiga Medina
+  numero: 29
+  posicion: "Medio"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/adrian-zuniga-medina.webp"
+
+- id: victor-manuel-zuniga-medina
+  nombre: Victor Manuel Zuñiga Medina
+  numero: 2
+  posicion: "Defensa"
+  equipo_id: juventus-naucalpan
+  foto: "/img/jugadores/victor-manuel-zuniga-medina.webp"
+
+- id: arturo-aldair-calixto-mendoza
+  nombre: Arturo Aldair Calixto Mendoza
+  numero: 1
+  posicion: "Portero"
+  equipo_id: union-america
+  foto: "/img/jugadores/arturo-aldair-calixto-mendoza.webp"
+
+- id: brayan-antonio-castaneda-campos
+  nombre: Brayan Antonio Castañeda Campos
+  numero: 22
+  posicion: "Medio"
+  equipo_id: union-america
+  foto: "/img/jugadores/brayan-antonio-castaneda-campos.webp"
+
+- id: emmanuel-cuadros-hernandez
+  nombre: Emmanuel Cuadros Hernandez
+  numero: 3
+  posicion: "Defensa"
+  equipo_id: union-america
+  foto: "/img/jugadores/emmanuel-cuadros-hernandez.webp"
+
+- id: alfonso-garcia-correa
+  nombre: Alfonso Garcia Correa
+  numero: 9
+  posicion: "Delantero"
+  equipo_id: union-america
+  foto: "/img/jugadores/alfonso-garcia-correa.webp"
+
+- id: luis-alberto-garcia-patino
+  nombre: Luis Alberto Garcia Patiño
+  numero: 8
+  posicion: "Medio"
+  equipo_id: union-america
+  foto: "/img/jugadores/luis-alberto-garcia-patino.webp"
+
+- id: francisco-javier-gomez-lozano
+  nombre: Francisco Javier Gomez Lozano
+  numero: 17
+  posicion: "Defensa"
+  equipo_id: union-america
+  foto: "/img/jugadores/francisco-javier-gomez-lozano.webp"
+
+- id: edwin-gomez-martinez
+  nombre: Edwin Gomez Martinez
+  numero: 11
+  posicion: "Delantero"
+  equipo_id: union-america
+  foto: "/img/jugadores/edwin-gomez-martinez.webp"
+
+- id: miguel-angel-gonzalez-rivera
+  nombre: Miguel Angel Gonzalez Rivera
+  numero: 23
+  posicion: "Delantero"
+  equipo_id: union-america
+  foto: "/img/jugadores/miguel-angel-gonzalez-rivera.webp"
+
+- id: yamil-ayrton-granados-bernal
+  nombre: Yamil Ayrton Granados Bernal
+  numero: 20
+  posicion: "Defensa"
+  equipo_id: union-america
+  foto: "/img/jugadores/yamil-ayrton-granados-bernal.webp"
+
+- id: jose-antonio-herrera-gonzalez
+  nombre: Jose Antonio Herrera Gonzalez
+  numero: 30
+  posicion: "Portero"
+  equipo_id: union-america
+  foto: "/img/jugadores/jose-antonio-herrera-gonzalez.webp"
+
+- id: luis-manuel-jimenez-gil
+  nombre: Luis Manuel Jimenez Gil
+  numero: 19
+  posicion: "Defensa"
+  equipo_id: union-america
+  foto: "/img/jugadores/luis-manuel-jimenez-gil.webp"
+
+- id: alejandro-lopez-garcia
+  nombre: Alejandro Lopez Garcia
+  numero: 13
+  posicion: "Medio"
+  equipo_id: union-america
+  foto: "/img/jugadores/alejandro-lopez-garcia.webp"
+
+- id: alfredo-lopez-ortiz
+  nombre: Alfredo Lopez Ortiz
+  numero: 18
+  posicion: "Medio"
+  equipo_id: union-america
+  foto: "/img/jugadores/alfredo-lopez-ortiz.webp"
+
+- id: inaqui-jeancarlo-martinez-leon
+  nombre: Iñaqui Jeancarlo Martinez Leon
+  numero: 7
+  posicion: "Medio"
+  equipo_id: union-america
+  foto: "/img/jugadores/inaqui-jeancarlo-martinez-leon.webp"
+
+- id: miguel-angel-pino-garcia
+  nombre: Miguel Angel Pino Garcia
+  numero: 16
+  posicion: "Delantero"
+  equipo_id: union-america
+  foto: "/img/jugadores/miguel-angel-pino-garcia.webp"
+
+- id: rodrigo-yair-rocha-ramirez
+  nombre: Rodrigo Yair Rocha Ramirez
+  numero: 5
+  posicion: "Medio"
+  equipo_id: union-america
+  foto: "/img/jugadores/rodrigo-yair-rocha-ramirez.webp"
+
+- id: israel-ivan-salinas-mejia
+  nombre: Israel Ivan Salinas Mejia
+  numero: 14
+  posicion: "Medio"
+  equipo_id: union-america
+  foto: "/img/jugadores/israel-ivan-salinas-mejia.webp"
+
+- id: ruben-yovani-sanchez-ruedas
+  nombre: Ruben Yovani Sanchez Ruedas
+  numero: 4
+  posicion: "Defensa"
+  equipo_id: union-america
+  foto: "/img/jugadores/ruben-yovani-sanchez-ruedas.webp"
+
+- id: alexis-adan-silva-muro
+  nombre: Alexis Adan Silva Muro
+  numero: 15
+  posicion: "Medio"
+  equipo_id: union-america
+  foto: "/img/jugadores/alexis-adan-silva-muro.webp"
+
+- id: jose-ramon-torres-espinosa
+  nombre: Jose Ramon Torres Espinosa
+  numero: 6
+  posicion: "Medio"
+  equipo_id: union-america
+  foto: "/img/jugadores/jose-ramon-torres-espinosa.webp"
+
+- id: javier-velazquez-murillo
+  nombre: Javier Velazquez Murillo
+  numero: 21
+  posicion: "Medio"
+  equipo_id: union-america
+  foto: "/img/jugadores/javier-velazquez-murillo.webp"
+
+- id: de-alba-karlos-xavier-witrado-gaspar
+  nombre: De Alba Karlos Xavier Witrado Gaspar
+  numero: 12
+  posicion: "Defensa"
+  equipo_id: union-america
+  foto: "/img/jugadores/de-alba-karlos-xavier-witrado-gaspar.webp"
+
+- id: jared-alfonso-avila-resendiz
+  nombre: Jared Alfonso Avila Resendiz
+  numero: 7
+  posicion: "Delantero"
+  equipo_id: flamengo
+  foto: "/img/jugadores/jared-alfonso-avila-resendiz.webp"
+
+- id: edson-cibrian-escobar
+  nombre: Edson Cibrian Escobar
+  numero: 9
+  posicion: "Delantero"
+  equipo_id: flamengo
+  foto: "/img/jugadores/edson-cibrian-escobar.webp"
+
+- id: gael-escobar-barrera
+  nombre: Gael Escobar Barrera
+  numero: 15
+  posicion: "Medio"
+  equipo_id: flamengo
+  foto: "/img/jugadores/gael-escobar-barrera.webp"
+
+- id: bryan-humberto-farelas-cruz
+  nombre: Bryan Humberto Farelas Cruz
+  numero: 14
+  posicion: "Delantero"
+  equipo_id: flamengo
+  foto: "/img/jugadores/bryan-humberto-farelas-cruz.webp"
+
+- id: jose-antonio-galindo-hernandez
+  nombre: Jose Antonio Galindo Hernandez
+  numero: 24
+  posicion: "Medio"
+  equipo_id: flamengo
+  foto: "/img/jugadores/jose-antonio-galindo-hernandez.webp"
+
+- id: alan-isay-garcia-garcia
+  nombre: Alan Isay Garcia Garcia
+  numero: 6
+  posicion: "Medio"
+  equipo_id: flamengo
+  foto: "/img/jugadores/alan-isay-garcia-garcia.webp"
+
+- id: diego-gonzalez-lopez
+  nombre: Diego Gonzalez Lopez
+  numero: 28
+  posicion: "Portero"
+  equipo_id: flamengo
+  foto: "/img/jugadores/diego-gonzalez-lopez.webp"
+
+- id: emmanuel-de-jesus-gonzalez-perez
+  nombre: Emmanuel de Jesus Gonzalez Perez
+  numero: 11
+  posicion: "Defensa"
+  equipo_id: flamengo
+  foto: "/img/jugadores/emmanuel-de-jesus-gonzalez-perez.webp"
+
+- id: alfredo-juarez-delgado
+  nombre: Alfredo Juárez Delgado
+  numero: 99
+  posicion: "Defensa"
+  equipo_id: flamengo
+  foto: "/img/jugadores/alfredo-juarez-delgado.webp"
+
+- id: eduardo-aldair-mayen-pina
+  nombre: Eduardo Aldair Mayen Piña
+  numero: 16
+  posicion: "Medio"
+  equipo_id: flamengo
+  foto: "/img/jugadores/eduardo-aldair-mayen-pina.webp"
+
+- id: eder-gael-miranda-rodriguez
+  nombre: Eder Gael Miranda Rodriguez
+  numero: 22
+  posicion: "Delantero"
+  equipo_id: flamengo
+  foto: "/img/jugadores/eder-gael-miranda-rodriguez.webp"
+
+- id: alejandro-montoya-ruiz
+  nombre: Alejandro Montoya Ruiz
+  numero: 17
+  posicion: "Delantero"
+  equipo_id: flamengo
+  foto: "/img/jugadores/alejandro-montoya-ruiz.webp"
+
+- id: fabian-ortega-sanchez
+  nombre: Fabian Ortega Sanchez
+  numero: 25
+  posicion: "Delantero"
+  equipo_id: flamengo
+  foto: "/img/jugadores/fabian-ortega-sanchez.webp"
+
+- id: andres-pabana-guerrero
+  nombre: Andres Pabana Guerrero
+  numero: 8
+  posicion: "Medio"
+  equipo_id: flamengo
+  foto: "/img/jugadores/andres-pabana-guerrero.webp"
+
+- id: martin-guadalupe-perez-solis
+  nombre: Martin Guadalupe Perez Solis
+  numero: 31
+  posicion: "Portero"
+  equipo_id: flamengo
+  foto: "/img/jugadores/martin-guadalupe-perez-solis.webp"
+
+- id: carlos-alberto-reza-trujano
+  nombre: Carlos Alberto Reza Trujano
+  numero: 13
+  posicion: "Medio"
+  equipo_id: flamengo
+  foto: "/img/jugadores/carlos-alberto-reza-trujano.webp"
+
+- id: johan-de-jesus-romero-corona
+  nombre: Johan de Jesus Romero Corona
+  numero: 27
+  posicion: "Delantero"
+  equipo_id: flamengo
+  foto: "/img/jugadores/johan-de-jesus-romero-corona.webp"
+
+- id: cesar-salazar-olivares
+  nombre: Cesar Salazar Olivares
+  numero: 26
+  posicion: "Defensa"
+  equipo_id: flamengo
+  foto: "/img/jugadores/cesar-salazar-olivares.webp"
+
+- id: jesus-antonio-sandoval-hernandez
+  nombre: Jesus Antonio Sandoval Hernandez
+  numero: 5
+  posicion: "Defensa"
+  equipo_id: flamengo
+  foto: "/img/jugadores/jesus-antonio-sandoval-hernandez.webp"
+
+- id: giovanny-santiago-flores
+  nombre: Giovanny Santiago Flores
+  numero: 10
+  posicion: "Medio"
+  equipo_id: flamengo
+  foto: "/img/jugadores/giovanny-santiago-flores.webp"
+
+- id: ricardo-tellez-cruz
+  nombre: Ricardo Tellez Cruz
+  numero: 20
+  posicion: "Delantero"
+  equipo_id: flamengo
+  foto: "/img/jugadores/ricardo-tellez-cruz.webp"
+
+- id: josette-alonso-vargas-cruz
+  nombre: Josette Alonso Vargas Cruz
+  numero: 40
+  posicion: "Defensa"
+  equipo_id: flamengo
+  foto: "/img/jugadores/josette-alonso-vargas-cruz.webp"
+
+- id: david-vega-davila
+  nombre: David Vega Davila
+  numero: 12
+  posicion: "Medio"
+  equipo_id: flamengo
+  foto: "/img/jugadores/david-vega-davila.webp"
+
+- id: edgar-jesus-vera-carranza
+  nombre: Edgar Jesus Vera Carranza
+  numero: 21
+  posicion: "Defensa"
+  equipo_id: flamengo
+  foto: "/img/jugadores/edgar-jesus-vera-carranza.webp"
+
+- id: fernando-arzate-velez
+  nombre: Fernando Arzate Vélez
+  numero: 2
+  posicion: "Portero"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/fernando-arzate-velez.webp"
+
+- id: jonathan-kevin-barrientos-avila
+  nombre: Jonathan Kevin Barrientos Ávila
+  numero: 9
+  posicion: "Delantero"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/jonathan-kevin-barrientos-avila.webp"
+
+- id: jose-armando-carrillo-trejo
+  nombre: José Armando Carrillo Trejo
+  numero: 6
+  posicion: "Defensa"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/jose-armando-carrillo-trejo.webp"
+
+- id: michelle-arturo-castro-galindo
+  nombre: Michelle Arturo Castro Galindo
+  numero: 25
+  posicion: "Medio"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/michelle-arturo-castro-galindo.webp"
+
+- id: victor-antonio-chavez-martinez
+  nombre: Víctor Antonio Chávez Martínez
+  numero: 13
+  posicion: "Delantero"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/victor-antonio-chavez-martinez.webp"
+
+- id: geovanni-cortes-ramirez
+  nombre: Geovanni Cortes Ramirez
+  numero: 12
+  posicion: "Medio"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/geovanni-cortes-ramirez.webp"
+
+- id: ahiram-abisai-diaz-mixtega
+  nombre: Ahiram Abisai Díaz Mixtega
+  numero: 21
+  posicion: "Medio"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/ahiram-abisai-diaz-mixtega.webp"
+
+- id: alexis-javier-gutierrez-mora
+  nombre: Alexis Javier Gutierrez Mora
+  numero: 18
+  posicion: "Delantero"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/alexis-javier-gutierrez-mora.webp"
+
+- id: andres-hernandez-barrientos
+  nombre: Andrés Hernández Barrientos
+  numero: 10
+  posicion: "Medio"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/andres-hernandez-barrientos.webp"
+
+- id: jose-octavio-landeros-hernandez
+  nombre: José Octavio Landeros Hernández
+  numero: 4
+  posicion: "Defensa"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/jose-octavio-landeros-hernandez.webp"
+
+- id: salvador-lara
+  nombre: Salvador Lara
+  numero: 17
+  posicion: "Delantero"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/salvador-lara.webp"
+
+- id: edwin-giovanni-martinez-jacome
+  nombre: Edwin Giovanni Martinez Jacome
+  numero: 8
+  posicion: "Medio"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/edwin-giovanni-martinez-jacome.webp"
+
+- id: edher-martinez-morales
+  nombre: Edher Martinez Morales
+  numero: 11
+  posicion: "Medio"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/edher-martinez-morales.webp"
+
+- id: daniel-alejandro-mendoza-dominguez
+  nombre: Daniel Alejandro Mendoza Domínguez
+  numero: 5
+  posicion: "Defensa"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/daniel-alejandro-mendoza-dominguez.webp"
+
+- id: eduardo-pineda-villa
+  nombre: Eduardo Pineda Villa
+  numero: 20
+  posicion: "Medio"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/eduardo-pineda-villa.webp"
+
+- id: gerardo-daniel-ramirez-moreno
+  nombre: Gerardo Daniel Ramírez Moreno
+  numero: 1
+  posicion: "Portero"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/gerardo-daniel-ramirez-moreno.webp"
+
+- id: irving-alejandro-rincon-granados
+  nombre: Irving Alejandro Rincón Granados
+  numero: 16
+  posicion: "Delantero"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/irving-alejandro-rincon-granados.webp"
+
+- id: jair-rodriguez-lopez
+  nombre: Jair Rodríguez López
+  numero: 23
+  posicion: "Medio"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/jair-rodriguez-lopez.webp"
+
+- id: luis-angel-rosales-hernandez
+  nombre: Luis Angel Rosales Hernández
+  numero: 3
+  posicion: "Defensa"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/luis-angel-rosales-hernandez.webp"
+
+- id: diego-ricardo-santiago-guadarrama
+  nombre: Diego Ricardo Santiago Guadarrama
+  numero: 19
+  posicion: "Defensa"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/diego-ricardo-santiago-guadarrama.webp"
+
+- id: eder-silva-muro
+  nombre: Eder Silva Muro
+  numero: 15
+  posicion: "Defensa"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/eder-silva-muro.webp"
+
+- id: gerson-suarez-sanchez
+  nombre: Gerson Suarez Sánchez
+  numero: 14
+  posicion: "Defensa"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/gerson-suarez-sanchez.webp"
+
+- id: carlos-alberto-valdez-guerrero
+  nombre: Carlos Alberto Valdez Guerrero
+  numero: 24
+  posicion: "Defensa"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/carlos-alberto-valdez-guerrero.webp"
+
+- id: geovanni-valencia-flores
+  nombre: Geovanni Valencia Flores
+  numero: 22
+  posicion: "Delantero"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/geovanni-valencia-flores.webp"
+
+- id: sebastian-yanez-reyes
+  nombre: Sebastian Yáñez Reyes
+  numero: 7
+  posicion: "Medio"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/jugadores/sebastian-yanez-reyes.webp"
+
+- id: emiliano-rodrigo-acosta-martinez
+  nombre: Emiliano Rodrigo Acosta Martínez
+  numero: 12
+  posicion: "Defensa"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/emiliano-rodrigo-acosta-martinez.webp"
+
+- id: ivan-antonio-arias
+  nombre: Ivan Antonio Arias
+  numero: 77
+  posicion: "Defensa"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/ivan-antonio-arias.webp"
+
+- id: marco-daniel-baltazar-becerril
+  nombre: Marco Daniel Baltazar Becerril
+  numero: 29
+  posicion: "Defensa"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/marco-daniel-baltazar-becerril.webp"
+
+- id: felipe-ramon-bravo-moreno
+  nombre: Felipe Ramon Bravo Moreno
+  numero: 45
+  posicion: "Medio"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/felipe-ramon-bravo-moreno.webp"
+
+- id: andres-gerardo-carmona-gutierrez
+  nombre: Andres Gerardo Carmona Gutierrez
+  numero: 8
+  posicion: "Medio"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/andres-gerardo-carmona-gutierrez.webp"
+
+- id: jose-leonardo-carmona-gutierrez
+  nombre: José Leonardo Carmona Gutiérrez
+  numero: 14
+  posicion: "Medio"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/jose-leonardo-carmona-gutierrez.webp"
+
+- id: luis-fernando-cruz-nolasco
+  nombre: Luis Fernando Cruz Nolasco
+  numero: 69
+  posicion: "Medio"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/luis-fernando-cruz-nolasco.webp"
+
+- id: eduardo-espinoza-castillo
+  nombre: Eduardo Espinoza Castillo
+  numero: 7
+  posicion: "Delantero"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/eduardo-espinoza-castillo.webp"
+
+- id: luis-enrique-flores-delgado
+  nombre: Luis Enrique Flores Delgado
+  numero: 24
+  posicion: "Medio"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/luis-enrique-flores-delgado.webp"
+
+- id: israel-flores-rodriguez
+  nombre: Israel Flores Rodriguez
+  numero: 4
+  posicion: "Medio"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/israel-flores-rodriguez.webp"
+
+- id: angel-german-gallardo-espinoza
+  nombre: Angel German Gallardo Espinoza
+  numero: 35
+  posicion: "Delantero"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/angel-german-gallardo-espinoza.webp"
+
+- id: dylan-garcia-gallardo
+  nombre: Dylan García Gallardo
+  numero: 11
+  posicion: "Medio"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/dylan-garcia-gallardo.webp"
+
+- id: alan-garcia-gonzalez
+  nombre: Alan García González
+  numero: 30
+  posicion: "Medio"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/alan-garcia-gonzalez.webp"
+
+- id: luis-fernando-garduno-cruz
+  nombre: Luis Fernando Garduño Cruz
+  numero: 3
+  posicion: "Medio"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/luis-fernando-garduno-cruz.webp"
+
+- id: luis-yair-gutierrez-cruz
+  nombre: Luis Yair Gutiérrez Cruz
+  numero: 11
+  posicion: "Medio"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/luis-yair-gutierrez-cruz.webp"
+
+- id: jose-eduardo-hernandez-aguilera
+  nombre: José Eduardo Hernández Aguilera
+  numero: 15
+  posicion: "Medio"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/jose-eduardo-hernandez-aguilera.webp"
+
+- id: juan-daniel-hernandez-tellez
+  nombre: Juan Daniel Hernandez Téllez
+  numero: 17
+  posicion: "Medio"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/juan-daniel-hernandez-tellez.webp"
+
+- id: hector-daniel-jimenez-arana
+  nombre: Héctor Daniel Jiménez Arana
+  numero: 22
+  posicion: "Defensa"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/hector-daniel-jimenez-arana.webp"
+
+- id: diego-lora-bernal
+  nombre: Diego Lora Bernal
+  numero: 2
+  posicion: "Defensa"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/diego-lora-bernal.webp"
+
+- id: sergio-melo-fabian
+  nombre: Sergio Melo Fabián
+  numero: 9
+  posicion: "Medio"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/sergio-melo-fabian.webp"
+
+- id: edgar-josue-perez-tellez
+  nombre: Edgar Josué Pérez Tellez
+  numero: 25
+  posicion: "Defensa"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/edgar-josue-perez-tellez.webp"
+
+- id: cristian-joel-rodriguez-angeles
+  nombre: Cristian Joel Rodríguez Ángeles
+  numero: 5
+  posicion: "Defensa"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/cristian-joel-rodriguez-angeles.webp"
+
+- id: edgar-eduardo-saavedra-perez
+  nombre: Edgar Eduardo Saavedra Perez
+  numero: 19
+  posicion: "Medio"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/edgar-eduardo-saavedra-perez.webp"
+
+- id: cesar-arath-sandoval-lugo
+  nombre: Cesar Arath Sandoval Lugo
+  numero: 1
+  posicion: "Portero"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/cesar-arath-sandoval-lugo.webp"
+
+- id: victor-manuel-trejo-rodriguez
+  nombre: Víctor Manuel Trejo Rodriguez
+  numero: 13
+  posicion: "Medio"
+  equipo_id: cahuacan-cv
+  foto: "/img/jugadores/victor-manuel-trejo-rodriguez.webp"
+
+- id: kevin-aaron-agapito-gonzalez
+  nombre: Kevin Aaron Agapito Gonzalez
+  numero: 19
+  posicion: "Medio"
+  equipo_id: acepi
+  foto: "/img/jugadores/kevin-aaron-agapito-gonzalez.webp"
+
+- id: juan-enrique-almazan-valdivia
+  nombre: Juan Enrique Almazan Valdivia
+  numero: 1
+  posicion: "Portero"
+  equipo_id: acepi
+  foto: "/img/jugadores/juan-enrique-almazan-valdivia.webp"
+
+- id: jesus-basilio-rivera
+  nombre: Jesus Basilio Rivera
+  numero: 14
+  posicion: "Medio"
+  equipo_id: acepi
+  foto: "/img/jugadores/jesus-basilio-rivera.webp"
+
+- id: cristo-fernando-cano-arzate
+  nombre: Cristo Fernando Cano Arzate
+  numero: 3
+  posicion: "Portero"
+  equipo_id: acepi
+  foto: "/img/jugadores/cristo-fernando-cano-arzate.webp"
+
+- id: alfredo-chavez-vargas
+  nombre: Alfredo Chavez Vargas
+  numero: 8
+  posicion: "Medio"
+  equipo_id: acepi
+  foto: "/img/jugadores/alfredo-chavez-vargas.webp"
+
+- id: gabriel-de-la-cruz-alvarez
+  nombre: Gabriel de la Cruz Alvarez
+  numero: 17
+  posicion: "Medio"
+  equipo_id: acepi
+  foto: "/img/jugadores/gabriel-de-la-cruz-alvarez.webp"
+
+- id: javier-emmanuel-flores-valdez
+  nombre: Javier Emmanuel Flores Valdez
+  numero: 5
+  posicion: "Medio"
+  equipo_id: acepi
+  foto: "/img/jugadores/javier-emmanuel-flores-valdez.webp"
+
+- id: jose-abraham-gallegos-tellez
+  nombre: Jose Abraham Gallegos Tellez
+  numero: 2
+  posicion: "Defensa"
+  equipo_id: acepi
+  foto: "/img/jugadores/jose-abraham-gallegos-tellez.webp"
+
+- id: eder-yael-jarillo-rosas
+  nombre: Eder Yael Jarillo Rosas
+  numero: 10
+  posicion: "Delantero"
+  equipo_id: acepi
+  foto: "/img/jugadores/eder-yael-jarillo-rosas.webp"
+
+- id: gustavo-juarez-monroy
+  nombre: Gustavo Juarez Monroy
+  numero: 6
+  posicion: "Medio"
+  equipo_id: acepi
+  foto: "/img/jugadores/gustavo-juarez-monroy.webp"
+
+- id: alejandro-juarez-moroy
+  nombre: Alejandro Juarez Moroy
+  numero: 18
+  posicion: "Delantero"
+  equipo_id: acepi
+  foto: "/img/jugadores/alejandro-juarez-moroy.webp"
+
+- id: jaime-eduardo-martinez-martinez
+  nombre: Jaime Eduardo Martinez Martinez
+  numero: 21
+  posicion: "Defensa"
+  equipo_id: acepi
+  foto: "/img/jugadores/jaime-eduardo-martinez-martinez.webp"
+
+- id: oscar-ernesto-maya-vazquez
+  nombre: Oscar Ernesto Maya Vazquez
+  numero: 20
+  posicion: "Defensa"
+  equipo_id: acepi
+  foto: "/img/jugadores/oscar-ernesto-maya-vazquez.webp"
+
+- id: johan-medina-ramirez
+  nombre: Johan Medina Ramirez
+  numero: 7
+  posicion: "Delantero"
+  equipo_id: acepi
+  foto: "/img/jugadores/johan-medina-ramirez.webp"
+
+- id: luis-diego-ochoa-jaimez
+  nombre: Luis Diego Ochoa Jaimez
+  numero: 23
+  posicion: "Defensa"
+  equipo_id: acepi
+  foto: "/img/jugadores/luis-diego-ochoa-jaimez.webp"
+
+- id: johanan-olade-paez
+  nombre: Johanan Olade Paez
+  numero: 4
+  posicion: "Defensa"
+  equipo_id: acepi
+  foto: "/img/jugadores/johanan-olade-paez.webp"
+
+- id: mario-andoney-olvera-tellez
+  nombre: Mario Andoney Olvera Tellez
+  numero: 11
+  posicion: "Delantero"
+  equipo_id: acepi
+  foto: "/img/jugadores/mario-andoney-olvera-tellez.webp"
+
+- id: osvaldo-padilla-rodriguez
+  nombre: Osvaldo Padilla Rodriguez
+  numero: 13
+  posicion: "Medio"
+  equipo_id: acepi
+  foto: "/img/jugadores/osvaldo-padilla-rodriguez.webp"
+
+- id: kevin-ramirez-escalona
+  nombre: Kevin Ramirez Escalona
+  numero: 22
+  posicion: "Medio"
+  equipo_id: acepi
+  foto: "/img/jugadores/kevin-ramirez-escalona.webp"
+
+- id: jose-refugio-ramirez-ramirez
+  nombre: José Refugio Ramírez Ramírez
+  numero: 25
+  posicion: "Delantero"
+  equipo_id: acepi
+  foto: "/img/jugadores/jose-refugio-ramirez-ramirez.webp"
+
+- id: jose-joel-rivera-hernandez
+  nombre: José Joel Rivera Hernández
+  numero: 3
+  posicion: "Defensa"
+  equipo_id: acepi
+  foto: "/img/jugadores/jose-joel-rivera-hernandez.webp"
+
+- id: jorge-azael-rodriguez-pelaez
+  nombre: Jorge Azael Rodriguez Pelaez
+  numero: 9
+  posicion: "Delantero"
+  equipo_id: acepi
+  foto: "/img/jugadores/jorge-azael-rodriguez-pelaez.webp"
+
+- id: jose-de-jesus-solis-reyes
+  nombre: Jose de Jesus Solis Reyes
+  numero: 22
+  posicion: "Defensa"
+  equipo_id: acepi
+  foto: "/img/jugadores/jose-de-jesus-solis-reyes.webp"
+
+- id: jesus-enrique-trejo-barrios
+  nombre: Jesus Enrique Trejo Barrios
+  numero: 12
+  posicion: "Defensa"
+  equipo_id: acepi
+  foto: "/img/jugadores/jesus-enrique-trejo-barrios.webp"
+
+- id: luis-angel-villegas-garcia
+  nombre: Luis Angel Villegas Garcia
+  numero: 24
+  posicion: "Delantero"
+  equipo_id: acepi
+  foto: "/img/jugadores/luis-angel-villegas-garcia.webp"
+
+- id: patricio-almazan-quijano
+  nombre: Patricio Almazan Quijano
+  numero: 3
+  posicion: "Defensa"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/patricio-almazan-quijano.webp"
+
+- id: jose-marcos-alvarez-vega
+  nombre: Jose Marcos Alvarez Vega
+  numero: 25
+  posicion: "Delantero"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/jose-marcos-alvarez-vega.webp"
+
+- id: diego-atayde-castro
+  nombre: Diego Atayde Castro
+  numero: 26
+  posicion: "Delantero"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/diego-atayde-castro.webp"
+
+- id: franklin-steven-bermudez-caicedo
+  nombre: Franklin Steven Bermudez Caicedo
+  numero: 127
+  posicion: "Medio"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/franklin-steven-bermudez-caicedo.webp"
+
+- id: brandon-alonso-calleja-sanchez
+  nombre: Brandon Alonso Calleja Sanchez
+  numero: 24
+  posicion: "Defensa"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/brandon-alonso-calleja-sanchez.webp"
+
+- id: brandon-axel-chable-venegas
+  nombre: Brandon Axel Chable Venegas
+  numero: 11
+  posicion: "Delantero"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/brandon-axel-chable-venegas.webp"
+
+- id: juan-daniel-del-angel-cruz
+  nombre: Juan Daniel del Angel Cruz
+  numero: 5
+  posicion: "Defensa"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/juan-daniel-del-angel-cruz.webp"
+
+- id: soto-edwin-alvarez
+  nombre: Soto Edwin Alvarez
+  numero: 15
+  posicion: "Portero"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/soto-edwin-alvarez.webp"
+
+- id: jeremy-daniel-fermin-lopez
+  nombre: Jeremy Daniel Fermin Lopez
+  numero: 0
+  posicion: "Delantero"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/jeremy-daniel-fermin-lopez.webp"
+
+- id: ernesto-gomez-ruedas
+  nombre: Ernesto Gomez Ruedas
+  numero: 28
+  posicion: "Portero"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/ernesto-gomez-ruedas.webp"
+
+- id: emmanuel-gonzalez-baez
+  nombre: Emmanuel Gonzalez Baez
+  numero: 21
+  posicion: "Medio"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/emmanuel-gonzalez-baez.webp"
+
+- id: ulises-guerrero-osnaya
+  nombre: Ulises Guerrero Osnaya
+  numero: 6
+  posicion: "Medio"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/ulises-guerrero-osnaya.webp"
+
+- id: jonathan-hernandez-perez
+  nombre: Jonathan Hernandez Perez
+  numero: 113
+  posicion: "Medio"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/jonathan-hernandez-perez.webp"
+
+- id: juan-jimenez-juan
+  nombre: Juan Jimenez Juan
+  numero: 8
+  posicion: "Medio"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/juan-jimenez-juan.webp"
+
+- id: nicolas-mamondez-hector
+  nombre: Nicolas Mamondez Hector
+  numero: 18
+  posicion: "Medio"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/nicolas-mamondez-hector.webp"
+
+- id: ismael-monrroy-flores
+  nombre: Ismael Monrroy Flores
+  numero: 17
+  posicion: "Defensa"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/ismael-monrroy-flores.webp"
+
+- id: juan-esteban-neira-rojas
+  nombre: Juan Esteban Neira Rojas
+  numero: 10
+  posicion: "Delantero"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/juan-esteban-neira-rojas.webp"
+
+- id: jose-armando-osnaya-marcos
+  nombre: Jose Armando Osnaya Marcos
+  numero: 2
+  posicion: "Defensa"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/jose-armando-osnaya-marcos.webp"
+
+- id: damian-rodriguez-rogelio
+  nombre: Damian Rodriguez Rogelio
+  numero: 1
+  posicion: "Portero"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/damian-rodriguez-rogelio.webp"
+
+- id: jose-manuel-soto-ramos
+  nombre: Jose Manuel Soto Ramos
+  numero: 22
+  posicion: "Defensa"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/jose-manuel-soto-ramos.webp"
+
+- id: jimmy-thermilus
+  nombre: Jimmy Thermilus
+  numero: 14
+  posicion: "Defensa"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/jimmy-thermilus.webp"
+
+- id: brandon-steven-toro-chacon
+  nombre: Brandon Steven Toro Chacon
+  numero: 16
+  posicion: "Delantero"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/brandon-steven-toro-chacon.webp"
+
+- id: armando-trenado-blancas
+  nombre: Armando Trenado Blancas
+  numero: 7
+  posicion: "Delantero"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/armando-trenado-blancas.webp"
+
+- id: juan-manuel-vega-monroy
+  nombre: Juan Manuel Vega Monroy
+  numero: 19
+  posicion: "Defensa"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/juan-manuel-vega-monroy.webp"
+
+- id: juan-sebastian-zamora-linares
+  nombre: Juan Sebastian Zamora Linares
+  numero: 13
+  posicion: "Medio"
+  equipo_id: deportivo-cedros
+  foto: "/img/jugadores/juan-sebastian-zamora-linares.webp"
+
+- id: jose-ignacio-arzate-trejo
+  nombre: Jose Ignacio Arzate Trejo
+  numero: 21
+  posicion: "Delantero"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/jose-ignacio-arzate-trejo.webp"
+
+- id: erick-esau-barrera-chavez
+  nombre: Erick Esau Barrera Chavez
+  numero: 7
+  posicion: "Medio"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/erick-esau-barrera-chavez.webp"
+
+- id: daniel-bastida-sanchez
+  nombre: Daniel Bastida Sanchez
+  numero: 19
+  posicion: "Defensa"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/daniel-bastida-sanchez.webp"
+
+- id: omar-basurto-reyes
+  nombre: Omar Basurto Reyes
+  numero: 10
+  posicion: "Delantero"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/omar-basurto-reyes.webp"
+
+- id: francisco-javier-bermudez-cid
+  nombre: Francisco Javier Bermudez Cid
+  numero: 8
+  posicion: "Defensa"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/francisco-javier-bermudez-cid.webp"
+
+- id: sean-yoshef-blancas-cruz
+  nombre: Sean Yoshef Blancas Cruz
+  numero: 14
+  posicion: "Delantero"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/sean-yoshef-blancas-cruz.webp"
+
+- id: cristian-blancas-sandoval
+  nombre: Cristian Blancas Sandoval
+  numero: 28
+  posicion: "Defensa"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/cristian-blancas-sandoval.webp"
+
+- id: josseth-axel-chavez-flores
+  nombre: Josseth Axel Chavez Flores
+  numero: 17
+  posicion: "Defensa"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/josseth-axel-chavez-flores.webp"
+
+- id: angel-gabriel-chavez-franco
+  nombre: Angel Gabriel Chavez Franco
+  numero: 9
+  posicion: "Medio"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/angel-gabriel-chavez-franco.webp"
+
+- id: alan-joel-de-la-luz-munoz
+  nombre: Alan Joel de la Luz Muñoz
+  numero: 18
+  posicion: "Medio"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/alan-joel-de-la-luz-munoz.webp"
+
+- id: rodrigo-guzman-clorio
+  nombre: Rodrigo Guzman Clorio
+  numero: 50
+  posicion: "Medio"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/rodrigo-guzman-clorio.webp"
+
+- id: sebastian-jimenez-pineda
+  nombre: Sebastian Jimenez Pineda
+  numero: 22
+  posicion: "Medio"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/sebastian-jimenez-pineda.webp"
+
+- id: nolasco-cerritos-jorge-alejandro
+  nombre: Nolasco Cerritos Jorge Alejandro
+  numero: 13
+  posicion: "Defensa"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/nolasco-cerritos-jorge-alejandro.webp"
+
+- id: alejandro-juarez-vilchis
+  nombre: Alejandro Juarez Vilchis
+  numero: 100
+  posicion: "Delantero"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/alejandro-juarez-vilchis.webp"
+
+- id: jose-alfredo-lopez-loaiza
+  nombre: Jose Alfredo Lopez Loaiza
+  numero: 16
+  posicion: "Medio"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/jose-alfredo-lopez-loaiza.webp"
+
+- id: francisco-emiliano-lucas-fuentes
+  nombre: Francisco Emiliano Lucas Fuentes
+  numero: 5
+  posicion: "Defensa"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/francisco-emiliano-lucas-fuentes.webp"
+
+- id: martin-ulises-lugo-cervantes
+  nombre: Martin Ulises Lugo Cervantes
+  numero: 3
+  posicion: "Defensa"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/martin-ulises-lugo-cervantes.webp"
+
+- id: david-eduardo-mares-camacho
+  nombre: David Eduardo Mares Camacho
+  numero: 30
+  posicion: "Medio"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/david-eduardo-mares-camacho.webp"
+
+- id: carlos-pineda-vera
+  nombre: Carlos Pineda Vera
+  numero: 35
+  posicion: "Delantero"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/carlos-pineda-vera.webp"
+
+- id: cristyan-javier-ramirez-arellano
+  nombre: Cristyan Javier Ramirez Arellano
+  numero: 15
+  posicion: "Medio"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/cristyan-javier-ramirez-arellano.webp"
+
+- id: jose-luis-ramirez-arellano
+  nombre: Jose Luis Ramirez Arellano
+  numero: 4
+  posicion: "Defensa"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/jose-luis-ramirez-arellano.webp"
+
+- id: jose-alexis-sanchez-sanchez
+  nombre: Jose Alexis Sanchez Sanchez
+  numero: 20
+  posicion: "Defensa"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/jose-alexis-sanchez-sanchez.webp"
+
+- id: alan-rafael-solares-lopez
+  nombre: Alan Rafael Solares Lopez
+  numero: 6
+  posicion: "Medio"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/alan-rafael-solares-lopez.webp"
+
+- id: luis-torrijos-velarde
+  nombre: Luis Torrijos Velarde
+  numero: 37
+  posicion: "Defensa"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/luis-torrijos-velarde.webp"
+
+- id: abraham-velarde-velazquez
+  nombre: Abraham Velarde Velázquez
+  numero: 1
+  posicion: "Portero"
+  equipo_id: tigres-y
+  foto: "/img/jugadores/abraham-velarde-velazquez.webp"
+
+- id: reyes-sanchez-aaron-alejandro
+  nombre: Reyes Sanchez Aaron Alejandro
+  numero: 1
+  posicion: "Portero"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/reyes-sanchez-aaron-alejandro.webp"
+
+- id: gonzalez-armando-tavares
+  nombre: Gonzalez Armando Tavares
+  numero: 13
+  posicion: "Delantero"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/gonzalez-armando-tavares.webp"
+
+- id: villa-leon-arturo-aaron
+  nombre: Villa Leon Arturo Aaron
+  numero: 21
+  posicion: "Medio"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/villa-leon-arturo-aaron.webp"
+
+- id: gallardo-nieves-brandon-eduardo
+  nombre: Gallardo Nieves Brandon Eduardo
+  numero: 31
+  posicion: "Delantero"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/gallardo-nieves-brandon-eduardo.webp"
+
+- id: carreno-martinez-diego-armando
+  nombre: Carreño Martinez Diego Armando
+  numero: 34
+  posicion: "Medio"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/carreno-martinez-diego-armando.webp"
+
+- id: salazar-sanchez-dylan-yael
+  nombre: Salazar Sanchez Dylan Yael
+  numero: 17
+  posicion: "Medio"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/salazar-sanchez-dylan-yael.webp"
+
+- id: ruiz-pascual-edgar-daniel
+  nombre: Ruiz Pascual Edgar Daniel
+  numero: 15
+  posicion: "Medio"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/ruiz-pascual-edgar-daniel.webp"
+
+- id: jimenez-sanchez-jesus-brian
+  nombre: Jimenez Sanchez Jesus Brian
+  numero: 10
+  posicion: "Medio"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/jimenez-sanchez-jesus-brian.webp"
+
+- id: sanchez-colin-jesus-uriel
+  nombre: Sanchez Colin Jesus Uriel
+  numero: 23
+  posicion: "Medio"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/sanchez-colin-jesus-uriel.webp"
+
+- id: cruz-joel-hernandez
+  nombre: Cruz Joel Hernandez
+  numero: 38
+  posicion: "Defensa"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/cruz-joel-hernandez.webp"
+
+- id: jimenez-trigueros-jose-de-jesus
+  nombre: Jimenez Trigueros Jose de Jesus
+  numero: 7
+  posicion: "Medio"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/jimenez-trigueros-jose-de-jesus.webp"
+
+- id: rivera-alcantar-jose-francisco
+  nombre: Rivera Alcantar Jose Francisco
+  numero: 14
+  posicion: "Defensa"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/rivera-alcantar-jose-francisco.webp"
+
+- id: olvera-flores-jose-gustavo
+  nombre: Olvera Flores Jose Gustavo
+  numero: 12
+  posicion: "Medio"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/olvera-flores-jose-gustavo.webp"
+
+- id: gallardo-arazo-juan-antonio
+  nombre: Gallardo Arazo Juan Antonio
+  numero: 45
+  posicion: "Medio"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/gallardo-arazo-juan-antonio.webp"
+
+- id: miranda-villanueva-juan-carlos
+  nombre: Miranda Villanueva Juan Carlos
+  numero: 3
+  posicion: "Defensa"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/miranda-villanueva-juan-carlos.webp"
+
+- id: ramirez-leon-leopoldo-ivan
+  nombre: Ramirez Leon Leopoldo Ivan
+  numero: 4
+  posicion: "Medio"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/ramirez-leon-leopoldo-ivan.webp"
+
+- id: munoz-vazquez-luis-adolfo
+  nombre: Muñoz Vazquez Luis Adolfo
+  numero: 11
+  posicion: "Delantero"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/munoz-vazquez-luis-adolfo.webp"
+
+- id: rodriguez-medina-luis-fernando
+  nombre: Rodriguez Medina Luis Fernando
+  numero: 16
+  posicion: "Defensa"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/rodriguez-medina-luis-fernando.webp"
+
+- id: rios-diaz-pedro-antonio
+  nombre: Rios Diaz Pedro Antonio
+  numero: 9
+  posicion: "Medio"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/rios-diaz-pedro-antonio.webp"
+
+- id: miranda-alvarado-raul-agustin
+  nombre: Miranda Alvarado Raul Agustin
+  numero: 27
+  posicion: "Medio"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/miranda-alvarado-raul-agustin.webp"
+
+- id: rodea-uriel-saenz
+  nombre: Rodea Uriel Saenz
+  numero: 24
+  posicion: "Medio"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/jugadores/rodea-uriel-saenz.webp"
+
+- id: aaron-emmanuel-almazan-cruz
+  nombre: Aaron Emmanuel Almazan Cruz
+  numero: 7
+  posicion: "Medio"
+  equipo_id: atoleros
+  foto: "/img/jugadores/aaron-emmanuel-almazan-cruz.webp"
+
+- id: jose-alfredo-becerril-blancas
+  nombre: Jose Alfredo Becerril Blancas
+  numero: 2
+  posicion: "Defensa"
+  equipo_id: atoleros
+  foto: "/img/jugadores/jose-alfredo-becerril-blancas.webp"
+
+- id: gonzalo-becerril-sanchez
+  nombre: Gonzalo Becerril Sanchez
+  numero: 8
+  posicion: "Defensa"
+  equipo_id: atoleros
+  foto: "/img/jugadores/gonzalo-becerril-sanchez.webp"
+
+- id: carlos-chavez-chavez
+  nombre: Carlos Chavez Chavez
+  numero: 25
+  posicion: "Medio"
+  equipo_id: atoleros
+  foto: "/img/jugadores/carlos-chavez-chavez.webp"
+
+- id: miguel-angel-gomez-fuentes
+  nombre: Miguel Angel Gomez Fuentes
+  numero: 19
+  posicion: "Portero"
+  equipo_id: atoleros
+  foto: "/img/jugadores/miguel-angel-gomez-fuentes.webp"
+
+- id: jose-maria-gomez-martinez
+  nombre: Jose Maria Gomez Martinez
+  numero: 4
+  posicion: "Medio"
+  equipo_id: atoleros
+  foto: "/img/jugadores/jose-maria-gomez-martinez.webp"
+
+- id: fernando-gomez-rodriguez
+  nombre: Fernando Gomez Rodriguez
+  numero: 12
+  posicion: "Delantero"
+  equipo_id: atoleros
+  foto: "/img/jugadores/fernando-gomez-rodriguez.webp"
+
+- id: brayan-gonzalez-becerril
+  nombre: Brayan Gonzalez Becerril
+  numero: 14
+  posicion: "Medio"
+  equipo_id: atoleros
+  foto: "/img/jugadores/brayan-gonzalez-becerril.webp"
+
+- id: arath-emiliano-gonzalez-rivas
+  nombre: Arath Emiliano Gonzalez Rivas
+  numero: 23
+  posicion: "Defensa"
+  equipo_id: atoleros
+  foto: "/img/jugadores/arath-emiliano-gonzalez-rivas.webp"
+
+- id: andre-emiliano-gutierrez-gutierrez
+  nombre: Andre Emiliano Gutierrez Gutierrez
+  numero: 22
+  posicion: "Medio"
+  equipo_id: atoleros
+  foto: "/img/jugadores/andre-emiliano-gutierrez-gutierrez.webp"
+
+- id: gabriel-hernandez-guerrero
+  nombre: Gabriel Hernandez Guerrero
+  numero: 16
+  posicion: "Defensa"
+  equipo_id: atoleros
+  foto: "/img/jugadores/gabriel-hernandez-guerrero.webp"
+
+- id: alejandro-meza-marmolejo
+  nombre: Alejandro Meza Marmolejo
+  numero: 15
+  posicion: "Medio"
+  equipo_id: atoleros
+  foto: "/img/jugadores/alejandro-meza-marmolejo.webp"
+
+- id: marco-antonio-olalde-almazan
+  nombre: Marco Antonio Olalde Almazan
+  numero: 18
+  posicion: "Defensa"
+  equipo_id: atoleros
+  foto: "/img/jugadores/marco-antonio-olalde-almazan.webp"
+
+- id: angel-pacheco-zuniga
+  nombre: Angel Pacheco Zuñiga
+  numero: 20
+  posicion: "Delantero"
+  equipo_id: atoleros
+  foto: "/img/jugadores/angel-pacheco-zuniga.webp"
+
+- id: saul-parrales-garcia
+  nombre: Saul Parrales Garcia
+  numero: 21
+  posicion: "Medio"
+  equipo_id: atoleros
+  foto: "/img/jugadores/saul-parrales-garcia.webp"
+
+- id: jorge-luis-rivas-rodriguez
+  nombre: Jorge Luis Rivas Rodriguez
+  numero: 13
+  posicion: "Defensa"
+  equipo_id: atoleros
+  foto: "/img/jugadores/jorge-luis-rivas-rodriguez.webp"
+
+- id: jose-rodriguez-ramirez
+  nombre: Jose Rodriguez Ramirez
+  numero: 17
+  posicion: "Defensa"
+  equipo_id: atoleros
+  foto: "/img/jugadores/jose-rodriguez-ramirez.webp"
+
+- id: edson-jesus-rodriguez-sosa
+  nombre: Edson Jesus Rodriguez Sosa
+  numero: 9
+  posicion: "Delantero"
+  equipo_id: atoleros
+  foto: "/img/jugadores/edson-jesus-rodriguez-sosa.webp"
+
+- id: marco-antonio-santillan-gomez
+  nombre: Marco Antonio Santillan Gomez
+  numero: 5
+  posicion: "Defensa"
+  equipo_id: atoleros
+  foto: "/img/jugadores/marco-antonio-santillan-gomez.webp"
+
+- id: sebastian-segundo-becerril
+  nombre: Sebastian Segundo Becerril
+  numero: 11
+  posicion: "Defensa"
+  equipo_id: atoleros
+  foto: "/img/jugadores/sebastian-segundo-becerril.webp"
+
+- id: eduardo-segundo-rivas
+  nombre: Eduardo Segundo Rivas
+  numero: 28
+  posicion: "Delantero"
+  equipo_id: atoleros
+  foto: "/img/jugadores/eduardo-segundo-rivas.webp"
+
+- id: edgar-trejo-cabrera
+  nombre: Edgar Trejo Cabrera
+  numero: 1
+  posicion: "Portero"
+  equipo_id: atoleros
+  foto: "/img/jugadores/edgar-trejo-cabrera.webp"
+
+- id: carlos-daniel-uribe-blancas
+  nombre: Carlos Daniel Uribe Blancas
+  numero: 6
+  posicion: "Medio"
+  equipo_id: atoleros
+  foto: "/img/jugadores/carlos-daniel-uribe-blancas.webp"
+
+- id: david-uribe-blancas
+  nombre: David Uribe Blancas
+  numero: 26
+  posicion: "Delantero"
+  equipo_id: atoleros
+  foto: "/img/jugadores/david-uribe-blancas.webp"
+
+- id: sinahi-de-jesus-vega-reyes
+  nombre: Sinahi de Jesus Vega Reyes
+  numero: 27
+  posicion: "Medio"
+  equipo_id: atoleros
+  foto: "/img/jugadores/sinahi-de-jesus-vega-reyes.webp"

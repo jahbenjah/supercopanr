@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "postbuild": "node scripts/verificar-datos-privados.mjs dist",
+    "jugadores": "scripts/extraer-jugadores.sh",
     "preview": "astro preview",
     "check": "astro check",
     "test": "vitest run",

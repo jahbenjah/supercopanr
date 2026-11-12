@@ -129,6 +129,16 @@ const jugadores = defineCollection({
   }),
 });
 
+const cuerpoTecnico = defineCollection({
+  loader: file('src/data/cuerpo-tecnico.yaml'),
+  schema: z.object({
+    equipo_id: id,
+    nombre: z.string(),
+    funcion: z.string().optional(),
+    foto: imagen.optional(),
+  }),
+});
+
 const arbitros = defineCollection({
   loader: file('src/data/arbitros.yaml'),
   schema: z.object({
@@ -203,4 +213,4 @@ const paquetes = defineCollection({
   }),
 });
 
-export const collections = { torneo, bases, sedes, equipos, jugadores, arbitros, partidos, patrocinadores, paquetes, medios };
+export const collections = { torneo, bases, sedes, equipos, jugadores, cuerpoTecnico, arbitros, partidos, patrocinadores, paquetes, medios };

@@ -1,0 +1,587 @@
+- id: alexis-oswaldo-barrera-arzate
+  nombre: Alexis Oswaldo Barrera Arzate
+  funcion: "Auxiliar Técnico"
+  equipo_id: juve-sitecom
+  foto: "/img/cuerpo-tecnico/alexis-oswaldo-barrera-arzate.webp"
+
+- id: jose-emilio-torres-de-la-luz
+  nombre: Jose Emilio Torres de la Luz
+  funcion: "Director Técnico"
+  equipo_id: juve-sitecom
+  foto: "/img/cuerpo-tecnico/jose-emilio-torres-de-la-luz.webp"
+
+- id: ricardo-barrera-arzate
+  nombre: Ricardo Barrera Arzate
+  funcion: "Auxiliar Técnico"
+  equipo_id: juve-sitecom
+  foto: "/img/cuerpo-tecnico/ricardo-barrera-arzate.webp"
+
+- id: armando-vega-chaires
+  nombre: Armando Vega Chaires
+  funcion: "Auxiliar Técnico"
+  equipo_id: juve-sitecom
+  foto: "/img/cuerpo-tecnico/armando-vega-chaires.webp"
+
+- id: ismael-arana-garcia
+  nombre: Ismael Arana Garcia
+  funcion: "Director Técnico"
+  equipo_id: tlazala
+  foto: "/img/cuerpo-tecnico/ismael-arana-garcia.webp"
+
+- id: de-la-luz-rosas-miguel
+  nombre: De la Luz Rosas Miguel
+  funcion: "Delegado"
+  equipo_id: tlazala
+  foto: "/img/cuerpo-tecnico/de-la-luz-rosas-miguel.webp"
+
+- id: mondragon-vargas-dulce
+  nombre: Mondragón Vargas Dulce
+  funcion: "Auxiliar Técnico"
+  equipo_id: tlazala
+  foto: "/img/cuerpo-tecnico/mondragon-vargas-dulce.webp"
+
+- id: manuel-santos
+  nombre: Manuel Santos
+  funcion: "Preparador Físico"
+  equipo_id: aguila-pi
+  foto: "/img/cuerpo-tecnico/manuel-santos.webp"
+
+- id: rene-sanchez-cruz
+  nombre: Rene Sanchez Cruz
+  funcion: "Delegado"
+  equipo_id: aguila-pi
+  foto: "/img/cuerpo-tecnico/rene-sanchez-cruz.webp"
+
+- id: victor-villegas-mejia
+  nombre: Victor Villegas Mejia
+  funcion: "Delegado"
+  equipo_id: aguila-pi
+  foto: "/img/cuerpo-tecnico/victor-villegas-mejia.webp"
+
+- id: jose-concepcion-rosas-jimenez
+  nombre: Jose Concepcion Rosas Jimenez
+  funcion: "Director Técnico"
+  equipo_id: aguila-pi
+  foto: "/img/cuerpo-tecnico/jose-concepcion-rosas-jimenez.webp"
+
+- id: everardo-flandez-leon
+  nombre: Everardo Flandez Leon
+  funcion: "Delegado"
+  equipo_id: aguila-pi
+  foto: "/img/cuerpo-tecnico/everardo-flandez-leon.webp"
+
+- id: angel-axel-gonzalez-garcia
+  nombre: Angel Axel Gonzalez Garcia
+  funcion: "Auxiliar Técnico"
+  equipo_id: san-isidro-rgal
+  foto: "/img/cuerpo-tecnico/angel-axel-gonzalez-garcia.webp"
+
+- id: armando-bruno-sandoval
+  nombre: Armando Bruno Sandoval
+  funcion: "Preparador Físico"
+  equipo_id: san-isidro-rgal
+  foto: "/img/cuerpo-tecnico/armando-bruno-sandoval.webp"
+
+- id: oscar-alejandro-ruiz-aceves
+  nombre: Oscar Alejandro Ruiz Aceves
+  funcion: "Auxiliar Técnico"
+  equipo_id: san-isidro-rgal
+  foto: "/img/cuerpo-tecnico/oscar-alejandro-ruiz-aceves.webp"
+
+- id: jesus-miguel-mondragon
+  nombre: Jesus Miguel Mondragon
+  funcion: "Médico"
+  equipo_id: san-isidro-rgal
+  foto: "/img/cuerpo-tecnico/jesus-miguel-mondragon.webp"
+
+- id: eduardo-ruiz-aceves
+  nombre: Eduardo Ruiz Aceves
+  funcion: "Director Técnico"
+  equipo_id: san-isidro-rgal
+  foto: "/img/cuerpo-tecnico/eduardo-ruiz-aceves.webp"
+
+- id: ivan-cruz-vargas
+  nombre: Ivan Cruz Vargas
+  funcion: "Auxiliar Técnico"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/cuerpo-tecnico/ivan-cruz-vargas.webp"
+
+- id: jose-alberto-avalos-ayala
+  nombre: Jose Alberto Avalos Ayala
+  funcion: "Delegado"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/cuerpo-tecnico/jose-alberto-avalos-ayala.webp"
+
+- id: ricardo-lora-osnaya
+  nombre: Ricardo Lora Osnaya
+  funcion: "Director Técnico"
+  equipo_id: deportivo-la-rosa
+  foto: "/img/cuerpo-tecnico/ricardo-lora-osnaya.webp"
+
+- id: brandon-fuentes-huerta
+  nombre: Brandon Fuentes Huerta
+  funcion: "Director Técnico"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/cuerpo-tecnico/brandon-fuentes-huerta.webp"
+
+- id: edgar-morlan-dominguez
+  nombre: Edgar Morlan Dominguez
+  funcion: "Auxiliar Técnico"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/cuerpo-tecnico/edgar-morlan-dominguez.webp"
+
+- id: edgar-morlan-lozano
+  nombre: Edgar Morlan Lozano
+  funcion: "Delegado"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/cuerpo-tecnico/edgar-morlan-lozano.webp"
+
+- id: edgar-ali-padilla-hernandez
+  nombre: Edgar Ali Padilla Hernandez
+  funcion: "Delegado"
+  equipo_id: atlantico-padrinos-infonavit
+  foto: "/img/cuerpo-tecnico/edgar-ali-padilla-hernandez.webp"
+
+- id: saul-sanchez-moran
+  nombre: Saul Sánchez Moran
+  funcion: "Utilero"
+  equipo_id: potros-fc
+  foto: "/img/cuerpo-tecnico/saul-sanchez-moran.webp"
+
+- id: itzel-guadalupe-sanchez-rivera
+  nombre: Itzel Guadalupe Sánchez Rivera
+  funcion: "Auxiliar Técnico"
+  equipo_id: potros-fc
+  foto: "/img/cuerpo-tecnico/itzel-guadalupe-sanchez-rivera.webp"
+
+- id: violeta-sanchez-rivera
+  nombre: Violeta Sánchez Rivera
+  funcion: "Auxiliar Técnico"
+  equipo_id: potros-fc
+  foto: "/img/cuerpo-tecnico/violeta-sanchez-rivera.webp"
+
+- id: samy-sanchez-moran
+  nombre: Samy Sánchez Moran
+  funcion: "Director Técnico"
+  equipo_id: potros-fc
+  foto: "/img/cuerpo-tecnico/samy-sanchez-moran.webp"
+
+- id: guillermina-rivera-martinez
+  nombre: Guillermina Rivera Martinez
+  funcion: "Auxiliar Técnico"
+  equipo_id: potros-fc
+  foto: "/img/cuerpo-tecnico/guillermina-rivera-martinez.webp"
+
+- id: pedro-barreto
+  nombre: Pedro Barreto
+  funcion: "Delegado"
+  equipo_id: san-ildefonso
+  foto: "/img/cuerpo-tecnico/pedro-barreto.webp"
+
+- id: julio-alberto-merino-cano
+  nombre: Julio Alberto Merino Cano
+  funcion: "Auxiliar Técnico"
+  equipo_id: san-ildefonso
+  foto: "/img/cuerpo-tecnico/julio-alberto-merino-cano.webp"
+
+- id: marlon-raul-roa
+  nombre: Marlon Raúl Roa
+  funcion: "Auxiliar Técnico"
+  equipo_id: san-ildefonso
+  foto: "/img/cuerpo-tecnico/marlon-raul-roa.webp"
+
+- id: brujo-mendoza
+  nombre: Brujo Mendoza
+  funcion: "Director Técnico"
+  equipo_id: san-ildefonso
+  foto: "/img/cuerpo-tecnico/brujo-mendoza.webp"
+
+- id: tony-mayoral
+  nombre: Tony Mayoral
+  funcion: "Médico"
+  equipo_id: san-ildefonso
+  foto: "/img/cuerpo-tecnico/tony-mayoral.webp"
+
+- id: carlos-antonio-alonzo-villanueva
+  nombre: Carlos Antonio Alonzo Villanueva
+  funcion: "Auxiliar Técnico"
+  equipo_id: deportivo-fresno
+  foto: "/img/cuerpo-tecnico/carlos-antonio-alonzo-villanueva.webp"
+
+- id: ernesto-sanchez-gomez
+  nombre: Ernesto Sánchez Gómez
+  funcion: "Delegado"
+  equipo_id: deportivo-fresno
+  foto: "/img/cuerpo-tecnico/ernesto-sanchez-gomez.webp"
+
+- id: jose-eduardo-espinoza-villarreal
+  nombre: Jose Eduardo Espinoza Villarreal
+  funcion: "Delegado"
+  equipo_id: deportivo-fresno
+  foto: "/img/cuerpo-tecnico/jose-eduardo-espinoza-villarreal.webp"
+
+- id: soto-romero-antonio
+  nombre: Soto Romero Antonio
+  funcion: "Auxiliar Técnico"
+  equipo_id: club-colmena
+  foto: "/img/cuerpo-tecnico/soto-romero-antonio.webp"
+
+- id: everardo-hernandez-tellez
+  nombre: Everardo Hernandez Tellez
+  funcion: "Preparador Físico"
+  equipo_id: club-colmena
+  foto: "/img/cuerpo-tecnico/everardo-hernandez-tellez.webp"
+
+- id: arroyo-rodriguez-juan-jair
+  nombre: Arroyo Rodriguez Juan Jair
+  funcion: "Auxiliar Técnico"
+  equipo_id: club-colmena
+  foto: "/img/cuerpo-tecnico/arroyo-rodriguez-juan-jair.webp"
+
+- id: jose-antonio-soto-dominguez
+  nombre: Jose Antonio Soto Dominguez
+  funcion: "Director Técnico"
+  equipo_id: club-colmena
+  foto: "/img/cuerpo-tecnico/jose-antonio-soto-dominguez.webp"
+
+- id: francisco-javier-godinez-olvera
+  nombre: Francisco Javier Godinez Olvera
+  funcion: "Auxiliar Técnico"
+  equipo_id: vikingos
+  foto: "/img/cuerpo-tecnico/francisco-javier-godinez-olvera.webp"
+
+- id: uriel-valdez-olvera
+  nombre: Uriel Valdez Olvera
+  funcion: "Auxiliar Técnico"
+  equipo_id: vikingos
+  foto: "/img/cuerpo-tecnico/uriel-valdez-olvera.webp"
+
+- id: juan-carlos-monroy-hernandez
+  nombre: Juan Carlos Monroy Hernandez
+  funcion: "Director Técnico"
+  equipo_id: vikingos
+  foto: "/img/cuerpo-tecnico/juan-carlos-monroy-hernandez.webp"
+
+- id: jesus-arana-hernandez
+  nombre: Jesus Arana Hernandez
+  funcion: "Auxiliar Técnico"
+  equipo_id: carboneros
+  foto: "/img/cuerpo-tecnico/jesus-arana-hernandez.webp"
+
+- id: brenda-barrera-hernandez
+  nombre: Brenda Barrera Hernández
+  funcion: "Médico"
+  equipo_id: carboneros
+  foto: "/img/cuerpo-tecnico/brenda-barrera-hernandez.webp"
+
+- id: arturo-leal-flores
+  nombre: Arturo Leal Flores
+  funcion: "Director Técnico"
+  equipo_id: carboneros
+  foto: "/img/cuerpo-tecnico/arturo-leal-flores.webp"
+
+- id: juan-jose-ceron-miguel
+  nombre: Juan Jose Ceron Miguel
+  funcion: "Auxiliar Técnico"
+  equipo_id: carboneros
+  foto: "/img/cuerpo-tecnico/juan-jose-ceron-miguel.webp"
+
+- id: julio-cesar-miranda-barrera
+  nombre: Julio Cesar Miranda Barrera
+  funcion: "Preparador Físico"
+  equipo_id: carboneros
+  foto: "/img/cuerpo-tecnico/julio-cesar-miranda-barrera.webp"
+
+- id: armando-castillo-vilchis
+  nombre: Armando Castillo Vilchis
+  funcion: "Director Técnico"
+  equipo_id: betis-carto
+  foto: "/img/cuerpo-tecnico/armando-castillo-vilchis.webp"
+
+- id: gabriel-alejandro-navarro-garcia
+  nombre: Gabriel Alejandro Navarro Garcia
+  funcion: "Delegado"
+  equipo_id: betis-carto
+  foto: "/img/cuerpo-tecnico/gabriel-alejandro-navarro-garcia.webp"
+
+- id: jose-gustavo-caudillo-leon
+  nombre: Jose Gustavo Caudillo Leon
+  funcion: "Auxiliar Técnico"
+  equipo_id: betis-carto
+  foto: "/img/cuerpo-tecnico/jose-gustavo-caudillo-leon.webp"
+
+- id: erick-gomez-guido
+  nombre: Erick Gomez Guido
+  funcion: "Delegado"
+  equipo_id: bosque-del-mamado
+  foto: "/img/cuerpo-tecnico/erick-gomez-guido.webp"
+
+- id: jose-luis-perez-fuentes
+  nombre: Jose Luis Perez Fuentes
+  funcion: "Delegado"
+  equipo_id: bosque-del-mamado
+  foto: "/img/cuerpo-tecnico/jose-luis-perez-fuentes.webp"
+
+- id: luis-antonio-garcia-gutierrez
+  nombre: Luis Antonio Garcia Gutierrez
+  funcion: "Delegado"
+  equipo_id: bosque-del-mamado
+  foto: "/img/cuerpo-tecnico/luis-antonio-garcia-gutierrez.webp"
+
+- id: jordan-alain-pina-hernandez
+  nombre: Jordan Alain Piña Hernandez
+  funcion: "Delegado"
+  equipo_id: bosque-del-mamado
+  foto: "/img/cuerpo-tecnico/jordan-alain-pina-hernandez.webp"
+
+- id: jose-alberto-cordova-reyes
+  nombre: José Alberto Cordova Reyes
+  funcion: "Director Técnico"
+  equipo_id: juventus-naucalpan
+  foto: "/img/cuerpo-tecnico/jose-alberto-cordova-reyes.webp"
+
+- id: vicente-yair-vargas-medrano
+  nombre: Vicente Yair Vargas Medrano
+  funcion: "Médico"
+  equipo_id: juventus-naucalpan
+  foto: "/img/cuerpo-tecnico/vicente-yair-vargas-medrano.webp"
+
+- id: carlos-gibran-gutierrez-rodriguez
+  nombre: Carlos Gibran Gutierrez Rodriguez
+  funcion: "Delegado"
+  equipo_id: juventus-naucalpan
+  foto: "/img/cuerpo-tecnico/carlos-gibran-gutierrez-rodriguez.webp"
+
+- id: victor-emmanuel-ortiz-lopez
+  nombre: Victor Emmanuel Ortiz López
+  funcion: "Delegado"
+  equipo_id: juventus-naucalpan
+  foto: "/img/cuerpo-tecnico/victor-emmanuel-ortiz-lopez.webp"
+
+- id: ernesto-islas-lopez
+  nombre: Ernesto Islas Lopez
+  funcion: "Director Técnico"
+  equipo_id: juventus-naucalpan
+  foto: "/img/cuerpo-tecnico/ernesto-islas-lopez.webp"
+
+- id: roberto-rueda-roa
+  nombre: Roberto Rueda Roa
+  funcion: "Preparador Físico"
+  equipo_id: union-america
+  foto: "/img/cuerpo-tecnico/roberto-rueda-roa.webp"
+
+- id: sergio-alejandro-trejo-calixto
+  nombre: Sergio Alejandro Trejo Calixto
+  funcion: "Director Técnico"
+  equipo_id: union-america
+  foto: "/img/cuerpo-tecnico/sergio-alejandro-trejo-calixto.webp"
+
+- id: luis-alberto-garcia-patino
+  nombre: Luis Alberto Garcia Patiño
+  funcion: "Auxiliar Técnico"
+  equipo_id: union-america
+  foto: "/img/cuerpo-tecnico/luis-alberto-garcia-patino.webp"
+
+- id: jose-manuel-gonzalez-bautista
+  nombre: Jose Manuel Gonzalez Bautista
+  funcion: "Médico"
+  equipo_id: flamengo
+  foto: "/img/cuerpo-tecnico/jose-manuel-gonzalez-bautista.webp"
+
+- id: jorge-gehovanni-contreras-cruz
+  nombre: Jorge Gehovanni Contreras Cruz
+  funcion: "Delegado"
+  equipo_id: flamengo
+  foto: "/img/cuerpo-tecnico/jorge-gehovanni-contreras-cruz.webp"
+
+- id: oscar-leonardo-almazan-rosas
+  nombre: Oscar Leonardo Almazan Rosas
+  funcion: "Delegado"
+  equipo_id: flamengo
+  foto: "/img/cuerpo-tecnico/oscar-leonardo-almazan-rosas.webp"
+
+- id: jorge-raul-rodriguez-figueroa
+  nombre: Jorge Raul Rodriguez Figueroa
+  funcion: "Director Técnico"
+  equipo_id: flamengo
+  foto: "/img/cuerpo-tecnico/jorge-raul-rodriguez-figueroa.webp"
+
+- id: jorge-contreras-cruz
+  nombre: Jorge Contreras Cruz
+  funcion: "Auxiliar Técnico"
+  equipo_id: flamengo
+  foto: "/img/cuerpo-tecnico/jorge-contreras-cruz.webp"
+
+- id: jose-manuel-aceves-rosas
+  nombre: Jose Manuel Aceves Rosas
+  funcion: "Delegado"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/cuerpo-tecnico/jose-manuel-aceves-rosas.webp"
+
+- id: ramirez-moreno-ulises-uriel
+  nombre: Ramirez Moreno Ulises Uriel
+  funcion: "Director Técnico"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/cuerpo-tecnico/ramirez-moreno-ulises-uriel.webp"
+
+- id: barrientos-avila-dario-isai
+  nombre: Barrientos Avila Dario Isai
+  funcion: "Auxiliar Técnico"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/cuerpo-tecnico/barrientos-avila-dario-isai.webp"
+
+- id: edwin-arazo-juarez
+  nombre: Edwin Arazo Júarez
+  funcion: "Delegado"
+  equipo_id: lobos-tlihuaca
+  foto: "/img/cuerpo-tecnico/edwin-arazo-juarez.webp"
+
+- id: luis-alberto-olmos-vargas
+  nombre: Luis Alberto Olmos Vargas
+  funcion: "Director Técnico"
+  equipo_id: cahuacan-cv
+  foto: "/img/cuerpo-tecnico/luis-alberto-olmos-vargas.webp"
+
+- id: luis-roa-vega
+  nombre: Luis Roa Vega
+  funcion: "Delegado"
+  equipo_id: cahuacan-cv
+  foto: "/img/cuerpo-tecnico/luis-roa-vega.webp"
+
+- id: uriel-rocha-vega
+  nombre: Uriel Rocha Vega
+  funcion: "Médico"
+  equipo_id: cahuacan-cv
+  foto: "/img/cuerpo-tecnico/uriel-rocha-vega.webp"
+
+- id: juan-carlos-chavez-santos
+  nombre: Juan Carlos Chavez Santos
+  funcion: "Auxiliar Técnico"
+  equipo_id: cahuacan-cv
+  foto: "/img/cuerpo-tecnico/juan-carlos-chavez-santos.webp"
+
+- id: jesus-alejandro-garcia-alvarez
+  nombre: Jesús Alejandro García Alvarez
+  funcion: "Utilero"
+  equipo_id: acepi
+  foto: "/img/cuerpo-tecnico/jesus-alejandro-garcia-alvarez.webp"
+
+- id: juan-carlos-benitez-martinez
+  nombre: Juan Carlos Benítez Martínez
+  funcion: "Preparador Físico"
+  equipo_id: acepi
+  foto: "/img/cuerpo-tecnico/juan-carlos-benitez-martinez.webp"
+
+- id: juan-martinez-alvarez
+  nombre: Juan Martínez Álvarez
+  funcion: "Director Técnico"
+  equipo_id: acepi
+  foto: "/img/cuerpo-tecnico/juan-martinez-alvarez.webp"
+
+- id: chavez-huerta-edgar-gabino
+  nombre: Chavez Huerta Edgar Gabino
+  funcion: "Auxiliar Técnico"
+  equipo_id: acepi
+  foto: "/img/cuerpo-tecnico/chavez-huerta-edgar-gabino.webp"
+
+- id: nallely-anaya-de-la-luz
+  nombre: Nallely Anaya de la Luz
+  funcion: "Médico"
+  equipo_id: acepi
+  foto: "/img/cuerpo-tecnico/nallely-anaya-de-la-luz.webp"
+
+- id: eloir-alvarez-madin
+  nombre: Eloir Alvarez Madin
+  funcion: "Auxiliar Técnico"
+  equipo_id: deportivo-cedros
+  foto: "/img/cuerpo-tecnico/eloir-alvarez-madin.webp"
+
+- id: abel-alvarez-madin
+  nombre: Abel Alvarez Madin
+  funcion: "Auxiliar Técnico"
+  equipo_id: deportivo-cedros
+  foto: "/img/cuerpo-tecnico/abel-alvarez-madin.webp"
+
+- id: rene-vega-monrroy
+  nombre: Rene Vega Monrroy
+  funcion: "Delegado"
+  equipo_id: deportivo-cedros
+  foto: "/img/cuerpo-tecnico/rene-vega-monrroy.webp"
+
+- id: emmanuel-alvarez-madin
+  nombre: Emmanuel Alvarez Madin
+  funcion: "Director Técnico"
+  equipo_id: deportivo-cedros
+  foto: "/img/cuerpo-tecnico/emmanuel-alvarez-madin.webp"
+
+- id: oscar-arturo-chavez-francisco
+  nombre: Oscar Arturo Chávez Francisco
+  funcion: "Auxiliar Técnico"
+  equipo_id: tigres-y
+  foto: "/img/cuerpo-tecnico/oscar-arturo-chavez-francisco.webp"
+
+- id: nallely-anaya-de-la-luz-2
+  nombre: Nallely Anaya de la Luz
+  funcion: "Médico"
+  equipo_id: tigres-y
+  foto: "/img/cuerpo-tecnico/nallely-anaya-de-la-luz-2.webp"
+
+- id: efren-chavez-alvarez
+  nombre: Efrén Chávez Álvarez
+  funcion: "Director Técnico"
+  equipo_id: tigres-y
+  foto: "/img/cuerpo-tecnico/efren-chavez-alvarez.webp"
+
+- id: oswaldo-de-jesus-blancas-soto
+  nombre: Oswaldo de Jesus Blancas Soto
+  funcion: "Médico"
+  equipo_id: tigres-y
+  foto: "/img/cuerpo-tecnico/oswaldo-de-jesus-blancas-soto.webp"
+
+- id: martin-sanchez-romero
+  nombre: Martin Sanchez Romero
+  funcion: "Preparador Físico"
+  equipo_id: tigres-y
+  foto: "/img/cuerpo-tecnico/martin-sanchez-romero.webp"
+
+- id: jorge-cerriteno-rivera
+  nombre: Jorge Cerriteño Rivera
+  funcion: "Director Técnico"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/cuerpo-tecnico/jorge-cerriteno-rivera.webp"
+
+- id: cristofer-gines-salazar
+  nombre: Cristofer Gines Salazar
+  funcion: "Auxiliar Técnico"
+  equipo_id: real-madrid-san-juan-tlihuaca
+  foto: "/img/cuerpo-tecnico/cristofer-gines-salazar.webp"
+
+- id: gerardo-libreros-vega
+  nombre: Gerardo Libreros Vega
+  funcion: "Director Técnico"
+  equipo_id: atoleros
+  foto: "/img/cuerpo-tecnico/gerardo-libreros-vega.webp"
+
+- id: pedro-castillo-martinez
+  nombre: Pedro Castillo Martinez
+  funcion: "Preparador Físico"
+  equipo_id: atoleros
+  foto: "/img/cuerpo-tecnico/pedro-castillo-martinez.webp"
+
+- id: raul-gonzalez-araujo
+  nombre: Raul González Araujo
+  funcion: "Utilero"
+  equipo_id: atoleros
+  foto: "/img/cuerpo-tecnico/raul-gonzalez-araujo.webp"
+
+- id: guillermo-jonathan-rodriguez-gutierrez
+  nombre: Guillermo Jonathan Rodríguez Gutiérrez
+  funcion: "Auxiliar Técnico"
+  equipo_id: atoleros
+  foto: "/img/cuerpo-tecnico/guillermo-jonathan-rodriguez-gutierrez.webp"
+
+- id: arturo-rivas-gomez
+  nombre: Arturo Rivas Gomez
+  funcion: "Delegado"
+  equipo_id: atoleros
+  foto: "/img/cuerpo-tecnico/arturo-rivas-gomez.webp"

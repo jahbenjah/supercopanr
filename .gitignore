@@ -3,3 +3,6 @@ dist/
 .astro/
 .env
 .DS_Store
+
+# Datos personales (CURP, fecha de nacimiento): nunca al repo
+privado/
