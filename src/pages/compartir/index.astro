@@ -1,0 +1,61 @@
+---
+import Base from '../../layouts/Base.astro';
+import Encabezado from '../../components/Encabezado.astro';
+import { datos } from '../../lib/datos';
+import { imagenesCompartir, TAMANO } from '../../lib/imagenes';
+
+const d = await datos();
+const imagenes = (await imagenesCompartir()).filter((i) => i.formato === 'post');
+const secciones = [...Map.groupBy(imagenes, (i) => i.seccion)];
+const ancla = (s: string) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z]+/g, '-');
+const { ancho, alto } = TAMANO.post;
+---
+<Base title="Imágenes para compartir" description={`Imágenes de grupos, posiciones, jornadas y estadísticas de la ${d.torneo.nombre}, listas para Facebook e Instagram.`}>
+  <Encabezado titulo="Para compartir" subtitulo={`Imágenes de ${ancho}×${alto} (formato vertical 4:5 de Facebook e Instagram) con texto sugerido. Se actualizan solas cada vez que se publica el sitio.`}>
+    <nav class="mt-4 flex flex-wrap gap-2" aria-label="Secciones">
+      {secciones.map(([s]) => <a href={`#${ancla(s)}`} class="chip bg-white/15 text-white no-underline hover:bg-white/25">{s}</a>)}
+    </nav>
+  </Encabezado>
+
+  <div class="contenedor space-y-12 py-8">
+    {secciones.map(([seccion, lista]) => (
+      <section id={ancla(seccion)} class="scroll-mt-24">
+        <h2 class="titulo-seccion">{seccion}</h2>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {lista.map((i) => (
+            <article class="tarjeta flex flex-col overflow-hidden">
+              <a href={`/compartir/${i.id}.png`} target="_blank" rel="noopener" class="block bg-stone-900">
+                <img src={`/compartir/${i.id}.png`} alt={i.titulo} width={ancho} height={alto} loading="lazy" class="aspect-[4/5] w-full object-cover" />
+              </a>
+              <div class="flex flex-1 flex-col gap-3 p-4">
+                <h3 class="text-lg text-cancha-oscuro">{i.titulo}</h3>
+                <textarea readonly rows="5" class="w-full flex-1 resize-y rounded-lg border border-stone-200 bg-stone-50 p-2 text-sm text-stone-700" aria-label={`Texto sugerido: ${i.titulo}`}>{i.texto}</textarea>
+                <div class="flex flex-wrap gap-2">
+                  <a href={`/compartir/${i.id}.png`} download={`supercopa-${i.id}.png`} class="boton-primario text-sm">Descargar imagen</a>
+                  <button type="button" class="boton border border-stone-300 text-sm hover:bg-stone-100" data-copiar>Copiar texto</button>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</Base>
+
+<script>
+  for (const b of document.querySelectorAll<HTMLButtonElement>('[data-copiar]')) {
+    b.addEventListener('click', async () => {
+      const t = b.closest('article')!.querySelector('textarea')!;
+      try {
+        await navigator.clipboard.writeText(t.value);
+      } catch {
+        t.select();
+        document.execCommand('copy');
+      }
+      const antes = b.textContent;
+      b.textContent = '¡Copiado!';
+      setTimeout(() => (b.textContent = antes), 1500);
+    });
+  }
+</script>

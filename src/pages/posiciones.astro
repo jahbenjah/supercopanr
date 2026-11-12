@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Encabezado from '../components/Encabezado.astro';
+import EnlaceCompartir from '../components/EnlaceCompartir.astro';
 import StandingsTable from '../components/StandingsTable.astro';
 import SponsorSlot from '../components/SponsorSlot.astro';
 import { datos, fechaLarga } from '../lib/datos';
@@ -11,8 +12,10 @@ const sorteo = torneo.fechas.find((f) => f.id === 'sorteo');
 const sorteados = new Set(d.posiciones.map((t) => t.grupo));
 const pendientes = torneo.categorias.flatMap((c) => c.grupos).filter((g) => !sorteados.has(g));
 ---
-<Base title="Tabla de posiciones" description={`Tabla de posiciones por grupo de la ${torneo.nombre} ${torneo.temporada}.`}>
-  <Encabezado titulo="Posiciones" subtitulo={torneo.formato} />
+<Base title="Tabla de posiciones" description={`Tabla de posiciones por grupo de la ${torneo.nombre} ${torneo.temporada}.`} image="/compartir/og-posiciones.png">
+  <Encabezado titulo="Posiciones" subtitulo={torneo.formato}>
+    <EnlaceCompartir seccion="posiciones" />
+  </Encabezado>
   <div class="contenedor py-8">
     <SponsorSlot ubicacion="tabla" />
     {d.posiciones.length === 0 && sorteo && (

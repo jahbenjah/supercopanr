@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Encabezado from '../components/Encabezado.astro';
+import EnlaceCompartir from '../components/EnlaceCompartir.astro';
 import TeamBadge from '../components/TeamBadge.astro';
 import { datos } from '../lib/datos';
 
@@ -10,8 +11,10 @@ const porGrupo = Map.groupBy(d.equipos, (e) => e.grupo ?? '');
 const ordenar = <T extends { posicion?: number }>(es: T[]) => [...es].sort((a, b) => (a.posicion ?? 99) - (b.posicion ?? 99));
 const sinGrupo = porGrupo.get('') ?? [];
 ---
-<Base title="Grupos" description={`Los escudos de los ${d.equipos.length} equipos de la ${d.torneo.nombre} ${d.torneo.temporada}, por grupo.`}>
-  <Encabezado titulo="Grupos" subtitulo={`Los escudos de los ${d.equipos.length} equipos, por grupo.`} />
+<Base title="Grupos" description={`Los escudos de los ${d.equipos.length} equipos de la ${d.torneo.nombre} ${d.torneo.temporada}, por grupo.`} image="/compartir/og-grupos.png">
+  <Encabezado titulo="Grupos" subtitulo={`Los escudos de los ${d.equipos.length} equipos, por grupo.`}>
+    <EnlaceCompartir seccion="grupos" />
+  </Encabezado>
   <div class="contenedor py-8">
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {grupos.map((g) => (

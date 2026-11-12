@@ -7,6 +7,8 @@ import {
   calcularPosiciones,
   disciplina,
   erroresDePartido,
+  estadisticasCompetencia,
+  estadisticasPlantillas,
   goleadores,
   ordenarPartidos,
   proximaFecha,
@@ -111,6 +113,7 @@ async function cargar() {
     for (const err of erroresDePartido(p, equipoDeJugador)) errores.push(`${donde}: ${err}`);
   }
   if (errores.length) throw new Error(`Datos inválidos en src/data:\n  - ${errores.join('\n  - ')}`);
+  const posiciones = calcularPosiciones(equipos, partidos, torneo.puntos);
 
   return {
     torneo,
@@ -124,7 +127,9 @@ async function cargar() {
     paquetes: [...paquetes].sort((a, b) => (b.precio ?? 0) - (a.precio ?? 0)),
     // Índices por id: d.por.equipos.get(id), etc.
     por: m,
-    posiciones: calcularPosiciones(equipos, partidos, torneo.puntos),
+    posiciones,
+    plantillas: estadisticasPlantillas(jugadores),
+    competencia: estadisticasCompetencia(partidos, posiciones),
     goleadores: goleadores(partidos, jugadores),
     disciplina: disciplina(partidos, jugadores, torneo),
     proximaFecha: proximaFecha(partidos),

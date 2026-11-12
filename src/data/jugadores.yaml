@@ -2,6 +2,7 @@
   nombre: Cabañas Carlos Figueroa
   numero: 80
   posicion: "Medio"
+  edad: 31
   equipo_id: juve-sitecom
   foto: "/img/jugadores/cabanas-carlos-figueroa.webp"
 
@@ -9,6 +10,7 @@
   nombre: Vazquez Ramirez Cristian Israel
   numero: 49
   posicion: "Medio"
+  edad: 21
   equipo_id: juve-sitecom
   foto: "/img/jugadores/vazquez-ramirez-cristian-israel.webp"
 
@@ -16,6 +18,7 @@
   nombre: Moreno Daniel Velazquez
   numero: 82
   posicion: "Medio"
+  edad: 24
   equipo_id: juve-sitecom
   foto: "/img/jugadores/moreno-daniel-velazquez.webp"
 
@@ -23,6 +26,7 @@
   nombre: Davalos Yañes Diego Rene
   numero: 84
   posicion: "Defensa"
+  edad: 30
   equipo_id: juve-sitecom
   foto: "/img/jugadores/davalos-yanes-diego-rene.webp"
 
@@ -30,6 +34,7 @@
   nombre: Silva Fernando Herrera
   numero: 18
   posicion: "Defensa"
+  edad: 35
   equipo_id: juve-sitecom
   foto: "/img/jugadores/silva-fernando-herrera.webp"
 
@@ -37,6 +42,7 @@
   nombre: Salazar Flores Francisco Javier
   numero: 30
   posicion: "Defensa"
+  edad: 29
   equipo_id: juve-sitecom
   foto: "/img/jugadores/salazar-flores-francisco-javier.webp"
 
@@ -44,6 +50,7 @@
   nombre: Toledo Vargas Germyn Arcel
   numero: 8
   posicion: "Medio"
+  edad: 26
   equipo_id: juve-sitecom
   foto: "/img/jugadores/toledo-vargas-germyn-arcel.webp"
 
@@ -51,6 +58,7 @@
   nombre: Gamboa Israel Guevara
   numero: 77
   posicion: "Defensa"
+  edad: 42
   equipo_id: juve-sitecom
   foto: "/img/jugadores/gamboa-israel-guevara.webp"
 
@@ -58,6 +66,7 @@
   nombre: Barrera Ivan Castañuelas
   numero: 2
   posicion: "Defensa"
+  edad: 34
   equipo_id: juve-sitecom
   foto: "/img/jugadores/barrera-ivan-castanuelas.webp"
 
@@ -65,6 +74,7 @@
   nombre: Figueroa Cabañas Jesus Brandon
   numero: 81
   posicion: "Defensa"
+  edad: 29
   equipo_id: juve-sitecom
   foto: "/img/jugadores/figueroa-cabanas-jesus-brandon.webp"
 
@@ -72,6 +82,7 @@
   nombre: Frausto Araujo Jonathan Ali
   numero: 0
   posicion: "Medio"
+  edad: 20
   equipo_id: juve-sitecom
   foto: "/img/jugadores/frausto-araujo-jonathan-ali.webp"
 
@@ -79,6 +90,7 @@
   nombre: Jimenez Espinoza Jonathan Zarit
   numero: 1
   posicion: "Portero"
+  edad: 34
   equipo_id: juve-sitecom
   foto: "/img/jugadores/jimenez-espinoza-jonathan-zarit.webp"
 
@@ -86,6 +98,7 @@
   nombre: Vargas Jordy Toledo
   numero: 11
   posicion: "Medio"
+  edad: 25
   equipo_id: juve-sitecom
   foto: "/img/jugadores/vargas-jordy-toledo.webp"
 
@@ -93,6 +106,7 @@
   nombre: Perez Vazquez Jose de Jesús
   numero: 14
   posicion: "Defensa"
+  edad: 31
   equipo_id: juve-sitecom
   foto: "/img/jugadores/perez-vazquez-jose-de-jesus.webp"
 
@@ -100,6 +114,7 @@
   nombre: Barrera Paniagua Jose Luis
   numero: 50
   posicion: "Medio"
+  edad: 28
   equipo_id: juve-sitecom
   foto: "/img/jugadores/barrera-paniagua-jose-luis.webp"
 
@@ -107,6 +122,7 @@
   nombre: Lora Chavez Juan Luis
   numero: 22
   posicion: "Defensa"
+  edad: 34
   equipo_id: juve-sitecom
   foto: "/img/jugadores/lora-chavez-juan-luis.webp"
 
@@ -114,6 +130,7 @@
   nombre: Santos Rios Julio Cesar
   numero: 25
   posicion: "Defensa"
+  edad: 38
   equipo_id: juve-sitecom
   foto: "/img/jugadores/santos-rios-julio-cesar.webp"
 
@@ -121,6 +138,7 @@
   nombre: Herrlein Leonardo Gabriel
   numero: 83
   posicion: "Delantero"
+  edad: 27
   equipo_id: juve-sitecom
   foto: "/img/jugadores/herrlein-leonardo-gabriel.webp"
 
@@ -128,6 +146,7 @@
   nombre: Barrera Barragan Luis Alejandro
   numero: 4
   posicion: "Defensa"
+  edad: 30
   equipo_id: juve-sitecom
   foto: "/img/jugadores/barrera-barragan-luis-alejandro.webp"
 
@@ -135,6 +154,7 @@
   nombre: Alanis Cruz Mario Enrique
   numero: 15
   posicion: "Medio"
+  edad: 31
   equipo_id: juve-sitecom
   foto: "/img/jugadores/alanis-cruz-mario-enrique.webp"
 
@@ -142,6 +162,7 @@
   nombre: Rebollo Rodriguez Miguel Alejandro
   numero: 93
   posicion: "Delantero"
+  edad: 33
   equipo_id: juve-sitecom
   foto: "/img/jugadores/rebollo-rodriguez-miguel-alejandro.webp"
 
@@ -149,6 +170,7 @@
   nombre: Chaparro Maldonado Oscar Isaias
   numero: 12
   posicion: "Medio"
+  edad: 44
   equipo_id: juve-sitecom
   foto: "/img/jugadores/chaparro-maldonado-oscar-isaias.webp"
 
@@ -156,6 +178,7 @@
   nombre: Calixte Richkard
   numero: 10
   posicion: "Delantero"
+  edad: 30
   equipo_id: juve-sitecom
   foto: "/img/jugadores/calixte-richkard.webp"
 
@@ -163,6 +186,7 @@
   nombre: Barrerra Barragan Roben Abraham
   numero: 3
   posicion: "Defensa"
+  edad: 30
   equipo_id: juve-sitecom
   foto: "/img/jugadores/barrerra-barragan-roben-abraham.webp"
 
@@ -170,6 +194,7 @@
   nombre: Velasco Calixto Ulises David
   numero: 21
   posicion: "Medio"
+  edad: 28
   equipo_id: juve-sitecom
   foto: "/img/jugadores/velasco-calixto-ulises-david.webp"
 
@@ -177,6 +202,7 @@
   nombre: Brayan Alexix Alvarado Sanchez
   numero: 16
   posicion: "Delantero"
+  edad: 21
   equipo_id: tlazala
   foto: "/img/jugadores/brayan-alexix-alvarado-sanchez.webp"
 
@@ -184,6 +210,7 @@
   nombre: Mauricio Fermin Avila Estrada
   numero: 23
   posicion: "Defensa"
+  edad: 22
   equipo_id: tlazala
   foto: "/img/jugadores/mauricio-fermin-avila-estrada.webp"
 
@@ -191,6 +218,7 @@
   nombre: Arturo Bautista Gonzalez
   numero: 11
   posicion: "Delantero"
+  edad: 31
   equipo_id: tlazala
   foto: "/img/jugadores/arturo-bautista-gonzalez.webp"
 
@@ -198,6 +226,7 @@
   nombre: Marco Antonio Bautista Gonzalez
   numero: 15
   posicion: "Delantero"
+  edad: 29
   equipo_id: tlazala
   foto: "/img/jugadores/marco-antonio-bautista-gonzalez.webp"
 
@@ -205,6 +234,7 @@
   nombre: Roberto Carlos Becerril Sanchez
   numero: 14
   posicion: "Medio"
+  edad: 27
   equipo_id: tlazala
   foto: "/img/jugadores/roberto-carlos-becerril-sanchez.webp"
 
@@ -212,6 +242,7 @@
   nombre: Brayan Blas Mejia
   numero: 6
   posicion: "Defensa"
+  edad: 19
   equipo_id: tlazala
   foto: "/img/jugadores/brayan-blas-mejia.webp"
 
@@ -219,6 +250,7 @@
   nombre: Miguel de la Luz Rosas
   numero: 0
   posicion: "Portero"
+  edad: 39
   equipo_id: tlazala
   foto: "/img/jugadores/miguel-de-la-luz-rosas.webp"
 
@@ -226,6 +258,7 @@
   nombre: Jose Enrique de la Luz Santos
   numero: 3
   posicion: "Defensa"
+  edad: 21
   equipo_id: tlazala
   foto: "/img/jugadores/jose-enrique-de-la-luz-santos.webp"
 
@@ -233,6 +266,7 @@
   nombre: Edgar Antonio Escorcia Alcantara
   numero: 19
   posicion: "Delantero"
+  edad: 33
   equipo_id: tlazala
   foto: "/img/jugadores/edgar-antonio-escorcia-alcantara.webp"
 
@@ -240,6 +274,7 @@
   nombre: Perez Najera Irving Jair Perez Najera Irving Jair
   numero: 2
   posicion: "Portero"
+  edad: 22
   equipo_id: tlazala
   foto: "/img/jugadores/perez-najera-irving-jair-perez-najera-irving-jair.webp"
 
@@ -247,6 +282,7 @@
   nombre: Jose Luis Jimenez Colin
   numero: 5
   posicion: "Defensa"
+  edad: 25
   equipo_id: tlazala
   foto: "/img/jugadores/jose-luis-jimenez-colin.webp"
 
@@ -254,6 +290,7 @@
   nombre: Barrera Josue Rivas Barrera Josue Rivas
   numero: 18
   posicion: "Defensa"
+  edad: 29
   equipo_id: tlazala
   foto: "/img/jugadores/barrera-josue-rivas-barrera-josue-rivas.webp"
 
@@ -261,6 +298,7 @@
   nombre: Diego Osnaya Franco
   numero: 1
   posicion: "Portero"
+  edad: 32
   equipo_id: tlazala
   foto: "/img/jugadores/diego-osnaya-franco.webp"
 
@@ -268,6 +306,7 @@
   nombre: Jecssan Joel Osnaya Rosas
   numero: 7
   posicion: "Medio"
+  edad: 27
   equipo_id: tlazala
   foto: "/img/jugadores/jecssan-joel-osnaya-rosas.webp"
 
@@ -275,6 +314,7 @@
   nombre: Josue Ivan Osnaya Rosas
   numero: 22
   posicion: "Delantero"
+  edad: 22
   equipo_id: tlazala
   foto: "/img/jugadores/josue-ivan-osnaya-rosas.webp"
 
@@ -282,6 +322,7 @@
   nombre: Erik Manuel Perez Najera
   numero: 21
   posicion: "Medio"
+  edad: 26
   equipo_id: tlazala
   foto: "/img/jugadores/erik-manuel-perez-najera.webp"
 
@@ -289,6 +330,7 @@
   nombre: Irvin Leonel Pintor Mondragón
   numero: 24
   posicion: "Medio"
+  edad: 18
   equipo_id: tlazala
   foto: "/img/jugadores/irvin-leonel-pintor-mondragon.webp"
 
@@ -296,6 +338,7 @@
   nombre: Angel Ramirez Sanchez
   numero: 9
   posicion: "Delantero"
+  edad: 23
   equipo_id: tlazala
   foto: "/img/jugadores/angel-ramirez-sanchez.webp"
 
@@ -303,6 +346,7 @@
   nombre: Abraham Rosas Rosas
   numero: 8
   posicion: "Medio"
+  edad: 23
   equipo_id: tlazala
   foto: "/img/jugadores/abraham-rosas-rosas.webp"
 
@@ -310,6 +354,7 @@
   nombre: Jesus Ruiz Garcia
   numero: 12
   posicion: "Medio"
+  edad: 35
   equipo_id: tlazala
   foto: "/img/jugadores/jesus-ruiz-garcia.webp"
 
@@ -317,6 +362,7 @@
   nombre: Josue Saucedo Solis
   numero: 13
   posicion: "Medio"
+  edad: 25
   equipo_id: tlazala
   foto: "/img/jugadores/josue-saucedo-solis.webp"
 
@@ -324,6 +370,7 @@
   nombre: Miguel Angel Vargas Davila
   numero: 17
   posicion: "Defensa"
+  edad: 31
   equipo_id: tlazala
   foto: "/img/jugadores/miguel-angel-vargas-davila.webp"
 
@@ -331,6 +378,7 @@
   nombre: Adolfo Angel Vargas Martinez
   numero: 4
   posicion: "Defensa"
+  edad: 23
   equipo_id: tlazala
   foto: "/img/jugadores/adolfo-angel-vargas-martinez.webp"
 
@@ -338,6 +386,7 @@
   nombre: Francisco Villafranco Guadarra
   numero: 20
   posicion: "Medio"
+  edad: 27
   equipo_id: tlazala
   foto: "/img/jugadores/francisco-villafranco-guadarra.webp"
 
@@ -345,6 +394,7 @@
   nombre: Pino Rios Angel Gael
   numero: 24
   posicion: "Medio"
+  edad: 18
   equipo_id: aguila-pi
   foto: "/img/jugadores/pino-rios-angel-gael.webp"
 
@@ -352,6 +402,7 @@
   nombre: Angelo Jovan Blancas Ramirez
   numero: 23
   posicion: "Delantero"
+  edad: 34
   equipo_id: aguila-pi
   foto: "/img/jugadores/angelo-jovan-blancas-ramirez.webp"
 
@@ -359,6 +410,7 @@
   nombre: Raul Carranza Contreras
   numero: 4
   posicion: "Defensa"
+  edad: 37
   equipo_id: aguila-pi
   foto: "/img/jugadores/raul-carranza-contreras.webp"
 
@@ -366,6 +418,7 @@
   nombre: Hernandez Emiliano Flandez
   numero: 14
   posicion: "Delantero"
+  edad: 18
   equipo_id: aguila-pi
   foto: "/img/jugadores/hernandez-emiliano-flandez.webp"
 
@@ -373,6 +426,7 @@
   nombre: Castillo Palomares Erick Yael
   numero: 5
   posicion: "Defensa"
+  edad: 18
   equipo_id: aguila-pi
   foto: "/img/jugadores/castillo-palomares-erick-yael.webp"
 
@@ -380,6 +434,7 @@
   nombre: Edwin Raul Estrada Gonzalez
   numero: 8
   posicion: "Delantero"
+  edad: 33
   equipo_id: aguila-pi
   foto: "/img/jugadores/edwin-raul-estrada-gonzalez.webp"
 
@@ -387,6 +442,7 @@
   nombre: Diego Felix Cruz
   numero: 3
   posicion: "Defensa"
+  edad: 21
   equipo_id: aguila-pi
   foto: "/img/jugadores/diego-felix-cruz.webp"
 
@@ -394,6 +450,7 @@
   nombre: Juan Carlos Granados Aburto
   numero: 11
   posicion: "Medio"
+  edad: 22
   equipo_id: aguila-pi
   foto: "/img/jugadores/juan-carlos-granados-aburto.webp"
 
@@ -401,6 +458,7 @@
   nombre: Juan Daniel Herrera Elizalde
   numero: 9
   posicion: "Medio"
+  edad: 28
   equipo_id: aguila-pi
   foto: "/img/jugadores/juan-daniel-herrera-elizalde.webp"
 
@@ -408,6 +466,7 @@
   nombre: Raul Isidoro Gonzalez
   numero: 1
   posicion: "Portero"
+  edad: 29
   equipo_id: aguila-pi
   foto: "/img/jugadores/raul-isidoro-gonzalez.webp"
 
@@ -415,6 +474,7 @@
   nombre: Sandoval Alvarez Jostin Omar
   numero: 21
   posicion: "Medio"
+  edad: 15
   equipo_id: aguila-pi
   foto: "/img/jugadores/sandoval-alvarez-jostin-omar.webp"
 
@@ -422,6 +482,7 @@
   nombre: Gonzalez Cordova Luis Angel
   numero: 6
   posicion: "Defensa"
+  edad: 27
   equipo_id: aguila-pi
   foto: "/img/jugadores/gonzalez-cordova-luis-angel.webp"
 
@@ -429,6 +490,7 @@
   nombre: Edson Ulises Martinez Cardelas
   numero: 22
   posicion: "Medio"
+  edad: 21
   equipo_id: aguila-pi
   foto: "/img/jugadores/edson-ulises-martinez-cardelas.webp"
 
@@ -436,6 +498,7 @@
   nombre: Cristhian Martinez Reyes
   numero: 15
   posicion: "Medio"
+  edad: 22
   equipo_id: aguila-pi
   foto: "/img/jugadores/cristhian-martinez-reyes.webp"
 
@@ -443,6 +506,7 @@
   nombre: Martinez Mauricio Merida
   numero: 10
   posicion: "Medio"
+  edad: 26
   equipo_id: aguila-pi
   foto: "/img/jugadores/martinez-mauricio-merida.webp"
 
@@ -450,6 +514,7 @@
   nombre: Raul Rodriguez Varela
   numero: 13
   posicion: "Medio"
+  edad: 31
   equipo_id: aguila-pi
   foto: "/img/jugadores/raul-rodriguez-varela.webp"
 
@@ -457,6 +522,7 @@
   nombre: Aaron Yahir Sanchez Cruz
   numero: 25
   posicion: "Defensa"
+  edad: 19
   equipo_id: aguila-pi
   foto: "/img/jugadores/aaron-yahir-sanchez-cruz.webp"
 
@@ -464,6 +530,7 @@
   nombre: Daniel Sanchez Cruz
   numero: 12
   posicion: "Delantero"
+  edad: 34
   equipo_id: aguila-pi
   foto: "/img/jugadores/daniel-sanchez-cruz.webp"
 
@@ -471,6 +538,7 @@
   nombre: Hugo Alberto Trejo Bueno
   numero: 16
   posicion: "Medio"
+  edad: 37
   equipo_id: aguila-pi
   foto: "/img/jugadores/hugo-alberto-trejo-bueno.webp"
 
@@ -478,6 +546,7 @@
   nombre: Arturo Vega Hernández
   numero: 7
   posicion: "Defensa"
+  edad: 30
   equipo_id: aguila-pi
   foto: "/img/jugadores/arturo-vega-hernandez.webp"
 
@@ -485,6 +554,7 @@
   nombre: Daniel Vega Santos
   numero: 18
   posicion: "Delantero"
+  edad: 35
   equipo_id: aguila-pi
   foto: "/img/jugadores/daniel-vega-santos.webp"
 
@@ -492,6 +562,7 @@
   nombre: Hugo Filip Velazquez Martinez
   numero: 17
   posicion: "Defensa"
+  edad: 20
   equipo_id: aguila-pi
   foto: "/img/jugadores/hugo-filip-velazquez-martinez.webp"
 
@@ -499,6 +570,7 @@
   nombre: Nicolas Velazquez Martinez
   numero: 20
   posicion: "Defensa"
+  edad: 17
   equipo_id: aguila-pi
   foto: "/img/jugadores/nicolas-velazquez-martinez.webp"
 
@@ -506,6 +578,7 @@
   nombre: Edwin Velez Ayala
   numero: 2
   posicion: "Portero"
+  edad: 21
   equipo_id: aguila-pi
   foto: "/img/jugadores/edwin-velez-ayala.webp"
 
@@ -513,6 +586,7 @@
   nombre: Canales Paz Victor Manuel
   numero: 19
   posicion: "Defensa"
+  edad: 29
   equipo_id: aguila-pi
   foto: "/img/jugadores/canales-paz-victor-manuel.webp"
 
@@ -520,6 +594,7 @@
   nombre: Luciano Acevedo
   numero: 28
   posicion: "Defensa"
+  edad: 25
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/luciano-acevedo.webp"
 
@@ -527,6 +602,7 @@
   nombre: Emilio Romario Arenas Rivero
   numero: 13
   posicion: "Defensa"
+  edad: 21
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/emilio-romario-arenas-rivero.webp"
 
@@ -534,6 +610,7 @@
   nombre: Diego Armando Barrón Neri
   numero: 16
   posicion: "Medio"
+  edad: 29
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/diego-armando-barron-neri.webp"
 
@@ -541,6 +618,7 @@
   nombre: Daniel Castillo Moctezuma
   numero: 5
   posicion: "Defensa"
+  edad: 26
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/daniel-castillo-moctezuma.webp"
 
@@ -548,6 +626,7 @@
   nombre: Carlos Alberto de Jesús Chanes Ortega
   numero: 23
   posicion: "Portero"
+  edad: 36
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/carlos-alberto-de-jesus-chanes-ortega.webp"
 
@@ -555,6 +634,7 @@
   nombre: José Antonio Gallardo González
   numero: 15
   posicion: "Defensa"
+  edad: 22
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/jose-antonio-gallardo-gonzalez.webp"
 
@@ -562,6 +642,7 @@
   nombre: Humberto Gil Mejía
   numero: 9
   posicion: "Delantero"
+  edad: 32
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/humberto-gil-mejia.webp"
 
@@ -569,6 +650,7 @@
   nombre: Israel Gil Mejia
   numero: 4
   posicion: "Defensa"
+  edad: 27
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/israel-gil-mejia.webp"
 
@@ -576,6 +658,7 @@
   nombre: Pedro Guevara Villalvazo
   numero: 26
   posicion: "Medio"
+  edad: 34
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/pedro-guevara-villalvazo.webp"
 
@@ -583,6 +666,7 @@
   nombre: Lautaro Lázzarone Martínez
   numero: 30
   posicion: "Defensa"
+  edad: 26
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/lautaro-lazzarone-martinez.webp"
 
@@ -590,6 +674,7 @@
   nombre: Antonio Martinez Lule
   numero: 10
   posicion: "Medio"
+  edad: 27
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/antonio-martinez-lule.webp"
 
@@ -597,6 +682,7 @@
   nombre: Felipe de Jesus Moreno España
   numero: 8
   posicion: "Medio"
+  edad: 40
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/felipe-de-jesus-moreno-espana.webp"
 
@@ -604,6 +690,7 @@
   nombre: Uriel Munguía Romero
   numero: 14
   posicion: "Delantero"
+  edad: 20
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/uriel-munguia-romero.webp"
 
@@ -611,6 +698,7 @@
   nombre: Fausto Jair Palacios Aleman
   numero: 31
   posicion: "Medio"
+  edad: 38
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/fausto-jair-palacios-aleman.webp"
 
@@ -618,6 +706,7 @@
   nombre: Gerardo Ramírez Ramírez
   numero: 7
   posicion: "Medio"
+  edad: 30
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/gerardo-ramirez-ramirez.webp"
 
@@ -625,6 +714,7 @@
   nombre: Kurt Reyes Colchado
   numero: 33
   posicion: "Delantero"
+  edad: 30
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/kurt-reyes-colchado.webp"
 
@@ -632,6 +722,7 @@
   nombre: Luis Ernesto Reyes Olascoaga
   numero: 11
   posicion: "Medio"
+  edad: 35
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/luis-ernesto-reyes-olascoaga.webp"
 
@@ -639,6 +730,7 @@
   nombre: Erick Robles Sandoval
   numero: 12
   posicion: "Delantero"
+  edad: 21
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/erick-robles-sandoval.webp"
 
@@ -646,6 +738,7 @@
   nombre: Hugo Iván Rodríguez Abundiz
   numero: 17
   posicion: "Medio"
+  edad: 39
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/hugo-ivan-rodriguez-abundiz.webp"
 
@@ -653,6 +746,7 @@
   nombre: Sergio Rojas Espinosa
   numero: 25
   posicion: "Medio"
+  edad: 38
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/sergio-rojas-espinosa.webp"
 
@@ -660,6 +754,7 @@
   nombre: Víctor Hugo Salazar Moreno
   numero: 2
   posicion: "Defensa"
+  edad: 29
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/victor-hugo-salazar-moreno.webp"
 
@@ -667,6 +762,7 @@
   nombre: Uriel Sánchez Hernández
   numero: 6
   posicion: "Defensa"
+  edad: 24
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/uriel-sanchez-hernandez.webp"
 
@@ -674,6 +770,7 @@
   nombre: Victor Sánchez Nicolas
   numero: 24
   posicion: "Delantero"
+  edad: 31
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/victor-sanchez-nicolas.webp"
 
@@ -681,6 +778,7 @@
   nombre: Edmundo Ivan Vazquez Mellado
   numero: 1
   posicion: "Portero"
+  edad: 43
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/edmundo-ivan-vazquez-mellado.webp"
 
@@ -688,6 +786,7 @@
   nombre: Irvin Gamaliel Zariñan Sesma
   numero: 3
   posicion: "Defensa"
+  edad: 28
   equipo_id: san-isidro-rgal
   foto: "/img/jugadores/irvin-gamaliel-zarinan-sesma.webp"
 
@@ -695,6 +794,7 @@
   nombre: Garcia Solis Bayron Vidal
   numero: 14
   posicion: "Medio"
+  edad: 19
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/garcia-solis-bayron-vidal.webp"
 
@@ -702,6 +802,7 @@
   nombre: Rosas Calvillo Brayan Zahid
   numero: 11
   posicion: "Delantero"
+  edad: 31
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/rosas-calvillo-brayan-zahid.webp"
 
@@ -709,6 +810,7 @@
   nombre: Gonzalez Bryan Rosas
   numero: 12
   posicion: "Medio"
+  edad: 24
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/gonzalez-bryan-rosas.webp"
 
@@ -716,6 +818,7 @@
   nombre: Galvan Acosta Bryant Gabriel
   numero: 24
   posicion: "Delantero"
+  edad: 36
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/galvan-acosta-bryant-gabriel.webp"
 
@@ -723,6 +826,7 @@
   nombre: Cruz Meza Carlos Ivan
   numero: 23
   posicion: "Delantero"
+  edad: 18
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/cruz-meza-carlos-ivan.webp"
 
@@ -730,6 +834,7 @@
   nombre: Martinez Estebanes Diego Armando
   numero: 1
   posicion: "Portero"
+  edad: 29
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/martinez-estebanes-diego-armando.webp"
 
@@ -737,6 +842,7 @@
   nombre: Castro Rubio Edgar Osvaldo
   numero: 25
   posicion: "Medio"
+  edad: 27
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/castro-rubio-edgar-osvaldo.webp"
 
@@ -744,6 +850,7 @@
   nombre: Chavez Monroy Edgar Oswaldo
   numero: 10
   posicion: "Delantero"
+  edad: 35
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/chavez-monroy-edgar-oswaldo.webp"
 
@@ -751,6 +858,7 @@
   nombre: Guzman Eduardo Badillo
   numero: 4
   posicion: "Defensa"
+  edad: 32
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/guzman-eduardo-badillo.webp"
 
@@ -758,6 +866,7 @@
   nombre: Resendiz Valadez Eliel Jose
   numero: 20
   posicion: "Medio"
+  edad: 29
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/resendiz-valadez-eliel-jose.webp"
 
@@ -765,6 +874,7 @@
   nombre: Valdespino Emiliano Covarrubias
   numero: 26
   posicion: "Delantero"
+  edad: 20
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/valdespino-emiliano-covarrubias.webp"
 
@@ -772,6 +882,7 @@
   nombre: Ortega Eugenio Chavez
   numero: 3
   posicion: "Medio"
+  edad: 22
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/ortega-eugenio-chavez.webp"
 
@@ -779,6 +890,7 @@
   nombre: Soria Israel Vilchis
   numero: 21
   posicion: "Defensa"
+  edad: 28
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/soria-israel-vilchis.webp"
 
@@ -786,6 +898,7 @@
   nombre: Fuentes Perez Jesus David
   numero: 17
   posicion: "Defensa"
+  edad: 20
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/fuentes-perez-jesus-david.webp"
 
@@ -793,6 +906,7 @@
   nombre: Zariñana Johnnatan Lora
   numero: 7
   posicion: "Medio"
+  edad: 35
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/zarinana-johnnatan-lora.webp"
 
@@ -800,6 +914,7 @@
   nombre: Ojeda Chavez Jose Daniel
   numero: 6
   posicion: "Defensa"
+  edad: 32
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/ojeda-chavez-jose-daniel.webp"
 
@@ -807,6 +922,7 @@
   nombre: Minero Joshua Martinez
   numero: 122
   posicion: "Portero"
+  edad: 18
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/minero-joshua-martinez.webp"
 
@@ -814,6 +930,7 @@
   nombre: Marinez Jacome Juan Carlos
   numero: 8
   posicion: "Medio"
+  edad: 26
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/marinez-jacome-juan-carlos.webp"
 
@@ -821,6 +938,7 @@
   nombre: Torres Lopez Luis Angel
   numero: 15
   posicion: "Medio"
+  edad: 19
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/torres-lopez-luis-angel.webp"
 
@@ -828,6 +946,7 @@
   nombre: Chimal Flores Miguel Alejandro
   numero: 16
   posicion: "Defensa"
+  edad: 34
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/chimal-flores-miguel-alejandro.webp"
 
@@ -835,6 +954,7 @@
   nombre: Almazan Santiago Fonseca
   numero: 5
   posicion: "Defensa"
+  edad: 29
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/almazan-santiago-fonseca.webp"
 
@@ -842,6 +962,7 @@
   nombre: Blaz Santos Retana
   numero: 19
   posicion: "Delantero"
+  edad: 40
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/blaz-santos-retana.webp"
 
@@ -849,6 +970,7 @@
   nombre: Davila Uriel Rosas
   numero: 2
   posicion: "Defensa"
+  edad: 33
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/davila-uriel-rosas.webp"
 
@@ -856,6 +978,7 @@
   nombre: Jardon Vega Yael Saul
   numero: 9
   posicion: "Medio"
+  edad: 28
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/jardon-vega-yael-saul.webp"
 
@@ -863,6 +986,7 @@
   nombre: De la Paz Yair Mora
   numero: 13
   posicion: "Delantero"
+  edad: 15
   equipo_id: deportivo-la-rosa
   foto: "/img/jugadores/de-la-paz-yair-mora.webp"
 
@@ -870,6 +994,7 @@
   nombre: Carlos Alberto Barrera López
   numero: 18
   posicion: "Medio"
+  edad: 33
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/carlos-alberto-barrera-lopez.webp"
 
@@ -877,6 +1002,7 @@
   nombre: Benítez Torres César Antonio
   numero: 51
   posicion: "Delantero"
+  edad: 33
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/benitez-torres-cesar-antonio.webp"
 
@@ -884,6 +1010,7 @@
   nombre: Martinez Herrera Cristopher Uriel
   numero: 60
   posicion: "Medio"
+  edad: 20
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/martinez-herrera-cristopher-uriel.webp"
 
@@ -891,6 +1018,7 @@
   nombre: Olvera Waldo Edgar Isai
   numero: 50
   posicion: "Medio"
+  edad: 22
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/olvera-waldo-edgar-isai.webp"
 
@@ -898,6 +1026,7 @@
   nombre: Martinez Flores Eduardo Antonio
   numero: 55
   posicion: "Medio"
+  edad: 21
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/martinez-flores-eduardo-antonio.webp"
 
@@ -905,6 +1034,7 @@
   nombre: Carlos Noel González Juárez
   numero: 17
   posicion: "Medio"
+  edad: 30
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/carlos-noel-gonzalez-juarez.webp"
 
@@ -912,6 +1042,7 @@
   nombre: Jorge Luis Guarneros Zarate
   numero: 5
   posicion: "Defensa"
+  edad: 34
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/jorge-luis-guarneros-zarate.webp"
 
@@ -919,6 +1050,7 @@
   nombre: Diego Guerrero Hernández
   numero: 30
   posicion: "Portero"
+  edad: 24
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/diego-guerrero-hernandez.webp"
 
@@ -926,6 +1058,7 @@
   nombre: Osmar Naim Hernández Islas
   numero: 2
   posicion: "Defensa"
+  edad: 19
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/osmar-naim-hernandez-islas.webp"
 
@@ -933,6 +1066,7 @@
   nombre: Alfredo Geovanni Jardon Maldonado
   numero: 10
   posicion: "Defensa"
+  edad: 29
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/alfredo-geovanni-jardon-maldonado.webp"
 
@@ -940,6 +1074,7 @@
   nombre: Edwin Omar Martínez Macías
   numero: 14
   posicion: "Delantero"
+  edad: 30
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/edwin-omar-martinez-macias.webp"
 
@@ -947,6 +1082,7 @@
   nombre: Byron Israel Martínez Martínez
   numero: 12
   posicion: "Medio"
+  edad: 21
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/byron-israel-martinez-martinez.webp"
 
@@ -954,6 +1090,7 @@
   nombre: Diego Alberto Muñoz Gutierrez
   numero: 19
   posicion: "Defensa"
+  edad: 31
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/diego-alberto-munoz-gutierrez.webp"
 
@@ -961,6 +1098,7 @@
   nombre: Gael Novia Olvera
   numero: 1
   posicion: "Portero"
+  edad: 23
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/gael-novia-olvera.webp"
 
@@ -968,6 +1106,7 @@
   nombre: Brandon Ocelo Almaraz
   numero: 11
   posicion: "Delantero"
+  edad: 29
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/brandon-ocelo-almaraz.webp"
 
@@ -975,6 +1114,7 @@
   nombre: Ulises Daniel Pacheco Romero
   numero: 3
   posicion: "Medio"
+  edad: 21
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/ulises-daniel-pacheco-romero.webp"
 
@@ -982,6 +1122,7 @@
   nombre: Irving Jair Pérez Hernández
   numero: 16
   posicion: "Defensa"
+  edad: 30
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/irving-jair-perez-hernandez.webp"
 
@@ -989,6 +1130,7 @@
   nombre: Jordan Zaid Pozos Ortiz
   numero: 7
   posicion: "Medio"
+  edad: 20
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/jordan-zaid-pozos-ortiz.webp"
 
@@ -996,6 +1138,7 @@
   nombre: Landon Zuriel Pozos Ortiz
   numero: 6
   posicion: "Medio"
+  edad: 24
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/landon-zuriel-pozos-ortiz.webp"
 
@@ -1003,6 +1146,7 @@
   nombre: José Luis Puebla García
   numero: 9
   posicion: "Delantero"
+  edad: 30
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/jose-luis-puebla-garcia.webp"
 
@@ -1010,6 +1154,7 @@
   nombre: Gael Rodríguez Montiel
   numero: 8
   posicion: "Delantero"
+  edad: 24
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/gael-rodriguez-montiel.webp"
 
@@ -1017,6 +1162,7 @@
   nombre: Juan Manuel Sánchez Lera
   numero: 4
   posicion: "Defensa"
+  edad: 45
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/juan-manuel-sanchez-lera.webp"
 
@@ -1024,6 +1170,7 @@
   nombre: Uzziel Suarez Juarez
   numero: 13
   posicion: "Medio"
+  edad: 22
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/uzziel-suarez-juarez.webp"
 
@@ -1031,6 +1178,7 @@
   nombre: Víctor Alfonso Zacarías Vargas
   numero: 15
   posicion: "Medio"
+  edad: 23
   equipo_id: atlantico-padrinos-infonavit
   foto: "/img/jugadores/victor-alfonso-zacarias-vargas.webp"
 
@@ -1038,6 +1186,7 @@
   nombre: Jesus Antemate Cruz
   numero: 21
   posicion: "Portero"
+  edad: 25
   equipo_id: potros-fc
   foto: "/img/jugadores/jesus-antemate-cruz.webp"
 
@@ -1045,6 +1194,7 @@
   nombre: Cesar Gumercindo Blancas Olvera
   numero: 25
   posicion: "Delantero"
+  edad: 34
   equipo_id: potros-fc
   foto: "/img/jugadores/cesar-gumercindo-blancas-olvera.webp"
 
@@ -1052,6 +1202,7 @@
   nombre: Christofher Alexis Castillo Mejia
   numero: 28
   posicion: "Delantero"
+  edad: 34
   equipo_id: potros-fc
   foto: "/img/jugadores/christofher-alexis-castillo-mejia.webp"
 
@@ -1059,6 +1210,7 @@
   nombre: Marlon Jair Castillo Mejía
   numero: 27
   posicion: "Defensa"
+  edad: 32
   equipo_id: potros-fc
   foto: "/img/jugadores/marlon-jair-castillo-mejia.webp"
 
@@ -1066,6 +1218,7 @@
   nombre: Brandon Ulises Chavez Sánchez
   numero: 1
   posicion: "Portero"
+  edad: 28
   equipo_id: potros-fc
   foto: "/img/jugadores/brandon-ulises-chavez-sanchez.webp"
 
@@ -1073,6 +1226,7 @@
   nombre: Brandon Uriel Escalona García
   numero: 29
   posicion: "Defensa"
+  edad: 21
   equipo_id: potros-fc
   foto: "/img/jugadores/brandon-uriel-escalona-garcia.webp"
 
@@ -1080,6 +1234,7 @@
   nombre: Saúl Estrada Cerritos
   numero: 3
   posicion: "Medio"
+  edad: 20
   equipo_id: potros-fc
   foto: "/img/jugadores/saul-estrada-cerritos.webp"
 
@@ -1087,6 +1242,7 @@
   nombre: Martín Estrada Martínez
   numero: 16
   posicion: "Medio"
+  edad: 42
   equipo_id: potros-fc
   foto: "/img/jugadores/martin-estrada-martinez.webp"
 
@@ -1094,6 +1250,7 @@
   nombre: Eduardo Alejandro Gonzales García
   numero: 7
   posicion: "Delantero"
+  edad: 25
   equipo_id: potros-fc
   foto: "/img/jugadores/eduardo-alejandro-gonzales-garcia.webp"
 
@@ -1101,6 +1258,7 @@
   nombre: Gustavo Guillen Ruiz
   numero: 26
   posicion: "Delantero"
+  edad: 33
   equipo_id: potros-fc
   foto: "/img/jugadores/gustavo-guillen-ruiz.webp"
 
@@ -1108,6 +1266,7 @@
   nombre: Edson Giovanni Hernández Nolasco
   numero: 6
   posicion: "Medio"
+  edad: 30
   equipo_id: potros-fc
   foto: "/img/jugadores/edson-giovanni-hernandez-nolasco.webp"
 
@@ -1115,6 +1274,7 @@
   nombre: Fernando Lucas Aguilera
   numero: 15
   posicion: "Delantero"
+  edad: 24
   equipo_id: potros-fc
   foto: "/img/jugadores/fernando-lucas-aguilera.webp"
 
@@ -1122,6 +1282,7 @@
   nombre: Juan Francisco Margarito Ángeles
   numero: 22
   posicion: "Delantero"
+  edad: 22
   equipo_id: potros-fc
   foto: "/img/jugadores/juan-francisco-margarito-angeles.webp"
 
@@ -1129,6 +1290,7 @@
   nombre: Saul Eduardo Martínez Rodriguez
   numero: 13
   posicion: "Defensa"
+  edad: 30
   equipo_id: potros-fc
   foto: "/img/jugadores/saul-eduardo-martinez-rodriguez.webp"
 
@@ -1136,6 +1298,7 @@
   nombre: Josue Gael Moranchel Rocha
   numero: 24
   posicion: "Medio"
+  edad: 21
   equipo_id: potros-fc
   foto: "/img/jugadores/josue-gael-moranchel-rocha.webp"
 
@@ -1143,6 +1306,7 @@
   nombre: Juan David Olivares Rodriguez
   numero: 20
   posicion: "Defensa"
+  edad: 36
   equipo_id: potros-fc
   foto: "/img/jugadores/juan-david-olivares-rodriguez.webp"
 
@@ -1150,6 +1314,7 @@
   nombre: Victor Hugo Resendiz Aguilar
   numero: 14
   posicion: "Medio"
+  edad: 31
   equipo_id: potros-fc
   foto: "/img/jugadores/victor-hugo-resendiz-aguilar.webp"
 
@@ -1157,6 +1322,7 @@
   nombre: Héctor Mauricio Reyes Domínguez
   numero: 8
   posicion: "Defensa"
+  edad: 32
   equipo_id: potros-fc
   foto: "/img/jugadores/hector-mauricio-reyes-dominguez.webp"
 
@@ -1164,6 +1330,7 @@
   nombre: Orlando Yanixan Ruiz Morales
   numero: 5
   posicion: "Medio"
+  edad: 19
   equipo_id: potros-fc
   foto: "/img/jugadores/orlando-yanixan-ruiz-morales.webp"
 
@@ -1171,6 +1338,7 @@
   nombre: Josué Emiliano Sánchez Hernández
   numero: 10
   posicion: "Delantero"
+  edad: 19
   equipo_id: potros-fc
   foto: "/img/jugadores/josue-emiliano-sanchez-hernandez.webp"
 
@@ -1178,6 +1346,7 @@
   nombre: Samuel Sánchez Rivera
   numero: 3
   posicion: "Medio"
+  edad: 22
   equipo_id: potros-fc
   foto: "/img/jugadores/samuel-sanchez-rivera.webp"
 
@@ -1185,6 +1354,7 @@
   nombre: Ángel de Jesús Soto Soto
   numero: 19
   posicion: "Defensa"
+  edad: 19
   equipo_id: potros-fc
   foto: "/img/jugadores/angel-de-jesus-soto-soto.webp"
 
@@ -1192,6 +1362,7 @@
   nombre: Javier Eduardo Velarde Grimaldo
   numero: 11
   posicion: "Delantero"
+  edad: 23
   equipo_id: potros-fc
   foto: "/img/jugadores/javier-eduardo-velarde-grimaldo.webp"
 
@@ -1199,6 +1370,7 @@
   nombre: Juan Antonio Velarde Grimaldo
   numero: 12
   posicion: "Defensa"
+  edad: 21
   equipo_id: potros-fc
   foto: "/img/jugadores/juan-antonio-velarde-grimaldo.webp"
 
@@ -1206,6 +1378,7 @@
   nombre: Leonardo Zárate Gabriel
   numero: 4
   posicion: "Medio"
+  edad: 23
   equipo_id: potros-fc
   foto: "/img/jugadores/leonardo-zarate-gabriel.webp"
 
@@ -1213,6 +1386,7 @@
   nombre: Brian Amisadai Barron Mendoza
   numero: 6
   posicion: "Medio"
+  edad: 33
   equipo_id: san-ildefonso
   foto: "/img/jugadores/brian-amisadai-barron-mendoza.webp"
 
@@ -1220,6 +1394,7 @@
   nombre: Jovani Uriel Cardenas Garduño
   numero: 13
   posicion: "Medio"
+  edad: 28
   equipo_id: san-ildefonso
   foto: "/img/jugadores/jovani-uriel-cardenas-garduno.webp"
 
@@ -1227,6 +1402,7 @@
   nombre: Sanchez Carlos Salinas
   numero: 22
   posicion: "Delantero"
+  edad: 33
   equipo_id: san-ildefonso
   foto: "/img/jugadores/sanchez-carlos-salinas.webp"
 
@@ -1234,6 +1410,7 @@
   nombre: Francisco Javier Espinoza Trejo
   numero: 4
   posicion: "Defensa"
+  edad: 41
   equipo_id: san-ildefonso
   foto: "/img/jugadores/francisco-javier-espinoza-trejo.webp"
 
@@ -1241,6 +1418,7 @@
   nombre: Diego Valentín Fuentes Ronquillo
   numero: 18
   posicion: "Delantero"
+  edad: 26
   equipo_id: san-ildefonso
   foto: "/img/jugadores/diego-valentin-fuentes-ronquillo.webp"
 
@@ -1248,6 +1426,7 @@
   nombre: Miguel Eduardo Garcia Carmona
   numero: 7
   posicion: "Medio"
+  edad: 35
   equipo_id: san-ildefonso
   foto: "/img/jugadores/miguel-eduardo-garcia-carmona.webp"
 
@@ -1255,6 +1434,7 @@
   nombre: Ulises Aldair Garcia Martines
   numero: 23
   posicion: "Medio"
+  edad: 25
   equipo_id: san-ildefonso
   foto: "/img/jugadores/ulises-aldair-garcia-martines.webp"
 
@@ -1262,6 +1442,7 @@
   nombre: Giovani Lionel Gil Gonzalez
   numero: 8
   posicion: "Medio"
+  edad: 36
   equipo_id: san-ildefonso
   foto: "/img/jugadores/giovani-lionel-gil-gonzalez.webp"
 
@@ -1269,6 +1450,7 @@
   nombre: Jonathan Herrera Colin
   numero: 20
   posicion: "Medio"
+  edad: 23
   equipo_id: san-ildefonso
   foto: "/img/jugadores/jonathan-herrera-colin.webp"
 
@@ -1276,6 +1458,7 @@
   nombre: Erick Alfredo Iturbide Vazquez
   numero: 9
   posicion: "Delantero"
+  edad: 27
   equipo_id: san-ildefonso
   foto: "/img/jugadores/erick-alfredo-iturbide-vazquez.webp"
 
@@ -1283,6 +1466,7 @@
   nombre: Jorge Eduardo Martinez García
   numero: 2
   posicion: "Defensa"
+  edad: 22
   equipo_id: san-ildefonso
   foto: "/img/jugadores/jorge-eduardo-martinez-garcia.webp"
 
@@ -1290,6 +1474,7 @@
   nombre: Santiago Merino Cruz
   numero: 17
   posicion: "Medio"
+  edad: 16
   equipo_id: san-ildefonso
   foto: "/img/jugadores/santiago-merino-cruz.webp"
 
@@ -1297,6 +1482,7 @@
   nombre: Jose Eduardo Miramontes del Olmo
   numero: 3
   posicion: "Delantero"
+  edad: 26
   equipo_id: san-ildefonso
   foto: "/img/jugadores/jose-eduardo-miramontes-del-olmo.webp"
 
@@ -1304,6 +1490,7 @@
   nombre: Luis Angel Morales Trinidad
   numero: 19
   posicion: "Defensa"
+  edad: 21
   equipo_id: san-ildefonso
   foto: "/img/jugadores/luis-angel-morales-trinidad.webp"
 
@@ -1311,6 +1498,7 @@
   nombre: Jose Israel Nieves Morales
   numero: 15
   posicion: "Defensa"
+  edad: 25
   equipo_id: san-ildefonso
   foto: "/img/jugadores/jose-israel-nieves-morales.webp"
 
@@ -1318,6 +1506,7 @@
   nombre: Angel Nahum Perez Medina
   numero: 21
   posicion: "Delantero"
+  edad: 30
   equipo_id: san-ildefonso
   foto: "/img/jugadores/angel-nahum-perez-medina.webp"
 
@@ -1325,6 +1514,7 @@
   nombre: Raul Rivas Rosas
   numero: 12
   posicion: "Medio"
+  edad: 26
   equipo_id: san-ildefonso
   foto: "/img/jugadores/raul-rivas-rosas.webp"
 
@@ -1332,6 +1522,7 @@
   nombre: Oscar Francisco Rodríguez Gonzalez
   numero: 25
   posicion: "Portero"
+  edad: 33
   equipo_id: san-ildefonso
   foto: "/img/jugadores/oscar-francisco-rodriguez-gonzalez.webp"
 
@@ -1339,6 +1530,7 @@
   nombre: Victor Hugo Rosas Solis
   numero: 5
   posicion: "Delantero"
+  edad: 35
   equipo_id: san-ildefonso
   foto: "/img/jugadores/victor-hugo-rosas-solis.webp"
 
@@ -1346,6 +1538,7 @@
   nombre: Rubén D Alessandro Ruano Gomez
   numero: 16
   posicion: "Defensa"
+  edad: 17
   equipo_id: san-ildefonso
   foto: "/img/jugadores/ruben-d-alessandro-ruano-gomez.webp"
 
@@ -1353,6 +1546,7 @@
   nombre: Jose Ignacio Sanchez Martinez
   numero: 11
   posicion: "Delantero"
+  edad: 32
   equipo_id: san-ildefonso
   foto: "/img/jugadores/jose-ignacio-sanchez-martinez.webp"
 
@@ -1360,6 +1554,7 @@
   nombre: Carlos Mariano Velazquez Marquez
   numero: 10
   posicion: "Medio"
+  edad: 27
   equipo_id: san-ildefonso
   foto: "/img/jugadores/carlos-mariano-velazquez-marquez.webp"
 
@@ -1367,6 +1562,7 @@
   nombre: Roberto Raúl Villegas Vernal
   numero: 1
   posicion: "Portero"
+  edad: 39
   equipo_id: san-ildefonso
   foto: "/img/jugadores/roberto-raul-villegas-vernal.webp"
 
@@ -1374,6 +1570,7 @@
   nombre: Leopoldo Zamacona Sandoval
   numero: 14
   posicion: "Medio"
+  edad: 46
   equipo_id: san-ildefonso
   foto: "/img/jugadores/leopoldo-zamacona-sandoval.webp"
 
@@ -1381,6 +1578,7 @@
   nombre: Diego Eduardo Alonzo Pérez
   numero: 3
   posicion: "Defensa"
+  edad: 18
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/diego-eduardo-alonzo-perez.webp"
 
@@ -1388,6 +1586,7 @@
   nombre: Sergio Alberto Álvarado Covarrubias
   numero: 2
   posicion: "Defensa"
+  edad: 40
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/sergio-alberto-alvarado-covarrubias.webp"
 
@@ -1395,6 +1594,7 @@
   nombre: Emmanuel Ambriz Escobedo
   numero: 7
   posicion: "Medio"
+  edad: 35
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/emmanuel-ambriz-escobedo.webp"
 
@@ -1402,6 +1602,7 @@
   nombre: Luis Ángel Beltrán Cachu
   numero: 6
   posicion: "Defensa"
+  edad: 33
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/luis-angel-beltran-cachu.webp"
 
@@ -1409,6 +1610,7 @@
   nombre: Miguel Angel Castillo Uribe
   numero: 25
   posicion: "Medio"
+  edad: 28
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/miguel-angel-castillo-uribe.webp"
 
@@ -1416,6 +1618,7 @@
   nombre: Mario Adrian Damian García
   numero: 20
   posicion: "Defensa"
+  edad: 39
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/mario-adrian-damian-garcia.webp"
 
@@ -1423,6 +1626,7 @@
   nombre: David Enrique Flores Tinajero
   numero: 1
   posicion: "Portero"
+  edad: 33
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/david-enrique-flores-tinajero.webp"
 
@@ -1430,6 +1634,7 @@
   nombre: Erick Gil Campos
   numero: 12
   posicion: "Medio"
+  edad: 33
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/erick-gil-campos.webp"
 
@@ -1437,6 +1642,7 @@
   nombre: Luis Giovani Hernández Chávez
   numero: 4
   posicion: "Medio"
+  edad: 35
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/luis-giovani-hernandez-chavez.webp"
 
@@ -1444,6 +1650,7 @@
   nombre: Julio Cesar Hernández Losoya
   numero: 16
   posicion: "Medio"
+  edad: 32
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/julio-cesar-hernandez-losoya.webp"
 
@@ -1451,6 +1658,7 @@
   nombre: Edgar Gael Luna Maya
   numero: 11
   posicion: "Medio"
+  edad: 23
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/edgar-gael-luna-maya.webp"
 
@@ -1458,6 +1666,7 @@
   nombre: Angel Alonso Martínez Cabrera
   numero: 13
   posicion: "Delantero"
+  edad: 23
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/angel-alonso-martinez-cabrera.webp"
 
@@ -1465,6 +1674,7 @@
   nombre: Gorge Luis Morales Chávez
   numero: 10
   posicion: "Medio"
+  edad: 36
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/gorge-luis-morales-chavez.webp"
 
@@ -1472,6 +1682,7 @@
   nombre: Daniel Ortega Ramírez
   numero: 22
   posicion: "Medio"
+  edad: 36
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/daniel-ortega-ramirez.webp"
 
@@ -1479,6 +1690,7 @@
   nombre: Martín Ortega Ramírez
   numero: 71
   posicion: "Delantero"
+  edad: 34
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/martin-ortega-ramirez.webp"
 
@@ -1486,6 +1698,7 @@
   nombre: Diego Armando Osorio Sánchez
   numero: 19
   posicion: "Defensa"
+  edad: 31
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/diego-armando-osorio-sanchez.webp"
 
@@ -1493,6 +1706,7 @@
   nombre: Jose de Jesús Pánuco Jaramillo
   numero: 5
   posicion: "Delantero"
+  edad: 35
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/jose-de-jesus-panuco-jaramillo.webp"
 
@@ -1500,6 +1714,7 @@
   nombre: Juan Eduardo Ponciano Ostiguin
   numero: 21
   posicion: "Medio"
+  edad: 18
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/juan-eduardo-ponciano-ostiguin.webp"
 
@@ -1507,6 +1722,7 @@
   nombre: Ariel Ramírez Mozo
   numero: 18
   posicion: "Delantero"
+  edad: 26
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/ariel-ramirez-mozo.webp"
 
@@ -1514,6 +1730,7 @@
   nombre: Ronaldo Alberto Ramos Guzmán
   numero: 14
   posicion: "Defensa"
+  edad: 28
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/ronaldo-alberto-ramos-guzman.webp"
 
@@ -1521,6 +1738,7 @@
   nombre: Aldo Usiel Sánchez Hernández
   numero: 9
   posicion: "Delantero"
+  edad: 20
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/aldo-usiel-sanchez-hernandez.webp"
 
@@ -1528,6 +1746,7 @@
   nombre: Sebastián Sánchez Solis
   numero: 17
   posicion: "Medio"
+  edad: 21
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/sebastian-sanchez-solis.webp"
 
@@ -1535,6 +1754,7 @@
   nombre: Oscar de Jesus Sánchez Zariñan
   numero: 8
   posicion: "Defensa"
+  edad: 26
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/oscar-de-jesus-sanchez-zarinan.webp"
 
@@ -1542,6 +1762,7 @@
   nombre: Fernando Trejo Mosqueda
   numero: 24
   posicion: "Portero"
+  edad: 32
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/fernando-trejo-mosqueda.webp"
 
@@ -1549,6 +1770,7 @@
   nombre: Diego Adair Vázquez Aguilar
   numero: 99
   posicion: "Delantero"
+  edad: 19
   equipo_id: deportivo-fresno
   foto: "/img/jugadores/diego-adair-vazquez-aguilar.webp"
 
@@ -1556,6 +1778,7 @@
   nombre: Hernandez Arriaga Ally Okthalann
   numero: 0
   posicion: "Portero"
+  edad: 36
   equipo_id: club-colmena
   foto: "/img/jugadores/hernandez-arriaga-ally-okthalann.webp"
 
@@ -1563,6 +1786,7 @@
   nombre: Khristian Yael Arteaga Nuñez
   numero: 16
   posicion: "Medio"
+  edad: 16
   equipo_id: club-colmena
   foto: "/img/jugadores/khristian-yael-arteaga-nunez.webp"
 
@@ -1570,6 +1794,7 @@
   nombre: Jesus Izai Castro Frias
   numero: 15
   posicion: "Medio"
+  edad: 17
   equipo_id: club-colmena
   foto: "/img/jugadores/jesus-izai-castro-frias.webp"
 
@@ -1577,6 +1802,7 @@
   nombre: Ivan Alfredo Cruz Garnica
   numero: 19
   posicion: "Delantero"
+  edad: 35
   equipo_id: club-colmena
   foto: "/img/jugadores/ivan-alfredo-cruz-garnica.webp"
 
@@ -1584,6 +1810,7 @@
   nombre: Johary Dominguez Dávila
   numero: 7
   posicion: "Medio"
+  edad: 18
   equipo_id: club-colmena
   foto: "/img/jugadores/johary-dominguez-davila.webp"
 
@@ -1591,6 +1818,7 @@
   nombre: Triztan Antuan Flores Garcia
   numero: 17
   posicion: "Medio"
+  edad: 16
   equipo_id: club-colmena
   foto: "/img/jugadores/triztan-antuan-flores-garcia.webp"
 
@@ -1598,6 +1826,7 @@
   nombre: Cesar Garcia Rodríguez
   numero: 14
   posicion: "Defensa"
+  edad: 27
   equipo_id: club-colmena
   foto: "/img/jugadores/cesar-garcia-rodriguez.webp"
 
@@ -1605,6 +1834,7 @@
   nombre: Jasiel Jahir Gonzalez Lopez
   numero: 9
   posicion: "Delantero"
+  edad: 18
   equipo_id: club-colmena
   foto: "/img/jugadores/jasiel-jahir-gonzalez-lopez.webp"
 
@@ -1612,6 +1842,7 @@
   nombre: Angel Amaury Gutierrez Hernández
   numero: 6
   posicion: "Defensa"
+  edad: 16
   equipo_id: club-colmena
   foto: "/img/jugadores/angel-amaury-gutierrez-hernandez.webp"
 
@@ -1619,6 +1850,7 @@
   nombre: Ángel Yorshua Lopez Rebolloso
   numero: 4
   posicion: "Defensa"
+  edad: 24
   equipo_id: club-colmena
   foto: "/img/jugadores/angel-yorshua-lopez-rebolloso.webp"
 
@@ -1626,6 +1858,7 @@
   nombre: Leonardo Daniel Moreno Martinez
   numero: 31
   posicion: "Portero"
+  edad: 39
   equipo_id: club-colmena
   foto: "/img/jugadores/leonardo-daniel-moreno-martinez.webp"
 
@@ -1633,6 +1866,7 @@
   nombre: Luis Perete Garcia
   numero: 20
   posicion: "Medio"
+  edad: 24
   equipo_id: club-colmena
   foto: "/img/jugadores/luis-perete-garcia.webp"
 
@@ -1640,6 +1874,7 @@
   nombre: Ciro Angel Reyes Sanchez
   numero: 8
   posicion: "Medio"
+  edad: 24
   equipo_id: club-colmena
   foto: "/img/jugadores/ciro-angel-reyes-sanchez.webp"
 
@@ -1647,6 +1882,7 @@
   nombre: Jonathan Javier Sanchez Ramirez
   numero: 2
   posicion: "Defensa"
+  edad: 25
   equipo_id: club-colmena
   foto: "/img/jugadores/jonathan-javier-sanchez-ramirez.webp"
 
@@ -1654,6 +1890,7 @@
   nombre: Jesus Eduardo Sanchez Rodriguez
   numero: 5
   posicion: "Defensa"
+  edad: 32
   equipo_id: club-colmena
   foto: "/img/jugadores/jesus-eduardo-sanchez-rodriguez.webp"
 
@@ -1661,6 +1898,7 @@
   nombre: Luis Angel Sanchez Rosales
   numero: 3
   posicion: "Defensa"
+  edad: 16
   equipo_id: club-colmena
   foto: "/img/jugadores/luis-angel-sanchez-rosales.webp"
 
@@ -1668,6 +1906,7 @@
   nombre: Ian Lael Sanchez Valdez
   numero: 13
   posicion: "Medio"
+  edad: 20
   equipo_id: club-colmena
   foto: "/img/jugadores/ian-lael-sanchez-valdez.webp"
 
@@ -1675,6 +1914,7 @@
   nombre: Carlos Jair Sandoval Martinez
   numero: 10
   posicion: "Delantero"
+  edad: 28
   equipo_id: club-colmena
   foto: "/img/jugadores/carlos-jair-sandoval-martinez.webp"
 
@@ -1682,6 +1922,7 @@
   nombre: Adrian Silva Garcia
   numero: 18
   posicion: "Defensa"
+  edad: 27
   equipo_id: club-colmena
   foto: "/img/jugadores/adrian-silva-garcia.webp"
 
@@ -1689,6 +1930,7 @@
   nombre: Ian Ariosto Sotelo Betanzos
   numero: 11
   posicion: "Medio"
+  edad: 17
   equipo_id: club-colmena
   foto: "/img/jugadores/ian-ariosto-sotelo-betanzos.webp"
 
@@ -1696,6 +1938,7 @@
   nombre: Diego Torres Cruz
   numero: 12
   posicion: "Delantero"
+  edad: 27
   equipo_id: club-colmena
   foto: "/img/jugadores/diego-torres-cruz.webp"
 
@@ -1703,6 +1946,7 @@
   nombre: Emmanuel Zapotvelazquez
   numero: 1
   posicion: "Portero"
+  edad: 19
   equipo_id: club-colmena
   foto: "/img/jugadores/emmanuel-zapotvelazquez.webp"
 
@@ -1710,6 +1954,7 @@
   nombre: Jordy Antonio Guadarrama
   numero: 17
   posicion: "Defensa"
+  edad: 25
   equipo_id: vikingos
   foto: "/img/jugadores/jordy-antonio-guadarrama.webp"
 
@@ -1717,6 +1962,7 @@
   nombre: Florentino Cruz Francisco
   numero: 43
   posicion: "Portero"
+  edad: 43
   equipo_id: vikingos
   foto: "/img/jugadores/florentino-cruz-francisco.webp"
 
@@ -1724,6 +1970,7 @@
   nombre: Francisco Javier Espinosa Vicente
   numero: 16
   posicion: "Medio"
+  edad: 29
   equipo_id: vikingos
   foto: "/img/jugadores/francisco-javier-espinosa-vicente.webp"
 
@@ -1731,6 +1978,7 @@
   nombre: Raul Grimaldo Rodriguez
   numero: 20
   posicion: "Medio"
+  edad: 32
   equipo_id: vikingos
   foto: "/img/jugadores/raul-grimaldo-rodriguez.webp"
 
@@ -1738,6 +1986,7 @@
   nombre: Marco Antonio Gutierrez Reyes
   numero: 5
   posicion: "Defensa"
+  edad: 34
   equipo_id: vikingos
   foto: "/img/jugadores/marco-antonio-gutierrez-reyes.webp"
 
@@ -1745,6 +1994,7 @@
   nombre: Brian Hernandez Ruiz
   numero: 23
   posicion: "Medio"
+  edad: 28
   equipo_id: vikingos
   foto: "/img/jugadores/brian-hernandez-ruiz.webp"
 
@@ -1752,6 +2002,7 @@
   nombre: José Francisco Hernandez Ticante
   numero: 11
   posicion: "Medio"
+  edad: 30
   equipo_id: vikingos
   foto: "/img/jugadores/jose-francisco-hernandez-ticante.webp"
 
@@ -1759,6 +2010,7 @@
   nombre: Rodrigo Lara Rosas
   numero: 0
   posicion: "Portero"
+  edad: 27
   equipo_id: vikingos
   foto: "/img/jugadores/rodrigo-lara-rosas.webp"
 
@@ -1766,6 +2018,7 @@
   nombre: Christian Uriel Martinez Bautista
   numero: 6
   posicion: "Medio"
+  edad: 20
   equipo_id: vikingos
   foto: "/img/jugadores/christian-uriel-martinez-bautista.webp"
 
@@ -1773,6 +2026,7 @@
   nombre: Bruno Alejandro Morales Martinez
   numero: 8
   posicion: "Delantero"
+  edad: 25
   equipo_id: vikingos
   foto: "/img/jugadores/bruno-alejandro-morales-martinez.webp"
 
@@ -1780,6 +2034,7 @@
   nombre: Jesus Murad Gutierrez
   numero: 7
   posicion: "Medio"
+  edad: 29
   equipo_id: vikingos
   foto: "/img/jugadores/jesus-murad-gutierrez.webp"
 
@@ -1787,6 +2042,7 @@
   nombre: Alfredo Perez Gonzalez
   numero: 14
   posicion: "Medio"
+  edad: 41
   equipo_id: vikingos
   foto: "/img/jugadores/alfredo-perez-gonzalez.webp"
 
@@ -1794,6 +2050,7 @@
   nombre: Jesus Yael Reyes Zavaleta
   numero: 10
   posicion: "Delantero"
+  edad: 22
   equipo_id: vikingos
   foto: "/img/jugadores/jesus-yael-reyes-zavaleta.webp"
 
@@ -1801,6 +2058,7 @@
   nombre: Jonatan Osvaldo Sanchez Ramirez
   numero: 33
   posicion: "Delantero"
+  edad: 29
   equipo_id: vikingos
   foto: "/img/jugadores/jonatan-osvaldo-sanchez-ramirez.webp"
 
@@ -1808,6 +2066,7 @@
   nombre: Luis César Tobías Sánchez
   numero: 4
   posicion: "Defensa"
+  edad: 34
   equipo_id: vikingos
   foto: "/img/jugadores/luis-cesar-tobias-sanchez.webp"
 
@@ -1815,6 +2074,7 @@
   nombre: Jonathan Venegas Herrera
   numero: 77
   posicion: "Medio"
+  edad: 38
   equipo_id: vikingos
   foto: "/img/jugadores/jonathan-venegas-herrera.webp"
 
@@ -1822,6 +2082,7 @@
   nombre: Diego Armando Verdiguel Olvera
   numero: 22
   posicion: "Defensa"
+  edad: 25
   equipo_id: vikingos
   foto: "/img/jugadores/diego-armando-verdiguel-olvera.webp"
 
@@ -1829,6 +2090,7 @@
   nombre: Luis Angel Alcantara Hernández
   numero: 13
   posicion: "Delantero"
+  edad: 25
   equipo_id: carboneros
   foto: "/img/jugadores/luis-angel-alcantara-hernandez.webp"
 
@@ -1836,6 +2098,7 @@
   nombre: Cristian Orlando Arana Herrera
   numero: 18
   posicion: "Defensa"
+  edad: 20
   equipo_id: carboneros
   foto: "/img/jugadores/cristian-orlando-arana-herrera.webp"
 
@@ -1843,6 +2106,7 @@
   nombre: Luis Angel Barrera Carmona
   numero: 22
   posicion: "Defensa"
+  edad: 33
   equipo_id: carboneros
   foto: "/img/jugadores/luis-angel-barrera-carmona.webp"
 
@@ -1850,6 +2114,7 @@
   nombre: Victor Manuel Benitez Monroy
   numero: 16
   posicion: "Delantero"
+  edad: 27
   equipo_id: carboneros
   foto: "/img/jugadores/victor-manuel-benitez-monroy.webp"
 
@@ -1857,6 +2122,7 @@
   nombre: Rodrigo Casimiro Gutiérrez
   numero: 8
   posicion: "Defensa"
+  edad: 23
   equipo_id: carboneros
   foto: "/img/jugadores/rodrigo-casimiro-gutierrez.webp"
 
@@ -1864,6 +2130,7 @@
   nombre: Bryan Alexis Cruz Ramírez
   numero: 10
   posicion: "Medio"
+  edad: 26
   equipo_id: carboneros
   foto: "/img/jugadores/bryan-alexis-cruz-ramirez.webp"
 
@@ -1871,6 +2138,7 @@
   nombre: Andres Doniz Zarate
   numero: 19
   posicion: "Defensa"
+  edad: 37
   equipo_id: carboneros
   foto: "/img/jugadores/andres-doniz-zarate.webp"
 
@@ -1878,6 +2146,7 @@
   nombre: Christian Yair García García
   numero: 6
   posicion: "Delantero"
+  edad: 22
   equipo_id: carboneros
   foto: "/img/jugadores/christian-yair-garcia-garcia.webp"
 
@@ -1885,6 +2154,7 @@
   nombre: Raul Gomez Robledo
   numero: 1
   posicion: "Portero"
+  edad: 23
   equipo_id: carboneros
   foto: "/img/jugadores/raul-gomez-robledo.webp"
 
@@ -1892,6 +2162,7 @@
   nombre: Luis David Gonzalez Aldana
   numero: 17
   posicion: "Defensa"
+  edad: 28
   equipo_id: carboneros
   foto: "/img/jugadores/luis-david-gonzalez-aldana.webp"
 
@@ -1899,6 +2170,7 @@
   nombre: Rodrigo González Rivera
   numero: 21
   posicion: "Medio"
+  edad: 26
   equipo_id: carboneros
   foto: "/img/jugadores/rodrigo-gonzalez-rivera.webp"
 
@@ -1906,6 +2178,7 @@
   nombre: Fernando González Rueda
   numero: 11
   posicion: "Medio"
+  edad: 21
   equipo_id: carboneros
   foto: "/img/jugadores/fernando-gonzalez-rueda.webp"
 
@@ -1913,6 +2186,7 @@
   nombre: Ignacio Jiménez Tapia
   numero: 23
   posicion: "Medio"
+  edad: 17
   equipo_id: carboneros
   foto: "/img/jugadores/ignacio-jimenez-tapia.webp"
 
@@ -1920,6 +2194,7 @@
   nombre: Jose Adrian Jimenez Tapia
   numero: 2
   posicion: "Medio"
+  edad: 21
   equipo_id: carboneros
   foto: "/img/jugadores/jose-adrian-jimenez-tapia.webp"
 
@@ -1927,6 +2202,7 @@
   nombre: Mauricio Lopez Garcia
   numero: 4
   posicion: "Delantero"
+  edad: 25
   equipo_id: carboneros
   foto: "/img/jugadores/mauricio-lopez-garcia.webp"
 
@@ -1934,6 +2210,7 @@
   nombre: Ian Alejandro Lugo Zariñan
   numero: 20
   posicion: "Portero"
+  edad: 20
   equipo_id: carboneros
   foto: "/img/jugadores/ian-alejandro-lugo-zarinan.webp"
 
@@ -1941,6 +2218,7 @@
   nombre: Uriel Martínez Jacinto
   numero: 7
   posicion: "Delantero"
+  edad: 30
   equipo_id: carboneros
   foto: "/img/jugadores/uriel-martinez-jacinto.webp"
 
@@ -1948,6 +2226,7 @@
   nombre: Cristian Martínez Navarrete
   numero: 14
   posicion: "Defensa"
+  edad: 27
   equipo_id: carboneros
   foto: "/img/jugadores/cristian-martinez-navarrete.webp"
 
@@ -1955,6 +2234,7 @@
   nombre: Diego Francisco Monroy Benitez
   numero: 3
   posicion: "Defensa"
+  edad: 22
   equipo_id: carboneros
   foto: "/img/jugadores/diego-francisco-monroy-benitez.webp"
 
@@ -1962,6 +2242,7 @@
   nombre: Pedro Monroy Mondragón
   numero: 9
   posicion: "Medio"
+  edad: 26
   equipo_id: carboneros
   foto: "/img/jugadores/pedro-monroy-mondragon.webp"
 
@@ -1969,6 +2250,7 @@
   nombre: Jesus Eliseo Ramirez Hernandez
   numero: 12
   posicion: "Delantero"
+  edad: 25
   equipo_id: carboneros
   foto: "/img/jugadores/jesus-eliseo-ramirez-hernandez.webp"
 
@@ -1976,6 +2258,7 @@
   nombre: Sérgio Tinoco Domínguez
   numero: 5
   posicion: "Medio"
+  edad: 39
   equipo_id: carboneros
   foto: "/img/jugadores/sergio-tinoco-dominguez.webp"
 
@@ -1983,6 +2266,7 @@
   nombre: Oscar Vilchis Huerta
   numero: 15
   posicion: "Defensa"
+  edad: 23
   equipo_id: carboneros
   foto: "/img/jugadores/oscar-vilchis-huerta.webp"
 
@@ -1990,6 +2274,7 @@
   nombre: Miguel Angel Aguado Contreras
   numero: 7
   posicion: "Medio"
+  edad: 27
   equipo_id: betis-carto
   foto: "/img/jugadores/miguel-angel-aguado-contreras.webp"
 
@@ -1997,6 +2282,7 @@
   nombre: Noel Uriel Aragon Quiroz
   numero: 9
   posicion: "Medio"
+  edad: 24
   equipo_id: betis-carto
   foto: "/img/jugadores/noel-uriel-aragon-quiroz.webp"
 
@@ -2004,6 +2290,7 @@
   nombre: Christian Jhovani Camacho Jasso
   numero: 17
   posicion: "Medio"
+  edad: 34
   equipo_id: betis-carto
   foto: "/img/jugadores/christian-jhovani-camacho-jasso.webp"
 
@@ -2011,6 +2298,7 @@
   nombre: Jose Ramon Caudillo Gonzales
   numero: 18
   posicion: "Delantero"
+  edad: 36
   equipo_id: betis-carto
   foto: "/img/jugadores/jose-ramon-caudillo-gonzales.webp"
 
@@ -2018,6 +2306,7 @@
   nombre: Osvaldo Caudillo Gonzales
   numero: 13
   posicion: "Defensa"
+  edad: 31
   equipo_id: betis-carto
   foto: "/img/jugadores/osvaldo-caudillo-gonzales.webp"
 
@@ -2025,6 +2314,7 @@
   nombre: Armando Manuel Cedillo Enriquez
   numero: 1
   posicion: "Portero"
+  edad: 24
   equipo_id: betis-carto
   foto: "/img/jugadores/armando-manuel-cedillo-enriquez.webp"
 
@@ -2032,6 +2322,7 @@
   nombre: Arsenio Cruz Gonzalez
   numero: 20
   posicion: "Delantero"
+  edad: 34
   equipo_id: betis-carto
   foto: "/img/jugadores/arsenio-cruz-gonzalez.webp"
 
@@ -2039,6 +2330,7 @@
   nombre: Hugo Rogelio Cuadillo Leon
   numero: 10
   posicion: "Medio"
+  edad: 39
   equipo_id: betis-carto
   foto: "/img/jugadores/hugo-rogelio-cuadillo-leon.webp"
 
@@ -2046,6 +2338,7 @@
   nombre: Jorge Uriel Cuadillo Ramon
   numero: 15
   posicion: "Delantero"
+  edad: 24
   equipo_id: betis-carto
   foto: "/img/jugadores/jorge-uriel-cuadillo-ramon.webp"
 
@@ -2053,6 +2346,7 @@
   nombre: Josue Diaz Garcia
   numero: 12
   posicion: "Delantero"
+  edad: 25
   equipo_id: betis-carto
   foto: "/img/jugadores/josue-diaz-garcia.webp"
 
@@ -2060,6 +2354,7 @@
   nombre: Salvador Alejandro Frias Quintana
   numero: 8
   posicion: "Medio"
+  edad: 25
   equipo_id: betis-carto
   foto: "/img/jugadores/salvador-alejandro-frias-quintana.webp"
 
@@ -2067,6 +2362,7 @@
   nombre: Pereira Gabriel Orozco
   numero: 27
   posicion: "Medio"
+  edad: 32
   equipo_id: betis-carto
   foto: "/img/jugadores/pereira-gabriel-orozco.webp"
 
@@ -2074,6 +2370,7 @@
   nombre: Eduardo Jair Garcia Roman
   numero: 6
   posicion: "Defensa"
+  edad: 32
   equipo_id: betis-carto
   foto: "/img/jugadores/eduardo-jair-garcia-roman.webp"
 
@@ -2081,6 +2378,7 @@
   nombre: Ignacio Emmanuel Hernandez Garcia
   numero: 11
   posicion: "Medio"
+  edad: 27
   equipo_id: betis-carto
   foto: "/img/jugadores/ignacio-emmanuel-hernandez-garcia.webp"
 
@@ -2088,6 +2386,7 @@
   nombre: Caudillo Vargas Hugo Jaret
   numero: 16
   posicion: "Medio"
+  edad: 18
   equipo_id: betis-carto
   foto: "/img/jugadores/caudillo-vargas-hugo-jaret.webp"
 
@@ -2095,6 +2394,7 @@
   nombre: Garcia Jairo Barajas
   numero: 24
   posicion: "Delantero"
+  edad: 30
   equipo_id: betis-carto
   foto: "/img/jugadores/garcia-jairo-barajas.webp"
 
@@ -2102,6 +2402,7 @@
   nombre: Hector de Jesus Jasso Primero
   numero: 4
   posicion: "Defensa"
+  edad: 25
   equipo_id: betis-carto
   foto: "/img/jugadores/hector-de-jesus-jasso-primero.webp"
 
@@ -2109,6 +2410,7 @@
   nombre: Sergio León Caudillo
   numero: 14
   posicion: "Defensa"
+  edad: 35
   equipo_id: betis-carto
   foto: "/img/jugadores/sergio-leon-caudillo.webp"
 
@@ -2116,6 +2418,7 @@
   nombre: Espinoza Ramirez Michel Eddair
   numero: 2
   posicion: "Defensa"
+  edad: 29
   equipo_id: betis-carto
   foto: "/img/jugadores/espinoza-ramirez-michel-eddair.webp"
 
@@ -2123,6 +2426,7 @@
   nombre: Jaime Javier Nuñez Leon
   numero: 5
   posicion: "Defensa"
+  edad: 36
   equipo_id: betis-carto
   foto: "/img/jugadores/jaime-javier-nunez-leon.webp"
 
@@ -2130,6 +2434,7 @@
   nombre: Juan Angel Perez Garcia
   numero: 22
   posicion: "Delantero"
+  edad: 23
   equipo_id: betis-carto
   foto: "/img/jugadores/juan-angel-perez-garcia.webp"
 
@@ -2137,6 +2442,7 @@
   nombre: Irvin Uriel Rodriguez Robles
   numero: 25
   posicion: "Delantero"
+  edad: 26
   equipo_id: betis-carto
   foto: "/img/jugadores/irvin-uriel-rodriguez-robles.webp"
 
@@ -2144,6 +2450,7 @@
   nombre: Rodolfo Sandoval Buendia
   numero: 3
   posicion: "Defensa"
+  edad: 36
   equipo_id: betis-carto
   foto: "/img/jugadores/rodolfo-sandoval-buendia.webp"
 
@@ -2151,6 +2458,7 @@
   nombre: Cesar Osvaldo Valencia Santos
   numero: 30
   posicion: "Portero"
+  edad: 31
   equipo_id: betis-carto
   foto: "/img/jugadores/cesar-osvaldo-valencia-santos.webp"
 
@@ -2158,6 +2466,7 @@
   nombre: Cesar Adrian Villegas Resendiz
   numero: 29
   posicion: "Defensa"
+  edad: 41
   equipo_id: betis-carto
   foto: "/img/jugadores/cesar-adrian-villegas-resendiz.webp"
 
@@ -2165,6 +2474,7 @@
   nombre: Gustavo Arana Gomez
   numero: 6
   posicion: "Medio"
+  edad: 31
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/gustavo-arana-gomez.webp"
 
@@ -2172,6 +2482,7 @@
   nombre: Ulises Avendaño Rosas
   numero: 11
   posicion: "Medio"
+  edad: 28
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/ulises-avendano-rosas.webp"
 
@@ -2179,6 +2490,7 @@
   nombre: Kevin Brian Barrera Villegas
   numero: 1
   posicion: "Portero"
+  edad: 24
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/kevin-brian-barrera-villegas.webp"
 
@@ -2186,6 +2498,7 @@
   nombre: Irvin Giovanni Bautista Leon
   numero: 3
   posicion: "Defensa"
+  edad: 27
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/irvin-giovanni-bautista-leon.webp"
 
@@ -2193,6 +2506,7 @@
   nombre: José Alfredo Chora Salcedo
   numero: 420
   posicion: "Delantero"
+  edad: 26
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/jose-alfredo-chora-salcedo.webp"
 
@@ -2200,6 +2514,7 @@
   nombre: Oscar Alexander Córdova Gomez
   numero: 21
   posicion: "Defensa"
+  edad: 20
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/oscar-alexander-cordova-gomez.webp"
 
@@ -2207,6 +2522,7 @@
   nombre: Diego Cruz Cruz
   numero: 17
   posicion: "Medio"
+  edad: 19
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/diego-cruz-cruz.webp"
 
@@ -2214,6 +2530,7 @@
   nombre: Miguel Angel de la Luz Lora
   numero: 2
   posicion: "Defensa"
+  edad: 23
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/miguel-angel-de-la-luz-lora.webp"
 
@@ -2221,6 +2538,7 @@
   nombre: David Estrada Benitez
   numero: 22
   posicion: "Portero"
+  edad: 35
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/david-estrada-benitez.webp"
 
@@ -2228,6 +2546,7 @@
   nombre: Jesus Estrada Gonzalez
   numero: 18
   posicion: "Defensa"
+  edad: 30
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/jesus-estrada-gonzalez.webp"
 
@@ -2235,6 +2554,7 @@
   nombre: José Manuel García Malagon
   numero: 25
   posicion: "Medio"
+  edad: 32
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/jose-manuel-garcia-malagon.webp"
 
@@ -2242,6 +2562,7 @@
   nombre: Brandon Alberto González Montoya
   numero: 4
   posicion: "Defensa"
+  edad: 26
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/brandon-alberto-gonzalez-montoya.webp"
 
@@ -2249,6 +2570,7 @@
   nombre: Daniel Gutierrez Sanchez
   numero: 8
   posicion: "Medio"
+  edad: 31
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/daniel-gutierrez-sanchez.webp"
 
@@ -2256,6 +2578,7 @@
   nombre: Christian Luna Mendez
   numero: 26
   posicion: "Medio"
+  edad: 26
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/christian-luna-mendez.webp"
 
@@ -2263,6 +2586,7 @@
   nombre: Adrian Alejandro Mendoza Gonzalez
   numero: 22
   posicion: "Defensa"
+  edad: 27
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/adrian-alejandro-mendoza-gonzalez.webp"
 
@@ -2270,6 +2594,7 @@
   nombre: Jorge Mondragón Anguiano
   numero: 10
   posicion: "Medio"
+  edad: 30
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/jorge-mondragon-anguiano.webp"
 
@@ -2277,6 +2602,7 @@
   nombre: Edgar Daniel Nieto Ramirez
   numero: 5
   posicion: "Defensa"
+  edad: 34
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/edgar-daniel-nieto-ramirez.webp"
 
@@ -2284,6 +2610,7 @@
   nombre: Héctor Raul Ramirez Lopez
   numero: 20
   posicion: "Medio"
+  edad: 26
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/hector-raul-ramirez-lopez.webp"
 
@@ -2291,6 +2618,7 @@
   nombre: Misael Ramirez Tobon
   numero: 7
   posicion: "Delantero"
+  edad: 31
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/misael-ramirez-tobon.webp"
 
@@ -2298,6 +2626,7 @@
   nombre: José Alberto Rizo Chavez
   numero: 13
   posicion: "Medio"
+  edad: 28
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/jose-alberto-rizo-chavez.webp"
 
@@ -2305,6 +2634,7 @@
   nombre: Alejandro Rosales Rodríguez
   numero: 15
   posicion: "Defensa"
+  edad: 22
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/alejandro-rosales-rodriguez.webp"
 
@@ -2312,6 +2642,7 @@
   nombre: Victor Noe Salazar Pimentel
   numero: 16
   posicion: "Defensa"
+  edad: 39
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/victor-noe-salazar-pimentel.webp"
 
@@ -2319,6 +2650,7 @@
   nombre: Alberto Tirado Hernandez
   numero: 9
   posicion: "Delantero"
+  edad: 32
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/alberto-tirado-hernandez.webp"
 
@@ -2326,6 +2658,7 @@
   nombre: Irving Daniel Trejo Tovar
   numero: 14
   posicion: "Defensa"
+  edad: 35
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/irving-daniel-trejo-tovar.webp"
 
@@ -2333,6 +2666,7 @@
   nombre: Hugo Cesar Vargas Sanchez
   numero: 19
   posicion: "Medio"
+  edad: 25
   equipo_id: bosque-del-mamado
   foto: "/img/jugadores/hugo-cesar-vargas-sanchez.webp"
 
@@ -2340,6 +2674,7 @@
   nombre: Luis Enrique Amador Alanis
   numero: 20
   posicion: "Medio"
+  edad: 30
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/luis-enrique-amador-alanis.webp"
 
@@ -2347,6 +2682,7 @@
   nombre: Josua Badillo Martínez
   numero: 15
   posicion: "Medio"
+  edad: 30
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/josua-badillo-martinez.webp"
 
@@ -2354,6 +2690,7 @@
   nombre: Dairo de Jesus Berrio Blanquicett
   numero: 58
   posicion: "Medio"
+  edad: 27
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/dairo-de-jesus-berrio-blanquicett.webp"
 
@@ -2361,6 +2698,7 @@
   nombre: Gil Giovanni Buron Morales
   numero: 16
   posicion: "Defensa"
+  edad: 32
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/gil-giovanni-buron-morales.webp"
 
@@ -2368,6 +2706,7 @@
   nombre: Kevin Mauricio Cardona Gómez
   numero: 7
   posicion: "Medio"
+  edad: 26
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/kevin-mauricio-cardona-gomez.webp"
 
@@ -2375,6 +2714,7 @@
   nombre: Dennis Yaunel Casasola Martinez
   numero: 13
   posicion: "Medio"
+  edad: 21
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/dennis-yaunel-casasola-martinez.webp"
 
@@ -2382,6 +2722,7 @@
   nombre: José Daniel de Arco Paniagua
   numero: 11
   posicion: "Medio"
+  edad: 33
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/jose-daniel-de-arco-paniagua.webp"
 
@@ -2389,6 +2730,7 @@
   nombre: Alan Javier Dimas Flores
   numero: 17
   posicion: "Defensa"
+  edad: 19
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/alan-javier-dimas-flores.webp"
 
@@ -2396,6 +2738,7 @@
   nombre: Daniel Esau García Leos
   numero: 21
   posicion: "Delantero"
+  edad: 29
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/daniel-esau-garcia-leos.webp"
 
@@ -2403,6 +2746,7 @@
   nombre: Yosef Samuel Hernández Medina
   numero: 10
   posicion: "Medio"
+  edad: 27
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/yosef-samuel-hernandez-medina.webp"
 
@@ -2410,6 +2754,7 @@
   nombre: Daniel Alexis López Noriega
   numero: 8
   posicion: "Defensa"
+  edad: 31
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/daniel-alexis-lopez-noriega.webp"
 
@@ -2417,6 +2762,7 @@
   nombre: Francisco Abneer Manzano Álvarez
   numero: 22
   posicion: "Medio"
+  edad: 36
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/francisco-abneer-manzano-alvarez.webp"
 
@@ -2424,6 +2770,7 @@
   nombre: Juan Carlos Martos Moreno
   numero: 1
   posicion: "Portero"
+  edad: 38
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/juan-carlos-martos-moreno.webp"
 
@@ -2431,6 +2778,7 @@
   nombre: Humberto Merlos Jordan
   numero: 6
   posicion: "Defensa"
+  edad: 31
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/humberto-merlos-jordan.webp"
 
@@ -2438,6 +2786,7 @@
   nombre: Jhon Fredy Miranda Rada
   numero: 99
   posicion: "Delantero"
+  edad: 29
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/jhon-fredy-miranda-rada.webp"
 
@@ -2445,6 +2794,7 @@
   nombre: Christian Alexis Ortiz López
   numero: 14
   posicion: "Defensa"
+  edad: 25
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/christian-alexis-ortiz-lopez.webp"
 
@@ -2452,6 +2802,7 @@
   nombre: Obed Padilla Teran
   numero: 19
   posicion: "Delantero"
+  edad: 36
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/obed-padilla-teran.webp"
 
@@ -2459,6 +2810,7 @@
   nombre: Michel Jireh Pesqueda Anaya
   numero: 4
   posicion: "Defensa"
+  edad: 30
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/michel-jireh-pesqueda-anaya.webp"
 
@@ -2466,6 +2818,7 @@
   nombre: Jose León Rosas Rodríguez
   numero: 9
   posicion: "Delantero"
+  edad: 28
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/jose-leon-rosas-rodriguez.webp"
 
@@ -2473,6 +2826,7 @@
   nombre: Luis Ernesto Tabarez Hernández
   numero: 18
   posicion: "Defensa"
+  edad: 38
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/luis-ernesto-tabarez-hernandez.webp"
 
@@ -2480,6 +2834,7 @@
   nombre: Saldaña Tonatiuh Mejía
   numero: 27
   posicion: "Defensa"
+  edad: 27
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/saldana-tonatiuh-mejia.webp"
 
@@ -2487,6 +2842,7 @@
   nombre: Diego Verde Solis
   numero: 23
   posicion: "Delantero"
+  edad: 26
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/diego-verde-solis.webp"
 
@@ -2494,6 +2850,7 @@
   nombre: Axel Fernando Villagran Coria
   numero: 12
   posicion: "Defensa"
+  edad: 32
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/axel-fernando-villagran-coria.webp"
 
@@ -2501,6 +2858,7 @@
   nombre: Adrian Zuñiga Medina
   numero: 29
   posicion: "Medio"
+  edad: 26
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/adrian-zuniga-medina.webp"
 
@@ -2508,6 +2866,7 @@
   nombre: Victor Manuel Zuñiga Medina
   numero: 2
   posicion: "Defensa"
+  edad: 30
   equipo_id: juventus-naucalpan
   foto: "/img/jugadores/victor-manuel-zuniga-medina.webp"
 
@@ -2515,6 +2874,7 @@
   nombre: Arturo Aldair Calixto Mendoza
   numero: 1
   posicion: "Portero"
+  edad: 21
   equipo_id: union-america
   foto: "/img/jugadores/arturo-aldair-calixto-mendoza.webp"
 
@@ -2522,6 +2882,7 @@
   nombre: Brayan Antonio Castañeda Campos
   numero: 22
   posicion: "Medio"
+  edad: 29
   equipo_id: union-america
   foto: "/img/jugadores/brayan-antonio-castaneda-campos.webp"
 
@@ -2529,6 +2890,7 @@
   nombre: Emmanuel Cuadros Hernandez
   numero: 3
   posicion: "Defensa"
+  edad: 28
   equipo_id: union-america
   foto: "/img/jugadores/emmanuel-cuadros-hernandez.webp"
 
@@ -2536,6 +2898,7 @@
   nombre: Alfonso Garcia Correa
   numero: 9
   posicion: "Delantero"
+  edad: 34
   equipo_id: union-america
   foto: "/img/jugadores/alfonso-garcia-correa.webp"
 
@@ -2543,6 +2906,7 @@
   nombre: Luis Alberto Garcia Patiño
   numero: 8
   posicion: "Medio"
+  edad: 41
   equipo_id: union-america
   foto: "/img/jugadores/luis-alberto-garcia-patino.webp"
 
@@ -2550,6 +2914,7 @@
   nombre: Francisco Javier Gomez Lozano
   numero: 17
   posicion: "Defensa"
+  edad: 38
   equipo_id: union-america
   foto: "/img/jugadores/francisco-javier-gomez-lozano.webp"
 
@@ -2557,6 +2922,7 @@
   nombre: Edwin Gomez Martinez
   numero: 11
   posicion: "Delantero"
+  edad: 32
   equipo_id: union-america
   foto: "/img/jugadores/edwin-gomez-martinez.webp"
 
@@ -2564,6 +2930,7 @@
   nombre: Miguel Angel Gonzalez Rivera
   numero: 23
   posicion: "Delantero"
+  edad: 40
   equipo_id: union-america
   foto: "/img/jugadores/miguel-angel-gonzalez-rivera.webp"
 
@@ -2571,6 +2938,7 @@
   nombre: Yamil Ayrton Granados Bernal
   numero: 20
   posicion: "Defensa"
+  edad: 37
   equipo_id: union-america
   foto: "/img/jugadores/yamil-ayrton-granados-bernal.webp"
 
@@ -2578,6 +2946,7 @@
   nombre: Jose Antonio Herrera Gonzalez
   numero: 30
   posicion: "Portero"
+  edad: 41
   equipo_id: union-america
   foto: "/img/jugadores/jose-antonio-herrera-gonzalez.webp"
 
@@ -2585,6 +2954,7 @@
   nombre: Luis Manuel Jimenez Gil
   numero: 19
   posicion: "Defensa"
+  edad: 31
   equipo_id: union-america
   foto: "/img/jugadores/luis-manuel-jimenez-gil.webp"
 
@@ -2592,6 +2962,7 @@
   nombre: Alejandro Lopez Garcia
   numero: 13
   posicion: "Medio"
+  edad: 23
   equipo_id: union-america
   foto: "/img/jugadores/alejandro-lopez-garcia.webp"
 
@@ -2599,6 +2970,7 @@
   nombre: Alfredo Lopez Ortiz
   numero: 18
   posicion: "Medio"
+  edad: 25
   equipo_id: union-america
   foto: "/img/jugadores/alfredo-lopez-ortiz.webp"
 
@@ -2606,6 +2978,7 @@
   nombre: Iñaqui Jeancarlo Martinez Leon
   numero: 7
   posicion: "Medio"
+  edad: 17
   equipo_id: union-america
   foto: "/img/jugadores/inaqui-jeancarlo-martinez-leon.webp"
 
@@ -2613,6 +2986,7 @@
   nombre: Miguel Angel Pino Garcia
   numero: 16
   posicion: "Delantero"
+  edad: 44
   equipo_id: union-america
   foto: "/img/jugadores/miguel-angel-pino-garcia.webp"
 
@@ -2620,6 +2994,7 @@
   nombre: Rodrigo Yair Rocha Ramirez
   numero: 5
   posicion: "Medio"
+  edad: 27
   equipo_id: union-america
   foto: "/img/jugadores/rodrigo-yair-rocha-ramirez.webp"
 
@@ -2627,6 +3002,7 @@
   nombre: Israel Ivan Salinas Mejia
   numero: 14
   posicion: "Medio"
+  edad: 33
   equipo_id: union-america
   foto: "/img/jugadores/israel-ivan-salinas-mejia.webp"
 
@@ -2634,6 +3010,7 @@
   nombre: Ruben Yovani Sanchez Ruedas
   numero: 4
   posicion: "Defensa"
+  edad: 43
   equipo_id: union-america
   foto: "/img/jugadores/ruben-yovani-sanchez-ruedas.webp"
 
@@ -2641,6 +3018,7 @@
   nombre: Alexis Adan Silva Muro
   numero: 15
   posicion: "Medio"
+  edad: 32
   equipo_id: union-america
   foto: "/img/jugadores/alexis-adan-silva-muro.webp"
 
@@ -2648,6 +3026,7 @@
   nombre: Jose Ramon Torres Espinosa
   numero: 6
   posicion: "Medio"
+  edad: 29
   equipo_id: union-america
   foto: "/img/jugadores/jose-ramon-torres-espinosa.webp"
 
@@ -2655,6 +3034,7 @@
   nombre: Javier Velazquez Murillo
   numero: 21
   posicion: "Medio"
+  edad: 22
   equipo_id: union-america
   foto: "/img/jugadores/javier-velazquez-murillo.webp"
 
@@ -2662,6 +3042,7 @@
   nombre: De Alba Karlos Xavier Witrado Gaspar
   numero: 12
   posicion: "Defensa"
+  edad: 42
   equipo_id: union-america
   foto: "/img/jugadores/de-alba-karlos-xavier-witrado-gaspar.webp"
 
@@ -2669,6 +3050,7 @@
   nombre: Jared Alfonso Avila Resendiz
   numero: 7
   posicion: "Delantero"
+  edad: 21
   equipo_id: flamengo
   foto: "/img/jugadores/jared-alfonso-avila-resendiz.webp"
 
@@ -2676,6 +3058,7 @@
   nombre: Edson Cibrian Escobar
   numero: 9
   posicion: "Delantero"
+  edad: 25
   equipo_id: flamengo
   foto: "/img/jugadores/edson-cibrian-escobar.webp"
 
@@ -2683,6 +3066,7 @@
   nombre: Gael Escobar Barrera
   numero: 15
   posicion: "Medio"
+  edad: 22
   equipo_id: flamengo
   foto: "/img/jugadores/gael-escobar-barrera.webp"
 
@@ -2690,6 +3074,7 @@
   nombre: Bryan Humberto Farelas Cruz
   numero: 14
   posicion: "Delantero"
+  edad: 29
   equipo_id: flamengo
   foto: "/img/jugadores/bryan-humberto-farelas-cruz.webp"
 
@@ -2697,6 +3082,7 @@
   nombre: Jose Antonio Galindo Hernandez
   numero: 24
   posicion: "Medio"
+  edad: 32
   equipo_id: flamengo
   foto: "/img/jugadores/jose-antonio-galindo-hernandez.webp"
 
@@ -2704,6 +3090,7 @@
   nombre: Alan Isay Garcia Garcia
   numero: 6
   posicion: "Medio"
+  edad: 21
   equipo_id: flamengo
   foto: "/img/jugadores/alan-isay-garcia-garcia.webp"
 
@@ -2711,6 +3098,7 @@
   nombre: Diego Gonzalez Lopez
   numero: 28
   posicion: "Portero"
+  edad: 22
   equipo_id: flamengo
   foto: "/img/jugadores/diego-gonzalez-lopez.webp"
 
@@ -2718,6 +3106,7 @@
   nombre: Emmanuel de Jesus Gonzalez Perez
   numero: 11
   posicion: "Defensa"
+  edad: 33
   equipo_id: flamengo
   foto: "/img/jugadores/emmanuel-de-jesus-gonzalez-perez.webp"
 
@@ -2725,6 +3114,7 @@
   nombre: Alfredo Juárez Delgado
   numero: 99
   posicion: "Defensa"
+  edad: 26
   equipo_id: flamengo
   foto: "/img/jugadores/alfredo-juarez-delgado.webp"
 
@@ -2732,6 +3122,7 @@
   nombre: Eduardo Aldair Mayen Piña
   numero: 16
   posicion: "Medio"
+  edad: 23
   equipo_id: flamengo
   foto: "/img/jugadores/eduardo-aldair-mayen-pina.webp"
 
@@ -2739,6 +3130,7 @@
   nombre: Eder Gael Miranda Rodriguez
   numero: 22
   posicion: "Delantero"
+  edad: 21
   equipo_id: flamengo
   foto: "/img/jugadores/eder-gael-miranda-rodriguez.webp"
 
@@ -2746,6 +3138,7 @@
   nombre: Alejandro Montoya Ruiz
   numero: 17
   posicion: "Delantero"
+  edad: 24
   equipo_id: flamengo
   foto: "/img/jugadores/alejandro-montoya-ruiz.webp"
 
@@ -2753,6 +3146,7 @@
   nombre: Fabian Ortega Sanchez
   numero: 25
   posicion: "Delantero"
+  edad: 34
   equipo_id: flamengo
   foto: "/img/jugadores/fabian-ortega-sanchez.webp"
 
@@ -2760,6 +3154,7 @@
   nombre: Andres Pabana Guerrero
   numero: 8
   posicion: "Medio"
+  edad: 25
   equipo_id: flamengo
   foto: "/img/jugadores/andres-pabana-guerrero.webp"
 
@@ -2767,6 +3162,7 @@
   nombre: Martin Guadalupe Perez Solis
   numero: 31
   posicion: "Portero"
+  edad: 28
   equipo_id: flamengo
   foto: "/img/jugadores/martin-guadalupe-perez-solis.webp"
 
@@ -2774,6 +3170,7 @@
   nombre: Carlos Alberto Reza Trujano
   numero: 13
   posicion: "Medio"
+  edad: 21
   equipo_id: flamengo
   foto: "/img/jugadores/carlos-alberto-reza-trujano.webp"
 
@@ -2781,6 +3178,7 @@
   nombre: Johan de Jesus Romero Corona
   numero: 27
   posicion: "Delantero"
+  edad: 28
   equipo_id: flamengo
   foto: "/img/jugadores/johan-de-jesus-romero-corona.webp"
 
@@ -2788,6 +3186,7 @@
   nombre: Cesar Salazar Olivares
   numero: 26
   posicion: "Defensa"
+  edad: 33
   equipo_id: flamengo
   foto: "/img/jugadores/cesar-salazar-olivares.webp"
 
@@ -2795,6 +3194,7 @@
   nombre: Jesus Antonio Sandoval Hernandez
   numero: 5
   posicion: "Defensa"
+  edad: 27
   equipo_id: flamengo
   foto: "/img/jugadores/jesus-antonio-sandoval-hernandez.webp"
 
@@ -2802,6 +3202,7 @@
   nombre: Giovanny Santiago Flores
   numero: 10
   posicion: "Medio"
+  edad: 34
   equipo_id: flamengo
   foto: "/img/jugadores/giovanny-santiago-flores.webp"
 
@@ -2809,6 +3210,7 @@
   nombre: Ricardo Tellez Cruz
   numero: 20
   posicion: "Delantero"
+  edad: 33
   equipo_id: flamengo
   foto: "/img/jugadores/ricardo-tellez-cruz.webp"
 
@@ -2816,6 +3218,7 @@
   nombre: Josette Alonso Vargas Cruz
   numero: 40
   posicion: "Defensa"
+  edad: 33
   equipo_id: flamengo
   foto: "/img/jugadores/josette-alonso-vargas-cruz.webp"
 
@@ -2823,6 +3226,7 @@
   nombre: David Vega Davila
   numero: 12
   posicion: "Medio"
+  edad: 29
   equipo_id: flamengo
   foto: "/img/jugadores/david-vega-davila.webp"
 
@@ -2830,6 +3234,7 @@
   nombre: Edgar Jesus Vera Carranza
   numero: 21
   posicion: "Defensa"
+  edad: 28
   equipo_id: flamengo
   foto: "/img/jugadores/edgar-jesus-vera-carranza.webp"
 
@@ -2837,6 +3242,7 @@
   nombre: Fernando Arzate Vélez
   numero: 2
   posicion: "Portero"
+  edad: 33
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/fernando-arzate-velez.webp"
 
@@ -2844,6 +3250,7 @@
   nombre: Jonathan Kevin Barrientos Ávila
   numero: 9
   posicion: "Delantero"
+  edad: 27
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/jonathan-kevin-barrientos-avila.webp"
 
@@ -2851,6 +3258,7 @@
   nombre: José Armando Carrillo Trejo
   numero: 6
   posicion: "Defensa"
+  edad: 38
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/jose-armando-carrillo-trejo.webp"
 
@@ -2858,6 +3266,7 @@
   nombre: Michelle Arturo Castro Galindo
   numero: 25
   posicion: "Medio"
+  edad: 37
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/michelle-arturo-castro-galindo.webp"
 
@@ -2865,6 +3274,7 @@
   nombre: Víctor Antonio Chávez Martínez
   numero: 13
   posicion: "Delantero"
+  edad: 36
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/victor-antonio-chavez-martinez.webp"
 
@@ -2872,6 +3282,7 @@
   nombre: Geovanni Cortes Ramirez
   numero: 12
   posicion: "Medio"
+  edad: 23
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/geovanni-cortes-ramirez.webp"
 
@@ -2879,6 +3290,7 @@
   nombre: Ahiram Abisai Díaz Mixtega
   numero: 21
   posicion: "Medio"
+  edad: 23
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/ahiram-abisai-diaz-mixtega.webp"
 
@@ -2886,6 +3298,7 @@
   nombre: Alexis Javier Gutierrez Mora
   numero: 18
   posicion: "Delantero"
+  edad: 21
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/alexis-javier-gutierrez-mora.webp"
 
@@ -2893,6 +3306,7 @@
   nombre: Andrés Hernández Barrientos
   numero: 10
   posicion: "Medio"
+  edad: 25
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/andres-hernandez-barrientos.webp"
 
@@ -2900,6 +3314,7 @@
   nombre: José Octavio Landeros Hernández
   numero: 4
   posicion: "Defensa"
+  edad: 51
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/jose-octavio-landeros-hernandez.webp"
 
@@ -2907,6 +3322,7 @@
   nombre: Salvador Lara
   numero: 17
   posicion: "Delantero"
+  edad: 40
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/salvador-lara.webp"
 
@@ -2914,6 +3330,7 @@
   nombre: Edwin Giovanni Martinez Jacome
   numero: 8
   posicion: "Medio"
+  edad: 21
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/edwin-giovanni-martinez-jacome.webp"
 
@@ -2921,6 +3338,7 @@
   nombre: Edher Martinez Morales
   numero: 11
   posicion: "Medio"
+  edad: 21
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/edher-martinez-morales.webp"
 
@@ -2928,6 +3346,7 @@
   nombre: Daniel Alejandro Mendoza Domínguez
   numero: 5
   posicion: "Defensa"
+  edad: 27
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/daniel-alejandro-mendoza-dominguez.webp"
 
@@ -2935,6 +3354,7 @@
   nombre: Eduardo Pineda Villa
   numero: 20
   posicion: "Medio"
+  edad: 36
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/eduardo-pineda-villa.webp"
 
@@ -2942,6 +3362,7 @@
   nombre: Gerardo Daniel Ramírez Moreno
   numero: 1
   posicion: "Portero"
+  edad: 33
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/gerardo-daniel-ramirez-moreno.webp"
 
@@ -2949,6 +3370,7 @@
   nombre: Irving Alejandro Rincón Granados
   numero: 16
   posicion: "Delantero"
+  edad: 26
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/irving-alejandro-rincon-granados.webp"
 
@@ -2956,6 +3378,7 @@
   nombre: Jair Rodríguez López
   numero: 23
   posicion: "Medio"
+  edad: 25
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/jair-rodriguez-lopez.webp"
 
@@ -2963,6 +3386,7 @@
   nombre: Luis Angel Rosales Hernández
   numero: 3
   posicion: "Defensa"
+  edad: 29
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/luis-angel-rosales-hernandez.webp"
 
@@ -2970,6 +3394,7 @@
   nombre: Diego Ricardo Santiago Guadarrama
   numero: 19
   posicion: "Defensa"
+  edad: 25
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/diego-ricardo-santiago-guadarrama.webp"
 
@@ -2977,6 +3402,7 @@
   nombre: Eder Silva Muro
   numero: 15
   posicion: "Defensa"
+  edad: 26
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/eder-silva-muro.webp"
 
@@ -2984,6 +3410,7 @@
   nombre: Gerson Suarez Sánchez
   numero: 14
   posicion: "Defensa"
+  edad: 22
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/gerson-suarez-sanchez.webp"
 
@@ -2991,6 +3418,7 @@
   nombre: Carlos Alberto Valdez Guerrero
   numero: 24
   posicion: "Defensa"
+  edad: 37
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/carlos-alberto-valdez-guerrero.webp"
 
@@ -2998,6 +3426,7 @@
   nombre: Geovanni Valencia Flores
   numero: 22
   posicion: "Delantero"
+  edad: 21
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/geovanni-valencia-flores.webp"
 
@@ -3005,6 +3434,7 @@
   nombre: Sebastian Yáñez Reyes
   numero: 7
   posicion: "Medio"
+  edad: 26
   equipo_id: lobos-tlihuaca
   foto: "/img/jugadores/sebastian-yanez-reyes.webp"
 
@@ -3012,6 +3442,7 @@
   nombre: Emiliano Rodrigo Acosta Martínez
   numero: 12
   posicion: "Defensa"
+  edad: 22
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/emiliano-rodrigo-acosta-martinez.webp"
 
@@ -3019,6 +3450,7 @@
   nombre: Ivan Antonio Arias
   numero: 77
   posicion: "Defensa"
+  edad: 31
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/ivan-antonio-arias.webp"
 
@@ -3026,6 +3458,7 @@
   nombre: Marco Daniel Baltazar Becerril
   numero: 29
   posicion: "Defensa"
+  edad: 28
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/marco-daniel-baltazar-becerril.webp"
 
@@ -3033,6 +3466,7 @@
   nombre: Felipe Ramon Bravo Moreno
   numero: 45
   posicion: "Medio"
+  edad: 28
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/felipe-ramon-bravo-moreno.webp"
 
@@ -3040,6 +3474,7 @@
   nombre: Andres Gerardo Carmona Gutierrez
   numero: 8
   posicion: "Medio"
+  edad: 28
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/andres-gerardo-carmona-gutierrez.webp"
 
@@ -3047,6 +3482,7 @@
   nombre: José Leonardo Carmona Gutiérrez
   numero: 14
   posicion: "Medio"
+  edad: 17
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/jose-leonardo-carmona-gutierrez.webp"
 
@@ -3054,6 +3490,7 @@
   nombre: Luis Fernando Cruz Nolasco
   numero: 69
   posicion: "Medio"
+  edad: 24
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/luis-fernando-cruz-nolasco.webp"
 
@@ -3061,6 +3498,7 @@
   nombre: Eduardo Espinoza Castillo
   numero: 7
   posicion: "Delantero"
+  edad: 23
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/eduardo-espinoza-castillo.webp"
 
@@ -3068,6 +3506,7 @@
   nombre: Luis Enrique Flores Delgado
   numero: 24
   posicion: "Medio"
+  edad: 16
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/luis-enrique-flores-delgado.webp"
 
@@ -3075,6 +3514,7 @@
   nombre: Israel Flores Rodriguez
   numero: 4
   posicion: "Medio"
+  edad: 32
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/israel-flores-rodriguez.webp"
 
@@ -3082,6 +3522,7 @@
   nombre: Angel German Gallardo Espinoza
   numero: 35
   posicion: "Delantero"
+  edad: 23
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/angel-german-gallardo-espinoza.webp"
 
@@ -3089,6 +3530,7 @@
   nombre: Dylan García Gallardo
   numero: 11
   posicion: "Medio"
+  edad: 17
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/dylan-garcia-gallardo.webp"
 
@@ -3096,6 +3538,7 @@
   nombre: Alan García González
   numero: 30
   posicion: "Medio"
+  edad: 23
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/alan-garcia-gonzalez.webp"
 
@@ -3103,6 +3546,7 @@
   nombre: Luis Fernando Garduño Cruz
   numero: 3
   posicion: "Medio"
+  edad: 31
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/luis-fernando-garduno-cruz.webp"
 
@@ -3110,6 +3554,7 @@
   nombre: Luis Yair Gutiérrez Cruz
   numero: 11
   posicion: "Medio"
+  edad: 30
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/luis-yair-gutierrez-cruz.webp"
 
@@ -3117,6 +3562,7 @@
   nombre: José Eduardo Hernández Aguilera
   numero: 15
   posicion: "Medio"
+  edad: 26
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/jose-eduardo-hernandez-aguilera.webp"
 
@@ -3124,6 +3570,7 @@
   nombre: Juan Daniel Hernandez Téllez
   numero: 17
   posicion: "Medio"
+  edad: 20
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/juan-daniel-hernandez-tellez.webp"
 
@@ -3131,6 +3578,7 @@
   nombre: Héctor Daniel Jiménez Arana
   numero: 22
   posicion: "Defensa"
+  edad: 28
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/hector-daniel-jimenez-arana.webp"
 
@@ -3138,6 +3586,7 @@
   nombre: Diego Lora Bernal
   numero: 2
   posicion: "Defensa"
+  edad: 32
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/diego-lora-bernal.webp"
 
@@ -3145,6 +3594,7 @@
   nombre: Sergio Melo Fabián
   numero: 9
   posicion: "Medio"
+  edad: 33
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/sergio-melo-fabian.webp"
 
@@ -3152,6 +3602,7 @@
   nombre: Edgar Josué Pérez Tellez
   numero: 25
   posicion: "Defensa"
+  edad: 30
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/edgar-josue-perez-tellez.webp"
 
@@ -3159,6 +3610,7 @@
   nombre: Cristian Joel Rodríguez Ángeles
   numero: 5
   posicion: "Defensa"
+  edad: 36
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/cristian-joel-rodriguez-angeles.webp"
 
@@ -3166,6 +3618,7 @@
   nombre: Edgar Eduardo Saavedra Perez
   numero: 19
   posicion: "Medio"
+  edad: 27
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/edgar-eduardo-saavedra-perez.webp"
 
@@ -3173,6 +3626,7 @@
   nombre: Cesar Arath Sandoval Lugo
   numero: 1
   posicion: "Portero"
+  edad: 29
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/cesar-arath-sandoval-lugo.webp"
 
@@ -3180,6 +3634,7 @@
   nombre: Víctor Manuel Trejo Rodriguez
   numero: 13
   posicion: "Medio"
+  edad: 34
   equipo_id: cahuacan-cv
   foto: "/img/jugadores/victor-manuel-trejo-rodriguez.webp"
 
@@ -3187,6 +3642,7 @@
   nombre: Kevin Aaron Agapito Gonzalez
   numero: 19
   posicion: "Medio"
+  edad: 19
   equipo_id: acepi
   foto: "/img/jugadores/kevin-aaron-agapito-gonzalez.webp"
 
@@ -3194,6 +3650,7 @@
   nombre: Juan Enrique Almazan Valdivia
   numero: 1
   posicion: "Portero"
+  edad: 34
   equipo_id: acepi
   foto: "/img/jugadores/juan-enrique-almazan-valdivia.webp"
 
@@ -3201,6 +3658,7 @@
   nombre: Jesus Basilio Rivera
   numero: 14
   posicion: "Medio"
+  edad: 18
   equipo_id: acepi
   foto: "/img/jugadores/jesus-basilio-rivera.webp"
 
@@ -3208,6 +3666,7 @@
   nombre: Cristo Fernando Cano Arzate
   numero: 3
   posicion: "Portero"
+  edad: 30
   equipo_id: acepi
   foto: "/img/jugadores/cristo-fernando-cano-arzate.webp"
 
@@ -3215,6 +3674,7 @@
   nombre: Alfredo Chavez Vargas
   numero: 8
   posicion: "Medio"
+  edad: 26
   equipo_id: acepi
   foto: "/img/jugadores/alfredo-chavez-vargas.webp"
 
@@ -3222,6 +3682,7 @@
   nombre: Gabriel de la Cruz Alvarez
   numero: 17
   posicion: "Medio"
+  edad: 21
   equipo_id: acepi
   foto: "/img/jugadores/gabriel-de-la-cruz-alvarez.webp"
 
@@ -3229,6 +3690,7 @@
   nombre: Javier Emmanuel Flores Valdez
   numero: 5
   posicion: "Medio"
+  edad: 25
   equipo_id: acepi
   foto: "/img/jugadores/javier-emmanuel-flores-valdez.webp"
 
@@ -3236,6 +3698,7 @@
   nombre: Jose Abraham Gallegos Tellez
   numero: 2
   posicion: "Defensa"
+  edad: 25
   equipo_id: acepi
   foto: "/img/jugadores/jose-abraham-gallegos-tellez.webp"
 
@@ -3243,6 +3706,7 @@
   nombre: Eder Yael Jarillo Rosas
   numero: 10
   posicion: "Delantero"
+  edad: 25
   equipo_id: acepi
   foto: "/img/jugadores/eder-yael-jarillo-rosas.webp"
 
@@ -3250,6 +3714,7 @@
   nombre: Gustavo Juarez Monroy
   numero: 6
   posicion: "Medio"
+  edad: 25
   equipo_id: acepi
   foto: "/img/jugadores/gustavo-juarez-monroy.webp"
 
@@ -3257,6 +3722,7 @@
   nombre: Alejandro Juarez Moroy
   numero: 18
   posicion: "Delantero"
+  edad: 20
   equipo_id: acepi
   foto: "/img/jugadores/alejandro-juarez-moroy.webp"
 
@@ -3264,6 +3730,7 @@
   nombre: Jaime Eduardo Martinez Martinez
   numero: 21
   posicion: "Defensa"
+  edad: 32
   equipo_id: acepi
   foto: "/img/jugadores/jaime-eduardo-martinez-martinez.webp"
 
@@ -3271,6 +3738,7 @@
   nombre: Oscar Ernesto Maya Vazquez
   numero: 20
   posicion: "Defensa"
+  edad: 32
   equipo_id: acepi
   foto: "/img/jugadores/oscar-ernesto-maya-vazquez.webp"
 
@@ -3278,6 +3746,7 @@
   nombre: Johan Medina Ramirez
   numero: 7
   posicion: "Delantero"
+  edad: 27
   equipo_id: acepi
   foto: "/img/jugadores/johan-medina-ramirez.webp"
 
@@ -3285,6 +3754,7 @@
   nombre: Luis Diego Ochoa Jaimez
   numero: 23
   posicion: "Defensa"
+  edad: 25
   equipo_id: acepi
   foto: "/img/jugadores/luis-diego-ochoa-jaimez.webp"
 
@@ -3292,6 +3762,7 @@
   nombre: Johanan Olade Paez
   numero: 4
   posicion: "Defensa"
+  edad: 36
   equipo_id: acepi
   foto: "/img/jugadores/johanan-olade-paez.webp"
 
@@ -3299,6 +3770,7 @@
   nombre: Mario Andoney Olvera Tellez
   numero: 11
   posicion: "Delantero"
+  edad: 22
   equipo_id: acepi
   foto: "/img/jugadores/mario-andoney-olvera-tellez.webp"
 
@@ -3306,6 +3778,7 @@
   nombre: Osvaldo Padilla Rodriguez
   numero: 13
   posicion: "Medio"
+  edad: 26
   equipo_id: acepi
   foto: "/img/jugadores/osvaldo-padilla-rodriguez.webp"
 
@@ -3313,6 +3786,7 @@
   nombre: Kevin Ramirez Escalona
   numero: 22
   posicion: "Medio"
+  edad: 26
   equipo_id: acepi
   foto: "/img/jugadores/kevin-ramirez-escalona.webp"
 
@@ -3320,6 +3794,7 @@
   nombre: José Refugio Ramírez Ramírez
   numero: 25
   posicion: "Delantero"
+  edad: 26
   equipo_id: acepi
   foto: "/img/jugadores/jose-refugio-ramirez-ramirez.webp"
 
@@ -3327,6 +3802,7 @@
   nombre: José Joel Rivera Hernández
   numero: 3
   posicion: "Defensa"
+  edad: 20
   equipo_id: acepi
   foto: "/img/jugadores/jose-joel-rivera-hernandez.webp"
 
@@ -3334,6 +3810,7 @@
   nombre: Jorge Azael Rodriguez Pelaez
   numero: 9
   posicion: "Delantero"
+  edad: 29
   equipo_id: acepi
   foto: "/img/jugadores/jorge-azael-rodriguez-pelaez.webp"
 
@@ -3341,6 +3818,7 @@
   nombre: Jose de Jesus Solis Reyes
   numero: 22
   posicion: "Defensa"
+  edad: 25
   equipo_id: acepi
   foto: "/img/jugadores/jose-de-jesus-solis-reyes.webp"
 
@@ -3348,6 +3826,7 @@
   nombre: Jesus Enrique Trejo Barrios
   numero: 12
   posicion: "Defensa"
+  edad: 22
   equipo_id: acepi
   foto: "/img/jugadores/jesus-enrique-trejo-barrios.webp"
 
@@ -3355,6 +3834,7 @@
   nombre: Luis Angel Villegas Garcia
   numero: 24
   posicion: "Delantero"
+  edad: 23
   equipo_id: acepi
   foto: "/img/jugadores/luis-angel-villegas-garcia.webp"
 
@@ -3362,6 +3842,7 @@
   nombre: Patricio Almazan Quijano
   numero: 3
   posicion: "Defensa"
+  edad: 37
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/patricio-almazan-quijano.webp"
 
@@ -3369,6 +3850,7 @@
   nombre: Jose Marcos Alvarez Vega
   numero: 25
   posicion: "Delantero"
+  edad: 26
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/jose-marcos-alvarez-vega.webp"
 
@@ -3376,6 +3858,7 @@
   nombre: Diego Atayde Castro
   numero: 26
   posicion: "Delantero"
+  edad: 20
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/diego-atayde-castro.webp"
 
@@ -3383,6 +3866,7 @@
   nombre: Franklin Steven Bermudez Caicedo
   numero: 127
   posicion: "Medio"
+  edad: 31
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/franklin-steven-bermudez-caicedo.webp"
 
@@ -3390,6 +3874,7 @@
   nombre: Brandon Alonso Calleja Sanchez
   numero: 24
   posicion: "Defensa"
+  edad: 27
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/brandon-alonso-calleja-sanchez.webp"
 
@@ -3397,6 +3882,7 @@
   nombre: Brandon Axel Chable Venegas
   numero: 11
   posicion: "Delantero"
+  edad: 26
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/brandon-axel-chable-venegas.webp"
 
@@ -3404,6 +3890,7 @@
   nombre: Juan Daniel del Angel Cruz
   numero: 5
   posicion: "Defensa"
+  edad: 28
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/juan-daniel-del-angel-cruz.webp"
 
@@ -3411,6 +3898,7 @@
   nombre: Soto Edwin Alvarez
   numero: 15
   posicion: "Portero"
+  edad: 15
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/soto-edwin-alvarez.webp"
 
@@ -3418,6 +3906,7 @@
   nombre: Jeremy Daniel Fermin Lopez
   numero: 0
   posicion: "Delantero"
+  edad: 18
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/jeremy-daniel-fermin-lopez.webp"
 
@@ -3425,6 +3914,7 @@
   nombre: Ernesto Gomez Ruedas
   numero: 28
   posicion: "Portero"
+  edad: 27
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/ernesto-gomez-ruedas.webp"
 
@@ -3432,6 +3922,7 @@
   nombre: Emmanuel Gonzalez Baez
   numero: 21
   posicion: "Medio"
+  edad: 18
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/emmanuel-gonzalez-baez.webp"
 
@@ -3439,6 +3930,7 @@
   nombre: Ulises Guerrero Osnaya
   numero: 6
   posicion: "Medio"
+  edad: 29
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/ulises-guerrero-osnaya.webp"
 
@@ -3446,6 +3938,7 @@
   nombre: Jonathan Hernandez Perez
   numero: 113
   posicion: "Medio"
+  edad: 33
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/jonathan-hernandez-perez.webp"
 
@@ -3453,6 +3946,7 @@
   nombre: Juan Jimenez Juan
   numero: 8
   posicion: "Medio"
+  edad: 30
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/juan-jimenez-juan.webp"
 
@@ -3460,6 +3954,7 @@
   nombre: Nicolas Mamondez Hector
   numero: 18
   posicion: "Medio"
+  edad: 26
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/nicolas-mamondez-hector.webp"
 
@@ -3467,6 +3962,7 @@
   nombre: Ismael Monrroy Flores
   numero: 17
   posicion: "Defensa"
+  edad: 30
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/ismael-monrroy-flores.webp"
 
@@ -3474,6 +3970,7 @@
   nombre: Juan Esteban Neira Rojas
   numero: 10
   posicion: "Delantero"
+  edad: 24
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/juan-esteban-neira-rojas.webp"
 
@@ -3481,6 +3978,7 @@
   nombre: Jose Armando Osnaya Marcos
   numero: 2
   posicion: "Defensa"
+  edad: 29
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/jose-armando-osnaya-marcos.webp"
 
@@ -3488,6 +3986,7 @@
   nombre: Damian Rodriguez Rogelio
   numero: 1
   posicion: "Portero"
+  edad: 18
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/damian-rodriguez-rogelio.webp"
 
@@ -3495,6 +3994,7 @@
   nombre: Jose Manuel Soto Ramos
   numero: 22
   posicion: "Defensa"
+  edad: 34
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/jose-manuel-soto-ramos.webp"
 
@@ -3502,6 +4002,7 @@
   nombre: Jimmy Thermilus
   numero: 14
   posicion: "Defensa"
+  edad: 31
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/jimmy-thermilus.webp"
 
@@ -3509,6 +4010,7 @@
   nombre: Brandon Steven Toro Chacon
   numero: 16
   posicion: "Delantero"
+  edad: 28
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/brandon-steven-toro-chacon.webp"
 
@@ -3516,6 +4018,7 @@
   nombre: Armando Trenado Blancas
   numero: 7
   posicion: "Delantero"
+  edad: 33
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/armando-trenado-blancas.webp"
 
@@ -3523,6 +4026,7 @@
   nombre: Juan Manuel Vega Monroy
   numero: 19
   posicion: "Defensa"
+  edad: 33
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/juan-manuel-vega-monroy.webp"
 
@@ -3530,6 +4034,7 @@
   nombre: Juan Sebastian Zamora Linares
   numero: 13
   posicion: "Medio"
+  edad: 25
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/juan-sebastian-zamora-linares.webp"
 
@@ -3537,6 +4042,7 @@
   nombre: Jose Ignacio Arzate Trejo
   numero: 21
   posicion: "Delantero"
+  edad: 28
   equipo_id: tigres-y
   foto: "/img/jugadores/jose-ignacio-arzate-trejo.webp"
 
@@ -3544,6 +4050,7 @@
   nombre: Erick Esau Barrera Chavez
   numero: 7
   posicion: "Medio"
+  edad: 25
   equipo_id: tigres-y
   foto: "/img/jugadores/erick-esau-barrera-chavez.webp"
 
@@ -3551,6 +4058,7 @@
   nombre: Daniel Bastida Sanchez
   numero: 19
   posicion: "Defensa"
+  edad: 29
   equipo_id: tigres-y
   foto: "/img/jugadores/daniel-bastida-sanchez.webp"
 
@@ -3558,6 +4066,7 @@
   nombre: Omar Basurto Reyes
   numero: 10
   posicion: "Delantero"
+  edad: 40
   equipo_id: tigres-y
   foto: "/img/jugadores/omar-basurto-reyes.webp"
 
@@ -3565,6 +4074,7 @@
   nombre: Francisco Javier Bermudez Cid
   numero: 8
   posicion: "Defensa"
+  edad: 34
   equipo_id: tigres-y
   foto: "/img/jugadores/francisco-javier-bermudez-cid.webp"
 
@@ -3572,6 +4082,7 @@
   nombre: Sean Yoshef Blancas Cruz
   numero: 14
   posicion: "Delantero"
+  edad: 16
   equipo_id: tigres-y
   foto: "/img/jugadores/sean-yoshef-blancas-cruz.webp"
 
@@ -3579,6 +4090,7 @@
   nombre: Cristian Blancas Sandoval
   numero: 28
   posicion: "Defensa"
+  edad: 25
   equipo_id: tigres-y
   foto: "/img/jugadores/cristian-blancas-sandoval.webp"
 
@@ -3586,6 +4098,7 @@
   nombre: Josseth Axel Chavez Flores
   numero: 17
   posicion: "Defensa"
+  edad: 19
   equipo_id: tigres-y
   foto: "/img/jugadores/josseth-axel-chavez-flores.webp"
 
@@ -3593,6 +4106,7 @@
   nombre: Angel Gabriel Chavez Franco
   numero: 9
   posicion: "Medio"
+  edad: 20
   equipo_id: tigres-y
   foto: "/img/jugadores/angel-gabriel-chavez-franco.webp"
 
@@ -3600,6 +4114,7 @@
   nombre: Alan Joel de la Luz Muñoz
   numero: 18
   posicion: "Medio"
+  edad: 19
   equipo_id: tigres-y
   foto: "/img/jugadores/alan-joel-de-la-luz-munoz.webp"
 
@@ -3607,6 +4122,7 @@
   nombre: Rodrigo Guzman Clorio
   numero: 50
   posicion: "Medio"
+  edad: 22
   equipo_id: tigres-y
   foto: "/img/jugadores/rodrigo-guzman-clorio.webp"
 
@@ -3614,6 +4130,7 @@
   nombre: Sebastian Jimenez Pineda
   numero: 22
   posicion: "Medio"
+  edad: 25
   equipo_id: tigres-y
   foto: "/img/jugadores/sebastian-jimenez-pineda.webp"
 
@@ -3621,6 +4138,7 @@
   nombre: Nolasco Cerritos Jorge Alejandro
   numero: 13
   posicion: "Defensa"
+  edad: 30
   equipo_id: tigres-y
   foto: "/img/jugadores/nolasco-cerritos-jorge-alejandro.webp"
 
@@ -3628,6 +4146,7 @@
   nombre: Alejandro Juarez Vilchis
   numero: 100
   posicion: "Delantero"
+  edad: 22
   equipo_id: tigres-y
   foto: "/img/jugadores/alejandro-juarez-vilchis.webp"
 
@@ -3635,6 +4154,7 @@
   nombre: Jose Alfredo Lopez Loaiza
   numero: 16
   posicion: "Medio"
+  edad: 24
   equipo_id: tigres-y
   foto: "/img/jugadores/jose-alfredo-lopez-loaiza.webp"
 
@@ -3642,6 +4162,7 @@
   nombre: Francisco Emiliano Lucas Fuentes
   numero: 5
   posicion: "Defensa"
+  edad: 24
   equipo_id: tigres-y
   foto: "/img/jugadores/francisco-emiliano-lucas-fuentes.webp"
 
@@ -3649,6 +4170,7 @@
   nombre: Martin Ulises Lugo Cervantes
   numero: 3
   posicion: "Defensa"
+  edad: 21
   equipo_id: tigres-y
   foto: "/img/jugadores/martin-ulises-lugo-cervantes.webp"
 
@@ -3656,6 +4178,7 @@
   nombre: David Eduardo Mares Camacho
   numero: 30
   posicion: "Medio"
+  edad: 22
   equipo_id: tigres-y
   foto: "/img/jugadores/david-eduardo-mares-camacho.webp"
 
@@ -3663,6 +4186,7 @@
   nombre: Carlos Pineda Vera
   numero: 35
   posicion: "Delantero"
+  edad: 24
   equipo_id: tigres-y
   foto: "/img/jugadores/carlos-pineda-vera.webp"
 
@@ -3670,6 +4194,7 @@
   nombre: Cristyan Javier Ramirez Arellano
   numero: 15
   posicion: "Medio"
+  edad: 19
   equipo_id: tigres-y
   foto: "/img/jugadores/cristyan-javier-ramirez-arellano.webp"
 
@@ -3677,6 +4202,7 @@
   nombre: Jose Luis Ramirez Arellano
   numero: 4
   posicion: "Defensa"
+  edad: 21
   equipo_id: tigres-y
   foto: "/img/jugadores/jose-luis-ramirez-arellano.webp"
 
@@ -3684,6 +4210,7 @@
   nombre: Jose Alexis Sanchez Sanchez
   numero: 20
   posicion: "Defensa"
+  edad: 22
   equipo_id: tigres-y
   foto: "/img/jugadores/jose-alexis-sanchez-sanchez.webp"
 
@@ -3691,6 +4218,7 @@
   nombre: Alan Rafael Solares Lopez
   numero: 6
   posicion: "Medio"
+  edad: 26
   equipo_id: tigres-y
   foto: "/img/jugadores/alan-rafael-solares-lopez.webp"
 
@@ -3698,6 +4226,7 @@
   nombre: Luis Torrijos Velarde
   numero: 37
   posicion: "Defensa"
+  edad: 22
   equipo_id: tigres-y
   foto: "/img/jugadores/luis-torrijos-velarde.webp"
 
@@ -3705,6 +4234,7 @@
   nombre: Abraham Velarde Velázquez
   numero: 1
   posicion: "Portero"
+  edad: 20
   equipo_id: tigres-y
   foto: "/img/jugadores/abraham-velarde-velazquez.webp"
 
@@ -3712,6 +4242,7 @@
   nombre: Reyes Sanchez Aaron Alejandro
   numero: 1
   posicion: "Portero"
+  edad: 25
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/reyes-sanchez-aaron-alejandro.webp"
 
@@ -3719,6 +4250,7 @@
   nombre: Gonzalez Armando Tavares
   numero: 13
   posicion: "Delantero"
+  edad: 35
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/gonzalez-armando-tavares.webp"
 
@@ -3726,6 +4258,7 @@
   nombre: Villa Leon Arturo Aaron
   numero: 21
   posicion: "Medio"
+  edad: 35
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/villa-leon-arturo-aaron.webp"
 
@@ -3733,6 +4266,7 @@
   nombre: Gallardo Nieves Brandon Eduardo
   numero: 31
   posicion: "Delantero"
+  edad: 23
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/gallardo-nieves-brandon-eduardo.webp"
 
@@ -3740,6 +4274,7 @@
   nombre: Carreño Martinez Diego Armando
   numero: 34
   posicion: "Medio"
+  edad: 21
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/carreno-martinez-diego-armando.webp"
 
@@ -3747,6 +4282,7 @@
   nombre: Salazar Sanchez Dylan Yael
   numero: 17
   posicion: "Medio"
+  edad: 18
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/salazar-sanchez-dylan-yael.webp"
 
@@ -3754,6 +4290,7 @@
   nombre: Ruiz Pascual Edgar Daniel
   numero: 15
   posicion: "Medio"
+  edad: 33
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/ruiz-pascual-edgar-daniel.webp"
 
@@ -3761,6 +4298,7 @@
   nombre: Jimenez Sanchez Jesus Brian
   numero: 10
   posicion: "Medio"
+  edad: 27
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/jimenez-sanchez-jesus-brian.webp"
 
@@ -3768,6 +4306,7 @@
   nombre: Sanchez Colin Jesus Uriel
   numero: 23
   posicion: "Medio"
+  edad: 34
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/sanchez-colin-jesus-uriel.webp"
 
@@ -3775,6 +4314,7 @@
   nombre: Cruz Joel Hernandez
   numero: 38
   posicion: "Defensa"
+  edad: 24
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/cruz-joel-hernandez.webp"
 
@@ -3782,6 +4322,7 @@
   nombre: Jimenez Trigueros Jose de Jesus
   numero: 7
   posicion: "Medio"
+  edad: 25
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/jimenez-trigueros-jose-de-jesus.webp"
 
@@ -3789,6 +4330,7 @@
   nombre: Rivera Alcantar Jose Francisco
   numero: 14
   posicion: "Defensa"
+  edad: 29
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/rivera-alcantar-jose-francisco.webp"
 
@@ -3796,6 +4338,7 @@
   nombre: Olvera Flores Jose Gustavo
   numero: 12
   posicion: "Medio"
+  edad: 35
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/olvera-flores-jose-gustavo.webp"
 
@@ -3803,6 +4346,7 @@
   nombre: Gallardo Arazo Juan Antonio
   numero: 45
   posicion: "Medio"
+  edad: 37
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/gallardo-arazo-juan-antonio.webp"
 
@@ -3810,6 +4354,7 @@
   nombre: Miranda Villanueva Juan Carlos
   numero: 3
   posicion: "Defensa"
+  edad: 30
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/miranda-villanueva-juan-carlos.webp"
 
@@ -3817,6 +4362,7 @@
   nombre: Ramirez Leon Leopoldo Ivan
   numero: 4
   posicion: "Medio"
+  edad: 36
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/ramirez-leon-leopoldo-ivan.webp"
 
@@ -3824,6 +4370,7 @@
   nombre: Muñoz Vazquez Luis Adolfo
   numero: 11
   posicion: "Delantero"
+  edad: 17
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/munoz-vazquez-luis-adolfo.webp"
 
@@ -3831,6 +4378,7 @@
   nombre: Rodriguez Medina Luis Fernando
   numero: 16
   posicion: "Defensa"
+  edad: 16
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/rodriguez-medina-luis-fernando.webp"
 
@@ -3838,6 +4386,7 @@
   nombre: Rios Diaz Pedro Antonio
   numero: 9
   posicion: "Medio"
+  edad: 24
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/rios-diaz-pedro-antonio.webp"
 
@@ -3845,6 +4394,7 @@
   nombre: Miranda Alvarado Raul Agustin
   numero: 27
   posicion: "Medio"
+  edad: 28
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/miranda-alvarado-raul-agustin.webp"
 
@@ -3852,6 +4402,7 @@
   nombre: Rodea Uriel Saenz
   numero: 24
   posicion: "Medio"
+  edad: 26
   equipo_id: real-madrid-san-juan-tlihuaca
   foto: "/img/jugadores/rodea-uriel-saenz.webp"
 
@@ -3859,6 +4410,7 @@
   nombre: Aaron Emmanuel Almazan Cruz
   numero: 7
   posicion: "Medio"
+  edad: 39
   equipo_id: atoleros
   foto: "/img/jugadores/aaron-emmanuel-almazan-cruz.webp"
 
@@ -3866,6 +4418,7 @@
   nombre: Jose Alfredo Becerril Blancas
   numero: 2
   posicion: "Defensa"
+  edad: 22
   equipo_id: atoleros
   foto: "/img/jugadores/jose-alfredo-becerril-blancas.webp"
 
@@ -3873,6 +4426,7 @@
   nombre: Gonzalo Becerril Sanchez
   numero: 8
   posicion: "Defensa"
+  edad: 33
   equipo_id: atoleros
   foto: "/img/jugadores/gonzalo-becerril-sanchez.webp"
 
@@ -3880,6 +4434,7 @@
   nombre: Carlos Chavez Chavez
   numero: 25
   posicion: "Medio"
+  edad: 29
   equipo_id: atoleros
   foto: "/img/jugadores/carlos-chavez-chavez.webp"
 
@@ -3887,6 +4442,7 @@
   nombre: Miguel Angel Gomez Fuentes
   numero: 19
   posicion: "Portero"
+  edad: 33
   equipo_id: atoleros
   foto: "/img/jugadores/miguel-angel-gomez-fuentes.webp"
 
@@ -3894,6 +4450,7 @@
   nombre: Jose Maria Gomez Martinez
   numero: 4
   posicion: "Medio"
+  edad: 29
   equipo_id: atoleros
   foto: "/img/jugadores/jose-maria-gomez-martinez.webp"
 
@@ -3901,6 +4458,7 @@
   nombre: Fernando Gomez Rodriguez
   numero: 12
   posicion: "Delantero"
+  edad: 30
   equipo_id: atoleros
   foto: "/img/jugadores/fernando-gomez-rodriguez.webp"
 
@@ -3908,6 +4466,7 @@
   nombre: Brayan Gonzalez Becerril
   numero: 14
   posicion: "Medio"
+  edad: 23
   equipo_id: atoleros
   foto: "/img/jugadores/brayan-gonzalez-becerril.webp"
 
@@ -3915,6 +4474,7 @@
   nombre: Arath Emiliano Gonzalez Rivas
   numero: 23
   posicion: "Defensa"
+  edad: 23
   equipo_id: atoleros
   foto: "/img/jugadores/arath-emiliano-gonzalez-rivas.webp"
 
@@ -3922,6 +4482,7 @@
   nombre: Andre Emiliano Gutierrez Gutierrez
   numero: 22
   posicion: "Medio"
+  edad: 21
   equipo_id: atoleros
   foto: "/img/jugadores/andre-emiliano-gutierrez-gutierrez.webp"
 
@@ -3929,6 +4490,7 @@
   nombre: Gabriel Hernandez Guerrero
   numero: 16
   posicion: "Defensa"
+  edad: 19
   equipo_id: atoleros
   foto: "/img/jugadores/gabriel-hernandez-guerrero.webp"
 
@@ -3936,6 +4498,7 @@
   nombre: Alejandro Meza Marmolejo
   numero: 15
   posicion: "Medio"
+  edad: 23
   equipo_id: atoleros
   foto: "/img/jugadores/alejandro-meza-marmolejo.webp"
 
@@ -3943,6 +4506,7 @@
   nombre: Marco Antonio Olalde Almazan
   numero: 18
   posicion: "Defensa"
+  edad: 35
   equipo_id: atoleros
   foto: "/img/jugadores/marco-antonio-olalde-almazan.webp"
 
@@ -3950,6 +4514,7 @@
   nombre: Angel Pacheco Zuñiga
   numero: 20
   posicion: "Delantero"
+  edad: 30
   equipo_id: atoleros
   foto: "/img/jugadores/angel-pacheco-zuniga.webp"
 
@@ -3957,6 +4522,7 @@
   nombre: Saul Parrales Garcia
   numero: 21
   posicion: "Medio"
+  edad: 20
   equipo_id: atoleros
   foto: "/img/jugadores/saul-parrales-garcia.webp"
 
@@ -3964,6 +4530,7 @@
   nombre: Jorge Luis Rivas Rodriguez
   numero: 13
   posicion: "Defensa"
+  edad: 29
   equipo_id: atoleros
   foto: "/img/jugadores/jorge-luis-rivas-rodriguez.webp"
 
@@ -3971,6 +4538,7 @@
   nombre: Jose Rodriguez Ramirez
   numero: 17
   posicion: "Defensa"
+  edad: 23
   equipo_id: atoleros
   foto: "/img/jugadores/jose-rodriguez-ramirez.webp"
 
@@ -3978,6 +4546,7 @@
   nombre: Edson Jesus Rodriguez Sosa
   numero: 9
   posicion: "Delantero"
+  edad: 16
   equipo_id: atoleros
   foto: "/img/jugadores/edson-jesus-rodriguez-sosa.webp"
 
@@ -3985,6 +4554,7 @@
   nombre: Marco Antonio Santillan Gomez
   numero: 5
   posicion: "Defensa"
+  edad: 33
   equipo_id: atoleros
   foto: "/img/jugadores/marco-antonio-santillan-gomez.webp"
 
@@ -3992,6 +4562,7 @@
   nombre: Sebastian Segundo Becerril
   numero: 11
   posicion: "Defensa"
+  edad: 21
   equipo_id: atoleros
   foto: "/img/jugadores/sebastian-segundo-becerril.webp"
 
@@ -3999,6 +4570,7 @@
   nombre: Eduardo Segundo Rivas
   numero: 28
   posicion: "Delantero"
+  edad: 32
   equipo_id: atoleros
   foto: "/img/jugadores/eduardo-segundo-rivas.webp"
 
@@ -4006,6 +4578,7 @@
   nombre: Edgar Trejo Cabrera
   numero: 1
   posicion: "Portero"
+  edad: 31
   equipo_id: atoleros
   foto: "/img/jugadores/edgar-trejo-cabrera.webp"
 
@@ -4013,6 +4586,7 @@
   nombre: Carlos Daniel Uribe Blancas
   numero: 6
   posicion: "Medio"
+  edad: 37
   equipo_id: atoleros
   foto: "/img/jugadores/carlos-daniel-uribe-blancas.webp"
 
@@ -4020,6 +4594,7 @@
   nombre: David Uribe Blancas
   numero: 26
   posicion: "Delantero"
+  edad: 34
   equipo_id: atoleros
   foto: "/img/jugadores/david-uribe-blancas.webp"
 
@@ -4027,5 +4602,6 @@
   nombre: Sinahi de Jesus Vega Reyes
   numero: 27
   posicion: "Medio"
+  edad: 23
   equipo_id: atoleros
   foto: "/img/jugadores/sinahi-de-jesus-vega-reyes.webp"

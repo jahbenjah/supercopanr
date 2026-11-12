@@ -3,6 +3,8 @@ import {
   calcularPosiciones,
   disciplina,
   erroresDePartido,
+  estadisticasCompetencia,
+  estadisticasPlantillas,
   goleadores,
   proximaFecha,
   ultimaFechaJugada,
@@ -139,5 +141,54 @@ describe('erroresDePartido', () => {
     const errores = erroresDePartido(p, equipoDe);
     expect(errores).toHaveLength(2);
     expect(errores[0]).toContain('c1');
+  });
+});
+
+describe('estadisticasPlantillas', () => {
+  const js = [
+    { id: 'x1', equipo_id: 'a', nombre: 'Xavi', edad: 17, posicion: 'Medio', numero: 10 },
+    { id: 'x2', equipo_id: 'a', nombre: 'Yago', edad: 30, posicion: 'Portero', numero: 1 },
+    { id: 'x3', equipo_id: 'b', nombre: 'Zoe', edad: 22, posicion: 'Medio', numero: 10 },
+    { id: 'x4', equipo_id: 'b', nombre: 'Abel', posicion: 'Defensa' },
+  ];
+  const s = estadisticasPlantillas(js, 2);
+
+  it('promedia y ordena por edad ignorando a quien no la tiene', () => {
+    expect(s.total).toBe(4);
+    expect(s.conEdad).toBe(3);
+    expect(s.promedioEdad).toBe(23);
+    expect(s.medianaEdad).toBe(22);
+    expect(s.menoresDeEdad).toBe(1);
+    expect(s.masJovenes.map((j) => j.id)).toEqual(['x1', 'x3']);
+    expect(s.veteranos.map((j) => j.id)).toEqual(['x2', 'x3']);
+  });
+
+  it('agrupa por rango, posición, equipo y dorsal', () => {
+    expect(s.rangos.find((r) => r.etiqueta === '17 o menos')?.jugadores).toBe(1);
+    expect(s.porPosicion.find((p) => p.posicion === 'Medio')).toEqual({ posicion: 'Medio', jugadores: 2, promedioEdad: 19.5 });
+    expect(s.porEquipo.map((e) => [e.equipo_id, e.promedioEdad])).toEqual([['b', 22], ['a', 23.5]]);
+    expect(s.dorsales[0]).toEqual({ numero: 10, jugadores: 2 });
+  });
+});
+
+describe('estadisticasCompetencia', () => {
+  it('sin partidos jugados no hay promedios', () => {
+    const c = estadisticasCompetencia([partido('a', 'b')], []);
+    expect(c).toMatchObject({ jugados: 0, programados: 1, goles: 0, golesPorPartido: null, masGoles: null });
+  });
+
+  it('cuenta goles, resultados, tarjetas y destaca partidos y equipos', () => {
+    const ps = [
+      partido('a', 'b', 3, 1, { tarjetas: [{ jugador_id: 'a1', tipo: 'amarilla' }, { jugador_id: 'b1', tipo: 'roja' }] }),
+      partido('b', 'c', 0, 0),
+      partido('a', 'c', 2, 4),
+    ];
+    const c = estadisticasCompetencia(ps, calcularPosiciones(equipos, ps, puntos));
+    expect(c).toMatchObject({ jugados: 3, goles: 10, victoriasLocal: 1, empates: 1, victoriasVisitante: 1, sinGoles: 1, amarillas: 1, rojas: 1 });
+    expect(c.golesPorPartido).toBeCloseTo(10 / 3);
+    expect(c.masGoles?.id).toBe(ps[2].id);
+    expect(c.mayorGoleada?.id).toBe(ps[0].id);
+    expect(c.mejorOfensiva?.equipo_id).toBe('a');
+    expect(c.mejorDefensa?.equipo_id).toBe('c');
   });
 });

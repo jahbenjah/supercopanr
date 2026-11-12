@@ -30,7 +30,7 @@ const stats = [['Goles', goles], ['Amarillas', disc?.amarillas ?? 0], ['Rojas', 
       <div>
         <TeamBadge equipo={e} conNombre size={24} class="text-white/90" />
         <h1 class="mt-1 text-4xl sm:text-5xl">{j.nombre}</h1>
-        <p class="text-white/80">{[j.posicion, j.numero != null && `#${j.numero}`].filter(Boolean).join(' · ')}</p>
+        <p class="text-white/80">{[j.posicion, j.numero != null && `#${j.numero}`, j.edad != null && `${j.edad} años`].filter(Boolean).join(' · ')}</p>
       </div>
     </div>
   </section>

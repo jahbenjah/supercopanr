@@ -1,14 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
 import Encabezado from '../components/Encabezado.astro';
+import EnlaceCompartir from '../components/EnlaceCompartir.astro';
 import TeamBadge from '../components/TeamBadge.astro';
 import SponsorSlot from '../components/SponsorSlot.astro';
 import { datos } from '../lib/datos';
 
 const d = await datos();
 ---
-<Base title="Goleadores" description={`Tabla de goleo de la ${d.torneo.nombre}.`}>
-  <Encabezado titulo="Goleadores" subtitulo="Tabla de goleo individual." />
+<Base title="Goleadores" description={`Tabla de goleo de la ${d.torneo.nombre}.`} image="/compartir/og-goleadores.png">
+  <Encabezado titulo="Goleadores" subtitulo="Tabla de goleo individual.">
+    <EnlaceCompartir seccion="goleadores" />
+  </Encabezado>
   <div class="contenedor py-8">
     <div class="tarjeta overflow-x-auto">
       <table class="tabla">

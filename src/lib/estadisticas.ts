@@ -256,3 +256,102 @@ export function erroresDePartido(p: PartidoBase, equipoDeJugador: Map<string, st
   }
   return errores;
 }
+
+// ── Estadísticas de plantillas y de la competencia ───────────────────────────
+
+export interface JugadorPlantilla extends JugadorBase {
+  edad?: number;
+  posicion?: string;
+  numero?: number;
+}
+
+const promedio = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null);
+function mediana(xs: number[]) {
+  if (!xs.length) return null;
+  const s = [...xs].sort((a, b) => a - b);
+  const m = Math.floor(s.length / 2);
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+}
+
+export const RANGOS_EDAD = [
+  { etiqueta: '17 o menos', desde: 0, hasta: 17 },
+  { etiqueta: '18–20', desde: 18, hasta: 20 },
+  { etiqueta: '21–24', desde: 21, hasta: 24 },
+  { etiqueta: '25–29', desde: 25, hasta: 29 },
+  { etiqueta: '30–34', desde: 30, hasta: 34 },
+  { etiqueta: '35–39', desde: 35, hasta: 39 },
+  { etiqueta: '40 o más', desde: 40, hasta: Infinity },
+] as const;
+
+export const POSICIONES = ['Portero', 'Defensa', 'Medio', 'Delantero'] as const;
+
+/** Edad, posiciones y dorsales de todos los jugadores registrados. */
+export function estadisticasPlantillas<J extends JugadorPlantilla>(jugadores: J[], top = 5) {
+  const conEdad = jugadores.filter((j): j is J & { edad: number } => j.edad != null);
+  const edades = conEdad.map((j) => j.edad);
+  const porNombre = (a: J, b: J) => a.nombre.localeCompare(b.nombre, 'es');
+
+  const porEquipo = [...Map.groupBy(jugadores, (j) => j.equipo_id)].map(([equipo_id, js]) => {
+    const es = js.flatMap((j) => (j.edad != null ? [j.edad] : []));
+    return {
+      equipo_id,
+      jugadores: js.length,
+      promedioEdad: promedio(es),
+      menor: es.length ? Math.min(...es) : null,
+      mayor: es.length ? Math.max(...es) : null,
+    };
+  });
+
+  const dorsales = [...Map.groupBy(jugadores.filter((j) => j.numero != null), (j) => j.numero!)]
+    .map(([numero, js]) => ({ numero, jugadores: js.length }))
+    .sort((a, b) => b.jugadores - a.jugadores || a.numero - b.numero);
+
+  return {
+    total: jugadores.length,
+    conEdad: conEdad.length,
+    promedioEdad: promedio(edades),
+    medianaEdad: mediana(edades),
+    menoresDeEdad: edades.filter((e) => e < 18).length,
+    masJovenes: [...conEdad].sort((a, b) => a.edad - b.edad || porNombre(a, b)).slice(0, top),
+    veteranos: [...conEdad].sort((a, b) => b.edad - a.edad || porNombre(a, b)).slice(0, top),
+    rangos: RANGOS_EDAD.map((r) => ({ ...r, jugadores: edades.filter((e) => e >= r.desde && e <= r.hasta).length })),
+    porPosicion: POSICIONES.map((posicion) => {
+      const js = jugadores.filter((j) => j.posicion === posicion);
+      return { posicion, jugadores: js.length, promedioEdad: promedio(js.flatMap((j) => (j.edad != null ? [j.edad] : []))) };
+    }),
+    /** Equipos del más joven al más veterano (promedio de edad). */
+    porEquipo: porEquipo.sort((a, b) => (a.promedioEdad ?? Infinity) - (b.promedioEdad ?? Infinity)),
+    dorsales,
+  };
+}
+
+/** Goles, resultados y tarjetas de los partidos con resultado. */
+export function estadisticasCompetencia(partidos: PartidoBase[], tablas: TablaGrupo[]) {
+  const jugados = partidos.filter(cuentaEnTabla);
+  const goles = jugados.reduce((n, p) => n + p.goles_local! + p.goles_visitante!, 0);
+  const tarjetas = partidos.filter((p) => p.estado === 'jugado').flatMap((p) => p.tarjetas);
+  const total = (p: PartidoBase) => p.goles_local! + p.goles_visitante!;
+  const diferencia = (p: PartidoBase) => Math.abs(p.goles_local! - p.goles_visitante!);
+  const mayor = (f: (p: PartidoBase) => number) =>
+    jugados.reduce<PartidoBase | null>((m, p) => (!m || f(p) > f(m) ? p : m), null);
+  const filas = tablas.flatMap((t) => t.filas).filter((f) => f.pj > 0);
+  const mejor = (f: (x: FilaPosiciones) => number) =>
+    filas.reduce<FilaPosiciones | null>((m, x) => (!m || f(x) > f(m) ? x : m), null);
+
+  return {
+    jugados: jugados.length,
+    programados: partidos.filter((p) => p.estado === 'programado').length,
+    goles,
+    golesPorPartido: jugados.length ? goles / jugados.length : null,
+    victoriasLocal: jugados.filter((p) => p.goles_local! > p.goles_visitante!).length,
+    empates: jugados.filter((p) => p.goles_local === p.goles_visitante).length,
+    victoriasVisitante: jugados.filter((p) => p.goles_local! < p.goles_visitante!).length,
+    sinGoles: jugados.filter((p) => total(p) === 0).length,
+    amarillas: tarjetas.filter((t) => t.tipo === 'amarilla').length,
+    rojas: tarjetas.filter((t) => t.tipo === 'roja').length,
+    masGoles: mayor(total),
+    mayorGoleada: mayor(diferencia),
+    mejorOfensiva: mejor((x) => x.gf / x.pj),
+    mejorDefensa: mejor((x) => -x.gc / x.pj),
+  };
+}

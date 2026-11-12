@@ -51,7 +51,9 @@ self.addEventListener('fetch', (e) => {
     e.respondWith(caches.match(req).then((r) => r || fetch(req).then((res) => guardar(req, res))));
     return;
   }
-  // Imágenes: la caché al instante y se actualiza en segundo plano.
+  // Imágenes: la caché al instante y se actualiza en segundo plano. Las de
+  // /compartir/ cambian con cada resultado: siempre de la red.
+  if (url.pathname.startsWith('/compartir/')) return;
   if (url.pathname.startsWith('/img/') || /\\.(png|jpe?g|webp|svg)$/.test(url.pathname)) {
     e.respondWith(
       caches.match(req).then((r) => {

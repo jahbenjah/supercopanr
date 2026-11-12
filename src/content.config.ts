@@ -125,6 +125,8 @@ const jugadores = defineCollection({
     apodo: z.string().optional(),
     numero: z.number().int().nonnegative().optional(),
     posicion: z.enum(['Portero', 'Defensa', 'Medio', 'Delantero']).optional(),
+    /** Edad cumplida a la inauguración del torneo (la fecha de nacimiento es privada). */
+    edad: z.number().int().positive().optional(),
     foto: imagen.optional(),
   }),
 });

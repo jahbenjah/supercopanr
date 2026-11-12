@@ -1,0 +1,308 @@
+---
+import Base from '../layouts/Base.astro';
+import Encabezado from '../components/Encabezado.astro';
+import EnlaceCompartir from '../components/EnlaceCompartir.astro';
+import TeamBadge from '../components/TeamBadge.astro';
+import SponsorSlot from '../components/SponsorSlot.astro';
+import { datos, fechaSinAnio } from '../lib/datos';
+
+const d = await datos();
+const s = d.plantillas;
+const c = d.competencia;
+const eq = (id: string) => d.por.equipos.get(id)!;
+const nombreEq = (id: string) => eq(id).nombre;
+
+const dec = new Intl.NumberFormat('es-MX', { maximumFractionDigits: 1, minimumFractionDigits: 1 });
+const anios = (n: number | null) => (n == null ? '—' : `${dec.format(n)}`);
+const pct = (n: number, de: number) => (de ? Math.round((n / de) * 100) : 0);
+const inauguracion = d.torneo.fechas.find((f) => f.id === 'inauguracion')?.fecha;
+
+const cifras = [
+  ['Jugadores registrados', String(s.total), `${d.equipos.length} equipos`],
+  ['Edad promedio', anios(s.promedioEdad), 'años'],
+  ['Edad mediana', s.medianaEdad == null ? '—' : String(s.medianaEdad), 'años'],
+  ['Menores de 18', String(s.menoresDeEdad), `${pct(s.menoresDeEdad, s.conEdad)}% de los jugadores`],
+];
+
+// Gráfica de rangos por equipo: eje común de la menor a la mayor edad del torneo.
+const edadMin = Math.min(...s.porEquipo.flatMap((e) => (e.menor != null ? [e.menor] : [])));
+const edadMax = Math.max(...s.porEquipo.flatMap((e) => (e.mayor != null ? [e.mayor] : [])));
+const x = (edad: number) => ((edad - edadMin) / Math.max(1, edadMax - edadMin)) * 100;
+const marcas = [20, 25, 30, 35, 40, 45, 50].filter((m) => m > edadMin && m < edadMax);
+
+const maxRango = Math.max(1, ...s.rangos.map((r) => r.jugadores));
+const masJoven = s.masJovenes[0];
+const masVeterano = s.veteranos[0];
+const equipoJoven = s.porEquipo[0];
+const equipoVeterano = s.porEquipo.at(-1);
+const nueves = s.dorsales.find((x) => x.numero === 9)?.jugadores ?? 0;
+const dieces = s.dorsales.find((x) => x.numero === 10)?.jugadores ?? 0;
+const goleador = d.goleadores[0];
+
+const marcador = (p: NonNullable<typeof c.masGoles>) =>
+  `${nombreEq(p.local_id)} ${p.goles_local}–${p.goles_visitante} ${nombreEq(p.visitante_id)}`;
+---
+<Base title="Estadísticas" description={`Edades, plantillas, goles y tarjetas de la ${d.torneo.nombre}: el jugador más joven, los veteranos, el equipo más joven y más.`} image="/compartir/og-estadisticas.png">
+  <Encabezado titulo="Estadísticas" subtitulo={`Los números de la ${d.torneo.nombre}: quién es quién en las plantillas y lo que pasa en la cancha.`}>
+    <EnlaceCompartir seccion="estadisticas" />
+  </Encabezado>
+
+  <div class="contenedor space-y-12 py-8">
+    <!-- Cifras generales -->
+    <section aria-labelledby="t-cifras">
+      <h2 id="t-cifras" class="titulo-seccion">El torneo en números</h2>
+      <dl class="grid grid-cols-2 gap-3 lg:grid-cols-4">
+        {cifras.map(([t, v, sub]) => (
+          <div class="tarjeta p-4">
+            <dt class="text-xs font-semibold uppercase tracking-wide text-stone-500">{t}</dt>
+            <dd class="font-display text-4xl font-bold text-cancha sm:text-5xl">{v}</dd>
+            <dd class="text-sm text-stone-500">{sub}</dd>
+          </div>
+        ))}
+      </dl>
+      <p class="mt-2 text-xs text-stone-500">Edades cumplidas al día de la inauguración{inauguracion && ` (${fechaSinAnio(inauguracion)})`}.</p>
+    </section>
+
+    <!-- Récords de edad -->
+    {masJoven && masVeterano && (
+      <section aria-labelledby="t-records" class="grid gap-3 md:grid-cols-2">
+        <h2 id="t-records" class="sr-only">Récords de edad</h2>
+        {[
+          ['El más joven', masJoven, 'bg-oro text-tinta'],
+          ['El más experimentado', masVeterano, 'bg-cancha text-white'],
+        ].map(([titulo, j, estilo]) => {
+          const jj = j as typeof masJoven;
+          return (
+            <a href={`/jugadores/${jj.id}/`} class:list={['flex items-center gap-4 rounded-xl p-5 no-underline shadow-sm hover:brightness-105', estilo]}>
+              {jj.foto ? (
+                <img src={jj.foto} alt="" width="80" height="80" class="h-20 w-20 shrink-0 rounded-full object-cover ring-4 ring-white/40" loading="lazy" />
+              ) : (
+                <span class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-black/10 font-display text-3xl font-bold">{jj.numero ?? '?'}</span>
+              )}
+              <div class="min-w-0 flex-1">
+                <p class="text-xs font-semibold uppercase tracking-wide opacity-80">{titulo as string}</p>
+                <p class="truncate font-display text-2xl font-bold uppercase">{jj.nombre}</p>
+                <p class="truncate text-sm opacity-80">{nombreEq(jj.equipo_id)}{jj.posicion && ` · ${jj.posicion}`}</p>
+              </div>
+              <p class="text-center font-display leading-none"><span class="block text-5xl font-bold">{jj.edad}</span><span class="text-sm">años</span></p>
+            </a>
+          );
+        })}
+      </section>
+    )}
+
+    <!-- Top jóvenes / veteranos -->
+    <section aria-labelledby="t-top" class="grid gap-6 md:grid-cols-2">
+      <h2 id="t-top" class="sr-only">Jugadores más jóvenes y más experimentados</h2>
+      {[
+        ['Promesas: los más jóvenes', s.masJovenes],
+        ['Experiencia: los más grandes', s.veteranos],
+      ].map(([titulo, lista]) => (
+        <div>
+          <h3 class="mb-3 text-xl text-cancha-oscuro">{titulo as string}</h3>
+          <ol class="tarjeta divide-y divide-stone-100">
+            {(lista as typeof s.masJovenes).map((j, i) => (
+              <li class="flex items-center gap-3 px-4 py-2.5">
+                <span class="w-5 font-display text-lg font-bold text-stone-400">{i + 1}</span>
+                <div class="min-w-0 flex-1">
+                  <a href={`/jugadores/${j.id}/`} class="block truncate font-semibold no-underline hover:underline">{j.nombre}</a>
+                  <TeamBadge equipo={eq(j.equipo_id)} conNombre size={18} class="text-sm text-stone-500" />
+                </div>
+                <span class="font-display text-2xl font-bold text-cancha">{j.edad}<span class="ml-0.5 text-sm font-semibold text-stone-500">años</span></span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      ))}
+    </section>
+
+    <!-- Distribución de edades -->
+    <section aria-labelledby="t-rangos">
+      <h2 id="t-rangos" class="titulo-seccion">¿Cuántos años tienen?</h2>
+      <p class="-mt-2 mb-4 text-sm text-stone-600">Jugadores por rango de edad.</p>
+      <div class="tarjeta p-4 sm:p-6">
+        <ul class="space-y-2.5">
+          {s.rangos.map((r) => (
+            <li class="grid grid-cols-[5.5rem_1fr_4.5rem] items-center gap-3 text-sm" title={`${r.etiqueta} años: ${r.jugadores} jugadores`}>
+              <span class="font-semibold text-stone-600">{r.etiqueta}</span>
+              <span class="h-5 rounded-r bg-stone-100">
+                <span class="block h-full rounded-r bg-oro" style={`width:${(r.jugadores / maxRango) * 100}%`}></span>
+              </span>
+              <span class="text-right tabular-nums"><b class="text-tinta">{r.jugadores}</b> <span class="text-stone-500">{pct(r.jugadores, s.conEdad)}%</span></span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Edad por equipo -->
+    <section aria-labelledby="t-equipos">
+      <h2 id="t-equipos" class="titulo-seccion">Edad por equipo</h2>
+      <p class="-mt-2 mb-4 text-sm text-stone-600">
+        Del plantel más joven al más experimentado. La barra va del jugador más joven al más grande de cada equipo; el punto es el promedio.
+        {equipoJoven?.promedioEdad != null && equipoVeterano?.promedioEdad != null && (
+          <> <b>{nombreEq(equipoJoven.equipo_id)}</b> es el más joven ({anios(equipoJoven.promedioEdad)} años) y <b>{nombreEq(equipoVeterano.equipo_id)}</b> el más experimentado ({anios(equipoVeterano.promedioEdad)}).</>
+        )}
+      </p>
+      <div class="tarjeta overflow-x-auto p-4 sm:p-6">
+        <div class="min-w-[34rem]">
+          <div class="grid grid-cols-[minmax(9rem,14rem)_1fr_3.5rem] gap-x-3 text-xs text-stone-500">
+            <span></span>
+            <span class="relative h-4">
+              {marcas.map((m) => <span class="absolute -translate-x-1/2" style={`left:${x(m)}%`}>{m}</span>)}
+            </span>
+            <span class="text-right">Prom.</span>
+          </div>
+          <ul>
+            {s.porEquipo.map((e) => (
+              <li
+                class="grid grid-cols-[minmax(9rem,14rem)_1fr_3.5rem] items-center gap-x-3 border-t border-stone-100 py-1.5 text-sm hover:bg-stone-50"
+                title={`${nombreEq(e.equipo_id)}: promedio ${anios(e.promedioEdad)} años · de ${e.menor} a ${e.mayor} · ${e.jugadores} jugadores`}
+              >
+                <TeamBadge equipo={eq(e.equipo_id)} conNombre size={22} class="truncate font-semibold" />
+                <span class="relative h-5">
+                  {marcas.map((m) => <span class="absolute inset-y-0 w-px bg-stone-100" style={`left:${x(m)}%`}></span>)}
+                  {e.menor != null && e.mayor != null && (
+                    <span class="absolute top-1/2 h-1 -translate-y-1/2 rounded bg-stone-300" style={`left:${x(e.menor)}%;width:${x(e.mayor) - x(e.menor)}%`}></span>
+                  )}
+                  {e.promedioEdad != null && (
+                    <span class="absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-oro-oscuro ring-2 ring-white" style={`left:${x(e.promedioEdad)}%`}></span>
+                  )}
+                </span>
+                <span class="text-right font-semibold tabular-nums">{anios(e.promedioEdad)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Posiciones y dorsales -->
+    <section aria-labelledby="t-posiciones" class="grid gap-6 lg:grid-cols-2">
+      <div>
+        <h2 id="t-posiciones" class="titulo-seccion">Por posición</h2>
+        <div class="tarjeta overflow-x-auto">
+          <table class="tabla">
+            <thead><tr><th class="text-left!">Posición</th><th>Jugadores</th><th class="w-1/3">Parte del total</th><th>Edad prom.</th></tr></thead>
+            <tbody>
+              {s.porPosicion.map((p) => (
+                <tr>
+                  <td class="text-left! font-semibold">{p.posicion}</td>
+                  <td class="font-display text-lg font-bold">{p.jugadores}</td>
+                  <td>
+                    <span class="flex items-center gap-2" title={`${pct(p.jugadores, s.total)}% de los jugadores`}>
+                      <span class="h-2 flex-1 rounded bg-stone-100"><span class="block h-full rounded bg-oro" style={`width:${pct(p.jugadores, s.total)}%`}></span></span>
+                      <span class="w-9 text-right tabular-nums text-stone-500">{pct(p.jugadores, s.total)}%</span>
+                    </span>
+                  </td>
+                  <td class="tabular-nums">{anios(p.promedioEdad)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h2 class="titulo-seccion">Dorsales</h2>
+        <div class="tarjeta p-4 sm:p-6">
+          <p class="text-sm text-stone-600">Los números más usados en la Supercopa:</p>
+          <ol class="mt-3 flex flex-wrap gap-3">
+            {s.dorsales.slice(0, 6).map((x, i) => (
+              <li class:list={['flex w-20 flex-col items-center rounded-lg border py-2', i === 0 ? 'border-oro bg-oro/15' : 'border-stone-200']}>
+                <span class="font-display text-3xl font-bold leading-none text-cancha">{x.numero}</span>
+                <span class="mt-1 text-xs text-stone-500">{x.jugadores} jugadores</span>
+              </li>
+            ))}
+          </ol>
+          <p class="mt-4 text-sm text-stone-600">
+            <b>{dieces}</b> jugadores portan el <b>10</b> y <b>{nueves}</b> el <b>9</b>.
+            Se usan <b>{s.dorsales.length}</b> números distintos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- En la cancha -->
+    <section aria-labelledby="t-cancha">
+      <h2 id="t-cancha" class="titulo-seccion">En la cancha</h2>
+      {c.jugados === 0 ? (
+        <div class="tarjeta p-6 text-stone-600">
+          <p>Aún no hay partidos con resultado. Aquí verás goles por partido, tarjetas, la mayor goleada, la mejor ofensiva y la mejor defensa.</p>
+          <p class="mt-1 text-sm text-stone-500">{c.programados} partidos programados{inauguracion && `; el balón rueda el ${fechaSinAnio(inauguracion)}`}.</p>
+        </div>
+      ) : (
+        <div class="space-y-6">
+          <dl class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+            {[
+              ['Partidos jugados', String(c.jugados)],
+              ['Goles', String(c.goles)],
+              ['Goles por partido', anios(c.golesPorPartido)],
+              ['Amarillas', String(c.amarillas)],
+              ['Rojas', String(c.rojas)],
+            ].map(([t, v]) => (
+              <div class="tarjeta p-4">
+                <dt class="text-xs font-semibold uppercase tracking-wide text-stone-500">{t}</dt>
+                <dd class="font-display text-4xl font-bold text-cancha">{v}</dd>
+              </div>
+            ))}
+          </dl>
+
+          <div class="tarjeta p-4 sm:p-6">
+            <h3 class="mb-3 text-lg text-cancha-oscuro">Resultados</h3>
+            <ul class="grid gap-2 text-sm sm:grid-cols-3">
+              {[
+                ['Gana el local', c.victoriasLocal],
+                ['Empate', c.empates],
+                ['Gana el visitante', c.victoriasVisitante],
+              ].map(([t, n]) => (
+                <li>
+                  <span class="flex justify-between"><span class="font-semibold">{t}</span><span class="tabular-nums text-stone-500">{n} · {pct(n as number, c.jugados)}%</span></span>
+                  <span class="mt-1 block h-2 rounded bg-stone-100"><span class="block h-full rounded bg-oro" style={`width:${pct(n as number, c.jugados)}%`}></span></span>
+                </li>
+              ))}
+            </ul>
+            {c.sinGoles > 0 && <p class="mt-3 text-sm text-stone-500">{c.sinGoles} partido(s) terminaron 0–0.</p>}
+          </div>
+
+          <dl class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {goleador && (
+              <div class="tarjeta p-4">
+                <dt class="text-xs font-semibold uppercase tracking-wide text-stone-500">Máximo goleador</dt>
+                <dd class="mt-1 font-semibold"><a href={`/jugadores/${goleador.jugador_id}/`}>{d.por.jugadores.get(goleador.jugador_id)?.nombre}</a> · {goleador.goles} goles</dd>
+                <dd class="text-sm text-stone-500">{nombreEq(goleador.equipo_id)} · <a href="/goleadores/">Tabla completa</a></dd>
+              </div>
+            )}
+            {c.mejorOfensiva && (
+              <div class="tarjeta p-4">
+                <dt class="text-xs font-semibold uppercase tracking-wide text-stone-500">Mejor ofensiva</dt>
+                <dd class="mt-1"><TeamBadge equipo={eq(c.mejorOfensiva.equipo_id)} conNombre size={22} class="font-semibold" /></dd>
+                <dd class="text-sm text-stone-500">{c.mejorOfensiva.gf} goles en {c.mejorOfensiva.pj} partidos ({anios(c.mejorOfensiva.gf / c.mejorOfensiva.pj)} por partido)</dd>
+              </div>
+            )}
+            {c.mejorDefensa && (
+              <div class="tarjeta p-4">
+                <dt class="text-xs font-semibold uppercase tracking-wide text-stone-500">Mejor defensa</dt>
+                <dd class="mt-1"><TeamBadge equipo={eq(c.mejorDefensa.equipo_id)} conNombre size={22} class="font-semibold" /></dd>
+                <dd class="text-sm text-stone-500">{c.mejorDefensa.gc} goles recibidos en {c.mejorDefensa.pj} partidos</dd>
+              </div>
+            )}
+            {c.masGoles && (
+              <div class="tarjeta p-4">
+                <dt class="text-xs font-semibold uppercase tracking-wide text-stone-500">Partido con más goles</dt>
+                <dd class="mt-1 font-semibold"><a href={`/partidos/${c.masGoles.id}/`}>{marcador(c.masGoles)}</a></dd>
+              </div>
+            )}
+            {c.mayorGoleada && c.mayorGoleada.goles_local !== c.mayorGoleada.goles_visitante && (
+              <div class="tarjeta p-4">
+                <dt class="text-xs font-semibold uppercase tracking-wide text-stone-500">Mayor goleada</dt>
+                <dd class="mt-1 font-semibold"><a href={`/partidos/${c.mayorGoleada.id}/`}>{marcador(c.mayorGoleada)}</a></dd>
+              </div>
+            )}
+          </dl>
+        </div>
+      )}
+    </section>
+
+    <SponsorSlot ubicacion="tabla" />
+  </div>
+</Base>

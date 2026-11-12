@@ -5,7 +5,8 @@
 # Las fotos se descargan a public/img/{jugadores,cuerpo-tecnico}/<id> y se
 # convierten a .webp.
 #
-# Los datos personales (CURP y fecha de nacimiento) NO van al repo: se guardan
+# En jugadores.yaml solo va la edad a la inauguración. Los datos personales
+# (CURP y fecha de nacimiento) NO van al repo: se guardan
 # en privado/jugadores.csv, que está en .gitignore. El sitio no los usa.
 #
 # Entrada: scripts/equipos-api.csv  (equipo_id,uuid); el uuid es el parámetro E
@@ -20,6 +21,8 @@ CSV=scripts/equipos-api.csv
 DATA=src/data
 IMG=public/img
 PRIVADO=privado/jugadores.csv
+# La edad pública se calcula a la fecha de inauguración (no cambia con el tiempo).
+FECHA_EDAD=$(grep -oP 'id: inauguracion, fecha: \K[0-9-]+' src/data/torneo.yaml || date +%F)
 API=https://plantilla1.copafinal.com/Categorias/Jugadores/Personal.php
 L=871ea7444fd7108f5e34859ddf414262   # liga
 C=5e99e2d08d54285828d62da4f6a9e521   # categoría
@@ -44,10 +47,11 @@ while IFS=, read -r -u 3 equipo uuid; do
     --data-urlencode "L=$L" --data-urlencode "C=$C" --data-urlencode "E=$uuid" \
     -o "$TMP/$equipo.json"
 
-  python3 -I - "$TMP/$equipo.json" "$DATA" "$IMG" "$equipo" "$PRIVADO" <<'PY'
+  python3 -I - "$TMP/$equipo.json" "$DATA" "$IMG" "$equipo" "$PRIVADO" "$FECHA_EDAD" <<'PY'
 import csv, html, json, os, re, sys, unicodedata, urllib.request
 
-resp, data_dir, img_dir, equipo, privado = sys.argv[1:6]
+resp, data_dir, img_dir, equipo, privado, fecha_edad = sys.argv[1:7]
+ref = tuple(int(x) for x in fecha_edad.split('-'))
 datos = json.load(open(resp, encoding='utf-8'))
 if datos.get('Resultado') != 'Exitoso' or not datos.get('Personal'):
     sys.exit(f'   ✗ la API respondió: {datos.get("Resultado")} {datos.get("Mensaje") or ""}')
@@ -113,6 +117,9 @@ def jugadores(ids):
         y = [f'- id: {jid}', f'  nombre: {nombre}']
         if numero.isdigit(): y.append(f'  numero: {int(numero)}')
         if posicion in ('Portero', 'Defensa', 'Medio', 'Delantero'): y.append(f'  posicion: "{posicion}"')
+        if fn:
+            nac = (int(fn[3]), int(fn[2]), int(fn[1]))
+            y.append(f'  edad: {ref[0] - nac[0] - (ref[1:] < nac[1:])}')
         y += [f'  equipo_id: {equipo}', foto_de(b, 'jugadores', jid)]
         nuevos.append('\n'.join(y))
         privados.append({'jugador_id': jid, 'equipo_id': equipo, 'nombre': nombre, 'curp': curp,
