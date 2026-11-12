@@ -23,6 +23,8 @@ const cifras = [
   [totalPartidos, 'Partidos'],
   [campeon.premio, `Premio al ${campeon.lugar.toLowerCase()}`],
 ];
+// Fecha límite inclusiva: cierra al terminar ese día.
+const inscripcionesAbiertas = Date.now() < new Date(torneo.fecha_limite_inscripcion).getTime() + 86_400_000;
 ---
 <Base>
   <section class="relative overflow-hidden bg-gradient-to-br from-cancha-oscuro via-cancha to-cancha-oscuro text-white">
@@ -33,7 +35,9 @@ const cifras = [
         <h1 class="mt-3 text-5xl leading-none sm:text-7xl">{torneo.nombre}</h1>
         <p class="mt-4 max-w-2xl text-lg text-white/85">{torneo.descripcion}</p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="/inscripcion/" class="boton bg-oro text-tinta hover:brightness-110">Inscribir a mi equipo</a>
+          {inscripcionesAbiertas
+            ? <a href="/inscripcion/" class="boton bg-oro text-tinta hover:brightness-110">Inscribir a mi equipo</a>
+            : <a href="/grupos/" class="boton bg-oro text-tinta hover:brightness-110">Ver los grupos</a>}
           <a href={torneo.bases_pdf} class="boton border border-white/50 text-white hover:bg-white/10" data-track="descarga_bases" data-id="home">Descargar bases (PDF)</a>
         </div>
       </div>
@@ -51,13 +55,13 @@ const cifras = [
     </div>
   </section>
 
-  <div class="contenedor">
+  {inscripcionesAbiertas && (<div class="contenedor">
     <a href="/inscripcion/" class="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border-l-4 border-red-600 bg-red-50 px-4 py-3 text-red-900 no-underline hover:bg-red-100">
       <strong class="uppercase">Fecha límite de inscripción:</strong>
       <span>{fechaLarga(torneo.fecha_limite_inscripcion)}.</span>
       <span class="text-sm">Tu lugar se confirma solo al cubrir la inscripción →</span>
     </a>
-  </div>
+  </div>)}
 
   {(proximos.length > 0 || resultados.length > 0) && (
     <div class="contenedor mt-10 grid gap-10 lg:grid-cols-3">
@@ -146,7 +150,7 @@ const cifras = [
           </li>
         ))}
       </ul>
-      <a href="/inscripcion/" class="mt-3 inline-block font-semibold text-cancha">Cómo inscribirse y fechas de pago →</a>
+      {inscripcionesAbiertas && <a href="/inscripcion/" class="mt-3 inline-block font-semibold text-cancha">Cómo inscribirse y fechas de pago →</a>}
     </section>
     <section>
       <h2 class="titulo-seccion">Premios</h2>
