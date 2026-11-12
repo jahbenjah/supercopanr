@@ -81,6 +81,8 @@ const equipos = defineCollection({
     categoria: id,
     /** Se asigna en el sorteo; vacío mientras tanto. */
     grupo: z.string().optional(),
+    /** Uno de los 8 equipos más fuertes; encabeza su grupo en el sorteo. */
+    cabeza_de_grupo: z.boolean().default(false),
     color: z.string().default('#1c1a17'),
     logo: imagen.optional(),
     sede_id: id.optional(),

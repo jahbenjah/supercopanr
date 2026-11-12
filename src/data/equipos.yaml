@@ -7,36 +7,8 @@
   fotos: []
   patrocinadores_ids: []
   delegado: "Emilio Torres"
-
-- id: san-isidro-rgal
-  nombre: San Isidro Rgal
-  categoria: unica
-  color: "#b5121b"
-  logo: ""
-  perfil_premium: false
-  fotos: []
-  patrocinadores_ids: []
-  delegado: ""
-
-- id: club-colmena
-  nombre: Club Colmena
-  categoria: unica
-  color: "#086a17"
-  logo: ""
-  perfil_premium: false
-  fotos: []
-  patrocinadores_ids: []
-  delegado: ""
-
-- id: potros-fc
-  nombre: Potros FC
-  categoria: unica
-  color: "#0d1115"
-  logo: ""
-  perfil_premium: false
-  fotos: []
-  patrocinadores_ids: []
-  delegado: ""
+  grupo: "A"
+  cabeza_de_grupo: true
 
 - id: aguila-pi
   nombre: Aguila Progreso Industrial
@@ -47,6 +19,8 @@
   fotos: []
   patrocinadores_ids: []
   delegado: ""
+  grupo: "A"
+  cabeza_de_grupo: false
 
 - id: tlazala
   nombre: Tlazala
@@ -57,137 +31,20 @@
   fotos: []
   patrocinadores_ids: []
   delegado: ""
+  grupo: "A"
+  cabeza_de_grupo: false
 
-- id: juventus-naucalpan
-  nombre: Juventus Naucalpan
+- id: san-isidro-rgal
+  nombre: San Isidro Rgal
   categoria: unica
-  color: "#0d2951"
+  color: "#b5121b"
   logo: ""
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
   delegado: ""
-
-- id: carboneros
-  nombre: Carboneros Villa del Carbon
-  categoria: unica
-  color: "#b07d2a"
-  logo: ""
-  perfil_premium: false
-  fotos: []
-  patrocinadores_ids: []
-  delegado: ""
-
-- id: flamengo
-  nombre: Flamengo 5 de Febrero
-  categoria: unica
-  color: "#0b6e4f"
-  logo: ""
-  perfil_premium: false
-  fotos: []
-  patrocinadores_ids: []
-  delegado: ""
-
-- id: lobos-tlihuaca
-  nombre: Lobos Tlihuaca
-  categoria: unica
-  color: "#b8892a"
-  logo: ""
-  perfil_premium: false
-  fotos: []
-  patrocinadores_ids: []
-  delegado: ""
-
-- id: atoleros
-  nombre: Atoleros San Jose El Vidrio
-  categoria: unica
-  color: "#00973f"
-  logo: ""
-  perfil_premium: false
-  fotos: []
-  patrocinadores_ids: []
-  delegado: ""
-
-- id: deportivo-fresno
-  nombre: Deportivo Fresno
-  categoria: unica
-  color: "#1b6b35"
-  logo: ""
-  perfil_premium: false
-  fotos: []
-  patrocinadores_ids: []
-  delegado: ""
-
-- id: san-ildefonso
-  nombre: San Ildefonso
-  categoria: unica
-  color: "#c8102e"
-  logo: ""
-  perfil_premium: false
-  fotos: []
-  patrocinadores_ids: []
-  delegado: ""
-
-
-- id: tigres-y
-  nombre: Tigres Y
-  categoria: unica
-  color: "#f2a900"
-  logo: ""
-  perfil_premium: false
-  fotos: []
-  patrocinadores_ids: []
-  delegado: ""
-
-- id: deportivo-la-rosa
-  nombre: Deportivo La Rosa
-  categoria: unica
-  color: "#1c4490"
-  logo: ""
-  perfil_premium: false
-  fotos: []
-  patrocinadores_ids: []
-  delegado: ""
-
-- id: cahuacan-cv
-  nombre: Cahuacan CV
-  categoria: unica
-  color: "#a10f0b"
-  logo: ""
-  perfil_premium: false
-  fotos: []
-  patrocinadores_ids: []
-  delegado: ""
-
-- id: union-america
-  nombre: Union America
-  categoria: unica
-  color: "#29374f"
-  logo: ""
-  perfil_premium: false
-  fotos: []
-  patrocinadores_ids: []
-  delegado: ""
-
-- id: betis-carto
-  nombre: Betis Carto
-  categoria: unica
-  color: "#0a6f29"
-  logo: ""
-  perfil_premium: false
-  fotos: []
-  patrocinadores_ids: []
-  delegado: ""
-
-- id: acepi
-  nombre: ACEPI
-  categoria: unica
-  color: "#1f3fdf"
-  logo: ""
-  perfil_premium: false
-  fotos: []
-  patrocinadores_ids: []
-  delegado: "Wilfrido Martinez Quezada"
+  grupo: "B"
+  cabeza_de_grupo: true
 
 - id: atlantico-padrinos-infonavit
   nombre: Atlántico Padrinos Infonavit
@@ -198,26 +55,80 @@
   fotos: []
   patrocinadores_ids: []
   delegado: ""
+  grupo: "B"
+  cabeza_de_grupo: false
 
-- id: deportivo-cedros
-  nombre: Deportivo Cedros
+- id: deportivo-la-rosa
+  nombre: Deportivo La Rosa
   categoria: unica
-  color: "#1f3fdf"
+  color: "#1c4490"
   logo: ""
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
   delegado: ""
+  grupo: "B"
+  cabeza_de_grupo: false
 
-- id: bosque-del-mamado
-  nombre: Bosque del Mamado
+- id: potros-fc
+  nombre: Potros FC
   categoria: unica
-  color: "#1f321f"
+  color: "#0d1115"
   logo: ""
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
   delegado: ""
+  grupo: "C"
+  cabeza_de_grupo: true
+
+- id: deportivo-fresno
+  nombre: Deportivo Fresno
+  categoria: unica
+  color: "#1b6b35"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
+  grupo: "C"
+  cabeza_de_grupo: false
+
+- id: san-ildefonso
+  nombre: San Ildefonso
+  categoria: unica
+  color: "#c8102e"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
+  grupo: "C"
+  cabeza_de_grupo: false
+
+- id: club-colmena
+  nombre: Club Colmena
+  categoria: unica
+  color: "#086a17"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
+  grupo: "D"
+  cabeza_de_grupo: true
+
+- id: carboneros
+  nombre: Carboneros Villa del Carbon
+  categoria: unica
+  color: "#b07d2a"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
+  grupo: "D"
+  cabeza_de_grupo: false
 
 - id: vikingos
   nombre: Vikingos
@@ -228,9 +139,23 @@
   fotos: []
   patrocinadores_ids: []
   delegado: ""
+  grupo: "D"
+  cabeza_de_grupo: false
 
-- id: deportivo-cedros
-  nombre: Deportivo Cedros
+- id: betis-carto
+  nombre: Betis Carto
+  categoria: unica
+  color: "#0a6f29"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
+  grupo: "E"
+  cabeza_de_grupo: true
+
+- id: bosque-del-mamado
+  nombre: Bosque del Mamado
   categoria: unica
   color: "#1f321f"
   logo: ""
@@ -238,6 +163,116 @@
   fotos: []
   patrocinadores_ids: []
   delegado: ""
+  grupo: "E"
+  cabeza_de_grupo: false
+
+- id: juventus-naucalpan
+  nombre: Juventus Naucalpan
+  categoria: unica
+  color: "#0d2951"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
+  grupo: "E"
+  cabeza_de_grupo: false
+
+- id: union-america
+  nombre: Union America
+  categoria: unica
+  color: "#29374f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
+  grupo: "F"
+  cabeza_de_grupo: true
+
+- id: flamengo
+  nombre: Flamengo 5 de Febrero
+  categoria: unica
+  color: "#0b6e4f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
+  grupo: "F"
+  cabeza_de_grupo: false
+
+- id: lobos-tlihuaca
+  nombre: Lobos Tlihuaca
+  categoria: unica
+  color: "#b8892a"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
+  grupo: "F"
+  cabeza_de_grupo: false
+
+- id: cahuacan-cv
+  nombre: Cahuacan CV
+  categoria: unica
+  color: "#a10f0b"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
+  grupo: "G"
+  cabeza_de_grupo: true
+
+- id: acepi
+  nombre: ACEPI
+  categoria: unica
+  color: "#1f3fdf"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: "Wilfrido Martinez Quezada"
+  grupo: "G"
+  cabeza_de_grupo: false
+
+- id: deportivo-cedros
+  nombre: Deportivo Cedros
+  categoria: unica
+  color: "#1f3fdf"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
+  grupo: "G"
+  cabeza_de_grupo: false
+
+- id: tigres-y
+  nombre: Tigres Y
+  categoria: unica
+  color: "#f2a900"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
+  grupo: "H"
+  cabeza_de_grupo: true
+
+- id: atoleros
+  nombre: Atoleros San Jose El Vidrio
+  categoria: unica
+  color: "#00973f"
+  logo: ""
+  perfil_premium: false
+  fotos: []
+  patrocinadores_ids: []
+  delegado: ""
+  grupo: "H"
+  cabeza_de_grupo: false
 
 - id: real-madrid-san-juan-tlihuaca
   nombre: Real Madrid San Juan Tlihuaca
@@ -248,3 +283,5 @@
   fotos: []
   patrocinadores_ids: []
   delegado: ""
+  grupo: "H"
+  cabeza_de_grupo: false
