@@ -6,3 +6,6 @@ dist/
 
 # Datos personales (CURP, fecha de nacimiento): nunca al repo
 privado/
+
+# Originales JPG/PNG respaldados por npm run imagenes (no se publican)
+imagenes-originales/
