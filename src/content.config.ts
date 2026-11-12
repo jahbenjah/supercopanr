@@ -83,6 +83,8 @@ const equipos = defineCollection({
     grupo: z.string().optional(),
     /** Uno de los 8 equipos más fuertes; encabeza su grupo en el sorteo. */
     cabeza_de_grupo: z.boolean().default(false),
+    /** Lugar en el grupo según el sorteo (1 = cabeza). Define los cruces: J1 1-2, J2 2-3, J3 1-3. */
+    posicion: z.number().int().positive().optional(),
     color: z.string().default('#1c1a17'),
     logo: imagen.optional(),
     sede_id: id.optional(),

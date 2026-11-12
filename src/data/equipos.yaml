@@ -9,6 +9,7 @@
   delegado: "Emilio Torres"
   grupo: "A"
   cabeza_de_grupo: true
+  posicion: 1
 
 - id: aguila-pi
   nombre: Aguila Progreso Industrial
@@ -21,6 +22,7 @@
   delegado: ""
   grupo: "A"
   cabeza_de_grupo: false
+  posicion: 2
 
 - id: tlazala
   nombre: Tlazala
@@ -33,6 +35,7 @@
   delegado: ""
   grupo: "A"
   cabeza_de_grupo: false
+  posicion: 3
 
 - id: san-isidro-rgal
   nombre: San Isidro Rgal
@@ -45,6 +48,7 @@
   delegado: ""
   grupo: "B"
   cabeza_de_grupo: true
+  posicion: 1
 
 - id: atlantico-padrinos-infonavit
   nombre: Atlántico Padrinos Infonavit
@@ -57,6 +61,7 @@
   delegado: ""
   grupo: "B"
   cabeza_de_grupo: false
+  posicion: 2
 
 - id: deportivo-la-rosa
   nombre: Deportivo La Rosa
@@ -69,6 +74,7 @@
   delegado: ""
   grupo: "B"
   cabeza_de_grupo: false
+  posicion: 3
 
 - id: potros-fc
   nombre: Potros FC
@@ -81,6 +87,7 @@
   delegado: ""
   grupo: "C"
   cabeza_de_grupo: true
+  posicion: 1
 
 - id: deportivo-fresno
   nombre: Deportivo Fresno
@@ -93,6 +100,7 @@
   delegado: ""
   grupo: "C"
   cabeza_de_grupo: false
+  posicion: 2
 
 - id: san-ildefonso
   nombre: San Ildefonso
@@ -105,6 +113,7 @@
   delegado: ""
   grupo: "C"
   cabeza_de_grupo: false
+  posicion: 3
 
 - id: club-colmena
   nombre: Club Colmena
@@ -117,6 +126,7 @@
   delegado: ""
   grupo: "D"
   cabeza_de_grupo: true
+  posicion: 1
 
 - id: carboneros
   nombre: Carboneros Villa del Carbon
@@ -129,6 +139,7 @@
   delegado: ""
   grupo: "D"
   cabeza_de_grupo: false
+  posicion: 2
 
 - id: vikingos
   nombre: Vikingos
@@ -141,6 +152,7 @@
   delegado: ""
   grupo: "D"
   cabeza_de_grupo: false
+  posicion: 3
 
 - id: betis-carto
   nombre: Betis Carto
@@ -153,6 +165,7 @@
   delegado: ""
   grupo: "E"
   cabeza_de_grupo: true
+  posicion: 1
 
 - id: bosque-del-mamado
   nombre: Bosque del Mamado
@@ -165,6 +178,7 @@
   delegado: ""
   grupo: "E"
   cabeza_de_grupo: false
+  posicion: 2
 
 - id: juventus-naucalpan
   nombre: Juventus Naucalpan
@@ -177,6 +191,7 @@
   delegado: ""
   grupo: "E"
   cabeza_de_grupo: false
+  posicion: 3
 
 - id: union-america
   nombre: Union America
@@ -189,6 +204,7 @@
   delegado: ""
   grupo: "F"
   cabeza_de_grupo: true
+  posicion: 1
 
 - id: flamengo
   nombre: Flamengo 5 de Febrero
@@ -201,6 +217,7 @@
   delegado: ""
   grupo: "F"
   cabeza_de_grupo: false
+  posicion: 2
 
 - id: lobos-tlihuaca
   nombre: Lobos Tlihuaca
@@ -213,6 +230,7 @@
   delegado: ""
   grupo: "F"
   cabeza_de_grupo: false
+  posicion: 3
 
 - id: cahuacan-cv
   nombre: Cahuacan CV
@@ -225,6 +243,7 @@
   delegado: ""
   grupo: "G"
   cabeza_de_grupo: true
+  posicion: 1
 
 - id: acepi
   nombre: ACEPI
@@ -237,6 +256,7 @@
   delegado: "Wilfrido Martinez Quezada"
   grupo: "G"
   cabeza_de_grupo: false
+  posicion: 2
 
 - id: deportivo-cedros
   nombre: Deportivo Cedros
@@ -249,6 +269,7 @@
   delegado: ""
   grupo: "G"
   cabeza_de_grupo: false
+  posicion: 3
 
 - id: tigres-y
   nombre: Tigres Y
@@ -261,6 +282,7 @@
   delegado: ""
   grupo: "H"
   cabeza_de_grupo: true
+  posicion: 1
 
 - id: atoleros
   nombre: Atoleros San Jose El Vidrio
@@ -273,6 +295,7 @@
   delegado: ""
   grupo: "H"
   cabeza_de_grupo: false
+  posicion: 2
 
 - id: real-madrid-san-juan-tlihuaca
   nombre: Real Madrid San Juan Tlihuaca
@@ -285,3 +308,4 @@
   delegado: ""
   grupo: "H"
   cabeza_de_grupo: false
+  posicion: 3

@@ -87,6 +87,12 @@ async function cargar() {
     if (es.length > torneo.equipos_por_grupo) errores.push(`equipos.yaml: ${g} tiene ${es.length} equipos (máximo ${torneo.equipos_por_grupo})`);
     const cabezas = es.filter((e) => e.cabeza_de_grupo);
     if (cabezas.length > 1) errores.push(`equipos.yaml: ${g} tiene ${cabezas.length} cabezas de grupo (${cabezas.map((e) => e.id).join(', ')}); debe haber solo una`);
+    const posiciones = es.map((e) => e.posicion).filter((p) => p != null);
+    if (new Set(posiciones).size !== posiciones.length) errores.push(`equipos.yaml: ${g} tiene posiciones repetidas`);
+    for (const e of es) {
+      if (e.posicion != null && e.posicion > torneo.equipos_por_grupo) errores.push(`equipos.yaml (${e.id}): posicion ${e.posicion} mayor que ${torneo.equipos_por_grupo}`);
+      if (e.cabeza_de_grupo && e.posicion != null && e.posicion !== 1) errores.push(`equipos.yaml (${e.id}): la cabeza de grupo debe tener posicion 1`);
+    }
   }
   const plantillas = Map.groupBy(jugadores, (j) => j.equipo_id);
   for (const [eq, js] of plantillas) {
