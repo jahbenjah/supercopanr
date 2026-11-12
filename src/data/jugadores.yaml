@@ -2386,7 +2386,7 @@
   nombre: Caudillo Vargas Hugo Jaret
   numero: 16
   posicion: "Medio"
-  edad: 18
+  edad: 13
   equipo_id: betis-carto
   foto: "/img/jugadores/caudillo-vargas-hugo-jaret.webp"
 
@@ -3898,7 +3898,7 @@
   nombre: Soto Edwin Alvarez
   numero: 15
   posicion: "Portero"
-  edad: 15
+  edad: 14
   equipo_id: deportivo-cedros
   foto: "/img/jugadores/soto-edwin-alvarez.webp"
 
