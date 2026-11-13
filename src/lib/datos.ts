@@ -45,7 +45,7 @@ const ordenFuncion = (f?: string) => {
 };
 
 async function cargar() {
-  const [torneos, bases, sedesSinFoto, equiposSinFoto, jugadoresSinFoto, arbitrosSinFoto, partidosSinOrden, patrocinadoresSinLogo, paquetes, mediosSinFoto, cuerpoSinFoto] = await Promise.all([
+  const [torneos, bases, sedesSinFoto, equiposSinFoto, jugadoresSinFoto, arbitrosSinFoto, partidosSinOrden, patrocinadoresSinLogo, paquetes, mediosSinFoto, cuerpoSinFoto, productosSinFoto] = await Promise.all([
     tabla('torneo'),
     tabla('bases'),
     tabla('sedes'),
@@ -57,6 +57,7 @@ async function cargar() {
     tabla('paquetes'),
     tabla('medios'),
     tabla('cuerpoTecnico'),
+    tabla('productos'),
   ]);
   const sedes = sedesSinFoto.map((x) => ({ ...x, foto: imagen('sedes', x.id, x.foto) }));
   const equipos = equiposSinFoto.map((x) => ({ ...x, logo: imagen('equipos', x.id, x.logo), fotos: galeria('equipos', x.id, x.fotos) }));
@@ -69,6 +70,7 @@ async function cargar() {
   const torneo = torneos.find((t) => t.id === 'actual');
   if (!torneo) throw new Error('src/data/torneo.yaml debe tener una entrada con id: actual');
   const partidos = ordenarPartidos(partidosSinOrden);
+  const productos = productosSinFoto.map((x) => ({ ...x, foto: imagen('productos', x.id, x.foto) }));
   const medios = mediosSinFoto.map((x) => ({ ...x, logo: imagen('medios', x.id, x.logo), fotos: galeria('medios', x.id, x.fotos) }));
 
 
@@ -154,6 +156,8 @@ async function cargar() {
     proximaFecha: proximaFecha(partidos),
     ultimaFecha: ultimaFechaJugada(partidos),
     medios: [...medios].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es')),
+    /** Productos a la venta (sección de patrocinadores); los disponibles primero. */
+    productos: [...productos].sort((a, b) => Number(b.disponible) - Number(a.disponible)),
 
   };
 }

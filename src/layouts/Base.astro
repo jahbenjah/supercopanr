@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import SponsorSlot from '../components/SponsorSlot.astro';
+import TiendaFooter from '../components/TiendaFooter.astro';
 import BotonNotificaciones from '../components/BotonNotificaciones.astro';
 import BotonInstalar from '../components/BotonInstalar.astro';
 import { datos } from '../lib/datos';
@@ -153,7 +154,8 @@ const actual = Astro.url.pathname;
     </main>
 
     <footer class="mt-16 bg-tinta text-stone-300">
-      <div class="contenedor py-8">
+      <div class="contenedor space-y-8 py-8">
+        <TiendaFooter />
         <SponsorSlot ubicacion="footer" oscuro />
       </div>
       <div class="contenedor grid gap-6 border-t border-white/10 py-8 text-sm sm:grid-cols-3">

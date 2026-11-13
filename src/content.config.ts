@@ -215,4 +215,19 @@ const paquetes = defineCollection({
   }),
 });
 
-export const collections = { torneo, bases, sedes, equipos, jugadores, cuerpoTecnico, arbitros, partidos, patrocinadores, paquetes, medios };
+const productos = defineCollection({
+  loader: file('src/data/productos.yaml'),
+  schema: z.object({
+    nombre: z.string(),
+    marca: z.string().optional(),
+    /** Precio en pesos (MXN). */
+    precio: z.number().nonnegative(),
+    descripcion: z.string().optional(),
+    detalles: z.array(z.string()).default([]),
+    foto: imagen.optional(),
+    /** false = se muestra como agotado. */
+    disponible: z.boolean().default(true),
+  }),
+});
+
+export const collections = { torneo, bases, sedes, equipos, jugadores, cuerpoTecnico, arbitros, partidos, patrocinadores, paquetes, medios, productos };

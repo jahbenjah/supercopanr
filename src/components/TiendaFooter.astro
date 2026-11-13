@@ -1,0 +1,33 @@
+---
+// Franja de productos a la venta en el pie de página; cada uno lleva a la tienda
+// en /patrocinadores/#tienda. Sin productos disponibles, no se muestra.
+import { datos, pesos } from '../lib/datos';
+
+const d = await datos();
+const productos = d.productos.filter((p) => p.disponible);
+---
+{productos.length > 0 && (
+  <aside class="text-center text-stone-300" aria-label="Tienda oficial">
+    <p class="mb-3 text-xs font-semibold uppercase tracking-widest">Tienda oficial · Balones a la venta</p>
+    <ul class="flex flex-wrap items-stretch justify-center gap-3">
+      {productos.map((p) => (
+        <li>
+          <a
+            href="/patrocinadores/#tienda"
+            data-track="click_producto"
+            data-id={p.id}
+            class="flex h-full items-center gap-3 rounded-lg border border-white/15 bg-white/5 p-2 pr-4 text-left no-underline transition hover:border-oro hover:bg-white/10"
+          >
+            {p.foto
+              ? <img src={p.foto} alt="" width="64" height="64" loading="lazy" decoding="async" class="h-16 w-16 shrink-0 rounded-md bg-white object-cover" />
+              : <span class="flex h-16 w-16 shrink-0 items-center justify-center rounded-md bg-white/10 text-3xl" aria-hidden="true">⚽</span>}
+            <span class="flex flex-col">
+              <span class="font-display text-base font-bold uppercase text-white">{p.nombre}</span>
+              <span class="font-display text-lg font-bold text-oro">{pesos(p.precio)}</span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </aside>
+)}

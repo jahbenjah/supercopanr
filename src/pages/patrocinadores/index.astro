@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Encabezado from '../../components/Encabezado.astro';
 import SponsorBadge from '../../components/SponsorBadge.astro';
-import { datos } from '../../lib/datos';
+import { contacto, datos, pesos } from '../../lib/datos';
 
 const d = await datos();
 const niveles = [
@@ -18,6 +18,7 @@ const grupos = niveles
     lista: d.patrocinadores.filter((p) => p.nivel === nivel).sort((a, b) => a.nombre.localeCompare(b.nombre, 'es')),
   }))
   .filter((g) => g.lista.length > 0);
+const pedido = (nombre: string) => contacto(d, `Hola, me interesa el ${nombre} de la tienda de la ${d.torneo.nombre}.`);
 ---
 <Base title="Patrocinadores" description={`Las marcas que hacen posible la ${d.torneo.nombre}.`}>
   <Encabezado titulo="Patrocinadores" subtitulo="Gracias a las marcas que apoyan el fútbol amateur de Nicolás Romero. ¡Apóyalos tú también!" />
@@ -49,6 +50,43 @@ const grupos = niveles
         </ul>
       </section>
     ))}
+    {d.productos.length > 0 && (
+      <section id="tienda" class="scroll-mt-24">
+        <h2 class="titulo-seccion">Tienda oficial</h2>
+        <p class="mb-6 text-stone-600">Balones a la venta durante el torneo. Pide el tuyo por mensaje y recógelo en la cancha.</p>
+        <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {d.productos.map((p) => {
+            const c = pedido(p.nombre);
+            return (
+              <li class="tarjeta flex h-full flex-col overflow-hidden">
+                <div class="relative aspect-square bg-stone-100">
+                  {p.foto
+                    ? <img src={p.foto} alt={p.nombre} width="800" height="800" loading="lazy" decoding="async" class="h-full w-full object-cover" />
+                    : <span class="flex h-full items-center justify-center text-6xl" aria-hidden="true">⚽</span>}
+                  {!p.disponible && <span class="chip absolute left-3 top-3 bg-stone-900 text-white">Agotado</span>}
+                </div>
+                <div class="flex flex-1 flex-col gap-2 p-5">
+                  {p.marca && <span class="text-xs font-semibold uppercase tracking-wide text-stone-500">{p.marca}</span>}
+                  <h3 class="font-display text-xl font-bold uppercase">{p.nombre}</h3>
+                  {p.descripcion && <p class="text-sm text-stone-600">{p.descripcion}</p>}
+                  {p.detalles.length > 0 && (
+                    <ul class="list-inside list-disc text-sm text-stone-600">
+                      {p.detalles.map((x) => <li>{x}</li>)}
+                    </ul>
+                  )}
+                  <div class="mt-auto flex items-center justify-between gap-3 pt-3">
+                    <span class="font-display text-3xl font-bold text-cancha">{pesos(p.precio)}</span>
+                    {p.disponible && (
+                      <a href={c.href} target="_blank" rel="noopener" data-track="click_producto" data-id={p.id} class="boton-primario">Pedir por {c.canal}</a>
+                    )}
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    )}
     <div class="text-center">
       <a href="/anunciate/" class="boton-primario">Quiero ser patrocinador</a>
     </div>

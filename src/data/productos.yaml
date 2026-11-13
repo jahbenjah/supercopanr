@@ -1,0 +1,29 @@
+# Productos a la venta en la sección de patrocinadores.
+# La foto se toma sola de public/img/productos/<id>.webp (convierte con: npm run imagenes).
+# Campos: nombre, marca, precio (MXN), descripcion, detalles (lista), disponible (false = "Agotado").
+- id: gaser-champs-rojo
+  nombre: Balón Gaser Champs
+  marca: Gaser
+  precio: 280
+  descripcion: Edición especial en blanco con rojo.
+  detalles:
+    - Tamaño y peso oficial no. 5
+    - Para cancha de pasto natural o sintético
+
+- id: gaser-mexa-verde
+  nombre: Balón Gaser Mexa
+  marca: Gaser
+  precio: 280
+  descripcion: Blanco con verde y rojo, colores de México.
+  detalles:
+    - Tamaño y peso oficial no. 5
+    - Para cancha de pasto natural o sintético
+
+- id: gaser-suka-verde
+  nombre: Balón Gaser Suka
+  marca: Gaser
+  precio: 280
+  descripcion: Blanco con verde y azul.
+  detalles:
+    - Tamaño y peso oficial no. 5
+    - Para cancha de pasto natural o sintético
