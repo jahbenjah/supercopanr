@@ -357,3 +357,70 @@ export function estadisticasCompetencia(partidos: PartidoBase[], tablas: TablaGr
     mejorDefensa: mejor((x) => -x.gc / x.pj),
   };
 }
+
+export type Resultado = 'G' | 'E' | 'P';
+
+/**
+ * Estadísticas de un equipo: su plantilla (edades y posiciones) y lo que lleva en
+ * la cancha (resultados, goles, porterías en cero, racha, goleadores y tarjetas).
+ * Solo cuentan los partidos con resultado; `proximo` es el siguiente programado.
+ */
+export function estadisticasEquipo<J extends JugadorPlantilla, P extends PartidoBase>(
+  equipoId: string,
+  partidos: P[],
+  jugadores: J[],
+  tablaGoleo: Goleador[] = [],
+  tarjetas: RegistroDisciplina[] = [],
+) {
+  const plantilla = jugadores.filter((j) => j.equipo_id === equipoId);
+  const conEdad = plantilla.filter((j): j is J & { edad: number } => j.edad != null);
+  const edades = conEdad.map((j) => j.edad);
+  const porNombre = (a: J, b: J) => a.nombre.localeCompare(b.nombre, 'es');
+
+  const propios = ordenarPartidos(partidos.filter((p) => p.local_id === equipoId || p.visitante_id === equipoId));
+  const jugados = propios.filter(cuentaEnTabla).map((p) => {
+    const local = p.local_id === equipoId;
+    const gf = local ? p.goles_local! : p.goles_visitante!;
+    const gc = local ? p.goles_visitante! : p.goles_local!;
+    const resultado: Resultado = gf > gc ? 'G' : gf < gc ? 'P' : 'E';
+    return { partido: p, rival_id: local ? p.visitante_id : p.local_id, local, gf, gc, resultado };
+  });
+  const suma = (f: (x: (typeof jugados)[number]) => number) => jugados.reduce((n, x) => n + f(x), 0);
+  const gf = suma((x) => x.gf);
+  const gc = suma((x) => x.gc);
+  const victorias = jugados.filter((x) => x.resultado === 'G');
+  const disc = tarjetas.filter((r) => r.equipo_id === equipoId);
+
+  return {
+    jugadores: plantilla.length,
+    promedioEdad: promedio(edades),
+    medianaEdad: mediana(edades),
+    menoresDeEdad: edades.filter((e) => e < 18).length,
+    masJoven: [...conEdad].sort((a, b) => a.edad - b.edad || porNombre(a, b))[0] ?? null,
+    masGrande: [...conEdad].sort((a, b) => b.edad - a.edad || porNombre(a, b))[0] ?? null,
+    porPosicion: POSICIONES.map((posicion) => ({ posicion, jugadores: plantilla.filter((j) => j.posicion === posicion).length })),
+
+    pj: jugados.length,
+    g: victorias.length,
+    e: jugados.filter((x) => x.resultado === 'E').length,
+    p: jugados.filter((x) => x.resultado === 'P').length,
+    gf,
+    gc,
+    golesFavorPorPartido: jugados.length ? gf / jugados.length : null,
+    golesContraPorPartido: jugados.length ? gc / jugados.length : null,
+    /** Partidos sin recibir gol. */
+    porteriaEnCero: jugados.filter((x) => x.gc === 0).length,
+    sinAnotar: jugados.filter((x) => x.gf === 0).length,
+    /** Últimos 5 resultados, del más antiguo al más reciente. */
+    racha: jugados.slice(-5).map((x) => x.resultado),
+    resultados: jugados,
+    mayorVictoria: victorias.reduce<(typeof jugados)[number] | null>((m, x) => (!m || x.gf - x.gc > m.gf - m.gc ? x : m), null),
+    proximo: propios.find((p) => p.estado === 'programado') ?? null,
+    pendientes: propios.filter((p) => p.estado === 'programado').length,
+
+    goleadores: tablaGoleo.filter((g) => g.equipo_id === equipoId),
+    amarillas: disc.reduce((n, r) => n + r.amarillas, 0),
+    rojas: disc.reduce((n, r) => n + r.rojas, 0),
+    suspendidos: disc.filter((r) => r.pendientes > 0),
+  };
+}

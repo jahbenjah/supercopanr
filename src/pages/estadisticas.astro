@@ -177,6 +177,43 @@ const marcador = (p: NonNullable<typeof c.masGoles>) =>
       </div>
     </section>
 
+    <!-- Comparativa por equipo -->
+    <section aria-labelledby="t-comparativa">
+      <h2 id="t-comparativa" class="titulo-seccion">Por equipo</h2>
+      <p class="-mt-2 mb-4 text-sm text-stone-600">Plantilla y números en la cancha de cada equipo. Toca uno para ver su ficha completa.</p>
+      <div class="tarjeta overflow-x-auto">
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th class="text-left!">Equipo</th><th>Grupo</th><th title="Jugadores registrados">Jug.</th><th title="Edad promedio">Edad</th><th title="Menores de 18">-18</th>
+              <th title="Partidos jugados">PJ</th><th title="Goles a favor">GF</th><th title="Goles en contra">GC</th><th title="Porterías en cero">PC</th><th title="Amarillas">TA</th><th title="Rojas">TR</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[...d.equipos].sort((a, b) => (a.grupo ?? '').localeCompare(b.grupo ?? '') || a.nombre.localeCompare(b.nombre, 'es')).map((e) => {
+              const st = d.estadisticasEquipo.get(e.id)!;
+              return (
+                <tr>
+                  <td class="text-left!"><TeamBadge equipo={e} conNombre size={22} class="font-semibold" /></td>
+                  <td>{e.grupo ?? '—'}</td>
+                  <td>{st.jugadores}</td>
+                  <td class="tabular-nums">{anios(st.promedioEdad)}</td>
+                  <td>{st.menoresDeEdad}</td>
+                  <td>{st.pj}</td>
+                  <td>{st.pj ? st.gf : '—'}</td>
+                  <td>{st.pj ? st.gc : '—'}</td>
+                  <td>{st.pj ? st.porteriaEnCero : '—'}</td>
+                  <td>{st.amarillas}</td>
+                  <td>{st.rojas}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-2 text-xs text-stone-500">-18: menores de 18 · PC: porterías en cero · TA/TR: tarjetas amarillas y rojas.</p>
+    </section>
+
     <!-- Posiciones y dorsales -->
     <section aria-labelledby="t-posiciones" class="grid gap-6 lg:grid-cols-2">
       <div>

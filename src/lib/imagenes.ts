@@ -483,6 +483,106 @@ export async function imagenesCompartir(): Promise<ImagenCompartir[]> {
     });
   }
 
+  // Equipos: ficha con plantilla y lo que llevan en la cancha
+  for (const e of d.equipos) {
+    const st = d.estadisticasEquipo.get(e.id)!;
+    if (!st.jugadores) continue;
+    const rank = s.porEquipo.findIndex((x) => x.equipo_id === e.id) + 1;
+    const rival = (p: Partido) => d.por.equipos.get(p.local_id === e.id ? p.visitante_id : p.local_id)!.nombre;
+    const lineas = [
+      `👥 ${st.jugadores} jugadores · edad promedio ${st.promedioEdad == null ? '—' : dec.format(st.promedioEdad)} años`,
+      st.masJoven && `🌟 Más joven: ${st.masJoven.nombre} (${st.masJoven.edad})`,
+      st.masGrande && `🎖️ Más experimentado: ${st.masGrande.nombre} (${st.masGrande.edad})`,
+      st.pj > 0 && `⚽ ${st.pj} PJ · ${st.g}G ${st.e}E ${st.p}P · goles ${st.gf}:${st.gc}`,
+      st.goleadores[0] && `🥅 Goleador: ${d.por.jugadores.get(st.goleadores[0].jugador_id)!.nombre} (${st.goleadores[0].goles})`,
+      st.proximo && `🗓️ Próximo: vs ${rival(st.proximo)} · ${fechaCorta(st.proximo.fecha)}${st.proximo.hora ? ` ${st.proximo.hora}` : ''}${nombreSede(d, st.proximo) ? ` · 📍 ${nombreSede(d, st.proximo)}` : ''}`,
+    ].filter(Boolean);
+    const cifra = (v: string, l: string, sub?: string) =>
+      h(
+        'div',
+        { ...panel({ padding: '18px 12px' }), flex: 1, flexDirection: 'column', alignItems: 'center', minWidth: 0 },
+        texto(titular(64, { color: C.oro }), v),
+        texto({ fontSize: 21, color: C.tenue, marginTop: 4 }, l),
+        sub ? texto({ fontSize: 19, marginTop: 6, maxWidth: 210, textAlign: 'center', justifyContent: 'center', lineHeight: 1.15 }, sub) : null,
+      );
+    const maxPos = Math.max(1, ...st.porPosicion.map((x) => x.jugadores));
+    lista.push({
+      id: `equipo-${e.id}`,
+      seccion: 'Equipos',
+      titulo: e.nombre,
+      formato: 'post',
+      pagina: `/equipos/${e.id}/`,
+      texto: `🛡️ ${e.nombre}${e.grupo ? `, del Grupo ${e.grupo},` : ''} en la ${t.nombre}:\n\n${lineas.join('\n')}\n\n👉 ${sitio}/equipos/${e.id}/\n\n${hashtags}`,
+      dibujar: async () =>
+        marcoPost(
+          d,
+          e.grupo ? `Grupo ${e.grupo}` : 'Equipo',
+          'Ficha del equipo',
+          h(
+            'div',
+            { flexDirection: 'column', gap: 22, flex: 1 },
+            h(
+              'div',
+              { alignItems: 'center', gap: 32, height: 190 },
+              await escudo(e, 180),
+              h(
+                'div',
+                { flexDirection: 'column', flex: 1 },
+                texto(titular(e.nombre.length > 18 ? 62 : 76, { textTransform: 'none', lineHeight: 1 }), e.nombre),
+                texto({ fontSize: 26, color: C.tenue, marginTop: 10 }, rank ? `Plantel ${rank}.º más joven de ${s.porEquipo.length}` : `${st.jugadores} jugadores`),
+              ),
+            ),
+            h(
+              'div',
+              { gap: 14 },
+              cifra(String(st.jugadores), 'jugadores'),
+              cifra(st.promedioEdad == null ? '—' : dec.format(st.promedioEdad), 'edad promedio'),
+              cifra(st.masJoven ? String(st.masJoven.edad) : '—', 'el más joven', st.masJoven?.nombre),
+              cifra(st.masGrande ? String(st.masGrande.edad) : '—', 'el más grande', st.masGrande?.nombre),
+            ),
+            h(
+              'div',
+              { ...panel({ padding: '18px 26px' }), flexDirection: 'column', gap: 10 },
+              texto(titular(26, { color: C.oro, letterSpacing: 2 }), 'Plantilla por posición'),
+              st.porPosicion.map((x) =>
+                h(
+                  'div',
+                  { alignItems: 'center', gap: 18, height: 34 },
+                  texto({ width: 150, fontSize: 24 }, x.posicion),
+                  h('div', { flex: 1, height: 16, borderRadius: 8, background: C.linea }, h('div', { width: `${(x.jugadores / maxPos) * 100}%`, height: 16, borderRadius: 8, background: C.oro })),
+                  texto(titular(30, { width: 44, justifyContent: 'flex-end' }), x.jugadores),
+                ),
+              ),
+            ),
+            st.pj > 0
+              ? h(
+                  'div',
+                  { ...panel({ padding: '18px 26px' }), alignItems: 'center', gap: 22 },
+                  [['PJ', st.pj], ['G', st.g], ['E', st.e], ['P', st.p], ['GF', st.gf], ['GC', st.gc]].map(([l, v]) =>
+                    h('div', { flexDirection: 'column', alignItems: 'center', width: 64 }, texto(titular(44, { color: C.oro }), v), texto({ fontSize: 20, color: C.tenue }, l)),
+                  ),
+                  h(
+                    'div',
+                    { flex: 1, justifyContent: 'flex-end', gap: 8 },
+                    st.racha.map((r) =>
+                      h('div', { width: 44, height: 44, borderRadius: 44, alignItems: 'center', justifyContent: 'center', background: r === 'G' ? '#15803d' : r === 'P' ? '#b91c1c' : '#78716c' }, texto(titular(24), r)),
+                    ),
+                  ),
+                )
+              : null,
+            st.proximo
+              ? h(
+                  'div',
+                  { flexDirection: 'column', gap: 10 },
+                  texto(titular(26, { color: C.oro, letterSpacing: 2 }), st.pj ? 'Próximo partido' : 'Su debut'),
+                  await tarjetaPartido(d, st.proximo, 120, true),
+                )
+              : null,
+          ),
+        ),
+    });
+  }
+
   // Goleadores
   if (d.goleadores.length) {
     const top = d.goleadores.slice(0, 8);

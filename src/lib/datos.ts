@@ -9,6 +9,7 @@ import {
   erroresDePartido,
   estadisticasCompetencia,
   estadisticasPlantillas,
+  estadisticasEquipo,
   goleadores,
   ordenarPartidos,
   proximaFecha,
@@ -36,8 +37,15 @@ const galeria = (carpeta: string, id: string, rutas: string[]) => {
     .map((f) => `/img/${carpeta}/${id}/${f}`);
 };
 
+/** Orden de las funciones del cuerpo técnico; las desconocidas van al final. */
+const FUNCIONES = ['Director Técnico', 'Auxiliar Técnico', 'Preparador Físico', 'Entrenador de Porteros', 'Médico', 'Utilero', 'Delegado'];
+const ordenFuncion = (f?: string) => {
+  const i = FUNCIONES.indexOf(f ?? '');
+  return i < 0 ? FUNCIONES.length : i;
+};
+
 async function cargar() {
-  const [torneos, bases, sedesSinFoto, equiposSinFoto, jugadoresSinFoto, arbitrosSinFoto, partidosSinOrden, patrocinadoresSinLogo, paquetes, mediosSinFoto] = await Promise.all([
+  const [torneos, bases, sedesSinFoto, equiposSinFoto, jugadoresSinFoto, arbitrosSinFoto, partidosSinOrden, patrocinadoresSinLogo, paquetes, mediosSinFoto, cuerpoSinFoto] = await Promise.all([
     tabla('torneo'),
     tabla('bases'),
     tabla('sedes'),
@@ -48,10 +56,14 @@ async function cargar() {
     tabla('patrocinadores'),
     tabla('paquetes'),
     tabla('medios'),
+    tabla('cuerpoTecnico'),
   ]);
   const sedes = sedesSinFoto.map((x) => ({ ...x, foto: imagen('sedes', x.id, x.foto) }));
   const equipos = equiposSinFoto.map((x) => ({ ...x, logo: imagen('equipos', x.id, x.logo), fotos: galeria('equipos', x.id, x.fotos) }));
   const jugadores = jugadoresSinFoto.map((x) => ({ ...x, foto: imagen('jugadores', x.id, x.foto) }));
+  const cuerpoTecnico = cuerpoSinFoto
+    .map((x) => ({ ...x, foto: imagen('cuerpo-tecnico', x.id, x.foto) }))
+    .sort((a, b) => ordenFuncion(a.funcion) - ordenFuncion(b.funcion) || a.nombre.localeCompare(b.nombre, 'es'));
   const arbitros = arbitrosSinFoto.map((x) => ({ ...x, foto: imagen('arbitros', x.id, x.foto) }));
   const patrocinadores = patrocinadoresSinLogo.map((x) => ({ ...x, logo: imagen('patrocinadores', x.id, x.logo) }));
   const torneo = torneos.find((t) => t.id === 'actual');
@@ -100,6 +112,7 @@ async function cargar() {
   for (const [eq, js] of plantillas) {
     if (js.length > torneo.max_jugadores) errores.push(`jugadores.yaml: ${eq} tiene ${js.length} jugadores (máximo ${torneo.max_jugadores})`);
   }
+  for (const c of cuerpoTecnico) existe(m.equipos, c.equipo_id, `cuerpo-tecnico.yaml (${c.id})`, 'equipo_id');
   for (const j of jugadores) existe(m.equipos, j.equipo_id, `jugadores.yaml (${j.id})`, 'equipo_id');
   const equipoDeJugador = new Map(jugadores.map((j) => [j.id, j.equipo_id]));
   for (const p of partidos) {
@@ -114,6 +127,8 @@ async function cargar() {
   }
   if (errores.length) throw new Error(`Datos inválidos en src/data:\n  - ${errores.join('\n  - ')}`);
   const posiciones = calcularPosiciones(equipos, partidos, torneo.puntos);
+  const goleo = goleadores(partidos, jugadores);
+  const tarjetas = disciplina(partidos, jugadores, torneo);
 
   return {
     torneo,
@@ -121,6 +136,8 @@ async function cargar() {
     sedes,
     equipos: [...equipos].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es')),
     jugadores,
+    /** Cuerpo técnico y directivos, ordenados por función (DT primero). */
+    cuerpoTecnico,
     arbitros: [...arbitros].sort((a, b) => Number(b.destacado) - Number(a.destacado) || a.nombre.localeCompare(b.nombre, 'es')),
     partidos,
     patrocinadores,
@@ -130,8 +147,10 @@ async function cargar() {
     posiciones,
     plantillas: estadisticasPlantillas(jugadores),
     competencia: estadisticasCompetencia(partidos, posiciones),
-    goleadores: goleadores(partidos, jugadores),
-    disciplina: disciplina(partidos, jugadores, torneo),
+    goleadores: goleo,
+    disciplina: tarjetas,
+    /** Estadísticas de cada equipo: d.estadisticasEquipo.get(id). */
+    estadisticasEquipo: new Map(equipos.map((e) => [e.id, estadisticasEquipo(e.id, partidos, jugadores, goleo, tarjetas)])),
     proximaFecha: proximaFecha(partidos),
     ultimaFecha: ultimaFechaJugada(partidos),
     medios: [...medios].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es')),

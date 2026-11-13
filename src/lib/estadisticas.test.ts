@@ -4,6 +4,7 @@ import {
   disciplina,
   erroresDePartido,
   estadisticasCompetencia,
+  estadisticasEquipo,
   estadisticasPlantillas,
   goleadores,
   proximaFecha,
@@ -208,5 +209,39 @@ describe('estadisticasCompetencia', () => {
     expect(c.mayorGoleada?.id).toBe(ps[0].id);
     expect(c.mejorOfensiva?.equipo_id).toBe('a');
     expect(c.mejorDefensa?.equipo_id).toBe('c');
+  });
+});
+
+describe('estadisticasEquipo', () => {
+  const plantel = [
+    { id: 'x1', equipo_id: 'a', nombre: 'Xavi', edad: 30, posicion: 'Medio' },
+    { id: 'x2', equipo_id: 'a', nombre: 'Yair', edad: 17, posicion: 'Portero' },
+    { id: 'x3', equipo_id: 'a', nombre: 'Zoe', edad: 22, posicion: 'Medio' },
+    { id: 'x4', equipo_id: 'b', nombre: 'Otro', edad: 50 },
+  ];
+
+  it('sin partidos jugados solo trae la plantilla y el próximo partido', () => {
+    const prox = partido('b', 'a');
+    const s = estadisticasEquipo('a', [prox, partido('b', 'c')], plantel);
+    expect(s).toMatchObject({ jugadores: 3, medianaEdad: 22, menoresDeEdad: 1, pj: 0, golesFavorPorPartido: null, racha: [], pendientes: 1 });
+    expect(s.promedioEdad).toBeCloseTo(23);
+    expect(s.masJoven?.id).toBe('x2');
+    expect(s.masGrande?.id).toBe('x1');
+    expect(s.porPosicion.find((x) => x.posicion === 'Medio')?.jugadores).toBe(2);
+    expect(s.proximo?.id).toBe(prox.id);
+  });
+
+  it('cuenta resultados como local y visitante, racha y porterías en cero', () => {
+    const ps = [partido('a', 'b', 2, 0), partido('c', 'a', 1, 1), partido('b', 'a', 3, 0), partido('a', 'c', 4, 0), partido('b', 'c', 9, 0)];
+    const goleo = [{ jugador_id: 'x1', equipo_id: 'a', goles: 4 }, { jugador_id: 'x4', equipo_id: 'b', goles: 9 }];
+    const tarjetas = [{ jugador_id: 'x2', equipo_id: 'a', amarillas: 2, rojas: 1, pendientes: 1 }];
+    const s = estadisticasEquipo('a', ps, plantel, goleo, tarjetas);
+    expect(s).toMatchObject({ pj: 4, g: 2, e: 1, p: 1, gf: 7, gc: 4, porteriaEnCero: 2, sinAnotar: 1, amarillas: 2, rojas: 1 });
+    expect(s.racha).toEqual(['G', 'E', 'P', 'G']);
+    expect(s.golesFavorPorPartido).toBeCloseTo(7 / 4);
+    expect(s.mayorVictoria?.partido.id).toBe(ps[3].id);
+    expect(s.goleadores.map((g) => g.jugador_id)).toEqual(['x1']);
+    expect(s.suspendidos).toHaveLength(1);
+    expect(s.resultados[2]).toMatchObject({ rival_id: 'b', local: false, gf: 0, gc: 3 });
   });
 });

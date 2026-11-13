@@ -52,7 +52,7 @@
   jornada: 1
   categoria: unica
   fecha: 2026-11-14
-  hora: "16:00"
+  hora: "20:30"
   sede_id: deportivo-independencia
   local_id: betis-carto
   visitante_id: bosque-del-mamado
@@ -85,7 +85,7 @@
   jornada: 1
   categoria: unica
   fecha: 2026-11-14
-  hora: "18:00"
+  hora: "19:00"
   sede_id: unidad-deportiva-nicolas-romero
   local_id: tigres-y
   visitante_id: real-madrid-san-juan-tlihuaca
@@ -146,4 +146,59 @@
   sede_id: presa-de-lara-san-juan-tlihuaca
   local_id: real-madrid-san-juan-tlihuaca
   visitante_id: atoleros
+  estado: programado
+- id: f-j2
+  fase: grupos
+  grupo: F
+  jornada: 2
+  categoria: unica
+  fecha: 2026-11-16
+  hora: "17:00"
+  sede_id: san-ildefonso
+  local_id: flamengo
+  visitante_id: lobos-tlihuaca
+  estado: programado
+- id: e-j2
+  fase: grupos
+  grupo: E
+  jornada: 2
+  categoria: unica
+  fecha: 2026-11-16
+  hora: "19:00"
+  sede_id: deportivo-la-colmena
+  local_id: bosque-del-mamado
+  visitante_id: juventus-naucalpan
+  estado: programado
+- id: a-j3
+  fase: grupos
+  grupo: A
+  jornada: 3
+  categoria: unica
+  fecha: 2026-11-20
+  hora: "16:00"
+  sede_id: estadio-de-futbol-progreso-industrial
+  local_id: aguila-pi
+  visitante_id: juve-sitecom
+  estado: programado
+- id: f-j3
+  fase: grupos
+  grupo: F
+  jornada: 3
+  categoria: unica
+  fecha: 2026-11-20
+  hora: "21:00"
+  sede_id: deportivo-la-colmena
+  local_id: lobos-tlihuaca
+  visitante_id: union-america
+  estado: programado
+- id: e-j3
+  fase: grupos
+  grupo: E
+  jornada: 3
+  categoria: unica
+  fecha: 2026-11-20
+  hora: "19:00"
+  sede_id: deportivo-la-colmena
+  local_id: juventus-naucalpan
+  visitante_id: betis-carto
   estado: programado

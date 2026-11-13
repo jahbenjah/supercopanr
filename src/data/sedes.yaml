@@ -60,3 +60,11 @@
   lat: 19.552683
   lng: -99.422699
   servicios: []
+
+- id: san-ildefonso
+  nombre: San Ildefonso
+  direccion: Cd. Nicolás Romero, Méx.
+  maps_url: https://maps.app.goo.gl/fXBjH49YZDp3DcmT6
+  lat: 19.617586
+  lng: -99.300153
+  servicios: []

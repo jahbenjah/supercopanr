@@ -5,7 +5,7 @@ import TeamBadge from '../../components/TeamBadge.astro';
 import MatchCard from '../../components/MatchCard.astro';
 import SponsorSlot from '../../components/SponsorSlot.astro';
 import WhatsAppCTA from '../../components/WhatsAppCTA.astro';
-import { datos, partidosDeEquipo } from '../../lib/datos';
+import { datos, fecha as fechaCorta, iniciales, partidosDeEquipo } from '../../lib/datos';
 
 export async function getStaticPaths() {
   const d = await datos();
@@ -20,10 +20,35 @@ const plantilla = d.jugadores
 const tabla = d.posiciones.find((t) => t.filas.some((f) => f.equipo_id === e.id));
 const fila = tabla?.filas.find((f) => f.equipo_id === e.id);
 const partidos = partidosDeEquipo(d, e.id);
+const cuerpo = d.cuerpoTecnico.filter((c) => c.equipo_id === e.id);
+const POS = [['Portero', 'Porteros'], ['Defensa', 'Defensas'], ['Medio', 'Medios'], ['Delantero', 'Delanteros']] as const;
+const gruposPlantilla = [
+  ...POS.map(([p, t]) => [t, plantilla.filter((j) => j.posicion === p)] as const),
+  ['Sin posición', plantilla.filter((j) => !POS.some(([p]) => p === j.posicion))] as const,
+].filter(([, js]) => js.length > 0);
 const golesDe = new Map(d.goleadores.map((g) => [g.jugador_id, g.goles]));
 const tarjetasDe = new Map(d.disciplina.map((r) => [r.jugador_id, r]));
 const sede = e.sede_id ? d.por.sedes.get(e.sede_id) : undefined;
 const patrocinadores = e.patrocinadores_ids.map((id) => d.por.patrocinadores.get(id)!);
+const st = d.estadisticasEquipo.get(e.id)!;
+const dec = new Intl.NumberFormat('es-MX', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+const rankEdad = d.plantillas.porEquipo.findIndex((x) => x.equipo_id === e.id) + 1;
+const maxPos = Math.max(1, ...st.porPosicion.map((x) => x.jugadores));
+const sinPosicion = st.jugadores - st.porPosicion.reduce((n, x) => n + x.jugadores, 0);
+const nombreJ = (id: string) => d.por.jugadores.get(id)?.nombre ?? id;
+const RESULTADO = { G: ['Ganó', 'bg-emerald-600 text-white'], E: ['Empató', 'bg-stone-400 text-white'], P: ['Perdió', 'bg-red-600 text-white'] } as const;
+const plantillaCifras = [
+  ['Jugadores', String(st.jugadores), st.menoresDeEdad ? `${st.menoresDeEdad} menores de 18` : 'registrados'],
+  ['Edad promedio', st.promedioEdad == null ? '—' : dec.format(st.promedioEdad), rankEdad ? `${rankEdad}.º más joven de ${d.plantillas.porEquipo.length}` : 'años'],
+  ['Más joven', st.masJoven ? `${st.masJoven.edad}` : '—', st.masJoven?.nombre ?? '', st.masJoven?.id],
+  ['Más experimentado', st.masGrande ? `${st.masGrande.edad}` : '—', st.masGrande?.nombre ?? '', st.masGrande?.id],
+] as const;
+const canchaCifras = [
+  ['Goles por partido', st.golesFavorPorPartido == null ? '—' : dec.format(st.golesFavorPorPartido), `${st.gf} a favor`],
+  ['Recibidos por partido', st.golesContraPorPartido == null ? '—' : dec.format(st.golesContraPorPartido), `${st.gc} en contra`],
+  ['Porterías en cero', String(st.porteriaEnCero), `de ${st.pj} partidos`],
+  ['Tarjetas', `${st.amarillas} · ${st.rojas}`, 'amarillas · rojas'],
+] as const;
 const stats = tabla && fila
   ? [['Lugar', `${tabla.filas.indexOf(fila) + 1}°`], ['Puntos', fila.pts], ['PJ', fila.pj], ['G-E-P', `${fila.g}-${fila.e}-${fila.p}`], ['Goles', `${fila.gf}:${fila.gc}`]]
   : [];
@@ -47,27 +72,174 @@ const stats = tabla && fila
 
   <div class="contenedor grid gap-10 py-8 lg:grid-cols-3">
     <div class="space-y-10 lg:col-span-2">
-      <section>
-        <h2 class="titulo-seccion">Plantilla</h2>
-        <div class="tarjeta overflow-x-auto">
-          <table class="tabla">
-            <thead><tr><th class="w-12">#</th><th class="text-left!">Jugador</th><th>Posición</th><th><Icono tipo="gol" titulo="Goles" /></th><th><Icono tipo="amarilla" /></th><th><Icono tipo="roja" /></th></tr></thead>
-            <tbody>
-              {plantilla.map((j) => (
-                <tr>
-                  <td class="font-display text-lg font-bold">{j.numero ?? '-'}</td>
-                  <td class="text-left!"><a href={`/jugadores/${j.id}/`} class="font-semibold">{j.nombre}</a></td>
-                  <td>{j.posicion ?? '-'}</td>
-                  <td>{golesDe.get(j.id) ?? 0}</td>
-                  <td>{tarjetasDe.get(j.id)?.amarillas ?? 0}</td>
-                  <td>{tarjetasDe.get(j.id)?.rojas ?? 0}</td>
-                </tr>
+      <section aria-labelledby="t-estadisticas" class="space-y-4">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 id="t-estadisticas" class="titulo-seccion mb-0!">Estadísticas</h2>
+          <a href={`/compartir/equipo-${e.id}.png`} download={`supercopa-${e.id}.png`} class="text-sm font-semibold text-oro-oscuro">Descargar imagen para Facebook</a>
+        </div>
+        <dl class="grid grid-cols-2 gap-3 lg:grid-cols-4">
+          {plantillaCifras.map(([t, v, sub, id]) => (
+            <div class="tarjeta p-4">
+              <dt class="text-xs font-semibold uppercase tracking-wide text-stone-500">{t}</dt>
+              <dd class="font-display text-4xl font-bold text-cancha">{v}{id && <span class="ml-1 text-base font-semibold text-stone-500">años</span>}</dd>
+              <dd class="truncate text-sm text-stone-500">{id ? <a href={`/jugadores/${id}/`}>{sub}</a> : sub}</dd>
+            </div>
+          ))}
+        </dl>
+
+        <div class="grid gap-4 md:grid-cols-2">
+          <div class="tarjeta p-4">
+            <h3 class="mb-3 text-lg text-cancha-oscuro">Plantilla por posición</h3>
+            <ul class="space-y-2">
+              {st.porPosicion.map((x) => (
+                <li class="grid grid-cols-[6rem_1fr_2rem] items-center gap-3 text-sm">
+                  <span>{x.posicion}</span>
+                  <span class="h-3 rounded bg-stone-100"><span class="block h-3 rounded bg-oro-oscuro" style={`width:${(x.jugadores / maxPos) * 100}%`}></span></span>
+                  <span class="text-right font-semibold tabular-nums">{x.jugadores}</span>
+                </li>
               ))}
-            </tbody>
-          </table>
-          {plantilla.length === 0 && <p class="p-4 text-stone-500">Plantilla por registrar.</p>}
+            </ul>
+            {sinPosicion > 0 && <p class="mt-2 text-xs text-stone-500">{sinPosicion} sin posición registrada.</p>}
+          </div>
+
+          <div class="tarjeta p-4">
+            <h3 class="mb-3 text-lg text-cancha-oscuro">En la cancha</h3>
+            {st.pj === 0 ? (
+              <p class="text-sm text-stone-600">
+                Aún no juega en el torneo{st.proximo && <>: debuta el <b>{fechaCorta(st.proximo.fecha)}</b>{st.proximo.hora && ` a las ${st.proximo.hora}`} contra <b>{d.por.equipos.get(st.proximo.local_id === e.id ? st.proximo.visitante_id : st.proximo.local_id)!.nombre}</b>{st.proximo.sede_id && ` en ${d.por.sedes.get(st.proximo.sede_id)!.nombre}`}</>}. Las estadísticas de juego aparecen con su primer resultado.
+              </p>
+            ) : (
+              <div class="space-y-3 text-sm">
+                <div class="flex items-center gap-2">
+                  <span class="text-stone-500">Últimos partidos:</span>
+                  <ol class="flex gap-1">
+                    {st.racha.map((r) => <li class={`grid h-7 w-7 place-items-center rounded-full text-xs font-bold ${RESULTADO[r][1]}`} title={RESULTADO[r][0]}>{r}</li>)}
+                  </ol>
+                </div>
+                {st.goleadores.length > 0 && (
+                  <p><span class="text-stone-500">Goleadores:</span> {st.goleadores.slice(0, 3).map((g, i) => <>{i > 0 && ', '}<a href={`/jugadores/${g.jugador_id}/`}>{nombreJ(g.jugador_id)}</a> ({g.goles})</>)}</p>
+                )}
+                {st.mayorVictoria && (
+                  <p><span class="text-stone-500">Mayor victoria:</span> {st.mayorVictoria.gf}–{st.mayorVictoria.gc} a {d.por.equipos.get(st.mayorVictoria.rival_id)!.nombre}</p>
+                )}
+                {st.suspendidos.length > 0 && (
+                  <p><span class="text-stone-500">Suspendidos:</span> {st.suspendidos.map((r) => `${nombreJ(r.jugador_id)} (${r.pendientes})`).join(', ')}</p>
+                )}
+                {st.pendientes > 0 && <p class="text-stone-500">{st.pendientes} {st.pendientes === 1 ? 'partido' : 'partidos'} por jugar.</p>}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {st.pj > 0 && (
+          <dl class="grid grid-cols-2 gap-3 lg:grid-cols-4">
+            {canchaCifras.map(([t, v, sub]) => (
+              <div class="tarjeta p-4">
+                <dt class="text-xs font-semibold uppercase tracking-wide text-stone-500">{t}</dt>
+                <dd class="font-display text-3xl font-bold text-cancha">{v}</dd>
+                <dd class="text-sm text-stone-500">{sub}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+      </section>
+
+      <section aria-labelledby="t-plantilla" data-pestanas>
+        <div class="mb-4 flex flex-wrap items-end justify-between gap-3">
+          <h2 id="t-plantilla" class="titulo-seccion mb-0!">Plantilla</h2>
+          <div role="tablist" aria-label="Vista de la plantilla" class="inline-flex rounded-lg bg-stone-100 p-1 text-sm font-semibold">
+            {[['cuadricula', 'Cuadrícula'], ['lista', 'Lista']].map(([id, t], i) => (
+              <button type="button" role="tab" id={`tab-${id}`} aria-controls={`panel-${id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} data-pestana={id}
+                class="rounded-md px-3 py-1.5 text-stone-600 aria-selected:bg-white aria-selected:text-cancha-oscuro aria-selected:shadow-sm">{t}</button>
+            ))}
+          </div>
+        </div>
+        {plantilla.length === 0 && cuerpo.length === 0 && <p class="text-stone-500">Plantilla por registrar.</p>}
+
+        <!-- Cuadrícula: fotos de jugadores por posición y del cuerpo técnico -->
+        <div role="tabpanel" id="panel-cuadricula" aria-labelledby="tab-cuadricula" class="space-y-6">
+          {gruposPlantilla.map(([titulo, js]) => (
+            <div>
+              <h3 class="mb-3 text-sm font-bold uppercase tracking-wide text-stone-500">{titulo} <span class="font-normal">({js.length})</span></h3>
+              <ul class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+                {js.map((j) => (
+                  <li>
+                    <a href={`/jugadores/${j.id}/`} class="tarjeta group block overflow-hidden no-underline">
+                      <div class="relative aspect-square bg-stone-100">
+                        {j.foto
+                          ? <img src={j.foto} alt="" loading="lazy" width="300" height="300" class="h-full w-full object-cover transition group-hover:scale-105" />
+                          : <span class="grid h-full place-items-center font-display text-5xl font-bold text-stone-300">{j.numero ?? '?'}</span>}
+                        {j.numero != null && <span class="absolute left-2 top-2 rounded-md bg-cancha-oscuro/85 px-2 py-0.5 font-display text-lg font-bold text-oro">{j.numero}</span>}
+                      </div>
+                      <div class="p-3">
+                        <p class="line-clamp-2 font-semibold leading-tight text-cancha-oscuro">{j.nombre}</p>
+                        <p class="mt-1 text-xs text-stone-500">{[j.posicion, j.edad != null && `${j.edad} años`].filter(Boolean).join(' · ')}</p>
+                      </div>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          {cuerpo.length > 0 && (
+            <div>
+              <h3 class="mb-3 text-sm font-bold uppercase tracking-wide text-stone-500">Cuerpo técnico y directivos <span class="font-normal">({cuerpo.length})</span></h3>
+              <ul class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+                {cuerpo.map((c) => (
+                  <li class="tarjeta overflow-hidden">
+                    <div class="aspect-square bg-stone-100">
+                      {c.foto
+                        ? <img src={c.foto} alt="" loading="lazy" width="300" height="300" class="h-full w-full object-cover" />
+                        : <span class="grid h-full place-items-center font-display text-4xl font-bold text-stone-300">{iniciales(c.nombre)}</span>}
+                    </div>
+                    <div class="p-3">
+                      <p class="line-clamp-2 font-semibold leading-tight text-cancha-oscuro">{c.nombre}</p>
+                      {c.funcion && <p class="mt-1 text-xs font-semibold text-oro-oscuro">{c.funcion}</p>}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        <!-- Lista: tabla de jugadores y del cuerpo técnico -->
+        <div role="tabpanel" id="panel-lista" aria-labelledby="tab-lista" class="space-y-6" hidden>
+          {plantilla.length > 0 && (
+            <div class="tarjeta overflow-x-auto">
+              <table class="tabla">
+                <thead><tr><th class="w-12">#</th><th class="text-left!">Jugador</th><th>Posición</th><th>Edad</th><th><Icono tipo="gol" titulo="Goles" /></th><th><Icono tipo="amarilla" /></th><th><Icono tipo="roja" /></th></tr></thead>
+                <tbody>
+                  {plantilla.map((j) => (
+                    <tr>
+                      <td class="font-display text-lg font-bold">{j.numero ?? '-'}</td>
+                      <td class="text-left!"><a href={`/jugadores/${j.id}/`} class="font-semibold">{j.nombre}</a></td>
+                      <td>{j.posicion ?? '-'}</td>
+                      <td>{j.edad ?? '-'}</td>
+                      <td>{golesDe.get(j.id) ?? 0}</td>
+                      <td>{tarjetasDe.get(j.id)?.amarillas ?? 0}</td>
+                      <td>{tarjetasDe.get(j.id)?.rojas ?? 0}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+          {cuerpo.length > 0 && (
+            <div class="tarjeta overflow-x-auto">
+              <table class="tabla">
+                <thead><tr><th class="text-left!">Cuerpo técnico y directivos</th><th class="text-left!">Función</th></tr></thead>
+                <tbody>
+                  {cuerpo.map((c) => (
+                    <tr><td class="text-left! font-semibold">{c.nombre}</td><td class="text-left!">{c.funcion ?? '-'}</td></tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       </section>
+
       <section>
         <h2 class="titulo-seccion">Partidos</h2>
         {partidos.length === 0 && <p class="text-stone-500">El calendario se publica después del sorteo de grupos.</p>}
@@ -85,7 +257,7 @@ const stats = tabla && fila
     <aside class="space-y-6">
       <div class="tarjeta space-y-3 p-4 text-sm">
         <h2 class="text-lg text-cancha-oscuro">Información</h2>
-        {e.delegado && <p><strong>Delegado:</strong> {e.delegado}</p>}
+        {e.director_tecnico && <p><strong>Director técnico:</strong> {e.director_tecnico}</p>}
         {sede && <p><strong>Sede:</strong> <a href={`/sedes/${sede.id}/`}>{sede.nombre}</a></p>}
         {e.perfil_premium && e.facebook && <p><a href={e.facebook} rel="noopener" target="_blank">Facebook del equipo</a></p>}
         {e.perfil_premium && e.whatsapp && (
@@ -103,3 +275,31 @@ const stats = tabla && fila
     </aside>
   </div>
 </Base>
+
+<script>
+  // Pestañas de la plantilla (Cuadrícula / Lista); recuerda la última vista elegida.
+  for (const caja of document.querySelectorAll<HTMLElement>('[data-pestanas]')) {
+    const tabs = [...caja.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const activar = (tab: HTMLButtonElement, foco = false) => {
+      for (const t of tabs) {
+        const activo = t === tab;
+        t.setAttribute('aria-selected', String(activo));
+        t.tabIndex = activo ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')!)!.hidden = !activo;
+      }
+      if (foco) tab.focus();
+      try { localStorage.setItem('vista-plantilla', tab.dataset.pestana!); } catch {}
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => activar(t));
+      t.addEventListener('keydown', (ev) => {
+        const paso = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0;
+        if (paso) activar(tabs[(i + paso + tabs.length) % tabs.length], true);
+      });
+    });
+    let guardada: string | null = null;
+    try { guardada = localStorage.getItem('vista-plantilla'); } catch {}
+    const inicial = tabs.find((t) => t.dataset.pestana === guardada);
+    if (inicial) activar(inicial);
+  }
+</script>

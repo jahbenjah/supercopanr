@@ -6,7 +6,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: "Emilio Torres"
+  director_tecnico: "Jose Emilio Torres de la Luz"
   grupo: "A"
   cabeza_de_grupo: true
   posicion: 1
@@ -19,7 +19,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Ismael Arana Garcia"
   grupo: "A"
   cabeza_de_grupo: false
   posicion: 2
@@ -32,7 +32,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Jose Concepcion Rosas Jimenez"
   grupo: "A"
   cabeza_de_grupo: false
   posicion: 3
@@ -45,7 +45,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Eduardo Ruiz Aceves"
   grupo: "B"
   cabeza_de_grupo: true
   posicion: 1
@@ -58,7 +58,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Ricardo Lora Osnaya"
   grupo: "B"
   cabeza_de_grupo: false
   posicion: 2
@@ -71,7 +71,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Brandon Fuentes Huerta"
   grupo: "B"
   cabeza_de_grupo: false
   posicion: 3
@@ -84,7 +84,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Samy Sánchez Moran"
   grupo: "C"
   cabeza_de_grupo: true
   posicion: 1
@@ -97,7 +97,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Brujo Mendoza"
   grupo: "C"
   cabeza_de_grupo: false
   posicion: 2
@@ -110,7 +110,6 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
   grupo: "C"
   cabeza_de_grupo: false
   posicion: 3
@@ -123,7 +122,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Jose Antonio Soto Dominguez"
   grupo: "D"
   cabeza_de_grupo: true
   posicion: 1
@@ -136,7 +135,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Juan Carlos Monroy Hernandez"
   grupo: "D"
   cabeza_de_grupo: false
   posicion: 2
@@ -149,7 +148,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Arturo Leal Flores"
   grupo: "D"
   cabeza_de_grupo: false
   posicion: 3
@@ -162,7 +161,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Armando Castillo Vilchis"
   grupo: "E"
   cabeza_de_grupo: true
   posicion: 1
@@ -175,7 +174,6 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
   grupo: "E"
   cabeza_de_grupo: false
   posicion: 2
@@ -188,7 +186,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "José Alberto Cordova Reyes"
   grupo: "E"
   cabeza_de_grupo: false
   posicion: 3
@@ -201,7 +199,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Sergio Alejandro Trejo Calixto"
   grupo: "F"
   cabeza_de_grupo: true
   posicion: 1
@@ -214,7 +212,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Jorge Raul Rodriguez Figueroa"
   grupo: "F"
   cabeza_de_grupo: false
   posicion: 2
@@ -227,7 +225,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Ramirez Moreno Ulises Uriel"
   grupo: "F"
   cabeza_de_grupo: false
   posicion: 3
@@ -240,7 +238,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Luis Alberto Olmos Vargas"
   grupo: "G"
   cabeza_de_grupo: true
   posicion: 1
@@ -253,7 +251,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: "Wilfrido Martinez Quezada"
+  director_tecnico: "Juan Martínez Álvarez"
   grupo: "G"
   cabeza_de_grupo: false
   posicion: 2
@@ -266,7 +264,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Emmanuel Alvarez Madin"
   grupo: "G"
   cabeza_de_grupo: false
   posicion: 3
@@ -279,7 +277,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Efrén Chávez Álvarez"
   grupo: "H"
   cabeza_de_grupo: true
   posicion: 1
@@ -292,7 +290,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Jorge Cerriteño Rivera"
   grupo: "H"
   cabeza_de_grupo: false
   posicion: 2
@@ -305,7 +303,7 @@
   perfil_premium: false
   fotos: []
   patrocinadores_ids: []
-  delegado: ""
+  director_tecnico: "Gerardo Libreros Vega"
   grupo: "H"
   cabeza_de_grupo: false
   posicion: 3

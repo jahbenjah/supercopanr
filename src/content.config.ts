@@ -88,7 +88,7 @@ const equipos = defineCollection({
     color: z.string().default('#1c1a17'),
     logo: imagen.optional(),
     sede_id: id.optional(),
-    delegado: z.string().optional(),
+    director_tecnico: z.string().optional(),
     descripcion: z.string().optional(),
     perfil_premium: z.boolean().default(false),
     whatsapp: whatsapp.optional(),
