@@ -12,7 +12,26 @@
   sede_id: deportivo-la-colmena
   local_id: juve-sitecom
   visitante_id: tlazala
-  estado: programado
+  estado: jugado
+  goles_local: 9
+  goles_visitante: 0
+  goles:
+    - { jugador_id: calixte-richkard, minuto: 3 }
+    - { jugador_id: rebollo-rodriguez-miguel-alejandro, minuto: 6 }
+    - { jugador_id: rebollo-rodriguez-miguel-alejandro, minuto: 9 }
+    - { jugador_id: vargas-jordy-toledo, minuto: 12 }
+    - { jugador_id: calixte-richkard, minuto: 22 }
+    - { jugador_id: vazquez-ramirez-cristian-israel, minuto: 30 }
+    - { jugador_id: calixte-richkard, minuto: 40 }
+    - { jugador_id: vargas-jordy-toledo, minuto: 70 }
+    - { jugador_id: calixte-richkard, minuto: 83 }
+  tarjetas:
+    - { jugador_id: diego-osnaya-franco, tipo: amarilla, minuto: 15 }
+    - { jugador_id: diego-osnaya-franco, tipo: amarilla, minuto: 15 }
+    - { jugador_id: diego-osnaya-franco, tipo: roja, minuto: 15 }
+    - { jugador_id: barrera-josue-rivas-barrera-josue-rivas, tipo: amarilla, minuto: 30 }
+    - { jugador_id: silva-fernando-herrera, tipo: amarilla, minuto: 35 }
+    - { jugador_id: josue-saucedo-solis, tipo: amarilla, minuto: 40 }
 - id: b-j1
   fase: grupos
   grupo: B
@@ -23,7 +42,19 @@
   sede_id: deportivo-la-colmena
   local_id: san-isidro-rgal
   visitante_id: deportivo-la-rosa
-  estado: programado
+  estado: jugado
+  goles_local: 3
+  goles_visitante: 0
+  goles:
+    - { jugador_id: humberto-gil-mejia, minuto: 30 }
+    - { jugador_id: uriel-munguia-romero, minuto: 40 }
+    - { jugador_id: humberto-gil-mejia, minuto: 78 }
+  tarjetas:
+    - { jugador_id: chimal-flores-miguel-alejandro, tipo: amarilla, minuto: 70 }
+    - { jugador_id: guzman-eduardo-badillo, tipo: amarilla, minuto: 72 }
+    - { jugador_id: luciano-acevedo, tipo: amarilla, minuto: 83 }
+    - { jugador_id: chimal-flores-miguel-alejandro, tipo: amarilla, minuto: 89 }
+    - { jugador_id: chimal-flores-miguel-alejandro, tipo: roja, minuto: 89 }
 - id: c-j1
   fase: grupos
   grupo: C
@@ -201,4 +232,59 @@
   sede_id: deportivo-la-colmena
   local_id: juventus-naucalpan
   visitante_id: betis-carto
+  estado: programado
+- id: c-j2
+  fase: grupos
+  grupo: C
+  jornada: 2
+  categoria: unica
+  fecha: 2026-11-21
+  hora: "16:00"
+  sede_id: san-ildefonso
+  local_id: san-ildefonso
+  visitante_id: deportivo-fresno
+  estado: programado
+- id: h-j3
+  fase: grupos
+  grupo: H
+  jornada: 3
+  categoria: unica
+  fecha: 2026-11-21
+  hora: "16:00"
+  sede_id: cenafi
+  local_id: atoleros
+  visitante_id: tigres-y
+  estado: programado
+- id: g-j3
+  fase: grupos
+  grupo: G
+  jornada: 3
+  categoria: unica
+  fecha: 2026-11-21
+  hora: "16:00"
+  sede_id: cedros
+  local_id: deportivo-cedros
+  visitante_id: cahuacan-cv
+  estado: programado
+- id: b-j3
+  fase: grupos
+  grupo: B
+  jornada: 3
+  categoria: unica
+  fecha: 2026-11-21
+  hora: "19:00"
+  sede_id: deportivo-la-colmena
+  local_id: atlantico-padrinos-infonavit
+  visitante_id: san-isidro-rgal
+  estado: programado
+- id: d-j3
+  fase: grupos
+  grupo: D
+  jornada: 3
+  categoria: unica
+  fecha: 2026-11-21
+  hora: "21:00"
+  sede_id: deportivo-la-colmena
+  local_id: carboneros
+  visitante_id: club-colmena
   estado: programado

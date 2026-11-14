@@ -68,3 +68,19 @@
   lat: 19.617586
   lng: -99.300153
   servicios: []
+
+- id: cenafi
+  nombre: Cenafi
+  direccion: Cd. Nicolás Romero, Méx.
+  maps_url: https://maps.app.goo.gl/driyYiWAirfZ3Vt77
+  lat: 19.648498
+  lng: -99.348457
+  servicios: []
+
+- id: cedros
+  nombre: Cedros
+  direccion: Cd. Nicolás Romero, Méx.
+  maps_url: https://maps.app.goo.gl/WU9g4Ztkx58ZU5LT8
+  lat: 19.662872
+  lng: -99.364387
+  servicios: []

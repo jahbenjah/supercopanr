@@ -11,7 +11,8 @@
     "check": "astro check",
     "test": "vitest run",
     "imagenes": "node scripts/a-webp.mjs",
-    "partidos": "scripts/extraer-partidos.sh"
+    "partidos": "scripts/extraer-partidos.sh",
+    "goles": "scripts/extraer-goles.sh"
   },
   "author": "",
   "license": "ISC",

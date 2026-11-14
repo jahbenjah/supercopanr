@@ -1,0 +1,13 @@
+curl --url 'https://plantilla1.copafinal.com/Categorias/Reportes/index.php?L=871ea7444fd7108f5e34859ddf414262&C=5e99e2d08d54285828d62da4f6a9e521' \
+  -H 'Accept: text/html, */*; q=0.01' \
+  -H 'Accept-Language: es-US,es;q=0.9,en-US;q=0.8,en;q=0.7,es-419;q=0.6,gl;q=0.5' \
+  -H 'Connection: keep-alive' \
+  -H 'Referer: https://plantilla1.copafinal.com/?l=871ea7444fd7108f5e34859ddf414262' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'sec-ch-ua: "Not-A.Brand";v="99", "Google Chrome";v="157", "Chromium";v="157"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"'
