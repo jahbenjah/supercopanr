@@ -18,7 +18,7 @@
   goles:
     - { jugador_id: calixte-richkard, minuto: 3 }
     - { jugador_id: rebollo-rodriguez-miguel-alejandro, minuto: 6 }
-    - { jugador_id: rebollo-rodriguez-miguel-alejandro, minuto: 9 }
+    - { jugador_id: calixte-richkard, minuto: 9 }
     - { jugador_id: vargas-jordy-toledo, minuto: 12 }
     - { jugador_id: calixte-richkard, minuto: 22 }
     - { jugador_id: vazquez-ramirez-cristian-israel, minuto: 30 }
@@ -76,7 +76,25 @@
   sede_id: deportivo-la-colmena
   local_id: club-colmena
   visitante_id: vikingos
-  estado: programado
+  estado: jugado
+  goles_local: 8
+  goles_visitante: 2
+  goles:
+    - { jugador_id: diego-torres-cruz, minuto: 8 }
+    - { jugador_id: carlos-jair-sandoval-martinez, minuto: 12 }
+    - { jugador_id: jasiel-jahir-gonzalez-lopez, minuto: 22 }
+    - { jugador_id: jonatan-osvaldo-sanchez-ramirez, minuto: 23 }
+    - { jugador_id: carlos-jair-sandoval-martinez, minuto: 27 }
+    - { jugador_id: carlos-jair-sandoval-martinez, minuto: 42 }
+    - { jugador_id: diego-torres-cruz, minuto: 44 }
+    - { jugador_id: jesus-yael-reyes-zavaleta, minuto: 49 }
+    - { jugador_id: diego-torres-cruz, minuto: 56 }
+    - { jugador_id: ivan-alfredo-cruz-garnica, minuto: 78 }
+  tarjetas:
+    - { jugador_id: jesus-eduardo-sanchez-rodriguez, tipo: amarilla, minuto: 17 }
+    - { jugador_id: angel-yorshua-lopez-rebolloso, tipo: amarilla, minuto: 26 }
+    - { jugador_id: jonatan-osvaldo-sanchez-ramirez, tipo: amarilla, minuto: 68 }
+    - { jugador_id: jasiel-jahir-gonzalez-lopez, tipo: amarilla, minuto: 79 }
 - id: e-j1
   fase: grupos
   grupo: E
@@ -87,7 +105,18 @@
   sede_id: deportivo-independencia
   local_id: betis-carto
   visitante_id: bosque-del-mamado
-  estado: programado
+  estado: jugado
+  goles_local: 3
+  goles_visitante: 4
+  goles:
+    - { jugador_id: jose-alfredo-chora-salcedo, minuto: 7 }
+    - { jugador_id: misael-ramirez-tobon, minuto: 26 }
+    - { jugador_id: misael-ramirez-tobon, minuto: 30 }
+    - { jugador_id: armando-manuel-cedillo-enriquez, minuto: 51 }
+    - { jugador_id: misael-ramirez-tobon, minuto: 55 }
+    - { jugador_id: armando-manuel-cedillo-enriquez, minuto: 80 }
+    - { jugador_id: armando-manuel-cedillo-enriquez, minuto: 85 }
+  tarjetas: []
 - id: f-j1
   fase: grupos
   grupo: F
@@ -98,7 +127,17 @@
   sede_id: deportivo-la-colmena
   local_id: union-america
   visitante_id: flamengo
-  estado: programado
+  estado: jugado
+  goles_local: 1
+  goles_visitante: 5
+  goles:
+    - { jugador_id: fabian-ortega-sanchez, minuto: 15 }
+    - { jugador_id: yamil-ayrton-granados-bernal, minuto: 17 }
+    - { jugador_id: carlos-alberto-reza-trujano, minuto: 27 }
+    - { jugador_id: johan-de-jesus-romero-corona, minuto: 41 }
+    - { jugador_id: emmanuel-de-jesus-gonzalez-perez, minuto: 59 }
+    - { jugador_id: johan-de-jesus-romero-corona, minuto: 79 }
+  tarjetas: []
 - id: g-j1
   fase: grupos
   grupo: G
@@ -109,7 +148,14 @@
   sede_id: cahuacan-campo-2
   local_id: cahuacan-cv
   visitante_id: acepi
-  estado: programado
+  estado: jugado
+  goles_local: 3
+  goles_visitante: 0
+  goles:
+    - { jugador_id: edgar-eduardo-saavedra-perez, minuto: 60 }
+    - { jugador_id: edgar-eduardo-saavedra-perez, minuto: 75 }
+    - { jugador_id: israel-flores-rodriguez, minuto: 80 }
+  tarjetas: []
 - id: h-j1
   fase: grupos
   grupo: H
@@ -120,7 +166,19 @@
   sede_id: unidad-deportiva-nicolas-romero
   local_id: tigres-y
   visitante_id: real-madrid-san-juan-tlihuaca
-  estado: programado
+  estado: jugado
+  goles_local: 1
+  goles_visitante: 1
+  goles:
+    - { jugador_id: jose-ignacio-arzate-trejo, minuto: 67 }
+  tarjetas:
+    - { jugador_id: rodea-uriel-saenz, tipo: amarilla, minuto: 18 }
+    - { jugador_id: sebastian-jimenez-pineda, tipo: amarilla, minuto: 25 }
+    - { jugador_id: rodea-uriel-saenz, tipo: amarilla, minuto: 62 }
+    - { jugador_id: rodea-uriel-saenz, tipo: roja, minuto: 62 }
+    - { jugador_id: daniel-bastida-sanchez, tipo: amarilla, minuto: 63 }
+    - { jugador_id: gallardo-arazo-juan-antonio, tipo: amarilla, minuto: 80 }
+    - { jugador_id: gonzalez-armando-tavares, tipo: amarilla, minuto: 89 }
 
 # Jornada 2
 - id: a-j2
