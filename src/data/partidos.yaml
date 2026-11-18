@@ -268,7 +268,17 @@
   estado: jugado
   goles_local: 1
   goles_visitante: 9
-  goles: []
+  goles:
+    - { jugador_id: christian-yair-garcia-garcia, minuto: 0 }
+    - { jugador_id: jesus-eliseo-ramirez-hernandez, minuto: 0 }
+    - { jugador_id: jesus-eliseo-ramirez-hernandez, minuto: 0 }
+    - { jugador_id: jose-adrian-jimenez-tapia, minuto: 0 }
+    - { jugador_id: mauricio-lopez-garcia, minuto: 0 }
+    - { jugador_id: jesus-eliseo-ramirez-hernandez, minuto: 0 }
+    - { jugador_id: jose-adrian-jimenez-tapia, minuto: 0 }
+    - { jugador_id: jose-adrian-jimenez-tapia, minuto: 0 }
+    - { jugador_id: luis-angel-alcantara-hernandez, minuto: 0 }
+    - { jugador_id: jesus-yael-reyes-zavaleta, minuto: 3 }
   tarjetas: []
 - id: g-j2
   fase: grupos
@@ -307,8 +317,15 @@
   estado: jugado
   goles_local: 2
   goles_visitante: 3
-  goles: []
-  tarjetas: []
+  goles:
+    - { jugador_id: aaron-emmanuel-almazan-cruz, minuto: 15 }
+    - { jugador_id: munoz-vazquez-luis-adolfo, minuto: 33 }
+    - { jugador_id: saul-parrales-garcia, minuto: 40 }
+    - { jugador_id: sinahi-de-jesus-vega-reyes, minuto: 55 }
+    - { jugador_id: rios-diaz-pedro-antonio, minuto: 79 }
+  tarjetas:
+    - { jugador_id: sebastian-segundo-becerril, tipo: amarilla, minuto: 39 }
+    - { jugador_id: aaron-emmanuel-almazan-cruz, tipo: amarilla, minuto: 65 }
 - id: f-j2
   fase: grupos
   grupo: F
@@ -322,8 +339,18 @@
   estado: jugado
   goles_local: 3
   goles_visitante: 1
-  goles: []
-  tarjetas: []
+  goles:
+    - { jugador_id: alejandro-montoya-ruiz, minuto: 0 }
+    - { jugador_id: carlos-alberto-reza-trujano, minuto: 0 }
+    - { jugador_id: carlos-alberto-reza-trujano, minuto: 0 }
+    - { jugador_id: irving-alejandro-rincon-granados, minuto: 0 }
+  tarjetas:
+    - { jugador_id: carlos-alberto-reza-trujano, tipo: amarilla, minuto: 21 }
+    - { jugador_id: emmanuel-de-jesus-gonzalez-perez, tipo: amarilla, minuto: 27 }
+    - { jugador_id: edgar-jesus-vera-carranza, tipo: amarilla, minuto: 36 }
+    - { jugador_id: carlos-alberto-valdez-guerrero, tipo: amarilla, minuto: 65 }
+    - { jugador_id: giovanny-santiago-flores, tipo: amarilla, minuto: 68 }
+    - { jugador_id: carlos-alberto-valdez-guerrero, tipo: roja, minuto: 83 }
 - id: e-j2
   fase: grupos
   grupo: E
@@ -337,8 +364,17 @@
   estado: jugado
   goles_local: 0
   goles_visitante: 3
-  goles: []
-  tarjetas: []
+  goles:
+    - { jugador_id: yosef-samuel-hernandez-medina, minuto: 10 }
+    - { jugador_id: daniel-esau-garcia-leos, minuto: 45 }
+    - { jugador_id: alan-javier-dimas-flores, minuto: 60 }
+  tarjetas:
+    - { jugador_id: daniel-esau-garcia-leos, tipo: amarilla, minuto: 10 }
+    - { jugador_id: jose-alfredo-chora-salcedo, tipo: amarilla, minuto: 15 }
+    - { jugador_id: christian-luna-mendez, tipo: amarilla, minuto: 40 }
+    - { jugador_id: yosef-samuel-hernandez-medina, tipo: amarilla, minuto: 45 }
+    - { jugador_id: alan-javier-dimas-flores, tipo: amarilla, minuto: 60 }
+    - { jugador_id: hector-raul-ramirez-lopez, tipo: amarilla, minuto: 80 }
 - id: a-j3
   fase: grupos
   grupo: A
