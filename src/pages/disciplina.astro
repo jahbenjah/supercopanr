@@ -3,16 +3,17 @@ import Icono from '../components/Icono.astro';
 import Base from '../layouts/Base.astro';
 import Encabezado from '../components/Encabezado.astro';
 import TeamBadge from '../components/TeamBadge.astro';
-import { datos } from '../lib/datos';
+import { datos, fechaSinAnio } from '../lib/datos';
 
 const d = await datos();
 const { torneo } = d;
 const suspendidos = d.disciplina.filter((r) => r.pendientes > 0);
+const pendientes = new Map(d.disciplina.map((r) => [r.jugador_id, r.pendientes]));
 ---
-<Base title="Disciplina" description={`Tarjetas y jugadores suspendidos de la ${torneo.nombre}.`}>
+<Base title="Disciplina" description={`Fair play, expulsados, tarjetas y jugadores suspendidos de la ${torneo.nombre}.`}>
   <Encabezado
     titulo="Disciplina"
-    subtitulo="Tarjetas y suspensiones. Las sanciones se aplican conforme al reglamento general de competencia." 
+    subtitulo="Fair play, expulsados, tarjetas y suspensiones. Las sanciones se aplican conforme al reglamento general de competencia." 
   />
   <div class="contenedor space-y-10 py-8">
     <section>
@@ -31,6 +32,74 @@ const suspendidos = d.disciplina.filter((r) => r.pendientes > 0);
             </li>
           ))}
         </ul>
+      )}
+    </section>
+    <section id="fair-play" class="scroll-mt-20">
+      <h2 class="titulo-seccion">Fair play</h2>
+      <p class="mb-4 text-sm text-stone-500">
+        Equipos de menos a más tarjetas. Cada amarilla suma 1 punto y cada roja 3; en empate va primero el de menos rojas.
+      </p>
+      <div class="tarjeta overflow-x-auto">
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th class="w-8">#</th>
+              <th class="text-left!">Equipo</th>
+              <th title="Partidos jugados">PJ</th>
+              <th title="Amarillas"><Icono tipo="amarilla" /></th>
+              <th title="Rojas"><Icono tipo="roja" /></th>
+              <th title="Puntos de conducta (menos es mejor)">PTS</th>
+            </tr>
+          </thead>
+          <tbody>
+            {d.fairPlay.map((f, i) => (
+              <tr>
+                <td>{i + 1}</td>
+                <td class="max-w-[12rem] text-left!"><TeamBadge equipo={d.por.equipos.get(f.equipo_id)!} conNombre size={22} /></td>
+                <td>{f.pj}</td>
+                <td>{f.amarillas}</td>
+                <td>{f.rojas}</td>
+                <td class="font-bold">{f.puntos}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section id="expulsados" class="scroll-mt-20">
+      <h2 class="titulo-seccion">Expulsados</h2>
+      {d.expulsados.length === 0 ? (
+        <p class="text-stone-500">Ningún jugador ha sido expulsado.</p>
+      ) : (
+        <div class="tarjeta overflow-x-auto">
+          <table class="tabla">
+            <thead>
+              <tr>
+                <th class="text-left!">Jugador</th>
+                <th class="text-left!">Equipo</th>
+                <th class="hidden text-left! sm:table-cell">Partido</th>
+                <th title="Minuto">Min.</th>
+                <th title="Partidos de suspensión que aún debe cumplir">Pend.</th>
+              </tr>
+            </thead>
+            <tbody>
+              {d.expulsados.map((x) => (
+                <tr>
+                  <td class="text-left!">
+                    <span class="flex items-center gap-2"><Icono tipo="roja" /><a href={`/jugadores/${x.jugador_id}/`}>{d.por.jugadores.get(x.jugador_id)!.nombre}</a></span>
+                  </td>
+                  <td class="max-w-[12rem] text-left!"><TeamBadge equipo={d.por.equipos.get(x.equipo_id)!} conNombre size={22} /></td>
+                  <td class="hidden text-left! sm:table-cell">
+                    <a href={`/partidos/${x.partido_id}/`}>vs {d.por.equipos.get(x.rival_id)!.nombre}</a>
+                    <span class="block text-xs text-stone-500">{fechaSinAnio(x.fecha)}</span>
+                  </td>
+                  <td>{x.minuto != null ? `${x.minuto}'` : '—'}</td>
+                  <td class:list={[(pendientes.get(x.jugador_id) ?? 0) > 0 && 'font-bold text-red-700']}>{pendientes.get(x.jugador_id) ?? 0}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </section>
     <section>

@@ -65,7 +65,20 @@
   sede_id: deportivo-independencia
   local_id: potros-fc
   visitante_id: san-ildefonso
-  estado: programado
+  estado: jugado
+  goles_local: 6
+  goles_visitante: 3
+  goles:
+    - { jugador_id: santiago-merino-cruz, minuto: 3 }
+    - { jugador_id: gustavo-guillen-ruiz, minuto: 7 }
+    - { jugador_id: javier-eduardo-velarde-grimaldo, minuto: 23 }
+    - { jugador_id: gustavo-guillen-ruiz, minuto: 32 }
+    - { jugador_id: ulises-aldair-garcia-martines, minuto: 36 }
+    - { jugador_id: christofher-alexis-castillo-mejia, minuto: 56 }
+    - { jugador_id: giovani-lionel-gil-gonzalez, minuto: 66 }
+    - { jugador_id: christofher-alexis-castillo-mejia, minuto: 83 }
+    - { jugador_id: christofher-alexis-castillo-mejia, minuto: 88 }
+  tarjetas: []
 - id: d-j1
   fase: grupos
   grupo: D
@@ -112,11 +125,17 @@
     - { jugador_id: jose-alfredo-chora-salcedo, minuto: 7 }
     - { jugador_id: misael-ramirez-tobon, minuto: 26 }
     - { jugador_id: misael-ramirez-tobon, minuto: 30 }
-    - { jugador_id: armando-manuel-cedillo-enriquez, minuto: 51 }
+    - { jugador_id: garcia-jairo-barajas, minuto: 51 }
     - { jugador_id: misael-ramirez-tobon, minuto: 55 }
-    - { jugador_id: armando-manuel-cedillo-enriquez, minuto: 80 }
-    - { jugador_id: armando-manuel-cedillo-enriquez, minuto: 85 }
-  tarjetas: []
+    - { jugador_id: hector-de-jesus-jasso-primero, minuto: 80 }
+    - { jugador_id: arsenio-cruz-gonzalez, minuto: 85 }
+  tarjetas:
+    - { jugador_id: gustavo-arana-gomez, tipo: amarilla, minuto: 34 }
+    - { jugador_id: sergio-leon-caudillo, tipo: amarilla, minuto: 35 }
+    - { jugador_id: irvin-uriel-rodriguez-robles, tipo: amarilla, minuto: 46 }
+    - { jugador_id: daniel-gutierrez-sanchez, tipo: amarilla, minuto: 56 }
+    - { jugador_id: rodolfo-sandoval-buendia, tipo: amarilla, minuto: 60 }
+    - { jugador_id: oscar-alexander-cordova-gomez, tipo: amarilla, minuto: 73 }
 - id: f-j1
   fase: grupos
   grupo: F
@@ -137,7 +156,9 @@
     - { jugador_id: johan-de-jesus-romero-corona, minuto: 41 }
     - { jugador_id: emmanuel-de-jesus-gonzalez-perez, minuto: 59 }
     - { jugador_id: johan-de-jesus-romero-corona, minuto: 79 }
-  tarjetas: []
+  tarjetas:
+    - { jugador_id: francisco-javier-gomez-lozano, tipo: amarilla, minuto: 17 }
+    - { jugador_id: fabian-ortega-sanchez, tipo: amarilla, minuto: 72 }
 - id: g-j1
   fase: grupos
   grupo: G
@@ -155,7 +176,12 @@
     - { jugador_id: edgar-eduardo-saavedra-perez, minuto: 60 }
     - { jugador_id: edgar-eduardo-saavedra-perez, minuto: 75 }
     - { jugador_id: israel-flores-rodriguez, minuto: 80 }
-  tarjetas: []
+  tarjetas:
+    - { jugador_id: luis-diego-ochoa-jaimez, tipo: amarilla, minuto: 26 }
+    - { jugador_id: luis-yair-gutierrez-cruz, tipo: amarilla, minuto: 36 }
+    - { jugador_id: eder-yael-jarillo-rosas, tipo: amarilla, minuto: 40 }
+    - { jugador_id: javier-emmanuel-flores-valdez, tipo: amarilla, minuto: 51 }
+    - { jugador_id: victor-manuel-trejo-rodriguez, tipo: roja, minuto: 68 }
 - id: h-j1
   fase: grupos
   grupo: H
@@ -170,6 +196,7 @@
   goles_local: 1
   goles_visitante: 1
   goles:
+    - { jugador_id: carreno-martinez-diego-armando, minuto: 7 }
     - { jugador_id: jose-ignacio-arzate-trejo, minuto: 67 }
   tarjetas:
     - { jugador_id: rodea-uriel-saenz, tipo: amarilla, minuto: 18 }
@@ -191,7 +218,21 @@
   sede_id: canalejas-tlazala
   local_id: tlazala
   visitante_id: aguila-pi
-  estado: programado
+  estado: jugado
+  goles_local: 2
+  goles_visitante: 2
+  goles:
+    - { jugador_id: angel-ramirez-sanchez, minuto: 14 }
+    - { jugador_id: arturo-vega-hernandez, minuto: 26 }
+    - { jugador_id: arturo-bautista-gonzalez, minuto: 40 }
+    - { jugador_id: raul-rodriguez-varela, minuto: 70 }
+  tarjetas:
+    - { jugador_id: sandoval-alvarez-jostin-omar, tipo: amarilla, minuto: 6 }
+    - { jugador_id: josue-saucedo-solis, tipo: amarilla, minuto: 18 }
+    - { jugador_id: daniel-vega-santos, tipo: amarilla, minuto: 21 }
+    - { jugador_id: angel-ramirez-sanchez, tipo: amarilla, minuto: 26 }
+    - { jugador_id: arturo-bautista-gonzalez, tipo: amarilla, minuto: 46 }
+    - { jugador_id: raul-rodriguez-varela, tipo: amarilla, minuto: 52 }
 - id: b-j2
   fase: grupos
   grupo: B
@@ -202,7 +243,18 @@
   sede_id: estadio-de-futbol-progreso-industrial
   local_id: deportivo-la-rosa
   visitante_id: atlantico-padrinos-infonavit
-  estado: programado
+  estado: jugado
+  goles_local: 0
+  goles_visitante: 6
+  goles:
+    - { jugador_id: diego-alberto-munoz-gutierrez, minuto: 5 }
+    - { jugador_id: diego-alberto-munoz-gutierrez, minuto: 20 }
+    - { jugador_id: diego-alberto-munoz-gutierrez, minuto: 27 }
+    - { jugador_id: gael-rodriguez-montiel, minuto: 38 }
+    - { jugador_id: edwin-omar-martinez-macias, minuto: 80 }
+    - { jugador_id: edwin-omar-martinez-macias, minuto: 82 }
+  tarjetas:
+    - { jugador_id: alfredo-geovanni-jardon-maldonado, tipo: amarilla, minuto: 62 }
 - id: d-j2
   fase: grupos
   grupo: D
@@ -213,7 +265,11 @@
   sede_id: deportivo-independencia
   local_id: vikingos
   visitante_id: carboneros
-  estado: programado
+  estado: jugado
+  goles_local: 1
+  goles_visitante: 9
+  goles: []
+  tarjetas: []
 - id: g-j2
   fase: grupos
   grupo: G
@@ -224,7 +280,20 @@
   sede_id: estadio-de-futbol-progreso-industrial
   local_id: acepi
   visitante_id: deportivo-cedros
-  estado: programado
+  estado: jugado
+  goles_local: 0
+  goles_visitante: 3
+  goles:
+    - { jugador_id: brandon-steven-toro-chacon, minuto: 21 }
+    - { jugador_id: brandon-steven-toro-chacon, minuto: 27 }
+    - { jugador_id: brandon-steven-toro-chacon, minuto: 80 }
+  tarjetas:
+    - { jugador_id: juan-sebastian-zamora-linares, tipo: amarilla, minuto: 30 }
+    - { jugador_id: luis-diego-ochoa-jaimez, tipo: amarilla, minuto: 35 }
+    - { jugador_id: jorge-azael-rodriguez-pelaez, tipo: amarilla, minuto: 35 }
+    - { jugador_id: johan-medina-ramirez, tipo: roja, minuto: 60 }
+    - { jugador_id: armando-trenado-blancas, tipo: amarilla, minuto: 60 }
+    - { jugador_id: emmanuel-gonzalez-baez, tipo: amarilla, minuto: 87 }
 - id: h-j2
   fase: grupos
   grupo: H
@@ -235,7 +304,11 @@
   sede_id: presa-de-lara-san-juan-tlihuaca
   local_id: real-madrid-san-juan-tlihuaca
   visitante_id: atoleros
-  estado: programado
+  estado: jugado
+  goles_local: 2
+  goles_visitante: 3
+  goles: []
+  tarjetas: []
 - id: f-j2
   fase: grupos
   grupo: F
@@ -246,7 +319,11 @@
   sede_id: san-ildefonso
   local_id: flamengo
   visitante_id: lobos-tlihuaca
-  estado: programado
+  estado: jugado
+  goles_local: 3
+  goles_visitante: 1
+  goles: []
+  tarjetas: []
 - id: e-j2
   fase: grupos
   grupo: E
@@ -257,7 +334,11 @@
   sede_id: deportivo-la-colmena
   local_id: bosque-del-mamado
   visitante_id: juventus-naucalpan
-  estado: programado
+  estado: jugado
+  goles_local: 0
+  goles_visitante: 3
+  goles: []
+  tarjetas: []
 - id: a-j3
   fase: grupos
   grupo: A
@@ -345,4 +426,15 @@
   sede_id: deportivo-la-colmena
   local_id: carboneros
   visitante_id: club-colmena
+  estado: programado
+- id: c-j3
+  fase: grupos
+  grupo: C
+  jornada: 3
+  categoria: unica
+  fecha: 2026-11-24
+  hora: "20:00"
+  sede_id: deportivo-la-colmena
+  local_id: deportivo-fresno
+  visitante_id: potros-fc
   estado: programado

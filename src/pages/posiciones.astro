@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Encabezado from '../components/Encabezado.astro';
 import EnlaceCompartir from '../components/EnlaceCompartir.astro';
 import StandingsTable from '../components/StandingsTable.astro';
+import TablaGeneral from '../components/TablaGeneral.astro';
 import SponsorSlot from '../components/SponsorSlot.astro';
 import { datos, fechaLarga } from '../lib/datos';
 
@@ -12,7 +13,7 @@ const sorteo = torneo.fechas.find((f) => f.id === 'sorteo');
 const sorteados = new Set(d.posiciones.map((t) => t.grupo));
 const pendientes = torneo.categorias.flatMap((c) => c.grupos).filter((g) => !sorteados.has(g));
 ---
-<Base title="Tabla de posiciones" description={`Tabla de posiciones por grupo de la ${torneo.nombre} ${torneo.temporada}.`} image="/compartir/og-posiciones.png">
+<Base title="Tabla de posiciones" description={`Tabla de posiciones por grupo y tabla general de la ${torneo.nombre} ${torneo.temporada}.`} image="/compartir/og-posiciones.png">
   <Encabezado titulo="Posiciones" subtitulo={torneo.formato}>
     <EnlaceCompartir seccion="posiciones" />
   </Encabezado>
@@ -36,6 +37,16 @@ const pendientes = torneo.categorias.flatMap((c) => c.grupos).filter((g) => !sor
       <p class="mt-6 text-sm text-stone-500">
         Clasifican los {torneo.clasifican_por_grupo} primeros de cada grupo (resaltados). Desempates conforme al reglamento general de competencia.
       </p>
+    )}
+    {d.general.length > 0 && (
+      <section id="general" aria-labelledby="t-general" class="mt-12 scroll-mt-20">
+        <h2 id="t-general" class="titulo-seccion">Tabla general</h2>
+        <p class="mb-4 text-sm text-stone-500">
+          Los {d.general.length} equipos en una sola tabla, ordenados por puntos, diferencia de goles y goles a favor.
+          La columna Gpo indica grupo y lugar; resaltados los que hoy clasifican.
+        </p>
+        <TablaGeneral filas={d.general} />
+      </section>
     )}
   </div>
 </Base>

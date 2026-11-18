@@ -34,6 +34,7 @@
     - { fecha: 2026-11-16, fase: grupos, partidos: 8 }
     - { fecha: 2026-11-20, fase: grupos, partidos: 3 }
     - { fecha: 2026-11-21, fase: grupos, partidos: 5 }
+    - { fecha: 2026-11-24, fase: grupos, partidos: 1 }
     - { fecha: 2026-11-27, fase: octavos, partidos: 4 }
     - { fecha: 2026-11-28, fase: octavos, partidos: 4 }
     - { fecha: 2026-12-04, fase: cuartos, partidos: 4 }

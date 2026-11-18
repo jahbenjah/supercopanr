@@ -1,0 +1,62 @@
+---
+import TeamBadge from './TeamBadge.astro';
+import { datos, nombreCategoria } from '../lib/datos';
+import type { FilaGeneral } from '../lib/estadisticas';
+
+interface Props {
+  filas: FilaGeneral[];
+}
+const d = await datos();
+const { filas } = Astro.props;
+const clasifican = d.torneo.clasifican_por_grupo;
+const conCategoria = d.torneo.categorias.length > 1;
+// Columnas de detalle: se ocultan en pantallas chicas para que PTS siempre sea visible.
+const det = 'hidden sm:table-cell';
+---
+<div class="tarjeta overflow-hidden">
+  <div class="overflow-x-auto">
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th class="w-8">#</th>
+          <th class="text-left!">Equipo</th>
+          <th title="Grupo y lugar en el grupo">Gpo</th>
+          <th title="Partidos jugados">PJ</th>
+          <th class={det} title="Ganados">G</th>
+          <th class={det} title="Empatados">E</th>
+          <th class={det} title="Perdidos">P</th>
+          <th class={det} title="Goles a favor">GF</th>
+          <th class={det} title="Goles en contra">GC</th>
+          <th title="Diferencia de goles">DIF</th>
+          <th title="Puntos">PTS</th>
+        </tr>
+      </thead>
+      <tbody>
+        {filas.map((f, i) => {
+          const eq = d.por.equipos.get(f.equipo_id)!;
+          const clasifica = f.lugarGrupo <= clasifican;
+          return (
+            <tr class:list={[clasifica && 'font-semibold']}>
+              <td>{i + 1}</td>
+              <td class="max-w-[12rem] text-left!"><TeamBadge equipo={eq} conNombre size={24} /></td>
+              <td>
+                <span
+                  class:list={['inline-block min-w-8 rounded px-1', clasifica && 'bg-oro text-tinta']}
+                  title={`${conCategoria ? `${nombreCategoria(d, f.categoria)} · ` : ''}Grupo ${f.grupo}, lugar ${f.lugarGrupo}`}
+                >{f.grupo}{f.lugarGrupo}</span>
+              </td>
+              <td>{f.pj}</td>
+              <td class={det}>{f.g}</td>
+              <td class={det}>{f.e}</td>
+              <td class={det}>{f.p}</td>
+              <td class={det}>{f.gf}</td>
+              <td class={det}>{f.gc}</td>
+              <td>{f.dif > 0 ? `+${f.dif}` : f.dif}</td>
+              <td class="font-bold">{f.pts}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  </div>
+</div>

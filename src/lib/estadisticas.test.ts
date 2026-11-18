@@ -3,11 +3,16 @@ import {
   calcularPosiciones,
   disciplina,
   erroresDePartido,
+  expulsados,
+  fairPlay,
   estadisticasCompetencia,
   estadisticasEquipo,
   estadisticasPlantillas,
   goleadores,
+  mejorDefensa,
+  mejorOfensiva,
   proximaFecha,
+  tablaGeneral,
   ultimaFechaJugada,
   type PartidoBase,
 } from './estadisticas';
@@ -192,7 +197,7 @@ describe('estadisticasPlantillas', () => {
 
 describe('estadisticasCompetencia', () => {
   it('sin partidos jugados no hay promedios', () => {
-    const c = estadisticasCompetencia([partido('a', 'b')], []);
+    const c = estadisticasCompetencia([partido('a', 'b')]);
     expect(c).toMatchObject({ jugados: 0, programados: 1, goles: 0, golesPorPartido: null, masGoles: null });
   });
 
@@ -202,13 +207,11 @@ describe('estadisticasCompetencia', () => {
       partido('b', 'c', 0, 0),
       partido('a', 'c', 2, 4),
     ];
-    const c = estadisticasCompetencia(ps, calcularPosiciones(equipos, ps, puntos));
+    const c = estadisticasCompetencia(ps);
     expect(c).toMatchObject({ jugados: 3, goles: 10, victoriasLocal: 1, empates: 1, victoriasVisitante: 1, sinGoles: 1, amarillas: 1, rojas: 1 });
     expect(c.golesPorPartido).toBeCloseTo(10 / 3);
     expect(c.masGoles?.id).toBe(ps[2].id);
     expect(c.mayorGoleada?.id).toBe(ps[0].id);
-    expect(c.mejorOfensiva?.equipo_id).toBe('a');
-    expect(c.mejorDefensa?.equipo_id).toBe('c');
   });
 });
 
@@ -243,5 +246,90 @@ describe('estadisticasEquipo', () => {
     expect(s.goleadores.map((g) => g.jugador_id)).toEqual(['x1']);
     expect(s.suspendidos).toHaveLength(1);
     expect(s.resultados[2]).toMatchObject({ rival_id: 'b', local: false, gf: 0, gc: 3 });
+  });
+});
+
+describe('tablaGeneral', () => {
+  it('junta los grupos y ordena por puntos, diferencia y lugar en el grupo', () => {
+    const eqs = [
+      ...equipos,
+      { id: 'd', nombre: 'Delfines', categoria: 'primera', grupo: 'B' },
+      { id: 'e', nombre: 'Erizos', categoria: 'primera', grupo: 'B' },
+    ];
+    const general = tablaGeneral(
+      calcularPosiciones(eqs, [partido('a', 'b', 1, 0), partido('d', 'e', 4, 0), partido('c', 'b', 1, 1)], puntos),
+    );
+    expect(general.map((f) => [f.equipo_id, f.grupo, f.lugarGrupo, f.pts])).toEqual([
+      ['d', 'B', 1, 3],
+      ['a', 'A', 1, 3],
+      ['c', 'A', 2, 1],
+      ['b', 'A', 3, 1],
+      ['e', 'B', 2, 0],
+    ]);
+  });
+});
+
+describe('fairPlay', () => {
+  it('ordena de menos a más tarjetas, la roja vale más', () => {
+    const tabla = fairPlay(
+      equipos,
+      [
+        partido('a', 'b', 1, 0, { tarjetas: [{ jugador_id: 'a1', tipo: 'amarilla' }, { jugador_id: 'a1', tipo: 'amarilla' }] }),
+        partido('b', 'c', 0, 0, { tarjetas: [{ jugador_id: 'b1', tipo: 'roja' }] }),
+        partido('a', 'c', undefined, undefined, { tarjetas: [{ jugador_id: 'c1', tipo: 'roja' }] }),
+      ],
+      jugadores,
+    );
+    expect(tabla.map((f) => [f.equipo_id, f.pj, f.amarillas, f.rojas, f.puntos])).toEqual([
+      ['c', 1, 0, 0, 0],
+      ['a', 1, 2, 0, 2],
+      ['b', 2, 0, 1, 3],
+    ]);
+  });
+});
+
+describe('mejorOfensiva', () => {
+  it('ordena por goles a favor y desempata con menos tarjetas', () => {
+    const ps = [
+      partido('a', 'b', 2, 2, { tarjetas: [{ jugador_id: 'a1', tipo: 'amarilla' }] }),
+      partido('b', 'c', 0, 1),
+    ];
+    const tabla = mejorOfensiva(ps, fairPlay(equipos, ps, jugadores));
+    // a y b con 2 goles; b no tiene tarjetas.
+    expect(tabla.map((f) => [f.equipo_id, f.gf, f.pj, f.tarjetas])).toEqual([
+      ['b', 2, 2, 0],
+      ['a', 2, 1, 1],
+      ['c', 1, 1, 0],
+    ]);
+  });
+});
+
+describe('mejorDefensa', () => {
+  it('ordena por goles en contra y desempata con menos tarjetas', () => {
+    const ps = [
+      partido('a', 'b', 1, 1, { tarjetas: [{ jugador_id: 'b1', tipo: 'amarilla' }] }),
+      partido('c', 'b', 0, 3),
+    ];
+    const tabla = mejorDefensa(ps, fairPlay(equipos, ps, jugadores));
+    // a y b reciben 1; a no tiene tarjetas.
+    expect(tabla.map((f) => [f.equipo_id, f.gc, f.tarjetas])).toEqual([
+      ['a', 1, 0],
+      ['b', 1, 1],
+      ['c', 3, 0],
+    ]);
+  });
+});
+
+describe('expulsados', () => {
+  it('lista las rojas de partidos jugados, la más reciente primero', () => {
+    const ps = [
+      partido('a', 'b', 1, 0, { tarjetas: [{ jugador_id: 'b1', tipo: 'roja', minuto: 40 }, { jugador_id: 'a1', tipo: 'amarilla' }] }),
+      partido('a', 'c', 2, 2, { tarjetas: [{ jugador_id: 'a1', tipo: 'roja', minuto: 80 }] }),
+      partido('b', 'c', undefined, undefined, { tarjetas: [{ jugador_id: 'c1', tipo: 'roja' }] }),
+    ];
+    expect(expulsados(ps, jugadores).map((x) => [x.jugador_id, x.equipo_id, x.rival_id, x.partido_id, x.minuto])).toEqual([
+      ['a1', 'a', 'c', ps[1].id, 80],
+      ['b1', 'b', 'a', ps[0].id, 40],
+    ]);
   });
 });

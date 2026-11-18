@@ -149,6 +149,30 @@ export function calcularPosiciones(equipos: EquipoBase[], partidos: PartidoBase[
   return tablas.sort((a, b) => a.categoria.localeCompare(b.categoria) || a.grupo.localeCompare(b.grupo));
 }
 
+export interface FilaGeneral extends FilaPosiciones {
+  categoria: string;
+  grupo: string;
+  /** Lugar que ocupa en su grupo (1 = primero). */
+  lugarGrupo: number;
+}
+
+/**
+ * Tabla general: todos los equipos de las tablas de grupo en una sola, por puntos,
+ * diferencia y goles a favor; luego el lugar en su grupo y la letra del grupo.
+ */
+export function tablaGeneral(tablas: TablaGrupo[]): FilaGeneral[] {
+  return tablas
+    .flatMap((t) => t.filas.map((f, i) => ({ ...f, categoria: t.categoria, grupo: t.grupo, lugarGrupo: i + 1 })))
+    .sort(
+      (a, b) =>
+        b.pts - a.pts ||
+        b.dif - a.dif ||
+        b.gf - a.gf ||
+        a.lugarGrupo - b.lugarGrupo ||
+        a.grupo.localeCompare(b.grupo),
+    );
+}
+
 export interface Goleador {
   jugador_id: string;
   equipo_id: string;
@@ -224,6 +248,126 @@ export function disciplina(
     if (amarillas || rojas || pendientes) registros.push({ jugador_id: j.id, equipo_id: j.equipo_id, amarillas, rojas, pendientes });
   }
   return registros.sort((a, b) => b.pendientes - a.pendientes || b.rojas - a.rojas || b.amarillas - a.amarillas);
+}
+
+export interface FilaFairPlay {
+  equipo_id: string;
+  pj: number;
+  amarillas: number;
+  rojas: number;
+  /** Puntos de conducta: cada tarjeta suma su valor; menos es mejor. */
+  puntos: number;
+}
+
+/**
+ * Tabla de fair play: equipos de menos a más tarjetas, ponderadas por `valor`
+ * (por defecto amarilla 1, roja 3). Empates: menos rojas, menos amarillas y nombre.
+ * Solo cuentan partidos jugados; la tarjeta se asigna al equipo del jugador.
+ */
+export function fairPlay(
+  equipos: EquipoBase[],
+  partidos: PartidoBase[],
+  jugadores: JugadorBase[],
+  valor = { amarilla: 1, roja: 3 },
+): FilaFairPlay[] {
+  const equipoDe = new Map(jugadores.map((j) => [j.id, j.equipo_id]));
+  const filas = new Map(equipos.map((e) => [e.id, { equipo_id: e.id, pj: 0, amarillas: 0, rojas: 0, puntos: 0 }]));
+  for (const p of partidos) {
+    if (p.estado !== 'jugado') continue;
+    for (const id of [p.local_id, p.visitante_id]) {
+      const f = filas.get(id);
+      if (f) f.pj++;
+    }
+    for (const t of p.tarjetas) {
+      const f = filas.get(equipoDe.get(t.jugador_id) ?? '');
+      if (!f) continue;
+      if (t.tipo === 'roja') f.rojas++;
+      else f.amarillas++;
+      f.puntos += valor[t.tipo];
+    }
+  }
+  const nombre = new Map(equipos.map((e) => [e.id, e.nombre]));
+  return [...filas.values()].sort(
+    (a, b) =>
+      a.puntos - b.puntos ||
+      a.rojas - b.rojas ||
+      a.amarillas - b.amarillas ||
+      (nombre.get(a.equipo_id) ?? '').localeCompare(nombre.get(b.equipo_id) ?? '', 'es'),
+  );
+}
+
+export interface FilaGoles {
+  equipo_id: string;
+  pj: number;
+  gf: number;
+  gc: number;
+  /** Puntos de conducta del fair play (desempate: menos es mejor). */
+  tarjetas: number;
+}
+
+/**
+ * Goles a favor y en contra de los equipos con partidos con resultado (todas las fases),
+ * en el orden de la tabla de fair play (de menos a más tarjetas).
+ */
+function golesPorEquipo(partidos: PartidoBase[], tablaFairPlay: FilaFairPlay[]): FilaGoles[] {
+  const goles = new Map<string, { pj: number; gf: number; gc: number }>();
+  const sumar = (id: string, gf: number, gc: number) => {
+    const g = goles.get(id) ?? { pj: 0, gf: 0, gc: 0 };
+    g.pj++;
+    g.gf += gf;
+    g.gc += gc;
+    goles.set(id, g);
+  };
+  for (const p of partidos) {
+    if (!cuentaEnTabla(p)) continue;
+    sumar(p.local_id, p.goles_local!, p.goles_visitante!);
+    sumar(p.visitante_id, p.goles_visitante!, p.goles_local!);
+  }
+  return tablaFairPlay
+    .filter((f) => goles.has(f.equipo_id))
+    .map((f) => ({ equipo_id: f.equipo_id, ...goles.get(f.equipo_id)!, tarjetas: f.puntos }));
+}
+
+// Las filas ya vienen de menos a más tarjetas: el sort estable conserva ese desempate.
+
+/** Mejor ofensiva: de más a menos goles a favor; desempate, menos tarjetas. */
+export const mejorOfensiva = (partidos: PartidoBase[], tablaFairPlay: FilaFairPlay[]) =>
+  golesPorEquipo(partidos, tablaFairPlay).sort((a, b) => b.gf - a.gf);
+
+/** Mejor defensa: de menos a más goles en contra; desempate, menos tarjetas. */
+export const mejorDefensa = (partidos: PartidoBase[], tablaFairPlay: FilaFairPlay[]) =>
+  golesPorEquipo(partidos, tablaFairPlay).sort((a, b) => a.gc - b.gc);
+
+export interface Expulsion {
+  jugador_id: string;
+  equipo_id: string;
+  partido_id: string;
+  fecha: Date;
+  rival_id: string;
+  minuto?: number;
+}
+
+/** Tarjetas rojas de partidos jugados, de la más reciente a la más antigua. */
+export function expulsados(partidos: PartidoBase[], jugadores: JugadorBase[]): Expulsion[] {
+  const equipoDe = new Map(jugadores.map((j) => [j.id, j.equipo_id]));
+  return ordenarPartidos(partidos.filter((p) => p.estado === 'jugado'))
+    .reverse()
+    .flatMap((p) =>
+      p.tarjetas
+        .filter((t) => t.tipo === 'roja')
+        .sort((a, b) => (b.minuto ?? 0) - (a.minuto ?? 0))
+        .map((t) => {
+          const equipo_id = equipoDe.get(t.jugador_id) ?? '';
+          return {
+            jugador_id: t.jugador_id,
+            equipo_id,
+            partido_id: p.id,
+            fecha: p.fecha,
+            rival_id: equipo_id === p.local_id ? p.visitante_id : p.local_id,
+            minuto: t.minuto,
+          };
+        }),
+    );
 }
 
 /** Fecha (día) del siguiente partido programado, o null si ya no hay. */
@@ -327,8 +471,8 @@ export function estadisticasPlantillas<J extends JugadorPlantilla>(jugadores: J[
   };
 }
 
-/** Goles, resultados y tarjetas de los partidos con resultado. */
-export function estadisticasCompetencia(partidos: PartidoBase[], tablas: TablaGrupo[]) {
+/** Goles, resultados y tarjetas de los partidos con resultado (ofensiva y defensa: mejorOfensiva/mejorDefensa). */
+export function estadisticasCompetencia(partidos: PartidoBase[]) {
   const jugados = partidos.filter(cuentaEnTabla);
   const goles = jugados.reduce((n, p) => n + p.goles_local! + p.goles_visitante!, 0);
   const tarjetas = partidos.filter((p) => p.estado === 'jugado').flatMap((p) => p.tarjetas);
@@ -336,9 +480,6 @@ export function estadisticasCompetencia(partidos: PartidoBase[], tablas: TablaGr
   const diferencia = (p: PartidoBase) => Math.abs(p.goles_local! - p.goles_visitante!);
   const mayor = (f: (p: PartidoBase) => number) =>
     jugados.reduce<PartidoBase | null>((m, p) => (!m || f(p) > f(m) ? p : m), null);
-  const filas = tablas.flatMap((t) => t.filas).filter((f) => f.pj > 0);
-  const mejor = (f: (x: FilaPosiciones) => number) =>
-    filas.reduce<FilaPosiciones | null>((m, x) => (!m || f(x) > f(m) ? x : m), null);
 
   return {
     jugados: jugados.length,
@@ -353,8 +494,6 @@ export function estadisticasCompetencia(partidos: PartidoBase[], tablas: TablaGr
     rojas: tarjetas.filter((t) => t.tipo === 'roja').length,
     masGoles: mayor(total),
     mayorGoleada: mayor(diferencia),
-    mejorOfensiva: mejor((x) => x.gf / x.pj),
-    mejorDefensa: mejor((x) => -x.gc / x.pj),
   };
 }
 

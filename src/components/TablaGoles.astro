@@ -1,0 +1,50 @@
+---
+// Mejor ofensiva (goles a favor) o mejor defensa (goles en contra), con desempate por tarjetas.
+import TeamBadge from './TeamBadge.astro';
+import { datos } from '../lib/datos';
+import type { FilaGoles } from '../lib/estadisticas';
+
+interface Props {
+  id: string;
+  titulo: string;
+  filas: FilaGoles[];
+  /** 'gf': más goles a favor primero; 'gc': menos goles en contra primero. */
+  campo: 'gf' | 'gc';
+}
+const d = await datos();
+const { id, titulo, filas, campo } = Astro.props;
+const dec = new Intl.NumberFormat('es-MX', { maximumFractionDigits: 1, minimumFractionDigits: 1 });
+const ofensiva = campo === 'gf';
+---
+<div id={id} class="tarjeta scroll-mt-20 overflow-hidden">
+  <h3 class="bg-cancha px-3 py-2 text-lg text-white">{titulo}</h3>
+  <div class="overflow-x-auto">
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th class="w-8">#</th>
+          <th class="text-left!">Equipo</th>
+          <th title="Partidos jugados">PJ</th>
+          <th title={ofensiva ? 'Goles a favor' : 'Goles en contra'}>{ofensiva ? 'GF' : 'GC'}</th>
+          <th class="hidden sm:table-cell" title={ofensiva ? 'Goles a favor por partido' : 'Goles en contra por partido'}>Prom.</th>
+          <th title="Puntos de fair play: amarilla 1, roja 3 (desempate, menos es mejor)">Tarj.</th>
+        </tr>
+      </thead>
+      <tbody>
+        {filas.map((f, i) => (
+          <tr>
+            <td>{i + 1}</td>
+            <td class="max-w-[12rem] text-left!"><TeamBadge equipo={d.por.equipos.get(f.equipo_id)!} conNombre size={22} /></td>
+            <td>{f.pj}</td>
+            <td class="font-bold">{f[campo]}</td>
+            <td class="hidden sm:table-cell">{dec.format(f[campo] / f.pj)}</td>
+            <td>{f.tarjetas}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="px-3 py-2 text-xs text-stone-500">
+    Ordenada por {ofensiva ? 'más goles a favor' : 'menos goles en contra'}. En empate va primero el equipo con menos tarjetas (<a href="/disciplina/#fair-play">fair play</a>).
+  </p>
+</div>

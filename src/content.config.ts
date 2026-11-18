@@ -178,6 +178,8 @@ const partidos = defineCollection({
       goles: z.array(evento).default([]),
       tarjetas: z.array(evento.extend({ tipo: z.enum(['amarilla', 'roja']) })).default([]),
       patrocinador_jornada_id: id.optional(),
+      /** Medio (id de medios.yaml) que lo transmite en vivo; sale en la imagen para compartir. */
+      transmision: id.optional(),
       notas: z.string().optional(),
     })
     .refine(

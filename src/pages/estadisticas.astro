@@ -3,12 +3,15 @@ import Base from '../layouts/Base.astro';
 import Encabezado from '../components/Encabezado.astro';
 import EnlaceCompartir from '../components/EnlaceCompartir.astro';
 import TeamBadge from '../components/TeamBadge.astro';
+import TablaGoles from '../components/TablaGoles.astro';
 import SponsorSlot from '../components/SponsorSlot.astro';
 import { datos, fechaSinAnio } from '../lib/datos';
 
 const d = await datos();
 const s = d.plantillas;
 const c = d.competencia;
+const ofensiva = d.ofensiva[0];
+const defensa = d.defensa[0];
 const eq = (id: string) => d.por.equipos.get(id)!;
 const nombreEq = (id: string) => eq(id).nombre;
 
@@ -309,18 +312,18 @@ const marcador = (p: NonNullable<typeof c.masGoles>) =>
                 <dd class="text-sm text-stone-500">{nombreEq(goleador.equipo_id)} · <a href="/goleadores/">Tabla completa</a></dd>
               </div>
             )}
-            {c.mejorOfensiva && (
+            {ofensiva && (
               <div class="tarjeta p-4">
                 <dt class="text-xs font-semibold uppercase tracking-wide text-stone-500">Mejor ofensiva</dt>
-                <dd class="mt-1"><TeamBadge equipo={eq(c.mejorOfensiva.equipo_id)} conNombre size={22} class="font-semibold" /></dd>
-                <dd class="text-sm text-stone-500">{c.mejorOfensiva.gf} goles en {c.mejorOfensiva.pj} partidos ({anios(c.mejorOfensiva.gf / c.mejorOfensiva.pj)} por partido)</dd>
+                <dd class="mt-1"><TeamBadge equipo={eq(ofensiva.equipo_id)} conNombre size={22} class="font-semibold" /></dd>
+                <dd class="text-sm text-stone-500">{ofensiva.gf} goles en {ofensiva.pj} partidos · <a href="#mejor-ofensiva">Tabla completa</a></dd>
               </div>
             )}
-            {c.mejorDefensa && (
+            {defensa && (
               <div class="tarjeta p-4">
                 <dt class="text-xs font-semibold uppercase tracking-wide text-stone-500">Mejor defensa</dt>
-                <dd class="mt-1"><TeamBadge equipo={eq(c.mejorDefensa.equipo_id)} conNombre size={22} class="font-semibold" /></dd>
-                <dd class="text-sm text-stone-500">{c.mejorDefensa.gc} goles recibidos en {c.mejorDefensa.pj} partidos</dd>
+                <dd class="mt-1"><TeamBadge equipo={eq(defensa.equipo_id)} conNombre size={22} class="font-semibold" /></dd>
+                <dd class="text-sm text-stone-500">{defensa.gc} goles recibidos en {defensa.pj} partidos · <a href="#mejor-defensa">Tabla completa</a></dd>
               </div>
             )}
             {c.masGoles && (
@@ -336,6 +339,11 @@ const marcador = (p: NonNullable<typeof c.masGoles>) =>
               </div>
             )}
           </dl>
+
+          <div class="grid gap-6 lg:grid-cols-2">
+            <TablaGoles id="mejor-ofensiva" titulo="Mejor ofensiva" filas={d.ofensiva} campo="gf" />
+            <TablaGoles id="mejor-defensa" titulo="Mejor defensa" filas={d.defensa} campo="gc" />
+          </div>
         </div>
       )}
     </section>

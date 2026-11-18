@@ -89,9 +89,10 @@ type Equipo = Datos['equipos'][number];
 type Jugador = Datos['jugadores'][number];
 
 /** Escudo en círculo blanco, o círculo del color del equipo con sus iniciales. */
-async function escudo(e: Equipo, size: number): Promise<Nodo> {
+async function escudo(e: Equipo, size: number, proporcion = 0.84): Promise<Nodo> {
   if (e.logo) {
-    const interior = Math.round(size * 0.84);
+    // 0.7 o menos: un logo cuadrado cabe completo dentro del círculo.
+    const interior = Math.round(size * proporcion);
     return h('div', { width: size, height: size, borderRadius: size, background: C.blanco, alignItems: 'center', justifyContent: 'center', flexShrink: 0 }, img(await dataUri(e.logo, interior, 'contain'), interior));
   }
   return h(
@@ -310,7 +311,7 @@ export async function imagenesCompartir(): Promise<ImagenCompartir[]> {
     lista.push({
       id: 'posiciones',
       seccion: 'Posiciones',
-      titulo: 'Tabla general por grupos',
+      titulo: 'Todos los grupos',
       formato: 'post',
       pagina: '/posiciones/',
       texto: `📊 Tabla de posiciones de la ${t.nombre}${d.ultimaFecha ? ` después de la fecha del ${fechaSinAnio(d.ultimaFecha)}` : ''}. Avanzan los ${t.clasifican_por_grupo} primeros de cada grupo.\n\n👉 ${sitio}/posiciones/\n\n${hashtags}`,
@@ -349,6 +350,66 @@ export async function imagenesCompartir(): Promise<ImagenCompartir[]> {
             ),
           ),
         ),
+    });
+
+    // Tabla general: los equipos de todos los grupos en una sola tabla.
+    const top = d.general.slice(0, 5).map((f, i) => `${i + 1}. ${d.por.equipos.get(f.equipo_id)!.nombre} (${f.pts} pts)`);
+    lista.push({
+      id: 'tabla-general',
+      seccion: 'Posiciones',
+      titulo: 'Tabla general',
+      formato: 'post',
+      pagina: '/posiciones/#general',
+      texto: `📊 Tabla general de la ${t.nombre}${d.ultimaFecha ? ` al ${fechaSinAnio(d.ultimaFecha)}` : ''}: los ${d.general.length} equipos en una sola tabla.\n\n🔝 ${top.join('\n')}\n\n👉 ${sitio}/posiciones/#general\n\n${hashtags}`,
+      dibujar: async () => {
+        // ~930 px para encabezado + filas: la altura de fila se ajusta al número de equipos.
+        const alto = Math.min(56, Math.floor(930 / (d.general.length + 1)));
+        const fs = Math.min(26, Math.round(alto * 0.58));
+        const cols: [string, number][] = [['GPO', 64], ['PJ', 50], ['G', 46], ['E', 46], ['P', 46], ['DIF', 62], ['PTS', 66]];
+        return marcoPost(
+          d,
+          'Tabla general',
+          d.ultimaFecha ? `Actualizada al ${fechaSinAnio(d.ultimaFecha)}` : 'Antes de la primera jornada',
+          h(
+            'div',
+            { ...panel({ padding: '0 18px' }), flexDirection: 'column' },
+            h(
+              'div',
+              { alignItems: 'center', height: alto, gap: 10, color: C.tenue },
+              texto({ width: 40, fontSize: 18, justifyContent: 'center' }, '#'),
+              texto({ flex: 1, fontSize: 18, paddingLeft: Math.round(alto * 0.7) + 15 }, 'EQUIPO'),
+              cols.map(([x, w]) => col(x, w, { fontSize: 18 })),
+            ),
+            await Promise.all(
+              d.general.map(async (f, i) => {
+                const e = d.por.equipos.get(f.equipo_id)!;
+                const clasifica = f.lugarGrupo <= t.clasifican_por_grupo;
+                return h(
+                  'div',
+                  { alignItems: 'center', gap: 10, height: alto, borderTop: `1px solid ${C.linea}` },
+                  texto(titular(fs + 2, { width: 40, justifyContent: 'center', color: i < 3 ? C.oro : C.tenue }), i + 1),
+                  await escudo(e, Math.round(alto * 0.7)),
+                  texto(titular(fs, { textTransform: 'none', fontWeight: 600, flex: 1, ...unaLinea }), e.nombre),
+                  h(
+                    'div',
+                    { width: 64, justifyContent: 'center' },
+                    texto(
+                      titular(fs - 4, { padding: '1px 6px', borderRadius: 6, background: clasifica ? C.oro : 'transparent', color: clasifica ? C.oscuro : C.tenue }),
+                      `${f.grupo}${f.lugarGrupo}`,
+                    ),
+                  ),
+                  col(f.pj, 50, { fontSize: fs - 2 }),
+                  col(f.g, 46, { fontSize: fs - 2 }),
+                  col(f.e, 46, { fontSize: fs - 2 }),
+                  col(f.p, 46, { fontSize: fs - 2 }),
+                  col(f.dif > 0 ? `+${f.dif}` : f.dif, 62, { fontSize: fs - 2 }),
+                  col(f.pts, 66, { ...titular(fs + 6, { color: C.oro }), display: 'flex', justifyContent: 'center' }),
+                );
+              }),
+            ),
+          ),
+        );
+      },
     });
 
     for (const tabla of d.posiciones) {
@@ -479,6 +540,142 @@ export async function imagenesCompartir(): Promise<ImagenCompartir[]> {
           titulo.replace(/,.*/, ''),
           `${titulo.replace(/^[^,]*,\s*/, '')} · ${ps.length} ${ps.length === 1 ? 'partido' : 'partidos'}${sedes.length ? ` · ${sedes.length} ${sedes.length === 1 ? 'sede' : 'sedes'}` : ''}`,
           h('div', { flexDirection: 'column', gap: 12 }, await Promise.all(ps.map((p) => tarjetaPartido(d, p, altoTarjeta(ps.length), false)))),
+        ),
+    });
+  }
+
+  // Partidos: una imagen por partido. Antes del partido anuncia la transmisión en vivo
+  // (campo `transmision` en partidos.yaml); al tener resultado muestra el marcador final.
+  for (const p of d.partidos.toSorted(ordenHora)) {
+    const local = d.por.equipos.get(p.local_id)!;
+    const visita = d.por.equipos.get(p.visitante_id)!;
+    const jugado = fueJugado(p);
+    const medio = p.transmision ? d.por.medios.get(p.transmision) : undefined;
+    const enVivo = medio && p.estado === 'programado' ? medio : undefined;
+    const sede = nombreSede(d, p);
+    const etapa = p.fase === 'grupos' ? `Jornada ${p.jornada ?? ''}`.trim() : NOMBRE_FASE[p.fase];
+    const penales = p.penales_local != null && p.penales_visitante != null ? `Penales ${p.penales_local}–${p.penales_visitante}` : undefined;
+    const vs = `${local.nombre} vs ${visita.nombre}`;
+    // Goleadores de cada lado: "Nombre (3', 9')".
+    const goleadoresDe = (equipoId: string) =>
+      [...Map.groupBy(p.goles.filter((g) => d.por.jugadores.get(g.jugador_id)?.equipo_id === equipoId), (g) => g.jugador_id)].map(
+        ([id, gs]) => `${d.por.jugadores.get(id)!.nombre}${gs.some((g) => g.minuto != null) ? ` (${gs.map((g) => `${g.minuto}'`).join(', ')})` : ''}`,
+      );
+    const golesL = goleadoresDe(local.id);
+    const golesV = goleadoresDe(visita.id);
+    const cuando = [cap(fechaSinAnio(p.fecha)), p.hora && `${p.hora} h`].filter(Boolean).join(' · ');
+    const sitioMedio = medio?.facebook ?? medio?.youtube ?? medio?.sitio_web;
+
+    const textoPost = jugado
+      ? [
+          `⚽ FINAL | ${local.nombre} ${p.goles_local}-${p.goles_visitante} ${visita.nombre}${penales ? ` (${penales.toLowerCase()})` : ''}`,
+          `${etapa}${p.grupo ? ` · Grupo ${p.grupo}` : ''} de la ${t.nombre}.`,
+          golesL.length && `\n🥅 ${local.nombre}: ${golesL.join(', ')}`,
+          golesV.length && `🥅 ${visita.nombre}: ${golesV.join(', ')}`,
+          medio && `\n📺 Transmisión: ${medio.nombre}${sitioMedio ? ` ${sitioMedio}` : ''}`,
+          `\n👉 ${sitio}/partidos/${p.id}/\n\n${hashtags}`,
+        ]
+      : [
+          enVivo ? `🔴 EN VIVO por ${enVivo.nombre}: ${vs}` : `⚽ ${vs}`,
+          `${etapa}${p.grupo ? ` · Grupo ${p.grupo}` : ''} de la ${t.nombre}.`,
+          `\n🗓️ ${cuando}`,
+          sede && `📍 ${sede}`,
+          enVivo && sitioMedio && `📺 Síguelo en vivo: ${sitioMedio}`,
+          `\n👉 ${sitio}/partidos/${p.id}/\n\n${hashtags}`,
+        ];
+
+    const columnaEquipo = async (e: Equipo) =>
+      h(
+        'div',
+        { flex: 1, flexDirection: 'column', alignItems: 'center', gap: 22, minWidth: 0 },
+        await escudo(e, 250, 0.7),
+        texto(titular(e.nombre.length > 22 ? 40 : 48, { textTransform: 'none', textAlign: 'center', justifyContent: 'center', lineHeight: 1.05, maxWidth: 340 }), e.nombre),
+      );
+    const centro = jugado
+      ? h(
+          'div',
+          { flexDirection: 'column', alignItems: 'center', width: 260, flexShrink: 0, paddingTop: 50 },
+          texto(titular(30, { color: C.tenue, letterSpacing: 4 }), p.estado === 'default' ? 'Por default' : 'Final'),
+          texto(titular(150, { color: C.oro, lineHeight: 1 }), `${p.goles_local}–${p.goles_visitante}`),
+          penales ? texto(titular(28, { color: C.blanco, fontWeight: 600 }), penales) : null,
+        )
+      : h(
+          'div',
+          { flexDirection: 'column', alignItems: 'center', width: 200, flexShrink: 0, paddingTop: 70 },
+          texto(titular(120, { color: p.estado === 'suspendido' ? C.tenue : C.oro, lineHeight: 1 }), 'VS'),
+          p.estado === 'suspendido' ? texto(titular(30, { color: C.tenue, letterSpacing: 3 }), 'Suspendido') : null,
+        );
+    const datosPartido = h(
+      'div',
+      { ...panel({ padding: '20px 28px' }), flexDirection: 'column', alignItems: 'center', gap: 8 },
+      texto(titular(40, { color: C.oro, textTransform: 'none' }), cuando),
+      sede ? texto({ fontSize: 28, ...unaLinea, maxWidth: 880 }, sede) : null,
+    );
+    const listaGoles = (gs: string[], lado: 'izq' | 'der') =>
+      h(
+        'div',
+        { flex: 1, flexDirection: 'column', gap: 6, alignItems: lado === 'izq' ? 'flex-start' : 'flex-end', minWidth: 0 },
+        gs.slice(0, 6).map((g) =>
+          h(
+            'div',
+            { alignItems: 'flex-start', gap: 12, flexDirection: lado === 'izq' ? 'row' : 'row-reverse' },
+            h('div', { width: 12, height: 12, borderRadius: 12, background: C.oro, marginTop: 11, flexShrink: 0 }),
+            texto({ fontSize: 26, textAlign: lado === 'izq' ? 'left' : 'right', lineHeight: 1.2 }, g),
+          ),
+        ),
+        gs.length > 6 ? texto({ fontSize: 22, color: C.tenue }, `y ${gs.length - 6} más`) : null,
+      );
+    const pie = async () => {
+      if (jugado && (golesL.length || golesV.length))
+        return h(
+          'div',
+          { ...panel({ padding: '20px 28px' }), flexDirection: 'column', gap: 12 },
+          texto(titular(28, { color: C.oro, letterSpacing: 3 }), 'Goles'),
+          h('div', { gap: 32 }, listaGoles(golesL, 'izq'), listaGoles(golesV, 'der')),
+        );
+      if (!enVivo) return null;
+      return h(
+        'div',
+        { ...panel({ padding: '22px 30px', border: '3px solid #dc2626' }), alignItems: 'center', gap: 28 },
+        enVivo.logo
+          ? img(await dataUri(enVivo.logo, 130, 'contain'), 130, { borderRadius: 20, background: C.blanco })
+          : h('div', { width: 130, height: 130, borderRadius: 20, background: enVivo.color, alignItems: 'center', justifyContent: 'center', flexShrink: 0 }, texto(titular(52), iniciales(enVivo.nombre))),
+        h(
+          'div',
+          { flexDirection: 'column', flex: 1, minWidth: 0 },
+          h(
+            'div',
+            { alignItems: 'center', gap: 14 },
+            h('div', { width: 26, height: 26, borderRadius: 26, background: '#dc2626' }),
+            texto(titular(46, { color: '#f87171', letterSpacing: 3 }), 'En vivo'),
+          ),
+          texto({ fontSize: 30, color: C.tenue, marginTop: 6 }, 'Transmisión por'),
+          texto(titular(enVivo.nombre.length > 24 ? 40 : 50, { textTransform: 'none', lineHeight: 1.05 }), enVivo.nombre),
+        ),
+      );
+    };
+
+    lista.push({
+      id: `partido-${p.id}`,
+      seccion: 'Partidos',
+      titulo: `${vs}${jugado ? ` · ${p.goles_local}-${p.goles_visitante}` : enVivo ? ` · en vivo por ${enVivo.nombre}` : ''}`,
+      formato: 'post',
+      pagina: `/partidos/${p.id}/`,
+      texto: textoPost.filter(Boolean).join('\n'),
+      dibujar: async () =>
+        marcoPost(
+          d,
+          jugado ? 'Resultado' : enVivo ? 'Partido en vivo' : etapa,
+          [jugado || enVivo ? etapa : null, p.grupo && `Grupo ${p.grupo}`, p.fase === 'grupos' ? null : NOMBRE_FASE[p.fase]]
+            .filter((x, i, a) => x && a.indexOf(x) === i)
+            .join(' · '),
+          h(
+            'div',
+            { flexDirection: 'column', gap: 30, flex: 1, justifyContent: 'center' },
+            h('div', { alignItems: 'flex-start', gap: 12 }, await columnaEquipo(local), centro, await columnaEquipo(visita)),
+            datosPartido,
+            await pie(),
+          ),
         ),
     });
   }

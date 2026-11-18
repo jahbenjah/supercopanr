@@ -7,12 +7,17 @@ import {
   calcularPosiciones,
   disciplina,
   erroresDePartido,
+  expulsados,
   estadisticasCompetencia,
   estadisticasPlantillas,
   estadisticasEquipo,
+  fairPlay,
   goleadores,
+  mejorDefensa,
+  mejorOfensiva,
   ordenarPartidos,
   proximaFecha,
+  tablaGeneral,
   ultimaFechaJugada,
 } from './estadisticas';
 
@@ -123,6 +128,7 @@ async function cargar() {
     existe(m.equipos, p.visitante_id, donde, 'visitante_id');
     existe(m.sedes, p.sede_id, donde, 'sede_id');
     existe(m.arbitros, p.arbitro_id, donde, 'arbitro_id');
+    existe(m.medios, p.transmision, donde, 'transmision');
     existe(m.patrocinadores, p.patrocinador_jornada_id, donde, 'patrocinador_jornada_id');
     for (const e of [...p.goles, ...p.tarjetas]) existe(m.jugadores, e.jugador_id, donde, 'jugador_id');
     for (const err of erroresDePartido(p, equipoDeJugador)) errores.push(`${donde}: ${err}`);
@@ -131,6 +137,7 @@ async function cargar() {
   const posiciones = calcularPosiciones(equipos, partidos, torneo.puntos);
   const goleo = goleadores(partidos, jugadores);
   const tarjetas = disciplina(partidos, jugadores, torneo);
+  const tablaFairPlay = fairPlay(equipos.some((e) => e.grupo) ? equipos.filter((e) => e.grupo) : equipos, partidos, jugadores);
 
   return {
     torneo,
@@ -147,10 +154,20 @@ async function cargar() {
     // Índices por id: d.por.equipos.get(id), etc.
     por: m,
     posiciones,
+    /** Todos los equipos en una sola tabla. */
+    general: tablaGeneral(posiciones),
     plantillas: estadisticasPlantillas(jugadores),
-    competencia: estadisticasCompetencia(partidos, posiciones),
+    competencia: estadisticasCompetencia(partidos),
     goleadores: goleo,
     disciplina: tarjetas,
+    /** Equipos de menos a más tarjetas (solo los que ya tienen grupo, si hubo sorteo). */
+    fairPlay: tablaFairPlay,
+    /** Más goles a favor; desempate: menos tarjetas. */
+    ofensiva: mejorOfensiva(partidos, tablaFairPlay),
+    /** Menos goles en contra; desempate: menos tarjetas. */
+    defensa: mejorDefensa(partidos, tablaFairPlay),
+    /** Tarjetas rojas, de la más reciente a la más antigua. */
+    expulsados: expulsados(partidos, jugadores),
     /** Estadísticas de cada equipo: d.estadisticasEquipo.get(id). */
     estadisticasEquipo: new Map(equipos.map((e) => [e.id, estadisticasEquipo(e.id, partidos, jugadores, goleo, tarjetas)])),
     proximaFecha: proximaFecha(partidos),
