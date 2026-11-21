@@ -78,7 +78,13 @@
     - { jugador_id: giovani-lionel-gil-gonzalez, minuto: 66 }
     - { jugador_id: christofher-alexis-castillo-mejia, minuto: 83 }
     - { jugador_id: christofher-alexis-castillo-mejia, minuto: 88 }
-  tarjetas: []
+  tarjetas:
+    - { jugador_id: edson-giovanni-hernandez-nolasco, tipo: amarilla, minuto: 8 }
+    - { jugador_id: diego-valentin-fuentes-ronquillo, tipo: amarilla, minuto: 28 }
+    - { jugador_id: santiago-merino-cruz, tipo: amarilla, minuto: 49 }
+    - { jugador_id: jose-ignacio-sanchez-martinez, tipo: amarilla, minuto: 59 }
+    - { jugador_id: fernando-lucas-aguilera, tipo: amarilla, minuto: 60 }
+    - { jugador_id: fernando-lucas-aguilera, tipo: roja, minuto: 68 }
 - id: d-j1
   fase: grupos
   grupo: D
@@ -247,9 +253,9 @@
   goles_local: 0
   goles_visitante: 6
   goles:
-    - { jugador_id: diego-alberto-munoz-gutierrez, minuto: 5 }
-    - { jugador_id: diego-alberto-munoz-gutierrez, minuto: 20 }
-    - { jugador_id: diego-alberto-munoz-gutierrez, minuto: 27 }
+    - { jugador_id: jose-luis-puebla-garcia, minuto: 5 }
+    - { jugador_id: jose-luis-puebla-garcia, minuto: 20 }
+    - { jugador_id: jose-luis-puebla-garcia, minuto: 27 }
     - { jugador_id: gael-rodriguez-montiel, minuto: 38 }
     - { jugador_id: edwin-omar-martinez-macias, minuto: 80 }
     - { jugador_id: edwin-omar-martinez-macias, minuto: 82 }
@@ -324,8 +330,10 @@
     - { jugador_id: sinahi-de-jesus-vega-reyes, minuto: 55 }
     - { jugador_id: rios-diaz-pedro-antonio, minuto: 79 }
   tarjetas:
-    - { jugador_id: sebastian-segundo-becerril, tipo: amarilla, minuto: 39 }
-    - { jugador_id: aaron-emmanuel-almazan-cruz, tipo: amarilla, minuto: 65 }
+    - { jugador_id: aaron-emmanuel-almazan-cruz, tipo: amarilla, minuto: 32 }
+    - { jugador_id: sebastian-segundo-becerril, tipo: amarilla, minuto: 40 }
+    - { jugador_id: aaron-emmanuel-almazan-cruz, tipo: roja, minuto: 65 }
+    - { jugador_id: sebastian-segundo-becerril, tipo: roja, minuto: 68 }
 - id: f-j2
   fase: grupos
   grupo: F
@@ -347,7 +355,6 @@
   tarjetas:
     - { jugador_id: carlos-alberto-reza-trujano, tipo: amarilla, minuto: 21 }
     - { jugador_id: emmanuel-de-jesus-gonzalez-perez, tipo: amarilla, minuto: 27 }
-    - { jugador_id: edgar-jesus-vera-carranza, tipo: amarilla, minuto: 36 }
     - { jugador_id: carlos-alberto-valdez-guerrero, tipo: amarilla, minuto: 65 }
     - { jugador_id: giovanny-santiago-flores, tipo: amarilla, minuto: 68 }
     - { jugador_id: carlos-alberto-valdez-guerrero, tipo: roja, minuto: 83 }
@@ -385,7 +392,17 @@
   sede_id: estadio-de-futbol-progreso-industrial
   local_id: aguila-pi
   visitante_id: juve-sitecom
-  estado: programado
+  estado: jugado
+  goles_local: 2
+  goles_visitante: 3
+  goles:
+    - { jugador_id: rebollo-rodriguez-miguel-alejandro, minuto: 4 }
+    - { jugador_id: pino-rios-angel-gael, minuto: 43 }
+    - { jugador_id: calixte-richkard, minuto: 52 }
+    - { jugador_id: edwin-raul-estrada-gonzalez, minuto: 76 }
+  tarjetas:
+    - { jugador_id: edwin-velez-ayala, tipo: amarilla, minuto: 61 }
+    - { jugador_id: arturo-vega-hernandez, tipo: amarilla, minuto: 83 }
 - id: f-j3
   fase: grupos
   grupo: F
@@ -396,7 +413,17 @@
   sede_id: deportivo-la-colmena
   local_id: lobos-tlihuaca
   visitante_id: union-america
-  estado: programado
+  estado: jugado
+  goles_local: 2
+  goles_visitante: 1
+  goles:
+    - { jugador_id: alexis-javier-gutierrez-mora, minuto: 19 }
+    - { jugador_id: alfonso-garcia-correa, minuto: 43 }
+    - { jugador_id: jair-rodriguez-lopez, minuto: 55 }
+  tarjetas:
+    - { jugador_id: jonathan-kevin-barrientos-avila, tipo: amarilla, minuto: 42 }
+    - { jugador_id: javier-velazquez-murillo, tipo: amarilla, minuto: 80 }
+    - { jugador_id: andres-hernandez-barrientos, tipo: amarilla, minuto: 87 }
 - id: e-j3
   fase: grupos
   grupo: E
@@ -407,7 +434,20 @@
   sede_id: deportivo-la-colmena
   local_id: juventus-naucalpan
   visitante_id: betis-carto
-  estado: programado
+  estado: jugado
+  goles_local: 7
+  goles_visitante: 0
+  goles:
+    - { jugador_id: daniel-esau-garcia-leos, minuto: 8 }
+    - { jugador_id: daniel-esau-garcia-leos, minuto: 15 }
+    - { jugador_id: daniel-esau-garcia-leos, minuto: 26 }
+    - { jugador_id: daniel-esau-garcia-leos, minuto: 28 }
+    - { jugador_id: obed-padilla-teran, minuto: 61 }
+    - { jugador_id: jhon-fredy-miranda-rada, minuto: 68 }
+    - { jugador_id: obed-padilla-teran, minuto: 75 }
+  tarjetas:
+    - { jugador_id: jose-ramon-caudillo-gonzales, tipo: amarilla, minuto: 64 }
+    - { jugador_id: humberto-merlos-jordan, tipo: amarilla, minuto: 81 }
 - id: c-j2
   fase: grupos
   grupo: C
