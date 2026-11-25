@@ -458,7 +458,23 @@
   sede_id: san-ildefonso
   local_id: san-ildefonso
   visitante_id: deportivo-fresno
-  estado: programado
+  estado: jugado
+  goles_local: 4
+  goles_visitante: 1
+  goles:
+    - { jugador_id: miguel-eduardo-garcia-carmona, minuto: 28 }
+    - { jugador_id: ulises-aldair-garcia-martines, minuto: 42 }
+    - { jugador_id: emmanuel-ambriz-escobedo, minuto: 49 }
+    - { jugador_id: raul-rivas-rosas, minuto: 68 }
+    - { jugador_id: giovani-lionel-gil-gonzalez, minuto: 79 }
+  tarjetas:
+    - { jugador_id: santiago-merino-cruz, tipo: amarilla, minuto: 13 }
+    - { jugador_id: angel-alonso-martinez-cabrera, tipo: amarilla, minuto: 15 }
+    - { jugador_id: ulises-aldair-garcia-martines, tipo: amarilla, minuto: 19 }
+    - { jugador_id: diego-armando-osorio-sanchez, tipo: amarilla, minuto: 60 }
+    - { jugador_id: santiago-merino-cruz, tipo: roja, minuto: 70 }
+    - { jugador_id: gorge-luis-morales-chavez, tipo: amarilla, minuto: 83 }
+    - { jugador_id: raul-rivas-rosas, tipo: amarilla, minuto: 86 }
 - id: h-j3
   fase: grupos
   grupo: H
@@ -469,7 +485,26 @@
   sede_id: cenafi
   local_id: atoleros
   visitante_id: tigres-y
-  estado: programado
+  estado: jugado
+  goles_local: 3
+  goles_visitante: 3
+  goles:
+    - { jugador_id: carlos-pineda-vera, minuto: 15 }
+    - { jugador_id: saul-parrales-garcia, minuto: 35 }
+    - { jugador_id: saul-parrales-garcia, minuto: 49 }
+    - { jugador_id: carlos-pineda-vera, minuto: 60 }
+    - { jugador_id: marco-antonio-olalde-almazan, minuto: 65 }
+    - { jugador_id: carlos-pineda-vera, minuto: 94 }
+  tarjetas:
+    - { jugador_id: jose-rodriguez-ramirez, tipo: amarilla, minuto: 15 }
+    - { jugador_id: luis-torrijos-velarde, tipo: amarilla, minuto: 31 }
+    - { jugador_id: jose-maria-gomez-martinez, tipo: amarilla, minuto: 41 }
+    - { jugador_id: andre-emiliano-gutierrez-gutierrez, tipo: amarilla, minuto: 55 }
+    - { jugador_id: eduardo-segundo-rivas, tipo: amarilla, minuto: 63 }
+    - { jugador_id: gonzalo-becerril-sanchez, tipo: amarilla, minuto: 68 }
+    - { jugador_id: edson-jesus-rodriguez-sosa, tipo: amarilla, minuto: 84 }
+    - { jugador_id: sebastian-jimenez-pineda, tipo: amarilla, minuto: 84 }
+    - { jugador_id: andre-emiliano-gutierrez-gutierrez, tipo: roja, minuto: 98 }
 - id: g-j3
   fase: grupos
   grupo: G
@@ -480,7 +515,21 @@
   sede_id: cedros
   local_id: deportivo-cedros
   visitante_id: cahuacan-cv
-  estado: programado
+  estado: jugado
+  goles_local: 1
+  goles_visitante: 0
+  goles:
+    - { jugador_id: jose-marcos-alvarez-vega, minuto: 29 }
+  tarjetas:
+    - { jugador_id: franklin-steven-bermudez-caicedo, tipo: amarilla, minuto: 6 }
+    - { jugador_id: luis-fernando-garduno-cruz, tipo: amarilla, minuto: 21 }
+    - { jugador_id: jimmy-thermilus, tipo: amarilla, minuto: 25 }
+    - { jugador_id: juan-sebastian-zamora-linares, tipo: amarilla, minuto: 31 }
+    - { jugador_id: brandon-steven-toro-chacon, tipo: amarilla, minuto: 31 }
+    - { jugador_id: eduardo-espinoza-castillo, tipo: amarilla, minuto: 33 }
+    - { jugador_id: eduardo-espinoza-castillo, tipo: roja, minuto: 61 }
+    - { jugador_id: jimmy-thermilus, tipo: roja, minuto: 72 }
+    - { jugador_id: brandon-steven-toro-chacon, tipo: roja, minuto: 81 }
 - id: b-j3
   fase: grupos
   grupo: B
@@ -491,7 +540,21 @@
   sede_id: deportivo-la-colmena
   local_id: atlantico-padrinos-infonavit
   visitante_id: san-isidro-rgal
-  estado: programado
+  estado: jugado
+  goles_local: 4
+  goles_visitante: 1
+  goles:
+    - { jugador_id: uriel-munguia-romero, minuto: 7 }
+    - { jugador_id: jose-luis-puebla-garcia, minuto: 23 }
+    - { jugador_id: jorge-luis-guarneros-zarate, minuto: 61 }
+    - { jugador_id: jordan-zaid-pozos-ortiz, minuto: 83 }
+    - { jugador_id: ulises-daniel-pacheco-romero, minuto: 85 }
+  tarjetas:
+    - { jugador_id: irving-jair-perez-hernandez, tipo: amarilla, minuto: 23 }
+    - { jugador_id: martinez-flores-eduardo-antonio, tipo: amarilla, minuto: 24 }
+    - { jugador_id: victor-alfonso-zacarias-vargas, tipo: roja, minuto: 30 }
+    - { jugador_id: luciano-acevedo, tipo: roja, minuto: 30 }
+    - { jugador_id: carlos-alberto-barrera-lopez, tipo: amarilla, minuto: 65 }
 - id: d-j3
   fase: grupos
   grupo: D
@@ -502,7 +565,22 @@
   sede_id: deportivo-la-colmena
   local_id: carboneros
   visitante_id: club-colmena
-  estado: programado
+  estado: jugado
+  goles_local: 1
+  goles_visitante: 1
+  goles:
+    - { jugador_id: jesus-eliseo-ramirez-hernandez, minuto: 24 }
+    - { jugador_id: carlos-jair-sandoval-martinez, minuto: 45 }
+  tarjetas:
+    - { jugador_id: jesus-eduardo-sanchez-rodriguez, tipo: amarilla, minuto: 20 }
+    - { jugador_id: carlos-jair-sandoval-martinez, tipo: amarilla, minuto: 28 }
+    - { jugador_id: christian-yair-garcia-garcia, tipo: amarilla, minuto: 40 }
+    - { jugador_id: ian-ariosto-sotelo-betanzos, tipo: amarilla, minuto: 40 }
+    - { jugador_id: luis-angel-barrera-carmona, tipo: amarilla, minuto: 50 }
+    - { jugador_id: triztan-antuan-flores-garcia, tipo: amarilla, minuto: 60 }
+    - { jugador_id: jose-adrian-jimenez-tapia, tipo: amarilla, minuto: 72 }
+    - { jugador_id: triztan-antuan-flores-garcia, tipo: roja, minuto: 78 }
+    - { jugador_id: cristian-orlando-arana-herrera, tipo: amarilla, minuto: 80 }
 - id: c-j3
   fase: grupos
   grupo: C
@@ -513,4 +591,16 @@
   sede_id: deportivo-la-colmena
   local_id: deportivo-fresno
   visitante_id: potros-fc
-  estado: programado
+  estado: jugado
+  goles_local: 0
+  goles_visitante: 6
+  goles:
+    - { jugador_id: orlando-yanixan-ruiz-morales, minuto: 15 }
+    - { jugador_id: gustavo-guillen-ruiz, minuto: 35 }
+    - { jugador_id: javier-eduardo-velarde-grimaldo, minuto: 40 }
+    - { jugador_id: javier-eduardo-velarde-grimaldo, minuto: 60 }
+    - { jugador_id: leonardo-zarate-gabriel, minuto: 70 }
+    - { jugador_id: javier-eduardo-velarde-grimaldo, minuto: 75 }
+  tarjetas:
+    - { jugador_id: luis-angel-beltran-cachu, tipo: amarilla, minuto: 68 }
+    - { jugador_id: eduardo-alejandro-gonzales-garcia, tipo: amarilla, minuto: 73 }
