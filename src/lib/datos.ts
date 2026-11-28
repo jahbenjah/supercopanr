@@ -5,6 +5,7 @@ import { existsSync, readdirSync } from 'node:fs';
 import { getCollection, type CollectionEntry, type CollectionKey } from 'astro:content';
 import {
   calcularPosiciones,
+  cuadroEliminatoria,
   disciplina,
   erroresDePartido,
   expulsados,
@@ -137,6 +138,7 @@ async function cargar() {
   const posiciones = calcularPosiciones(equipos, partidos, torneo.puntos);
   const goleo = goleadores(partidos, jugadores);
   const tarjetas = disciplina(partidos, jugadores, torneo);
+  const general = tablaGeneral(posiciones);
   const tablaFairPlay = fairPlay(equipos.some((e) => e.grupo) ? equipos.filter((e) => e.grupo) : equipos, partidos, jugadores);
 
   return {
@@ -155,7 +157,11 @@ async function cargar() {
     por: m,
     posiciones,
     /** Todos los equipos en una sola tabla. */
-    general: tablaGeneral(posiciones),
+    general,
+    /** Ids de los equipos que hoy pasan a la eliminatoria (los primeros de la general). */
+    clasificados: new Set(general.slice(0, torneo.clasifican).map((f) => f.equipo_id)),
+    /** Cuadro de octavos a la final, con resultados, proyecciones y eliminados. */
+    cuadro: cuadroEliminatoria(general, partidos, torneo.clasifican),
     plantillas: estadisticasPlantillas(jugadores),
     competencia: estadisticasCompetencia(partidos),
     goleadores: goleo,

@@ -23,15 +23,17 @@ const etapa = p.fase === 'grupos' && p.grupo ? `Grupo ${p.grupo}` : NOMBRE_FASE[
 const penales = p.penales_local != null && p.penales_visitante != null;
 const estados = { programado: 'Programado', jugado: 'Final', suspendido: 'Suspendido', default: 'Ganado por default' };
 
-// Cronología de goles y tarjetas por equipo.
-type Ev = { minuto?: number; icono: 'gol' | 'amarilla' | 'roja'; jugador: string; jugador_id: string; equipo: string };
+// Cronología de goles y tarjetas por equipo. Un autogol va del lado del equipo al que le cuenta.
+type Ev = { minuto?: number; icono: 'gol' | 'amarilla' | 'roja'; jugador: string; jugador_id: string; equipo: string; autogol?: boolean };
 const eventos: Ev[] = [
   ...p.goles.map((g) => ({ ...g, icono: 'gol' as const })),
   ...p.tarjetas.map((t) => ({ ...t, icono: t.tipo })),
 ]
   .map((ev) => {
     const j = d.por.jugadores.get(ev.jugador_id)!;
-    return { minuto: ev.minuto, icono: ev.icono, jugador: j.nombre, jugador_id: j.id, equipo: j.equipo_id };
+    const autogol = 'autogol' in ev && ev.autogol;
+    const equipo = autogol ? (j.equipo_id === p.local_id ? p.visitante_id : p.local_id) : j.equipo_id;
+    return { minuto: ev.minuto, icono: ev.icono, jugador: j.nombre, jugador_id: j.id, equipo, autogol };
   })
   .sort((a, b) => (a.minuto ?? 999) - (b.minuto ?? 999));
 const titulo = `${local.nombre} vs ${visita.nombre}`;
@@ -73,6 +75,7 @@ const descripcion = conMarcador
               <span class="w-10 shrink-0 text-center font-display font-bold text-stone-500">{ev.minuto != null ? `${ev.minuto}'` : ''}</span>
               <Icono tipo={ev.icono} />
               <a href={`/jugadores/${ev.jugador_id}/`} class="font-semibold">{ev.jugador}</a>
+              {ev.autogol && <span class="chip bg-red-50 text-red-700">Autogol</span>}
             </li>
           ))}
         </ol>

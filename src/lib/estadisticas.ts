@@ -17,6 +17,18 @@ export interface Evento {
   minuto?: number;
 }
 
+export interface Gol extends Evento {
+  /** Gol en propia puerta: jugador_id es de quien lo metió y cuenta para el rival. */
+  autogol?: boolean;
+}
+
+/** Equipo al que le cuenta un gol (en un autogol, el rival del jugador). */
+export function equipoDelGol(g: Gol, p: Pick<PartidoBase, 'local_id' | 'visitante_id'>, equipoDeJugador: Map<string, string>) {
+  const eq = equipoDeJugador.get(g.jugador_id);
+  if (!g.autogol || !eq) return eq;
+  return eq === p.local_id ? p.visitante_id : eq === p.visitante_id ? p.local_id : undefined;
+}
+
 export interface Tarjeta extends Evento {
   tipo: 'amarilla' | 'roja';
 }
@@ -33,7 +45,10 @@ export interface PartidoBase {
   estado: EstadoPartido;
   goles_local?: number;
   goles_visitante?: number;
-  goles: Evento[];
+  /** Solo en eliminatoria cuando termina empatado. */
+  penales_local?: number;
+  penales_visitante?: number;
+  goles: Gol[];
   tarjetas: Tarjeta[];
 }
 
@@ -179,14 +194,14 @@ export interface Goleador {
   goles: number;
 }
 
-/** Tabla de goleo. Solo cuenta goles de partidos jugados. */
+/** Tabla de goleo. Solo cuenta goles de partidos jugados; los autogoles no suman. */
 export function goleadores(partidos: PartidoBase[], jugadores: JugadorBase[]): Goleador[] {
   const equipoDe = new Map(jugadores.map((j) => [j.id, j.equipo_id]));
   const nombre = new Map(jugadores.map((j) => [j.id, j.nombre]));
   const goles = new Map<string, number>();
   for (const p of partidos) {
     if (p.estado !== 'jugado') continue;
-    for (const g of p.goles) goles.set(g.jugador_id, (goles.get(g.jugador_id) ?? 0) + 1);
+    for (const g of p.goles) if (!g.autogol) goles.set(g.jugador_id, (goles.get(g.jugador_id) ?? 0) + 1);
   }
   return [...goles.entries()]
     .map(([jugador_id, n]) => ({ jugador_id, equipo_id: equipoDe.get(jugador_id) ?? '', goles: n }))
@@ -382,6 +397,161 @@ export function ultimaFechaJugada(partidos: PartidoBase[]): Date | null {
   return fs.length ? new Date(Math.max(...fs)) : null;
 }
 
+// ── Eliminatoria (llaves) ────────────────────────────────────────────────────
+
+export type FaseEliminatoria = Exclude<Fase, 'grupos'>;
+/** Rondas de la eliminatoria, de la primera a la final. */
+export const RONDAS: FaseEliminatoria[] = ['octavos', 'cuartos', 'semifinal', 'final'];
+
+/** Ganador y perdedor de un partido con resultado; en empate decide la tanda de penales. */
+export function ganadorDe(p: PartidoBase): { ganador: string; perdedor: string } | null {
+  if (!cuentaEnTabla(p)) return null;
+  let [l, v] = [p.goles_local!, p.goles_visitante!];
+  if (l === v && p.penales_local != null && p.penales_visitante != null) [l, v] = [p.penales_local, p.penales_visitante];
+  if (l === v) return null;
+  return l > v ? { ganador: p.local_id, perdedor: p.visitante_id } : { ganador: p.visitante_id, perdedor: p.local_id };
+}
+
+/** Orden de siembra de un cuadro de n equipos: 1, 16, 8, 9, 4, 13… (así 1 y 2 solo se cruzan en la final). */
+export function ordenSiembra(n: number): number[] {
+  let orden = [1];
+  while (orden.length < n) {
+    const m = orden.length * 2 + 1;
+    orden = orden.flatMap((s) => [s, m - s]);
+  }
+  return orden;
+}
+
+export interface LadoLlave {
+  equipo_id?: string;
+  /** Lugar en la tabla general. */
+  siembra?: number;
+  goles?: number;
+  penales?: number;
+  /** true si gana la llave, false si queda eliminado, undefined si aún no se juega. */
+  avanza?: boolean;
+  /** Texto cuando aún no hay equipo, p. ej. "Ganador O1". */
+  pendiente?: string;
+}
+
+export interface Llave<P extends PartidoBase = PartidoBase> {
+  ronda: FaseEliminatoria;
+  /** Clave corta: O1…O8, C1…C4, S1, S2, F. */
+  clave: string;
+  /** Partido de partidos.yaml; sin él, la llave es una proyección. */
+  partido?: P;
+  local: LadoLlave;
+  visitante: LadoLlave;
+  ganador_id?: string;
+}
+
+export interface Cuadro<P extends PartidoBase = PartidoBase> {
+  rondas: { fase: FaseEliminatoria; llaves: Llave<P>[] }[];
+  campeon_id?: string;
+  /** Equipos fuera del torneo y la fase en que quedaron eliminados. */
+  eliminados: { equipo_id: string; fase: Fase; siembra?: number }[];
+  /** true cuando ya no quedan partidos de grupos por jugar. */
+  gruposTerminados: boolean;
+}
+
+const CLAVE: Record<FaseEliminatoria, string> = { octavos: 'O', cuartos: 'C', semifinal: 'S', final: 'F' };
+
+/**
+ * Cuadro de eliminatoria a partir de la tabla general: clasifican los `clasifican` primeros
+ * (potencia de 2) y se cruzan 1 vs último, 2 vs penúltimo… con el orden de ordenSiembra.
+ * Cada llave toma su partido de partidos.yaml si existe (por los equipos que vienen de su
+ * lado del cuadro); si no, muestra a los equipos proyectados o "Ganador X".
+ */
+export function cuadroEliminatoria<P extends PartidoBase>(general: { equipo_id: string }[], partidos: P[], clasifican: number): Cuadro<P> {
+  const n = Math.min(clasifican, 2 ** Math.floor(Math.log2(Math.max(general.length, 1))));
+  const rondas = RONDAS.slice(RONDAS.length - Math.log2(n));
+  const siembra = new Map(general.slice(0, n).map((f, i) => [f.equipo_id, i + 1]));
+  const porSiembra = (s: number) => general[s - 1]?.equipo_id;
+  const gruposTerminados = partidos.some((p) => p.fase === 'grupos') && partidos.every((p) => p.fase !== 'grupos' || p.estado !== 'programado');
+
+  const lado = (p: PartidoBase | undefined, equipo_id: string | undefined, pendiente?: string): LadoLlave => {
+    const l: LadoLlave = { equipo_id, siembra: equipo_id ? siembra.get(equipo_id) : undefined };
+    if (!equipo_id) l.pendiente = pendiente;
+    if (p && equipo_id && cuentaEnTabla(p)) {
+      const esLocal = p.local_id === equipo_id;
+      l.goles = esLocal ? p.goles_local : p.goles_visitante;
+      l.penales = (esLocal ? p.penales_local : p.penales_visitante) ?? undefined;
+      const g = ganadorDe(p);
+      if (g) l.avanza = g.ganador === equipo_id;
+    }
+    return l;
+  };
+
+  const salida: Cuadro<P>['rondas'] = [];
+  // Equipos que pueden llegar a cada llave de la ronda anterior (su "lado" del cuadro).
+  let subarboles: Set<string>[] = [];
+  let anteriores: Llave<P>[] = [];
+  const orden = ordenSiembra(n);
+
+  rondas.forEach((fase, r) => {
+    const disponibles = partidos.filter((p) => p.fase === fase);
+    const tomar = (equipos: Set<string>) => {
+      const i = disponibles.findIndex((p) => equipos.has(p.local_id) || equipos.has(p.visitante_id));
+      return i < 0 ? undefined : disponibles.splice(i, 1)[0];
+    };
+    const llaves: Llave<P>[] = [];
+    const nuevosSub: Set<string>[] = [];
+    const total = n / 2 ** (r + 1);
+    for (let k = 0; k < total; k++) {
+      const clave = fase === 'final' ? 'F' : `${CLAVE[fase]}${k + 1}`;
+      let sub: Set<string>;
+      let proyeccion: [string | undefined, string | undefined];
+      let pendientes: [string, string];
+      if (r === 0) {
+        const [a, b] = [orden[2 * k], orden[2 * k + 1]];
+        proyeccion = [porSiembra(a), porSiembra(b)];
+        sub = new Set(proyeccion.filter((x): x is string => !!x));
+        pendientes = [`${a}.º general`, `${b}.º general`];
+      } else {
+        const [A, B] = [anteriores[2 * k], anteriores[2 * k + 1]];
+        sub = new Set([...subarboles[2 * k], ...subarboles[2 * k + 1]]);
+        proyeccion = [A.ganador_id, B.ganador_id];
+        pendientes = [`Ganador ${A.clave}`, `Ganador ${B.clave}`];
+      }
+      const p = tomar(sub);
+      // Con partido, el local va arriba si viene del lado de arriba del cuadro.
+      let [arriba, abajo] = proyeccion;
+      if (p) {
+        const arribaEsVisita = r === 0 ? p.visitante_id === proyeccion[0] : subarboles[2 * k].has(p.visitante_id);
+        [arriba, abajo] = arribaEsVisita ? [p.visitante_id, p.local_id] : [p.local_id, p.visitante_id];
+      }
+      const llave: Llave<P> = { ronda: fase, clave, partido: p, local: lado(p, arriba, pendientes[0]), visitante: lado(p, abajo, pendientes[1]) };
+      const g = p && ganadorDe(p);
+      if (g) llave.ganador_id = g.ganador;
+      llaves.push(llave);
+      nuevosSub.push(p ? new Set([...sub, p.local_id, p.visitante_id]) : sub);
+    }
+    // Partidos que no caen en su lado del cuadro (p. ej. si la organización reacomoda): van a las llaves sin partido.
+    for (const p of disponibles) {
+      const k = llaves.findIndex((l) => !l.partido);
+      if (k < 0) break;
+      const g = ganadorDe(p);
+      llaves[k] = { ...llaves[k], partido: p, local: lado(p, p.local_id), visitante: lado(p, p.visitante_id), ganador_id: g?.ganador };
+      nuevosSub[k] = new Set([...nuevosSub[k], p.local_id, p.visitante_id]);
+    }
+    salida.push({ fase, llaves });
+    anteriores = llaves;
+    subarboles = nuevosSub;
+  });
+
+  const eliminados: Cuadro<P>['eliminados'] = [];
+  for (const { fase, llaves } of salida) {
+    for (const l of llaves) {
+      for (const s of [l.local, l.visitante]) if (s.equipo_id && s.avanza === false) eliminados.push({ equipo_id: s.equipo_id, fase, siembra: s.siembra });
+    }
+  }
+  if (gruposTerminados) {
+    general.slice(n).forEach((f, i) => eliminados.push({ equipo_id: f.equipo_id, fase: 'grupos', siembra: n + i + 1 }));
+  }
+  const final = salida.at(-1)?.llaves[0];
+  return { rondas: salida, campeon_id: final?.ganador_id, eliminados, gruposTerminados };
+}
+
 /** Problemas de consistencia de un partido jugado (marcador vs. goles, goleadores de otro equipo). */
 export function erroresDePartido(p: PartidoBase, equipoDeJugador: Map<string, string>): string[] {
   const errores: string[] = [];
@@ -391,9 +561,9 @@ export function erroresDePartido(p: PartidoBase, equipoDeJugador: Map<string, st
     if (eq && !equipos.includes(eq)) errores.push(`el jugador "${e.jugador_id}" no juega en este partido`);
   }
   if (p.estado === 'jugado' && p.goles.length) {
-    const gl = p.goles.filter((g) => equipoDeJugador.get(g.jugador_id) === p.local_id).length;
-    const gv = p.goles.filter((g) => equipoDeJugador.get(g.jugador_id) === p.visitante_id).length;
-    // Se permiten goles sin registrar (autogoles, goleador desconocido), pero no de más.
+    const gl = p.goles.filter((g) => equipoDelGol(g, p, equipoDeJugador) === p.local_id).length;
+    const gv = p.goles.filter((g) => equipoDelGol(g, p, equipoDeJugador) === p.visitante_id).length;
+    // Se permiten goles sin registrar (goleador desconocido), pero no de más.
     if (gl > (p.goles_local ?? 0) || gv > (p.goles_visitante ?? 0)) {
       errores.push(`hay más goles registrados (${gl}-${gv}) que en el marcador (${p.goles_local}-${p.goles_visitante})`);
     }

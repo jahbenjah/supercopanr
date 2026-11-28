@@ -8,7 +8,6 @@ interface Props {
 }
 const d = await datos();
 const { filas } = Astro.props;
-const clasifican = d.torneo.clasifican_por_grupo;
 const conCategoria = d.torneo.categorias.length > 1;
 // Columnas de detalle: se ocultan en pantallas chicas para que PTS siempre sea visible.
 const det = 'hidden sm:table-cell';
@@ -34,7 +33,7 @@ const det = 'hidden sm:table-cell';
       <tbody>
         {filas.map((f, i) => {
           const eq = d.por.equipos.get(f.equipo_id)!;
-          const clasifica = f.lugarGrupo <= clasifican;
+          const clasifica = i < d.torneo.clasifican;
           return (
             <tr class:list={[clasifica && 'font-semibold']}>
               <td>{i + 1}</td>

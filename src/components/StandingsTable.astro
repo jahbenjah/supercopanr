@@ -6,11 +6,9 @@ import type { TablaGrupo } from '../lib/estadisticas';
 interface Props {
   tabla: TablaGrupo;
   compacta?: boolean;
-  /** Cuántos clasifican (se resaltan). */
-  clasifican?: number;
 }
 const d = await datos();
-const { tabla, compacta = false, clasifican = d.torneo.clasifican_por_grupo } = Astro.props;
+const { tabla, compacta = false } = Astro.props;
 const conCategoria = d.torneo.categorias.length > 1;
 // Columnas de detalle: se ocultan en pantallas chicas para que PTS siempre sea visible.
 const det = 'hidden sm:table-cell';
@@ -34,9 +32,11 @@ const det = 'hidden sm:table-cell';
       <tbody>
         {tabla.filas.map((f, i) => {
           const eq = d.por.equipos.get(f.equipo_id)!;
+          // Se resaltan los que hoy pasan por la tabla general.
+          const clasifica = d.clasificados.has(f.equipo_id);
           return (
-            <tr class:list={[i < clasifican && 'font-semibold']}>
-              <td><span class:list={['inline-block w-6 rounded', i < clasifican && 'bg-oro text-tinta']}>{i + 1}</span></td>
+            <tr class:list={[clasifica && 'font-semibold']}>
+              <td><span class:list={['inline-block w-6 rounded', clasifica && 'bg-oro text-tinta']}>{i + 1}</span></td>
               <td class="max-w-[12rem] text-left!"><TeamBadge equipo={eq} conNombre size={24} /></td>
               <td>{f.pj}</td>
               {!compacta && <><td class={det}>{f.g}</td><td class={det}>{f.e}</td><td class={det}>{f.p}</td><td class={det}>{f.gf}</td><td class={det}>{f.gc}</td></>}

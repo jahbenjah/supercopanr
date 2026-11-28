@@ -2,9 +2,12 @@
 # Extrae los próximos partidos de la API de copafinal.com y actualiza
 # src/data/partidos.yaml y src/data/sedes.yaml.
 #
-# Partidos: el id es <grupo>-j<jornada> (p. ej. a-j1). Si ya existe se actualizan
-# fecha, hora, sede_id, local_id y visitante_id; el resto (estado, goles,
-# tarjetas, notas…) no se toca. Si no existe, se agrega como "programado".
+# Partidos de grupos: el id es <grupo>-j<jornada> (p. ej. a-j1). Si ya existe se
+# actualizan fecha, hora, sede_id, local_id y visitante_id; el resto (estado,
+# goles, tarjetas, notas…) no se toca. Si no existe, se agrega como "programado".
+# Eliminatoria (octavos, cuartos, semifinal, final): la API no trae jornada; el id
+# es <fase>-<local>-<visitante> (p. ej. octavos-juve-sitecom-aguila-pi) y el
+# partido se reconoce por fase y pareja de equipos, aunque cambie quién es local.
 # La API solo devuelve partidos pendientes: los ya jugados no se modifican.
 #
 # Sedes: el campo se busca por su liga de Maps, por id o por nombre. Si existe
@@ -77,7 +80,12 @@ def pon(b, k, v, despues):
 
 # ---------- Lectura de la API ----------
 MESES = {m: i for i, m in enumerate('enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre'.split(), 1)}
-FASES = {'regular': 'grupos', 'octavos': 'octavos', 'cuartos': 'cuartos', 'semifinal': 'semifinal', 'final': 'final'}
+FASES = {'regular': 'grupos', 'octavos': 'octavos', 'cuartos': 'cuartos', 'semifinal': 'semifinal', 'semifinales': 'semifinal', 'final': 'final'}
+def fase_de(txt):
+    """'Octavos de Final' → octavos, 'Semifinal' → semifinal, 'Gran Final' → final."""
+    for pal in txt.split():
+        if pal in FASES: return FASES[pal]
+    return txt
 def texto(b, clase):
     m = re.search(rf"class='{clase}'>(.*?)</div>", b, re.S)
     return re.sub(r'<[^>]+>', '', m.group(1)).strip() if m else ''
@@ -85,18 +93,23 @@ def texto(b, clase):
 api = []
 for b in h.split("<div class='ProximoPartido'>")[1:]:
     jornada = re.search(r'\d+', texto(b, 'ProximoPartidoTipo'))
-    fase_txt = plano(texto(b, 'ProximoPartidoFase').split('|')[0]).strip().lower()
-    grupo = re.search(r'GRUPO\s+(\w+)', b, re.I)
+    fase_partes = plano(texto(b, 'ProximoPartidoFase')).lower().split('|')
+    fase = fase_de(fase_partes[0].strip()) if fase_partes[0].strip() else 'grupos'
+    vuelta = len(fase_partes) > 1 and 'vuelta' in fase_partes[1]
+    # En grupos: "GRUPO A". En eliminatoria: "GRUPO C y GRUPO E" (grupos de origen).
+    grupos = [g.upper() for g in re.findall(r'GRUPO\s+(\w+)', b, re.I)]
     fh = re.search(r'(\d{1,2}) de (\w+) de (\d{4})\s*-\s*(\d{1,2}):(\d{2})', plano(texto(b, 'ProximoPartidoDiaHora')))
     campo_nombre = re.search(r"ProximoPartidoCampoNombre'>([^<]*)", b)
     mapa = re.search(r"<a href='([^']*)'", b)
     equipos = re.findall(r"ProximoPartidoEquipoNombre'>([^<]*)", b)
-    if not (jornada and fh and len(equipos) == 2):
+    if not (fh and len(equipos) == 2 and (jornada or fase != 'grupos')):
         print(f'   ⚠ partido no reconocido, se omite: {re.sub(r"<[^>]+>", " ", b)[:120]}'); continue
     api.append({
-        'fase': FASES.get(fase_txt.split()[0] if fase_txt else '', fase_txt),
-        'jornada': int(jornada.group()),
-        'grupo': grupo.group(1).upper() if grupo else None,
+        'fase': fase,
+        'vuelta': vuelta,
+        'jornada': int(jornada.group()) if jornada else None,
+        'grupo': grupos[0] if grupos and fase == 'grupos' else None,
+        'grupos': grupos,
         'fecha': f'{fh[3]}-{MESES[fh[2].lower()]:02d}-{int(fh[1]):02d}',
         'hora': f'{int(fh[4]):02d}:{fh[5]}',
         'sede': campo_nombre.group(1).strip() if campo_nombre else '',
@@ -108,13 +121,14 @@ print(f'   {len(api)} partidos en la API')
 # ---------- Equipos: nombre de la API → equipo_id ----------
 _, bloques_eq = lee('equipos.yaml')
 equipos = [{'id': campo(b, 'id'), 'nombre': campo(b, 'nombre'), 'grupo': campo(b, 'grupo')} for b in bloques_eq]
-def equipo_id(nombre, grupo):
-    candidatos = [e for e in equipos if e['grupo'] == grupo] or equipos
+def equipo_id(nombre, grupos):
+    """Busca primero entre los equipos de los grupos indicados y, si no, en todos."""
     p = palabras(nombre)
-    puntos = sorted(((len(p & palabras(f"{e['nombre']} {e['id'].replace('-', ' ')}")), e['id']) for e in candidatos), reverse=True)
-    if not puntos or puntos[0][0] == 0 or (len(puntos) > 1 and puntos[0][0] == puntos[1][0]):
-        sys.exit(f'   ✗ no sé qué equipo es "{nombre}" (grupo {grupo}). Ajusta su nombre en equipos.yaml.')
-    return puntos[0][1]
+    for candidatos in ([e for e in equipos if e['grupo'] in grupos], equipos):
+        puntos = sorted(((len(p & palabras(f"{e['nombre']} {e['id'].replace('-', ' ')}")), e['id']) for e in candidatos), reverse=True)
+        if puntos and puntos[0][0] > 0 and (len(puntos) == 1 or puntos[0][0] > puntos[1][0]):
+            return puntos[0][1]
+    sys.exit(f'   ✗ no sé qué equipo es "{nombre}" (grupos {", ".join(grupos) or "—"}). Ajusta su nombre en equipos.yaml.')
 
 # ---------- Sedes ----------
 def coordenadas(url):
@@ -174,21 +188,35 @@ escribe('sedes.yaml', cab_sedes, [b.rstrip() + '\n' for b in bloques_sd[:-1]] + 
 # ---------- Partidos ----------
 cab_pt, bloques_pt = lee('partidos.yaml')
 indice = {campo(b, 'id'): i for i, b in enumerate(bloques_pt)}
+# Eliminatoria: (fase, {equipo, equipo}) → id, para reconocer el partido aunque se inviertan local y visitante.
+pareja = {(campo(b, 'fase'), frozenset((campo(b, 'local_id'), campo(b, 'visitante_id')))): campo(b, 'id')
+          for b in bloques_pt if campo(b, 'fase') not in (None, 'grupos')}
+FASES_VALIDAS = set(FASES.values())
 nuevos = cambios = 0
 for a in api:
-    if a['fase'] != 'grupos' or not a['grupo']:
-        print(f'   ⚠ fase "{a["fase"]}" aún no soportada, se omite: {a["local"]} vs {a["visitante"]}'); continue
-    pid = f'{a["grupo"].lower()}-j{a["jornada"]}'
+    if a['fase'] not in FASES_VALIDAS or (a['fase'] == 'grupos' and not a['grupo']):
+        print(f'   ⚠ fase "{a["fase"]}" no reconocida, se omite: {a["local"]} vs {a["visitante"]}'); continue
+    grupos_eq = [a['grupo']] if a['grupo'] else a['grupos']
     valores = {'fecha': a['fecha'], 'hora': a['hora'], 'sede_id': sedes_de.get((a['sede'], a['mapa'])),
-               'local_id': equipo_id(a['local'], a['grupo']), 'visitante_id': equipo_id(a['visitante'], a['grupo'])}
+               'local_id': equipo_id(a['local'], grupos_eq), 'visitante_id': equipo_id(a['visitante'], grupos_eq)}
+    if a['fase'] == 'grupos':
+        pid = f'{a["grupo"].lower()}-j{a["jornada"]}'
+        cabeza = ['  fase: grupos', f'  grupo: {a["grupo"]}', f'  jornada: {a["jornada"]}']
+    else:
+        fase = a['fase'] + ('-vuelta' if a['vuelta'] else '')
+        clave = (a['fase'], frozenset((valores['local_id'], valores['visitante_id'])))
+        pid = pareja.get(clave) if not a['vuelta'] else None
+        pid = pid or f'{fase}-{valores["local_id"]}-{valores["visitante_id"]}'
+        cabeza = [f'  fase: {a["fase"]}'] + (['  notas: Partido de vuelta'] if a['vuelta'] else [])
+        pareja.setdefault(clave, pid)
     if pid not in indice:
-        b = '\n'.join([f'- id: {pid}', '  fase: grupos', f'  grupo: {a["grupo"]}', f'  jornada: {a["jornada"]}', '  categoria: unica'] +
+        b = '\n'.join([f'- id: {pid}'] + cabeza + ['  categoria: unica'] +
                       [f'  {k}: {q(v)}' for k, v in valores.items() if v] + ['  estado: programado'])
         bloques_pt.append(b); indice[pid] = len(bloques_pt) - 1; nuevos += 1
         print(f'   + {pid}: {valores["local_id"]} vs {valores["visitante_id"]}, {a["fecha"]} {a["hora"]}')
         continue
     b = antes = bloques_pt[indice[pid]]
-    orden = {'fecha': ['categoria', 'jornada'], 'hora': ['fecha'], 'sede_id': ['hora', 'fecha'],
+    orden = {'fecha': ['categoria', 'jornada', 'fase'], 'hora': ['fecha'], 'sede_id': ['hora', 'fecha'],
              'local_id': ['sede_id', 'hora', 'fecha'], 'visitante_id': ['local_id']}
     dif = []
     for k, v in valores.items():

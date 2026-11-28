@@ -5,6 +5,10 @@
 # Por cada partido jugado que trae la API (id <grupo>-j<jornada>, p. ej. a-j1):
 #   - estado: jugado, goles_local y goles_visitante (el marcador)
 #   - goles: la lista completa de goles con jugador_id y minuto (se reemplaza)
+#     La API pone cada gol del lado del equipo al que le cuenta. Si el goleador no
+#     está en ese equipo pero sí en el rival, es un autogol: se guarda con su
+#     jugador_id y autogol: true (cuenta para el rival y no suma a su goleo).
+#     También se toma como autogol si la cédula dice "autogol" o "a.g.".
 #   - tarjetas: amarillas y rojas con jugador_id, tipo y minuto (se reemplaza);
 #     se copian tal como vienen en la cédula, incluida la doble amarilla
 # El resto del partido (notas, sede, hora…) no se toca.
@@ -103,7 +107,10 @@ def eventos(lado):
         t = sin_tags(r)
         if not t: continue
         m = re.search(r"(\d+)\s*'", t)
-        e = {'nombre': re.sub(r'\s+', ' ', re.sub(r"\d+\s*'", ' ', t).strip(" '")), 'minuto': int(m[1]) if m else None}
+        nombre = re.sub(r"\d+\s*'", ' ', t)
+        autogol = bool(re.search(r'\bauto\s*-?\s*gol\b|\(?\ba\.\s*g\.\)?|\bA\.?G\.?\s*$', plano(nombre), re.I))
+        if autogol: nombre = re.sub(r'\(?\s*(?:auto\s*-?\s*gol|a\.\s*g\.)\s*\)?', ' ', nombre, flags=re.I)
+        e = {'nombre': re.sub(r'\s+', ' ', nombre.strip(" '()-")).strip(" '()-"), 'minuto': int(m[1]) if m else None, 'autogol': autogol}
         if "class='Balon'" in r: goles.append(e)
         elif 'Amonestados' in r: tarjetas.append(e | {'tipo': 'amarilla'})
         elif 'Expulsados' in r: tarjetas.append(e | {'tipo': 'roja'})
@@ -173,14 +180,23 @@ for a in api:
         """Eventos de ambos lados con su jugador_id, ordenados por minuto, como líneas YAML."""
         global sin_jugador
         filas = []
-        for lado, eq in zip(a[clave], lados):
+        for lado, eq, rival in zip(a[clave], lados, lados[::-1]):
             for e in lado:
-                jid = jugador_id(e['nombre'], eq)
+                es_gol = clave == 'goles'
+                autogol = es_gol and e.get('autogol')
+                jid = jugador_id(e['nombre'], rival if autogol else eq)
+                if es_gol and not jid and not autogol:
+                    # Gol del lado de `eq` metido por un jugador del rival: autogol.
+                    jid = jugador_id(e['nombre'], rival)
+                    autogol = bool(jid)
                 if not jid:
                     sin_jugador += 1
-                    print(f'   ⚠ {a["id"]}: no encontré a "{e["nombre"]}" en {eq} ({que(e)} al {e["minuto"]}\'); no se agrega')
+                    print(f'   ⚠ {a["id"]}: no encontré a "{e["nombre"]}" en {eq} ni en {rival} ({que(e)} al {e["minuto"]}\'); no se agrega')
                     continue
-                campos = [f'jugador_id: {jid}'] + ([f'tipo: {e["tipo"]}'] if 'tipo' in e else []) + ([f'minuto: {e["minuto"]}'] if e['minuto'] is not None else [])
+                if autogol:
+                    print(f'   ⚽ {a["id"]}: autogol de {jid} ({rival}) al {e["minuto"]}\', cuenta para {eq}')
+                campos = ([f'jugador_id: {jid}'] + ([f'tipo: {e["tipo"]}'] if 'tipo' in e else []) +
+                          ([f'minuto: {e["minuto"]}'] if e['minuto'] is not None else []) + (['autogol: true'] if autogol else []))
                 filas.append((e['minuto'] if e['minuto'] is not None else 999, '{ ' + ', '.join(campos) + ' }'))
         return [f for _, f in sorted(filas, key=lambda x: x[0])]  # sort estable: respeta el orden de la cédula
 

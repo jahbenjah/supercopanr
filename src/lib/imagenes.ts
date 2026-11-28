@@ -7,7 +7,7 @@ import { readFileSync } from 'node:fs';
 import satori from 'satori';
 import sharp from 'sharp';
 import { datos, fechaSinAnio, iniciales, type Datos } from './datos';
-import { estadisticasPlantillas, NOMBRE_FASE } from './estadisticas';
+import { equipoDelGol, estadisticasPlantillas, NOMBRE_FASE } from './estadisticas';
 
 export type Formato = 'post' | 'og';
 export const TAMANO: Record<Formato, { ancho: number; alto: number }> = {
@@ -314,7 +314,7 @@ export async function imagenesCompartir(): Promise<ImagenCompartir[]> {
       titulo: 'Todos los grupos',
       formato: 'post',
       pagina: '/posiciones/',
-      texto: `📊 Tabla de posiciones de la ${t.nombre}${d.ultimaFecha ? ` después de la fecha del ${fechaSinAnio(d.ultimaFecha)}` : ''}. Avanzan los ${t.clasifican_por_grupo} primeros de cada grupo.\n\n👉 ${sitio}/posiciones/\n\n${hashtags}`,
+      texto: `📊 Tabla de posiciones de la ${t.nombre}${d.ultimaFecha ? ` después de la fecha del ${fechaSinAnio(d.ultimaFecha)}` : ''}. Avanzan los ${t.clasifican} primeros de la tabla general.\n\n👉 ${sitio}/posiciones/\n\n${hashtags}`,
       dibujar: async () =>
         marcoPost(
           d,
@@ -332,7 +332,7 @@ export async function imagenesCompartir(): Promise<ImagenCompartir[]> {
                   await Promise.all(
                     tabla.filas.map(async (f, i) => {
                       const e = d.por.equipos.get(f.equipo_id)!;
-                      const clasifica = i < t.clasifican_por_grupo;
+                      const clasifica = d.clasificados.has(f.equipo_id);
                       return h(
                         'div',
                         { alignItems: 'center', gap: 10, height: 52, borderTop: `1px solid ${C.linea}` },
@@ -383,7 +383,7 @@ export async function imagenesCompartir(): Promise<ImagenCompartir[]> {
             await Promise.all(
               d.general.map(async (f, i) => {
                 const e = d.por.equipos.get(f.equipo_id)!;
-                const clasifica = f.lugarGrupo <= t.clasifican_por_grupo;
+                const clasifica = i < t.clasifican;
                 return h(
                   'div',
                   { alignItems: 'center', gap: 10, height: alto, borderTop: `1px solid ${C.linea}` },
@@ -439,7 +439,7 @@ export async function imagenesCompartir(): Promise<ImagenCompartir[]> {
                     return h(
                       'div',
                       { alignItems: 'center', height: 104, borderTop: `1px solid ${C.linea}`, gap: 14 },
-                      h('div', { width: 6, height: 60, borderRadius: 3, background: i < t.clasifican_por_grupo ? C.oro : 'transparent' }),
+                      h('div', { width: 6, height: 60, borderRadius: 3, background: d.clasificados.has(f.equipo_id) ? C.oro : 'transparent' }),
                       await escudo(e, 72),
                       texto(titular(32, { textTransform: 'none', fontWeight: 600, flex: 1 }), e.nombre),
                       [f.pj, f.g, f.e, f.p, f.gf, f.gc, f.dif > 0 ? `+${f.dif}` : f.dif].map((x) => col(x, 52, { fontSize: 28 })),
@@ -556,11 +556,14 @@ export async function imagenesCompartir(): Promise<ImagenCompartir[]> {
     const etapa = p.fase === 'grupos' ? `Jornada ${p.jornada ?? ''}`.trim() : NOMBRE_FASE[p.fase];
     const penales = p.penales_local != null && p.penales_visitante != null ? `Penales ${p.penales_local}–${p.penales_visitante}` : undefined;
     const vs = `${local.nombre} vs ${visita.nombre}`;
-    // Goleadores de cada lado: "Nombre (3', 9')".
+    // Goleadores de cada lado: "Nombre (3', 9')"; un autogol sale con el equipo al que le cuenta: "Nombre (a.g. 88')".
+    const equipoDe = new Map([...d.por.jugadores.values()].map((j) => [j.id, j.equipo_id]));
     const goleadoresDe = (equipoId: string) =>
-      [...Map.groupBy(p.goles.filter((g) => d.por.jugadores.get(g.jugador_id)?.equipo_id === equipoId), (g) => g.jugador_id)].map(
-        ([id, gs]) => `${d.por.jugadores.get(id)!.nombre}${gs.some((g) => g.minuto != null) ? ` (${gs.map((g) => `${g.minuto}'`).join(', ')})` : ''}`,
-      );
+      [...Map.groupBy(p.goles.filter((g) => equipoDelGol(g, p, equipoDe) === equipoId), (g) => `${g.jugador_id}|${g.autogol ? 'ag' : ''}`)].map(([clave, gs]) => {
+        const minutos = gs.filter((g) => g.minuto != null).map((g) => `${g.minuto}'`).join(', ');
+        const nota = [gs[0].autogol && 'a.g.', minutos].filter(Boolean).join(' ');
+        return `${d.por.jugadores.get(clave.split('|')[0])!.nombre}${nota ? ` (${nota})` : ''}`;
+      });
     const golesL = goleadoresDe(local.id);
     const golesV = goleadoresDe(visita.id);
     const cuando = [cap(fechaSinAnio(p.fecha)), p.hora && `${p.hora} h`].filter(Boolean).join(' · ');
@@ -986,7 +989,7 @@ export async function imagenesCompartir(): Promise<ImagenCompartir[]> {
   og('grupos', '/grupos/', 'Grupos', `${d.equipos.length} equipos en ${grupos.length} grupos`, [
     [pts(d.equipos.length), 'equipos'],
     [pts(grupos.length), 'grupos'],
-    [pts(t.clasifican_por_grupo), 'avanzan por grupo'],
+    [pts(t.clasifican), 'avanzan a octavos'],
   ]);
   og('posiciones', '/posiciones/', 'Posiciones', d.ultimaFecha ? `Actualizada al ${fechaSinAnio(d.ultimaFecha)}` : 'Tabla por grupo', [
     [pts(c.jugados), 'partidos jugados'],

@@ -27,6 +27,8 @@ const torneo = defineCollection({
     total_equipos: z.number().int().positive(),
     equipos_por_grupo: z.number().int().positive(),
     clasifican_por_grupo: z.number().int().positive(),
+    /** Cuántos de la tabla general pasan a la eliminatoria (potencia de 2). */
+    clasifican: z.number().int().positive().default(16),
     max_jugadores: z.number().int().positive(),
     categorias: z.array(z.object({ id, nombre: z.string(), grupos: z.array(z.string()) })),
     fecha_limite_inscripcion: fecha,
@@ -175,7 +177,8 @@ const partidos = defineCollection({
       /** Solo en eliminatoria cuando termina empatado. */
       penales_local: z.number().int().nonnegative().optional(),
       penales_visitante: z.number().int().nonnegative().optional(),
-      goles: z.array(evento).default([]),
+      /** autogol: true = en propia puerta; jugador_id es quien lo metió y el gol cuenta para el rival. */
+      goles: z.array(evento.extend({ autogol: z.boolean().optional() })).default([]),
       tarjetas: z.array(evento.extend({ tipo: z.enum(['amarilla', 'roja']) })).default([]),
       patrocinador_jornada_id: id.optional(),
       /** Medio (id de medios.yaml) que lo transmite en vivo; sale en la imagen para compartir. */

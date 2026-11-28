@@ -400,6 +400,7 @@
     - { jugador_id: pino-rios-angel-gael, minuto: 43 }
     - { jugador_id: calixte-richkard, minuto: 52 }
     - { jugador_id: edwin-raul-estrada-gonzalez, minuto: 76 }
+    - { jugador_id: castillo-palomares-erick-yael, minuto: 88, autogol: true }
   tarjetas:
     - { jugador_id: edwin-velez-ayala, tipo: amarilla, minuto: 61 }
     - { jugador_id: arturo-vega-hernandez, tipo: amarilla, minuto: 83 }
@@ -604,3 +605,75 @@
   tarjetas:
     - { jugador_id: luis-angel-beltran-cachu, tipo: amarilla, minuto: 68 }
     - { jugador_id: eduardo-alejandro-gonzales-garcia, tipo: amarilla, minuto: 73 }
+- id: octavos-potros-fc-bosque-del-mamado
+  fase: octavos
+  categoria: unica
+  fecha: 2026-11-27
+  hora: "16:00"
+  sede_id: estadio-de-futbol-progreso-industrial
+  local_id: potros-fc
+  visitante_id: bosque-del-mamado
+  estado: programado
+- id: octavos-juventus-naucalpan-tigres-y
+  fase: octavos
+  categoria: unica
+  fecha: 2026-11-27
+  hora: "19:00"
+  sede_id: deportivo-la-colmena
+  local_id: juventus-naucalpan
+  visitante_id: tigres-y
+  estado: programado
+- id: octavos-carboneros-cahuacan-cv
+  fase: octavos
+  categoria: unica
+  fecha: 2026-11-27
+  hora: "20:00"
+  sede_id: deportivo-independencia
+  local_id: carboneros
+  visitante_id: cahuacan-cv
+  estado: programado
+- id: octavos-flamengo-san-isidro-rgal
+  fase: octavos
+  categoria: unica
+  fecha: 2026-11-27
+  hora: "21:00"
+  sede_id: deportivo-la-colmena
+  local_id: flamengo
+  visitante_id: san-isidro-rgal
+  estado: programado
+- id: octavos-club-colmena-atoleros
+  fase: octavos
+  categoria: unica
+  fecha: 2026-11-28
+  hora: "16:00"
+  sede_id: san-ildefonso
+  local_id: club-colmena
+  visitante_id: atoleros
+  estado: programado
+- id: octavos-juve-sitecom-aguila-pi
+  fase: octavos
+  categoria: unica
+  fecha: 2026-11-28
+  hora: "17:00"
+  sede_id: deportivo-la-colmena
+  local_id: juve-sitecom
+  visitante_id: aguila-pi
+  estado: programado
+- id: octavos-atlantico-padrinos-infonavit-lobos-tlihuaca
+  fase: octavos
+  categoria: unica
+  fecha: 2026-11-28
+  hora: "19:00"
+  sede_id: deportivo-la-colmena
+  local_id: atlantico-padrinos-infonavit
+  visitante_id: lobos-tlihuaca
+  estado: programado
+- id: octavos-deportivo-cedros-san-ildefonso
+  fase: octavos
+  categoria: unica
+  fecha: 2026-11-28
+  hora: "21:00"
+  sede_id: deportivo-la-colmena
+  local_id: deportivo-cedros
+  visitante_id: san-ildefonso
+  estado: programado

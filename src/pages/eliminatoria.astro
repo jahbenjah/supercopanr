@@ -1,0 +1,199 @@
+---
+// Cuadro de la eliminatoria: octavos → cuartos → semifinal → final, con resultados,
+// quién avanza y quién queda eliminado. Se arma con d.cuadro (ver cuadroEliminatoria).
+import Base from '../layouts/Base.astro';
+import Encabezado from '../components/Encabezado.astro';
+import TeamBadge from '../components/TeamBadge.astro';
+import { datos, fecha } from '../lib/datos';
+import { NOMBRE_FASE, type Fase, type LadoLlave } from '../lib/estadisticas';
+
+const d = await datos();
+const { torneo, cuadro } = d;
+const n = torneo.clasifican;
+
+const diasDe = (fase: Fase) =>
+  torneo.programacion.filter((p) => p.fase === fase).map((p) => fecha(p.fecha)).join(' y ');
+const sede = (id?: string) => (id ? d.por.sedes.get(id)?.nombre : undefined);
+const campeon = cuadro.campeon_id ? d.por.equipos.get(cuadro.campeon_id) : undefined;
+const fases: Fase[] = ['final', 'semifinal', 'cuartos', 'octavos', 'grupos'];
+const eliminadosPor = fases
+  .map((f) => ({ fase: f, equipos: cuadro.eliminados.filter((e) => e.fase === f) }))
+  .filter((g) => g.equipos.length);
+const enJuego = d.equipos.length - cuadro.eliminados.length;
+const marcador = (l: LadoLlave) => (l.goles == null ? '' : `${l.goles}${l.penales != null ? ` (${l.penales})` : ''}`);
+---
+<Base title="Eliminatoria" description={`Cuadro de octavos, cuartos, semifinal y final de la ${torneo.nombre} ${torneo.temporada}: cruces, resultados y eliminados.`}>
+  <Encabezado
+    titulo="Eliminatoria"
+    subtitulo={`Pasan los ${n} primeros de la tabla general: 1.º vs ${n}.º, 2.º vs ${n - 1}.º… El ganador de cada llave avanza; el que pierde queda eliminado.`}
+  />
+  <div class="contenedor py-8">
+    {!cuadro.gruposTerminados && (
+      <p class="mb-6 rounded-xl border-l-4 border-oro bg-amber-50 p-4">
+        La fase de grupos aún no termina: el cuadro es una <strong>proyección</strong> con la <a href="/posiciones/#general">tabla general</a> de hoy.
+      </p>
+    )}
+
+    <div class="mb-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-stone-600">
+      <span class="flex items-center gap-2"><span class="inline-block h-3 w-3 rounded-sm bg-oro"></span> Avanza</span>
+      <span class="flex items-center gap-2"><span class="text-stone-400 line-through">Equipo</span> Eliminado</span>
+      <span class="flex items-center gap-2"><span class="chip">3</span> Lugar en la tabla general</span>
+      <span class="ml-auto font-semibold">{enJuego} {enJuego === 1 ? 'equipo' : 'equipos'} con vida</span>
+    </div>
+    <p class="mb-2 text-xs text-stone-500 lg:hidden">Desliza para ver todo el cuadro →</p>
+
+    <div class="tarjeta overflow-x-auto bg-stone-100/60 p-3 sm:p-4">
+      <div class="cuadro">
+        {cuadro.rondas.map(({ fase, llaves }, r) => (
+          <section class:list={['ronda', r === cuadro.rondas.length - 1 && 'final']} aria-label={NOMBRE_FASE[fase]}>
+            <header class="ronda-titulo">
+              <h2 class="font-display text-xl font-bold uppercase tracking-wide text-cancha-oscuro">{NOMBRE_FASE[fase]}</h2>
+              <p class="text-xs text-stone-500">{diasDe(fase) || 'Fecha por definir'}</p>
+            </header>
+            <div class="llaves">
+              {llaves.map((l) => {
+                const p = l.partido;
+                const Tag = p ? 'a' : 'div';
+                return (
+                  <div class:list={['llave', l.ganador_id && 'decidida']}>
+                    <Tag
+                      href={p ? `/partidos/${p.id}/` : undefined}
+                      class:list={['tarjeta block w-full overflow-hidden no-underline', p ? 'transition hover:border-cancha hover:shadow' : 'border-dashed']}
+                    >
+                      <div class="flex items-center justify-between bg-cancha-oscuro px-2.5 py-1 text-[11px] font-semibold text-white/80">
+                        <span class="text-oro">{l.clave}</span>
+                        <span class="truncate">
+                          {p ? `${fecha(p.fecha)}${p.hora ? ` · ${p.hora}` : ''}` : 'Por programar'}
+                          {p && p.estado === 'jugado' && ' · Final'}
+                        </span>
+                      </div>
+                      {[l.local, l.visitante].map((lado) => {
+                        const eq = lado.equipo_id ? d.por.equipos.get(lado.equipo_id) : undefined;
+                        return (
+                          <div
+                            class:list={[
+                              'flex h-10 items-center gap-2 border-t border-stone-100 px-2',
+                              lado.avanza === true && 'bg-amber-50 font-bold',
+                              lado.avanza === false && 'text-stone-400',
+                            ]}
+                          >
+                            <span class:list={['h-6 w-1 shrink-0 rounded', lado.avanza ? 'bg-oro' : 'bg-transparent']}></span>
+                            {eq ? (
+                              <>
+                                <span class="chip w-7 shrink-0 px-0 text-center tabular-nums">{lado.siembra ?? '–'}</span>
+                                <span class:list={['shrink-0', lado.avanza === false && 'opacity-40 grayscale']}><TeamBadge equipo={eq} size={22} enlace={false} /></span>
+                                <span class:list={['min-w-0 flex-1 truncate text-sm', lado.avanza === false && 'line-through']} title={eq.nombre}>{eq.nombre}</span>
+                              </>
+                            ) : (
+                              <span class="min-w-0 flex-1 truncate text-sm italic text-stone-400">{lado.pendiente ?? 'Por definir'}</span>
+                            )}
+                            <span class="shrink-0 font-display text-lg font-bold tabular-nums">{marcador(lado)}</span>
+                          </div>
+                        );
+                      })}
+                      {p && sede(p.sede_id) && <p class="truncate border-t border-stone-100 px-2.5 py-1 text-[11px] text-stone-500">{sede(p.sede_id)}</p>}
+                    </Tag>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        ))}
+        {cuadro.rondas.length > 0 && (
+          <section class="ronda campeon" aria-label="Campeón">
+            <header class="ronda-titulo">
+              <h2 class="font-display text-xl font-bold uppercase tracking-wide text-cancha-oscuro">Campeón</h2>
+              <p class="text-xs text-stone-500">{diasDe('final') || 'Por definir'}</p>
+            </header>
+            <div class="llaves">
+              <div class:list={['llave', campeon && 'decidida']}>
+                <div class:list={['w-full rounded-xl p-4 text-center', campeon ? 'bg-cancha-oscuro text-white shadow-lg ring-2 ring-oro' : 'tarjeta border-dashed']}>
+                  <div class="text-4xl" aria-hidden="true">🏆</div>
+                  {campeon ? (
+                    <>
+                      <div class="mt-2 flex justify-center"><TeamBadge equipo={campeon} size={56} enlace={false} /></div>
+                      <a href={`/equipos/${campeon.id}/`} class="mt-2 block font-display text-xl font-bold text-oro no-underline hover:underline">{campeon.nombre}</a>
+                    </>
+                  ) : (
+                    <p class="mt-2 text-sm italic text-stone-400">Ganador de la final</p>
+                  )}
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+      </div>
+    </div>
+
+    <section aria-labelledby="t-eliminados" class="mt-12">
+      <h2 id="t-eliminados" class="titulo-seccion">Eliminados</h2>
+      {eliminadosPor.length === 0 ? (
+        <p class="text-stone-500">Aún no hay equipos eliminados.</p>
+      ) : (
+        <div class="space-y-6">
+          {eliminadosPor.map(({ fase, equipos }) => (
+            <div>
+              <h3 class="mb-2 text-sm font-semibold uppercase tracking-wide text-stone-500">
+                {fase === 'grupos' ? `En fase de grupos (lugar ${n + 1} en adelante de la general)` : `En ${NOMBRE_FASE[fase].toLowerCase()}`} · {equipos.length}
+              </h3>
+              <ul class="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+                {equipos.map((e) => {
+                  const eq = d.por.equipos.get(e.equipo_id)!;
+                  return (
+                    <li class="tarjeta flex items-center gap-2 px-3 py-2 text-stone-500">
+                      <span class="chip w-7 shrink-0 px-0 text-center tabular-nums">{e.siembra ?? '–'}</span>
+                      <span class="opacity-60 grayscale"><TeamBadge equipo={eq} size={24} enlace={false} /></span>
+                      <a href={`/equipos/${eq.id}/`} class="min-w-0 truncate text-sm font-semibold text-stone-600 line-through decoration-stone-400 hover:underline">{eq.nombre}</a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+  </div>
+</Base>
+
+<style>
+  /* Columnas del cuadro: cada llave ocupa la misma altura dentro de su ronda, así la
+     llave k de una ronda queda centrada entre las llaves 2k y 2k+1 de la anterior. */
+  .cuadro {
+    --gap: 1.25rem;
+    --linea: var(--color-stone-300, #d6d3d1);
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 15.5rem;
+    min-height: 44rem;
+  }
+  .ronda { display: flex; flex-direction: column; }
+  .ronda-titulo { height: 3.5rem; padding: 0 var(--gap); }
+  .llaves { display: flex; flex: 1; flex-direction: column; }
+  .llave { position: relative; display: flex; flex: 1; align-items: center; padding: 0.4rem var(--gap); }
+  .campeon .llave { padding-right: 0; }
+
+  /* Línea que entra desde la ronda anterior. */
+  .ronda + .ronda .llave::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: var(--gap);
+    border-top: 2px solid var(--linea);
+  }
+  /* Línea que sale hacia la siguiente ronda: la de arriba baja y la de abajo sube. */
+  .ronda:not(.campeon) .llave::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: var(--gap);
+    height: 50%;
+    border-right: 2px solid var(--linea);
+  }
+  .ronda:not(.campeon) .llave:nth-child(odd)::after { top: 50%; border-top: 2px solid var(--linea); }
+  .ronda:not(.campeon) .llave:nth-child(even)::after { bottom: 50%; border-bottom: 2px solid var(--linea); }
+  .ronda.final .llave::after { height: 0; border-right: 0; }
+  /* El camino del ganador hacia la siguiente ronda, en dorado. */
+  .llave.decidida::after { border-color: var(--color-oro, #e2b33a) !important; }
+</style>

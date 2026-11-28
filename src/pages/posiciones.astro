@@ -35,7 +35,7 @@ const pendientes = torneo.categorias.flatMap((c) => c.grupos).filter((g) => !sor
     </div>
     {d.posiciones.length > 0 && (
       <p class="mt-6 text-sm text-stone-500">
-        Clasifican los {torneo.clasifican_por_grupo} primeros de cada grupo (resaltados). Desempates conforme al reglamento general de competencia.
+        Pasan a octavos los {torneo.clasifican} primeros de la <a href="#general">tabla general</a> (resaltados). Desempates conforme al reglamento general de competencia. <a href="/eliminatoria/">Ver el cuadro de eliminatoria →</a>
       </p>
     )}
     {d.general.length > 0 && (
@@ -43,7 +43,7 @@ const pendientes = torneo.categorias.flatMap((c) => c.grupos).filter((g) => !sor
         <h2 id="t-general" class="titulo-seccion">Tabla general</h2>
         <p class="mb-4 text-sm text-stone-500">
           Los {d.general.length} equipos en una sola tabla, ordenados por puntos, diferencia de goles y goles a favor.
-          La columna Gpo indica grupo y lugar; resaltados los que hoy clasifican.
+          La columna Gpo indica grupo y lugar; resaltados los {torneo.clasifican} que hoy pasan a octavos (1.º vs {torneo.clasifican}.º, 2.º vs {torneo.clasifican - 1}.º…).
         </p>
         <TablaGeneral filas={d.general} />
       </section>

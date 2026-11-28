@@ -1,6 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import {
   calcularPosiciones,
+  cuadroEliminatoria,
+  equipoDelGol,
+  ganadorDe,
+  ordenSiembra,
   disciplina,
   erroresDePartido,
   expulsados,
@@ -331,5 +335,76 @@ describe('expulsados', () => {
       ['a1', 'a', 'c', ps[1].id, 80],
       ['b1', 'b', 'a', ps[0].id, 40],
     ]);
+  });
+});
+
+describe('eliminatoria', () => {
+  // 8 equipos en la general: s1…s8 (clasifican 4: semifinal y final).
+  const general = Array.from({ length: 8 }, (_, i) => ({ equipo_id: `s${i + 1}` }));
+  const grupos = [partido('s1', 's8', 1, 0)];
+
+  it('siembra 1 vs 16, 8 vs 9…', () => {
+    expect(ordenSiembra(16)).toEqual([1, 16, 8, 9, 4, 13, 5, 12, 2, 15, 7, 10, 3, 14, 6, 11]);
+  });
+
+  it('decide por penales en empate', () => {
+    expect(ganadorDe(partido('a', 'b', 1, 1, { fase: 'final', penales_local: 3, penales_visitante: 4 }))).toEqual({ ganador: 'b', perdedor: 'a' });
+    expect(ganadorDe(partido('a', 'b', 1, 1, { fase: 'final' }))).toBeNull();
+  });
+
+  it('proyecta el cuadro sin partidos y lo llena con resultados', () => {
+    const vacio = cuadroEliminatoria(general, grupos, 4);
+    expect(vacio.rondas.map((r) => r.fase)).toEqual(['semifinal', 'final']);
+    expect(vacio.rondas[0].llaves.map((l) => [l.local.equipo_id, l.visitante.equipo_id])).toEqual([['s1', 's4'], ['s2', 's3']]);
+    expect(vacio.rondas[1].llaves[0].local.pendiente).toBe('Ganador S1');
+    expect(vacio.eliminados.map((e) => e.equipo_id)).toEqual(['s5', 's6', 's7', 's8']);
+
+    const cuadro = cuadroEliminatoria(
+      general,
+      [
+        ...grupos,
+        // La organización pone de local al de abajo; el cuadro lo acomoda por siembra.
+        partido('s3', 's2', 2, 0, { fase: 'semifinal' }),
+        partido('s1', 's4', 1, 1, { fase: 'semifinal', penales_local: 5, penales_visitante: 4 }),
+        partido('s3', 's1', 0, 1, { fase: 'final' }),
+      ],
+      4,
+    );
+    const [s1, s2] = cuadro.rondas[0].llaves;
+    expect([s1.ganador_id, s2.ganador_id]).toEqual(['s1', 's3']);
+    expect([s2.local.equipo_id, s2.visitante.equipo_id]).toEqual(['s2', 's3']);
+    expect(s2.visitante).toMatchObject({ goles: 2, avanza: true, siembra: 3 });
+    expect(cuadro.rondas[1].llaves[0]).toMatchObject({ local: { equipo_id: 's1' }, visitante: { equipo_id: 's3' } });
+    expect(cuadro.campeon_id).toBe('s1');
+    expect(cuadro.eliminados.slice(0, 3)).toEqual([
+      { equipo_id: 's4', fase: 'semifinal', siembra: 4 },
+      { equipo_id: 's2', fase: 'semifinal', siembra: 2 },
+      { equipo_id: 's3', fase: 'final', siembra: 3 },
+    ]);
+  });
+
+  it('no marca eliminados de grupos mientras falten partidos', () => {
+    expect(cuadroEliminatoria(general, [partido('s1', 's8')], 4).eliminados).toEqual([]);
+  });
+});
+
+describe('autogoles', () => {
+  const equipoDe = new Map(jugadores.map((j) => [j.id, j.equipo_id]));
+  // b1 (de b) mete un autogol: el 2-0 de a queda completo.
+  const p = partido('a', 'b', 2, 0, { goles: [{ jugador_id: 'a1' }, { jugador_id: 'b1', minuto: 88, autogol: true }] });
+
+  it('cuenta para el rival', () => {
+    expect(equipoDelGol(p.goles[1], p, equipoDe)).toBe('a');
+    expect(equipoDelGol(p.goles[0], p, equipoDe)).toBe('a');
+    expect(erroresDePartido(p, equipoDe)).toEqual([]);
+  });
+
+  it('no suma al goleo de quien lo mete', () => {
+    expect(goleadores([p], jugadores)).toEqual([{ jugador_id: 'a1', equipo_id: 'a', goles: 1 }]);
+  });
+
+  it('sin marcarlo como autogol, sobra un gol de b', () => {
+    const mal = { ...p, goles: [{ jugador_id: 'a1' }, { jugador_id: 'b1' }] };
+    expect(erroresDePartido(mal, equipoDe)).toHaveLength(1);
   });
 });

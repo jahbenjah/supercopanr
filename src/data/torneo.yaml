@@ -9,11 +9,13 @@
   organizador: Comité Organizador de la Supercopa Nicolás Romero 2026
   sede_general: Nicolás Romero, Estado de México
   formato: >-
-    24 equipos divididos en 8 grupos de 3. Los mejores de cada grupo avanzan a
+    24 equipos divididos en 8 grupos de 3. Los 16 mejores de la tabla general avanzan a
     Octavos de Final, Cuartos de Final, Semifinal y Gran Final.
   total_equipos: 24
   equipos_por_grupo: 3
   clasifican_por_grupo: 2
+  # A la eliminatoria pasan los primeros de la tabla general (1 vs 16, 2 vs 15…).
+  clasifican: 16
   max_jugadores: 25
   categorias:
     - id: unica
